@@ -4,11 +4,25 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ## Table of contents
 
+### Linux and TCP/IP Networking
+
+* [Linux and TCP/IP Networking exercises](http://hyperion.poly.edu:8080/wiki/index.php/Linux_and_TCP/IP_Networking_(online_version))
+
+### A single segment network
+
+* [Single segment network exercises](http://hyperion.poly.edu:8080/wiki/index.php/A_single_segment_network_(online_version))
+
+### Bridges and LANs
+
+* [A simple bridge experiment](http://hyperion.poly.edu:8080/wiki/index.php/Bridges_and_LANs_(online_version))
+* [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
+
 ### Static and dynamic routing
 
 * [4.5 A simple router experiment](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-45.md)
 * [4.6 RIP expercises](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-46.md)
 * [4.7 Routing experiments with ICMP](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-47.md)
+* Optional extra experiment: [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
 
 ### TCP study
 
@@ -17,3 +31,17 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [6.9 Exercises on TCP bulk data flow](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-69.md)
 * [6.10 Exercises on TCP timers and retransmission](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-610.md)
 * [6.11 Other TCP exercises](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-611.md)
+
+### Multicast and realtime service
+
+* [7.4 Simple multicast exercise](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab7-74.md)
+
+
+### The Web, DHCP, NTP and NAT
+
+* [The Web, DHCP, NTP and NAT exercises](http://hyperion.poly.edu:8080/wiki/index.php/The_Web,_DHCP,_NTP_and_NAT_(online_version))
+* Optional extra experiment: [Basic home gateway services: DHCP, DNS, NAT](https://witestlab.poly.edu/blog/basic-home-gateway-services-dhcp-dns-nat/)
+
+### Network management and security
+
+* [Network management and security exercises](http://hyperion.poly.edu:8080/wiki/index.php/Network_management_and_security_(online_version))
