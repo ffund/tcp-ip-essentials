@@ -31,6 +31,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [6.9 Exercises on TCP bulk data flow](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-69.md)
 * [6.10 Exercises on TCP timers and retransmission](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-610.md)
 * [6.11 Other TCP exercises](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-611.md)
+* Optional extra experiment: [TCP congestion control](https://witestlab.poly.edu/blog/tcp-congestion-control-basics/)
 
 ### Multicast and realtime service
 
