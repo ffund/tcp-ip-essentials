@@ -10,7 +10,7 @@ On the next screen, you will be prompted to choose an Identity Provider. Start t
 
 > If your institution does *not* appear in the list:
 > 
-> * Click on the "Request an account" link near the bottom of the page.
+> * Click on the "[Request an account](https://go.ncsa.illinois.edu/geni)" link near the bottom of the page.
 > * Fill in the form to request an account from NCSA.
 > * Look for an email from NCSA asking you to confirm your request and follow the instructions in that email.
 > * Wait for your NCSA account to be approved (you will get an email).
