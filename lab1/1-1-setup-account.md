@@ -6,7 +6,16 @@ Before you can run lab experiments on GENI, you will need to set up an account. 
 
 First, go to [https://portal.geni.net](https://portal.geni.net) and click on "Use GENI".
 
-On the next screen, you will be prompted to choose an Identity Provider. Start typing the name of your university into the text input box. When you see the name of your university appear underneath the text input box, click on it to select it, then choose "Continue". Then, when prompted, log in to your university account.
+On the next screen, you will be prompted to choose an Identity Provider. Start typing the name of your university into the text input box. The field will start to suggest matching institutions after you type a few letters; when you see the name of your university appear underneath the text input box, click on it to select it, then choose "Continue". Then, when prompted, log in to your university account. (Your home institution username and password will not be sent to GENI; if you would like to read more about how this works, see [InCommon Federation Basics](http://www.incommon.org/federation/basics.html).)
+
+> If your institution does *not* appear in the list:
+> 
+> * Click on the "Request an account" link near the bottom of the page.
+> * Fill in the form to request an account from NCSA.
+> * Look for an email from NCSA asking you to confirm your request and follow the instructions in that email.
+> * Wait for your NCSA account to be approved (you will get an email).
+> 
+> Now when you visit the GENI Portal and click "Use GENI", enter your institution as NCSA and log in with the account you created there.
 
 Review the policies on the next page, check both boxes, and click "Activate" to log in to the GENI Portal.
 
