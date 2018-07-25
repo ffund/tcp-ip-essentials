@@ -15,7 +15,7 @@ On the next screen, you will be prompted to choose an Identity Provider. Start t
 > * Look for an email from NCSA asking you to confirm your request and follow the instructions in that email.
 > * Wait for your NCSA account to be approved (you will get an email).
 > 
-> Now when you visit the GENI Portal and click "Use GENI", enter your institution as NCSA and log in with the account you created there.
+> Now when you visit the GENI Portal and click "Use GENI", enter your institution as NCSA (National Center for Supercomputing Applications) and log in with the account you created there.
 
 Review the policies on the next page, check both boxes, and click "Activate" to log in to the GENI Portal.
 
