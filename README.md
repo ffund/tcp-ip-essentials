@@ -29,9 +29,9 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Static and dynamic routing
 
-* [4.5 A simple router experiment](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-45.md)
-* [4.6 RIP expercises](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-46.md)
-* [4.7 Routing experiments with ICMP](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-47.md)
+* [4.5 A simple router experiment](https://github.com/ffund/tcp-ip-essentials/blob/master/lab4/el5373-lab4-45.md)
+* [4.6 RIP expercises](https://github.com/ffund/tcp-ip-essentials/blob/master/lab4/el5373-lab4-46.md)
+* [4.7 Routing experiments with ICMP](https://github.com/ffund/tcp-ip-essentials/blob/master/lab4/el5373-lab4-47.md)
 * Optional extra experiment: [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
 * Optional extra experiment: [Dijkstra's shortest path algorithm](https://witestlab.poly.edu/blog/dijkstras-shortest-path-algorithm/)
 
