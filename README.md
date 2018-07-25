@@ -6,6 +6,17 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Linux and TCP/IP Networking
 
+* [1.1 Create an account on GENI]()
+* [1.2 Generate and upload a public key to the GENI Portal]()
+* [1.3 Join a project on the GENI Portal]()
+* [1.4 Reserve a simple topology on GENI]()
+* [1.5 Log on and become familiar with the lab environment]()
+* [1.6 Exercises with Linux commands]()
+* [1.7 Exercises with diagnostic tools]()
+* [1.8 Exercises with port numbers]()
+* [1.9 Delete resources on GENI]()
+* Optional extra experiment: [TCP/IP protocol layers](https://witestlab.poly.edu/blog/tcp-ip-protocol-stack/)
+
 * [Linux and TCP/IP Networking exercises](http://hyperion.poly.edu:8080/wiki/index.php/Linux_and_TCP/IP_Networking_(online_version))
 
 ### A single segment network
@@ -15,7 +26,11 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 ### Bridges and LANs
 
 * [A simple bridge experiment](http://hyperion.poly.edu:8080/wiki/index.php/Bridges_and_LANs_(online_version))
-* [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
+
+* [3.5 A simple bridge experiment](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab3-35.md)
+* [3.6 Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
+
+* Optional extra experiment: [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/)
 
 ### Static and dynamic routing
 
@@ -23,6 +38,9 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [4.6 RIP expercises](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-46.md)
 * [4.7 Routing experiments with ICMP](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab4-47.md)
 * Optional extra experiment: [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
+* Optional extra experiment: [Dijkstra's shortest path algorithm](https://witestlab.poly.edu/blog/dijkstras-shortest-path-algorithm/)
+
+### UDP and its applications
 
 ### TCP study
 
@@ -31,6 +49,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [6.9 Exercises on TCP bulk data flow](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-69.md)
 * [6.10 Exercises on TCP timers and retransmission](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-610.md)
 * [6.11 Other TCP exercises](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab6-611.md)
+* Optional extra experiment: [TCP congestion control basics](https://witestlab.poly.edu/blog/tcp-congestion-control-basics/)
 
 ### Multicast and realtime service
 
