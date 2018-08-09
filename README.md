@@ -6,8 +6,8 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Linux and TCP/IP Networking
 
-* [1.1 Set up an account on GENI](https://github.com/ffund/tcp-ip-essentials/blob/master/lab1/1-1-setup-account.md)
-* [1.2 Reserve a simple network on GENI]()
+* [1.1 Set up an account on GENI](lab1/1-1-setup-account.md)
+* [1.2 Reserve a simple network on GENI](lab1/1-2-reserve-and-login.md)
 * [1.6 Exercises with Linux commands]()
 * [1.7 Exercises with diagnostic tools]()
 * [1.8 Exercises with port numbers]()

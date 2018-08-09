@@ -44,7 +44,7 @@ Now click near the "client" VM box on the canvas, then click and drag towards th
 
 ![](1-jacks-topology.png)
 
-You can customize the details of your topology further in Jacks - e.g. you can set the characteristics (capacity, for example) of each of the network links, or change the hosts' software resources (disk image, operating system), or network configuration (IP address, netmask) of the VMs. All of these customizations will also be reflected in the RSpec. For today's experiment, we won't need many customizations. We will, however, assign IP addresses and netmasks to each network interface.
+You can customize the details of your topology further in Jacks - e.g. you can set the characteristics (capacity, for example) of each of the network links, or change the hosts' software resources (disk image, operating system), or network configuration (IP address, netmask) of the hosts. All of these customizations will also be reflected in the RSpec. For today's experiment, we won't need many customizations. We will, however, assign IP addresses and netmasks to each network interface.
 
 To assign IP addresses and netmasks to the interfaces that connect the client and router, click on the small box on the link between these two hosts. Look for the section titled "Interface to **client**". In the IP section, fill in the address **10.0.0.2** and in the netmask section, fill in  **255.255.255.0**. Then look for the section titled "Interface to **router**" and fill in the IP address **10.0.0.1** and netmask **255.255.255.0**.
 
@@ -80,7 +80,10 @@ Once your resource request is bound to a particular aggregate, you will be able 
 
 ![](1-jacks-status.png)
 
-If your request fails at this point, you should try again with a different aggregate. (If you continue to get failed requests with multiple different aggregates, you may have a problem with your RSpec and you should double-check your work from Exercise 2. For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.)
+> **Note**: If your request fails at this point, you should try again with a different aggregate. If you continue to get failed requests, 
+>
+> * You may have a problem with your RSpec and you should double-check your work from Exercise 2. (For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.) If you can't find your mistake, ask an instructor for help.
+> * You may have failed to notice a system-wide maintenance window or outage - check the outage calendars referenced above.
 
 ### Exercise 4 - Log in to resources
 
@@ -95,4 +98,14 @@ This may take some time.
 > **What if it fails?** If the aggregate is unable to bring up the VMs you requested (even if the request "finishes"), it may say "Resources at X have failed" on the slice page, and you may get an email telling you that your VMs failed to boot. If this happens, delete the resources (use the "Delete" button at the bottom of the canvas). Then, try to reserve your resources again with a different aggregate.
 
 Once all of your resources are ready to log in, you will need to find out the details of each host (its hostname and the port number that you will use for SSH access). To get this information, click on "Details" at the bottom of the canvas. This will take you to a page that lists login details for each host in your experiment.
+
+To log in to a host on GENI, you will need to specify your GENI username, the hostname of the host, the port number, and the location of your private key. Open a terminal, and run
+
+```
+ssh USERNAME@HOSTNAME -p PORT -i /PATH/TO/id_rsa
+```
+
+where `USERNAME` is your GENI username, `HOSTNAME` is the hostname of the VM you are logging in to, `PORT` is the port number specified in the portal for that VM, and `/PATH/TO/id_rsa` is the full path to the private half of your key pair. (The default location is `~/.ssh/id_rsa` if you generated your key with `ssh-keygen` and didn't specify a different location.)
+
+If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
 
