@@ -29,9 +29,9 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Static and dynamic routing
 
-* [4.5 A simple router experiment](https://github.com/ffund/tcp-ip-essentials/blob/master/lab4/el5373-lab4-45.md)
-* [4.6 RIP expercises](https://github.com/ffund/tcp-ip-essentials/blob/master/lab4/el5373-lab4-46.md)
-* [4.7 Routing experiments with ICMP](https://github.com/ffund/tcp-ip-essentials/blob/master/lab4/el5373-lab4-47.md)
+* [4.5 A simple router experiment](lab4/el5373-lab4-45.md)
+* [4.6 RIP expercises](lab4/el5373-lab4-46.md)
+* [4.7 Routing experiments with ICMP](lab4/el5373-lab4-47.md)
 * Optional extra experiment: [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
 * Optional extra experiment: [Dijkstra's shortest path algorithm](https://witestlab.poly.edu/blog/dijkstras-shortest-path-algorithm/)
 
@@ -39,16 +39,16 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### TCP study
 
-* [6.7 Exercises on TCP connection control](https://github.com/ffund/tcp-ip-essentials/blob/master/lab6/el5373-lab6-67.md)
-* [6.8 Exercises on TCP interactive data flow](https://github.com/ffund/tcp-ip-essentials/blob/master/lab6/el5373-lab6-68.md)
-* [6.9 Exercises on TCP bulk data flow](https://github.com/ffund/tcp-ip-essentials/blob/master/lab6/el5373-lab6-69.md)
-* [6.10 Exercises on TCP timers and retransmission](https://github.com/ffund/tcp-ip-essentials/blob/master/lab6/el5373-lab6-610.md)
-* [6.11 Other TCP exercises](https://github.com/ffund/tcp-ip-essentials/blob/master/lab6/el5373-lab6-611.md)
+* [6.7 Exercises on TCP connection control](lab6/el5373-lab6-67.md)
+* [6.8 Exercises on TCP interactive data flow](lab6/el5373-lab6-68.md)
+* [6.9 Exercises on TCP bulk data flow](lab6/el5373-lab6-69.md)
+* [6.10 Exercises on TCP timers and retransmission](lab6/el5373-lab6-610.md)
+* [6.11 Other TCP exercises](lab6/el5373-lab6-611.md)
 * Optional extra experiment: [TCP congestion control basics](https://witestlab.poly.edu/blog/tcp-congestion-control-basics/)
 
 ### Multicast and realtime service
 
-* [7.4 Simple multicast exercise](https://github.com/ffund/tcp-ip-essentials/blob/master/el5373-lab7-74.md)
+* [7.4 Simple multicast exercise](el5373-lab7-74.md)
 
 
 ### The Web, DHCP, NTP and NAT
