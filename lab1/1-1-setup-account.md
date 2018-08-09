@@ -1,5 +1,9 @@
 ## 1.1 Set up your account on GENI
 
+In this course, you will use [GENI](http://www.geni.net/) to run lab experiments. 
+
+GENI is a "virtual lab" for experiments on networking and distributed systems. It allows experimenters to set up _real_ (not simulated!) end hosts and links at one or more GENI host sites located around the United States. Experimenters can then log in to the hosts asociated with their experiment and install software, run applications to generate traffic, and take network measurements.
+
 Before you can run lab experiments on GENI, you will need to set up an account. Once you have completed the steps on this page, you will have an account that you can use for the duration of the course.
 
 ### Exercise 1
