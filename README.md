@@ -8,7 +8,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 * [1.1 Set up an account on GENI](lab1/1-1-setup-account.md)
 * [1.2 Reserve a simple network on GENI](lab1/1-2-reserve-and-login.md)
-* [1.3 Log in to resources on GENI](lab1/1-3-log-in.md)
+* [1.3 Inspect network interfaces](lab1/1-3-network-interfaces.md)
 * [1.5 Exercises with Linux commands]()
 * [1.6 Exercises with diagnostic tools]()
 * [1.7 Exercises with port numbers]()

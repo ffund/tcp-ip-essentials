@@ -38,17 +38,17 @@ In this exercise you will practice both ways.
 
 First, draw the configuration on your canvas.  Click on the black "VM" icon and drag it onto the white canvas. This icon represents a generic default virtual machine, suitable for general-purpose tasks. Repeat the above step two more times. You should now see three VM boxes on the canvas.
 
-To edit the hostname of the VM, click the VM box. In the "Name" field at the top, replace "node-0" with "client" (use all lowercase for hostnames, by convention.) Name the other nodes "router" and "server".
+To edit the hostname of the VM, click the VM box. In the "Name" field at the top, replace "node-0" with "romeo" (use all lowercase for hostnames, by convention.) Name the other nodes "router" and "juliet".
 
-Now click near the "client" VM box on the canvas, then click and drag towards the "router" VM. Release when you reach the "router" VM. You should now see a line and a box representing a link connecting the two VMs. Repeat this step to connect the "router" to the "server". Your canvas should now look like this:
+Now click near the "romeo" VM box on the canvas, then click and drag towards the "router" VM. Release when you reach the "router" VM. You should now see a line and a box representing a link connecting the two VMs. Repeat this step to connect the "router" to the "juliet". Your canvas should now look like this:
 
 ![](1-jacks-topology.png)
 
 You can customize the details of your topology further in Jacks - e.g. you can set the characteristics (capacity, for example) of each of the network links, or change the hosts' software resources (disk image, operating system), or network configuration (IP address, netmask) of the hosts. All of these customizations will also be reflected in the RSpec. For today's experiment, we won't need many customizations. We will, however, assign IP addresses and netmasks to each network interface.
 
-To assign IP addresses and netmasks to the interfaces that connect the client and router, click on the small box on the link between these two hosts. Look for the section titled "Interface to **client**". In the IP section, fill in the address **10.0.0.2** and in the netmask section, fill in  **255.255.255.0**. Then look for the section titled "Interface to **router**" and fill in the IP address **10.0.0.1** and netmask **255.255.255.0**.
+To assign IP addresses and netmasks to the interfaces that connect romeo and the router, click on the small box on the link between these two hosts. Look for the section titled "Interface to **romeo**". In the IP section, fill in the address **10.0.0.2** and in the netmask section, fill in  **255.255.255.0**. Then look for the section titled "Interface to **router**" and fill in the IP address **10.0.0.1** and netmask **255.255.255.0**.
 
-Click on the small box on the link between the router and server, and follow a similar procedure to assign IP addresses to the interfaces on _this_ link: use IP **10.0.1.2** with netmask **255.255.255.0** for the server, and IP **10.0.1.1** with netmask **255.255.255.0** for the router.
+Click on the small box on the link between the router and juliet, and follow a similar procedure to assign IP addresses to the interfaces on _this_ link: use IP **10.0.1.2** with netmask **255.255.255.0** for the juliet, and IP **10.0.1.1** with netmask **255.255.255.0** for the router.
 
 The configuration of VMs and links is typically referred to as a "topology". Behind the scenes, Jacks is creating an RSpec that completely describes the topology you have just drawn and configured. To see the RSpec that you have just generated, click on "View RSpec":
 
@@ -108,4 +108,10 @@ ssh USERNAME@HOSTNAME -p PORT -i /PATH/TO/id_rsa
 where `USERNAME` is your GENI username, `HOSTNAME` is the hostname of the VM you are logging in to, `PORT` is the port number specified in the portal for that VM, and `/PATH/TO/id_rsa` is the full path to the private half of your key pair. (The default location is `~/.ssh/id_rsa` if you generated your key with `ssh-keygen` and didn't specify a different location.)
 
 If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
+
+> **Note**: In this and future lab exercises, you will often have to have multiple terminal windows open and logged in to the same host. It can be useful to have a terminal that lets you split one window into parts, like [this](https://witestlab.poly.edu/blog/content/images/2017/01/protocol-stack-application-1.gif) - for example,
+> * [cmder](http://cmder.net/) for Windows
+> * [terminator](https://launchpad.net/terminator) for Linux
+> * [iTerm2](https://www.iterm2.com/) for Mac
+
 
