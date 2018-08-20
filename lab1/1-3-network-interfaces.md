@@ -41,4 +41,15 @@ lo        Link encap:Local Loopback
 
 Every host we reserve on GENI will have a control interface, that we use to SSH into the VM to run commands. Then, it can also have experiment interfaces (one for each link that we connect to the host, when setting it up in the GENI Portal, and with IP address and netmask according to what we configured in the Portal). We will always use the "experiment" interface, not the "control" interface, for our experiments.
 
+### Exercise 8 - Create a network diagram
 
+When you reserve a network topology on GENI, you will control the IP address assigned to each experiment interface. However, the MAC address of the interface will be different each time. On a host with multiple experiment interfaces, the name of the interface (e.g. `eth1`, `eth2`) can also vary. In order to verify your lab results, it is essential that you document the specifics of each network interface in your experiment, and submit it along with your lab report. 
+
+You will document these details in the form of a network diagram, on which you will:
+
+* Draw a connectivity diagram that shows each host and which hosts it is directly connected to.
+* Label each host with its hostname.
+* Label each network interface (on an experiment network) with the name assigned to it by the OS, e.g. `eth1`, `eth2`.
+* Label each network interface (on an experiment network) with its IP address and MAC address.
+
+You will submit at least one network diagram like this for each lab assignments. Some lab assignments may involve more than one network topology, in which case you will submit a network diagram for each topology.

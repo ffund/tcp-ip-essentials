@@ -9,7 +9,7 @@ Whenever you run an experiment on GENI, you will
 
 Also, when you finish an experiment and have saved all the data somewhere safe, you will _delete_ the resources in your experiment to free them for use by other experimenters.
 
-### Exercise 1 - Create a slice
+### Exercise 4 - Create a slice
 
 
 To do anything on GENI, you need to create a *slice*. A slice is a "container" for the resources that will be used in an experiment (read more [here](http://groups.geni.net/geni/wiki/GENIConcepts#Slice)).
@@ -21,7 +21,7 @@ Create a slice by clicking [New Slice](https://portal.geni.net/secure/createslic
 **Slices expire**. That's OK - they are supposed to expire if you're finished with an experiment. But pay special attention to your slice expiration date! When your slice expires, you will lose access to all of the resources in your slice. Individual resources have their own expiration date, which may be different than, but not later than, the slice expiration date. You must make sure to retrieve any data saved on your resources before they expire.
 
 
-### Exercise 2 - Set up resources
+### Exercise 5 - Set up resources
 
 Once you have created your slice, you will be presented with a blank canvas that allows you to manage resources in your slice. You can click on "Add resources" to add resources (hosts and links) in your desired configuration to your slice. This will open a web-based tool called Jacks. Jacks is a graphical tool for creating a Resource Specification document (RSpec) and submitting a request for the resources described in the RSpec.
 
@@ -46,7 +46,11 @@ Now click near the "romeo" VM box on the canvas, then click and drag towards the
 
 You can customize the details of your topology further in Jacks - e.g. you can set the characteristics (capacity, for example) of each of the network links, or change the hosts' software resources (disk image, operating system), or network configuration (IP address, netmask) of the hosts. All of these customizations will also be reflected in the RSpec. For today's experiment, we won't need many customizations. We will, however, assign IP addresses and netmasks to each network interface.
 
-To assign IP addresses and netmasks to the interfaces that connect romeo and the router, click on the small box on the link between these two hosts. Look for the section titled "Interface to **romeo**". In the IP section, fill in the address **10.0.0.2** and in the netmask section, fill in  **255.255.255.0**. Then look for the section titled "Interface to **router**" and fill in the IP address **10.0.0.1** and netmask **255.255.255.0**.
+To assign IP addresses and netmasks to the interfaces that connect romeo and the router, click on the small box on the link between these two hosts. Look for the section titled "Interface to **romeo**". In the IP section, fill in the address **10.0.0.2** and in the netmask section, fill in  **255.255.255.0**. It should look like this:
+
+![](1-jacks-network.png)
+
+Then look for the section titled "Interface to **router**" and fill in the IP address **10.0.0.1** and netmask **255.255.255.0**.
 
 Click on the small box on the link between the router and juliet, and follow a similar procedure to assign IP addresses to the interfaces on _this_ link: use IP **10.0.1.2** with netmask **255.255.255.0** for the juliet, and IP **10.0.1.1** with netmask **255.255.255.0** for the router.
 
@@ -61,12 +65,12 @@ Try this out for yourself: use the "Download RSpec" button below the canvas to s
 Now that you have an empty canvas, we'll load the same configuration you created previously, from the file that you downloaded. Below the canvas, you'll see a "Choose RSpec" section with a few choices (portal, file, URL, text box) that allows you to provide an RSpec document in several ways. Choose the "file" option and choose the file that you've just saved your RSpec to. You should see your three-node topology displayed on the canvas.
 
 
-### Exercise 3 - Reserve resources
+### Exercise 6 - Reserve resources
 
 
 At this point, your RSpec is still _unbound_. This means that it is a "generic" document that doesn't specify which GENI _aggregate_ (host site) the resources in your topology will be on. 
 
-Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list, according to the instructions in the box below.
+Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list in the sidebar, according to the instructions in the box below.
 
 > **Choosing an aggregate**: There are several things to consider when choosing an aggregate:
 >
@@ -85,7 +89,7 @@ Once your resource request is bound to a particular aggregate, you will be able 
 > * You may have a problem with your RSpec and you should double-check your work from Exercise 2. (For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.) If you can't find your mistake, ask an instructor for help.
 > * You may have failed to notice a system-wide maintenance window or outage - check the outage calendars referenced above.
 
-### Exercise 4 - Log in to resources
+### Exercise 7 - Log in to resources
 
 Once you have successfully reserved your resources, it will still take some time before your resources are ready for you to log in. To see resource status, go to the slice page: in the menu bar at the top of the page, choose Home > Slices and then click on the name of the slice.
 
