@@ -123,11 +123,59 @@ ssh ffund01@pc3.instageni.maxgigapop.net -p 25107 -i ~/.ssh/id_rsa
 
 in a terminal window to log in.
 
-If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
+The first time you log in to each new host, your computer will display a warning similar to the following:
+
+```
+The authenticity of host '[pc3.instageni.maxgigapop.net]:25107 ([206.196.180.202]:25107)' can't be established.
+RSA key fingerprint is SHA256:FUNco2udT/ur2rNb2NnZnUc8s2v6xvNdOFhFFxcWGYA.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+and you will have to type the work `yes` and hit Enter to continue. If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
 
 > **Note**: In this and future lab exercises, you will often have to have multiple terminal windows open and logged in to the same host. It can be useful to have a terminal that lets you split one window into parts, like [this](https://witestlab.poly.edu/blog/content/images/2017/01/protocol-stack-application-1.gif) - for example,
 > * [cmder](http://cmder.net/) for Windows
 > * [terminator](https://launchpad.net/terminator) for Linux
 > * [iTerm2](https://www.iterm2.com/) for Mac
 
+**Lab report**: Include a screenshot or copy and paste from your terminal, showing the command you ran to log in to each of the three hosts in your topology, and the terminal prompt showing that you are logged in to the remote host. For example:
 
+```
+ffund@ffund-xps:~$ ssh ffund01@pc3.instageni.maxgigapop.net -p 25108 -i ~/.ssh/id_rsa
+The authenticity of host '[pc3.instageni.maxgigapop.net]:25108 ([206.196.180.202]:25108)' can't be established.
+RSA key fingerprint is SHA256:FUNco2udT/ur2rNb2NnZnUc8s2v6xvNdOFhFFxcWGYA.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[pc3.instageni.maxgigapop.net]:25108,[206.196.180.202]:25108' (RSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+ffund01@router:~$ 
+```
+
+or
+
+```
+ffund@ffund-xps:~$ ssh ffund01@pc3.instageni.maxgigapop.net -p 25108 -i ~/.ssh/id_rsa
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '18.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Aug 20 17:07:24 2018 from 216.165.95.189
+ffund01@router:~$ 
+```
+
+(it does not necessarily have to be the first login).
