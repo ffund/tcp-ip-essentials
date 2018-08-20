@@ -47,7 +47,7 @@ You can distinguish the "control" and "experiment" interfaces by their IP addres
 
 **Lab report**: Show the output of `ifconfig -a` for each host in _your_ topology: romeo, juliet, and the router. Make sure to label which output comes from which host. Also, for each, indicate the name of the "control" interface (e.g. `eth0`, `eth1`, `eth2`) and the name of each "experiment" interface, and explain how you can tell which is which.
 
-### Exercise 8 - Create a network diagram
+### Exercise 9 - Create a network diagram
 
 When you reserve a network topology on GENI, you will control the IP address assigned to each experiment interface. However, the MAC address of the interface will be different each time. On a host with multiple experiment interfaces, the name of the interface (e.g. `eth1`, `eth2`) can also vary. In order to verify your lab results, it is essential that you document the specifics of each network interface in your experiment, and submit it along with your lab report. 
 
