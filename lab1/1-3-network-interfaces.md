@@ -55,8 +55,8 @@ You will document these details in the form of a network diagram, on which you w
 
 * Draw a connectivity diagram that shows each host and which hosts it is directly connected to.
 * Label each host with its hostname.
-* Label each network interface (on an experiment network) with the name assigned to it by the OS, e.g. `eth1`, `eth2`.
-* Label each network interface (on an experiment network) with its IP address and MAC address.
+* Label each "experiment" network interface with the name assigned to it by the OS, e.g. `eth1`, `eth2`.
+* Label each "experiment" network interface with its IP address and MAC address.
 
 A sample network diagram is shown below:
 
