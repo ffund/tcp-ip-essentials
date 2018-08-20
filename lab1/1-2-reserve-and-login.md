@@ -133,7 +133,7 @@ Are you sure you want to continue connecting (yes/no)?
 
 and you will have to type the work `yes` and hit Enter to continue. If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
 
-**Lab report**: Include a screenshot or copy and paste from your terminal, showing the command you ran to log in to each of the three hosts in your topology, and the terminal prompt showing that you are logged in to the remote host. For example:
+**Lab report**: Take a screenshot or copy and paste from your terminal, and for each of the three hosts in your topology, show the command you ran to log in, and the terminal prompt showing that you are logged in to the remote host. For example:
 
 ```
 ffund@ffund-xps:~$ ssh ffund01@pc3.instageni.maxgigapop.net -p 25108 -i ~/.ssh/id_rsa
