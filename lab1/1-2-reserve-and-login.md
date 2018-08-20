@@ -133,11 +133,6 @@ Are you sure you want to continue connecting (yes/no)?
 
 and you will have to type the work `yes` and hit Enter to continue. If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
 
-> **Note**: In this and future lab exercises, you will often have to have multiple terminal windows open and logged in to the same host. It can be useful to have a terminal that lets you split one window into parts, like [this](https://witestlab.poly.edu/blog/content/images/2017/01/protocol-stack-application-1.gif) - for example,
-> * [cmder](http://cmder.net/) for Windows
-> * [terminator](https://launchpad.net/terminator) for Linux
-> * [iTerm2](https://www.iterm2.com/) for Mac
-
 **Lab report**: Include a screenshot or copy and paste from your terminal, showing the command you ran to log in to each of the three hosts in your topology, and the terminal prompt showing that you are logged in to the remote host. For example:
 
 ```

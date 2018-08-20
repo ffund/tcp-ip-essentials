@@ -116,3 +116,9 @@ Requests to join a project are pending until they are approved by the Project Le
 
 Once you have completed all of the exercises on this page and your account has been approved, you can proceed to the next lesson.
 
+
+> **Note**: In this and future lab exercises, you will often have to have multiple terminal windows open and logged in to the same host. It can be useful to have a terminal that lets you split one window into parts, like [this](https://witestlab.poly.edu/blog/content/images/2017/01/protocol-stack-application-1.gif) - for example,
+> * [cmder](http://cmder.net/) for Windows
+> * [terminator](https://launchpad.net/terminator) for Linux
+> * [iTerm2](https://www.iterm2.com/) for Mac
+
