@@ -111,6 +111,18 @@ ssh USERNAME@HOSTNAME -p PORT -i /PATH/TO/id_rsa
 
 where `USERNAME` is your GENI username, `HOSTNAME` is the hostname of the VM you are logging in to, `PORT` is the port number specified in the portal for that VM, and `/PATH/TO/id_rsa` is the full path to the private half of your key pair. (The default location is `~/.ssh/id_rsa` if you generated your key with `ssh-keygen` and didn't specify a different location.)
 
+For example, if the GENI Portal shows the following login details for me for the "romeo" host in my experiment:
+
+![](1-jacks-login-details.png)
+
+and my key was located in the default location, `~/.ssh/id_rsa`, I would run
+
+```
+ssh ffund01@pc3.instageni.maxgigapop.net -p 25107 -i ~/.ssh/id_rsa
+```
+
+in a terminal window to log in.
+
 If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
 
 > **Note**: In this and future lab exercises, you will often have to have multiple terminal windows open and logged in to the same host. It can be useful to have a terminal that lets you split one window into parts, like [this](https://witestlab.poly.edu/blog/content/images/2017/01/protocol-stack-application-1.gif) - for example,
