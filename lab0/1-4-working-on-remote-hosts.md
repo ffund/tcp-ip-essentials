@@ -34,3 +34,50 @@ This indicates that you've been disconnected from the remote host, and any comma
 
 ### Exercise 11 - Transferring files to and from remote hosts
 
+When running lab exercises, you'll generate data on remote hosts on GENI, and then you will have to transfer the data back to your laptop for analysis.
+
+To move files back and forth between your laptop and a remote system that you access with `ssh`, we can use `scp`. The syntax is:
+
+```
+scp [OPTIONS] SOURCE DESTINATION
+```
+
+where `SOURCE` is the full address of the location where the file is currently llocated, and `DESTINATION` is the address of the location that you want to copy a file to.
+
+When you are transferring a file from a remote host (e.g. a host on GENI) to your laptop, you will run `scp` from a terminal *on your laptop* (NOT a terminal that is logged in to the remote host), and the syntax will look like this:
+
+```
+scp -i PATH-TO-KEY -P PORT USERNAME@HOSTNAME:REMOTE-FILE-PATH LOCAL-FILE-PATH
+```
+
+For example, if the file is located on a remote host where
+
+* the location of the key you use to SSH into the remote host is `~/.ssh/id_rsa`
+* the port you use to SSH into the remote host is  25107
+* the username you use to SSH into the remote host is ff524
+* the hostname you use to SSH into the remote host is pc3.instageni.maxgigapop.net
+* the location of the file you want to copy on the remote host is `/etc/services`
+* and you want to copy the file to the location on your laptop from which you run the `scp` command (`.` is shorthand for "my current working directory"), 
+
+you would run
+
+```
+scp -i ~/.ssh/id_rsa -P 25017 ffd01@pc3.instageni.maxgigapop.net:/etc/services .
+```
+
+and the output would look like this:
+
+```
+services                                      100%   19KB 401.3KB/s   00:00    
+```
+
+and then, when you run `ls`, you should see the `services` file in your current directory. 
+
+You'll have to make sure you have the necessary file permissions to write files to the directory you are working in! If you get a message indicating a file permission error, you may have to specify a path to a directory in which you have write permission, instead of the `.` argument.
+
+**Lab report**: Transfer the file located at `/etc/services` on your "romeo" host to your laptop. Include a screenshot, or copy and paste from your terminal, to show the command you ran *and* the result. For example
+
+```
+scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services /tmp/
+services                                      100%   19KB 401.3KB/s   00:00  
+```
