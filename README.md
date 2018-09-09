@@ -10,7 +10,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [0.2 Reserve a simple network on GENI](lab0/1-2-reserve-and-login.md)
 * [0.3 Inspect network interfaces](lab0/1-3-network-interfaces.md)
 * [0.4 Working on remote hosts](lab0/1-4-working-on-remote-hosts.md)
-* [0.5 Save data and delete resources on GENI]()
+* [0.5 Save data and delete resources on GENI](lab0/1-5-delete-resources.md)
 
 
 ### Linux and TCP/IP Networking
