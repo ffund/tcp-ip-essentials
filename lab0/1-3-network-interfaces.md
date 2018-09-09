@@ -10,7 +10,7 @@ ifconfig -a
 
 on each host in your topology, and examine the output.
 
-On the romeo and juliet nodes you should see two Ethernet interfaces, even though when you drew the network topology in the GENI Portal, you only set up one link coming out of each one. For example:
+On the romeo and juliet nodes you will see two Ethernet interfaces (and three Ethernet interfaces on the router nodes), even though when you drew the network topology in the GENI Portal, you only set up one link coming out of each of romeo and juliet. For example:
 
 ```
 eth0      Link encap:Ethernet  HWaddr 02:0d:1e:c3:c3:dc  
