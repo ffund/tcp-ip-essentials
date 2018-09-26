@@ -13,7 +13,7 @@ To set up this topology in the GENI Portal, create a slice, click on "Add Resour
 
 Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
 
-Before you start, use `ifconfig -a` to capture the network interface configuration of each host in this topology. Draw a diagram of the topology, and label each network interface with its name, IP address, and MAC address.
+Before you start, use `ifconfig -a` to capture the network interface configuration of each host in this topology. Draw a diagram of the topology, and label each network interface with its name, IP address, and MAC address. Include this diagram as an appendix to your lab report.
 
 ### Exercise 1
 
