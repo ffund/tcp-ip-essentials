@@ -10,7 +10,7 @@ Continue with the "Run my experiment" section up until the subsection titled "Re
 
 Scoll down and answer the questions in the "Exercise" subsection for your report.
 
-We will also answer the question posted in the textbook. On node-1 and node-2, run
+We will also answer the question posed in the textbook. On node-1 and node-2, run
 
 ```
 sudo tcpdump -i eth1 -en ip proto 1 -w $(hostname -s)-bridge.pcap
