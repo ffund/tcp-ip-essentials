@@ -86,7 +86,7 @@ on the "romeo" host to see the current routing table. For example:
 ```
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         172.16.0.1      0.0.0.0         UG    0      0        0 eth0
-10.10.66.0    0.0.0.0         255.255.255.0   U     0      0        0 eth1
+10.10.0.0    0.0.0.0         255.255.255.0   U     0      0        0 eth1
 172.16.0.0      0.0.0.0         255.240.0.0     U     0      0        0 eth0
 ```
 
@@ -147,7 +147,7 @@ Run
 sudo tcpdump -enx -i eth1 -w $(hostname -s)-unreachable.pcap
 ```
 
-While `tcpdump` is running to capture the ICMP messages, `ping` a host with IP address 10.10.60.100. Save the `ping` output.
+While `tcpdump` is running to capture the ICMP messages, `ping` a host with IP address 10.10.10.100. Save the `ping` output.
 
 **Lab report**: Can you see any traffic sent on the network? Why? Explain what happened from the `ping` output.
 
