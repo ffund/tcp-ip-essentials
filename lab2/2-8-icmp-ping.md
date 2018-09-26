@@ -86,7 +86,7 @@ on the "romeo" host to see the current routing table. For example:
 ```
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         172.16.0.1      0.0.0.0         UG    0      0        0 eth0
-10.10.0.0    0.0.0.0         255.255.255.0   U     0      0        0 eth1
+10.10.0.0       0.0.0.0         255.255.255.0   U     0      0        0 eth1
 172.16.0.0      0.0.0.0         255.240.0.0     U     0      0        0 eth0
 ```
 
