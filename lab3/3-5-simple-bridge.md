@@ -8,7 +8,7 @@ Then, follow the instructions in the "Run my experiment" section of this page to
 
 Continue with the "Run my experiment" section up until the subsection titled "Release your resources". (Don't release your resources yet.) 
 
-Scoll down and answer the questions in the "Exercise" subsection for your report.
+**Lab report**: Answer the questions in the "Exercise" subsection for your report.
 
 We will also answer the question posed in the textbook. On node-1 and node-2, run
 
