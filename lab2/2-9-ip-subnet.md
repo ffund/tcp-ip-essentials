@@ -101,7 +101,7 @@ Observe what happens. Stop the `tcpdump` and save the `tcpdump` output and the A
 
 ### Exercise 12
 
-In [Exercise 10](2-8-icmp-ping.md#exercise-10), you went through a series of steps to remove the routing rule for the default gateway on one host. Now, repeat those steps on each host in your topology, so that none of that have a routing rule that defines a default gateway.
+In [Exercise 10](2-8-icmp-ping.md#exercise-10), you went through a series of steps to remove the routing rule for the default gateway on one host. Now, repeat those steps on each host in your topology, so that none of them have a routing rule that defines a default gateway.
 
 Open terminal windows to each host in your topology. Configure the (experiment) interface on each host, according to the following table:
 
