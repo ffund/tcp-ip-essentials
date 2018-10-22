@@ -44,6 +44,12 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### UDP and its applications
 
+
+* [5.5 Using `iperf3`](lab5/el5373-lab5-55.md)
+* [5.6 UDP Exercises with Datagram Sizes](lab5/el5373-lab5-56.md)
+* [5.8 Exercises with FTP and TFTP](lab5/el5373-lab5-58.md)
+
+
 ### TCP study
 
 * [6.7 Exercises on TCP connection control](lab6/el5373-lab6-67.md)
@@ -55,7 +61,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Multicast and realtime service
 
-* [7.4 Simple multicast exercise](el5373-lab7-74.md)
+* [7.4 Simple multicast exercise](lab7/el5373-lab7-74.md)
 
 
 ### The Web, DHCP, NTP and NAT
