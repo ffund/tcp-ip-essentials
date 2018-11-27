@@ -72,3 +72,4 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 ### Network management and security
 
 * [Network management and security exercises](http://hyperion.poly.edu:8080/wiki/index.php/Network_management_and_security_(online_version))
+* Optional extra experiment: [DNS spoofing on a LAN](https://witestlab.poly.edu/blog/redirect-traffic-to-a-wrong-or-fake-site-with-dns-spoofing-on-a-lan/)
