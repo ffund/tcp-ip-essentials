@@ -66,7 +66,8 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### The Web, DHCP, NTP and NAT
 
-* [The Web, DHCP, NTP and NAT exercises](http://hyperion.poly.edu:8080/wiki/index.php/The_Web,_DHCP,_NTP_and_NAT_(online_version))
+* [8.7 HTTP exercises](lab8/el5373-lab8-87.md)
+* [8.9 NTP exercises](lab8/el5373-lab8-89.md)
 * Optional extra experiment: [Basic home gateway services: DHCP, DNS, NAT](https://witestlab.poly.edu/blog/basic-home-gateway-services-dhcp-dns-nat/)
 
 ### Network management and security
