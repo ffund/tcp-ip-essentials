@@ -72,5 +72,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Network management and security
 
-* [Network management and security exercises](http://hyperion.poly.edu:8080/wiki/index.php/Network_management_and_security_(online_version))
+* [9.9 SNMP exercises](lab9/el5373-lab9-909.md)
+* [9.10 Exercises on secure applications](lab9/el5373-lab9-910.md)
+* [9.12 Exercises on firewalls](lab9/el5373-lab9-912.md)
 * Optional extra experiment: [DNS spoofing on a LAN](https://witestlab.poly.edu/blog/redirect-traffic-to-a-wrong-or-fake-site-with-dns-spoofing-on-a-lan/)
