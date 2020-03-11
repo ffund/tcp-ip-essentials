@@ -84,7 +84,7 @@ In a safe place, make a note of:
 
 If you forget these, you won't be able to access resources on GENI - so hold on to this information!
 
-Next, upload your public key to the SSH Keys section of your profile on the GENI portal: in the menu, click on your name, then on "[SSH Keys](https://portal.geni.net/secure/profile.php#ssh)".
+Next, upload your public key to the SSH Keys section of your profile on the GENI portal: in the menu, click on your name, then on "[SSH Keys](https://portal.geni.net/secure/profile.php#ssh)", and upload your public key to that page.
 
 > **Note**: If you are having trouble uploading your public key to the portal because you aren't able to find it in the file browser, you can copy it to a more convenient location and upload it from there.
 >
