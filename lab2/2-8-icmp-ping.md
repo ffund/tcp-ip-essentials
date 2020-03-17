@@ -149,6 +149,18 @@ sudo tcpdump -enx -i eth1 -w $(hostname -s)-unreachable.pcap
 
 While `tcpdump` is running to capture the ICMP messages, `ping` a host with IP address 10.10.10.100. Save the `ping` output.
 
+When you are finished running this exercise, you can restore the default gateway route with
+
+```
+sudo route add default gw <DEFAULT GW>
+```
+
+e.g.
+
+```
+sudo route add default gw 172.16.0.1
+```
+
 **Lab report**: Can you see any traffic sent on the network? Why? Explain what happened from the `ping` output.
 
 **Lab report**: List the different ICMP messages you captured in the exercises in this section. Give the values of the type and code fields.
