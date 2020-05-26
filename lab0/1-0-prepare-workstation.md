@@ -23,11 +23,31 @@ Once you have downloaded and installed your terminal application, open it up and
 * How to copy text from another application and paste into your terminal
 
 
-#### Terminator for Linux
+#### iTerm2 on Mac
 
-If you are using terminator on Linux, you can split the pane either vertically or horizontally as follows:
+If you are using iTerm2 on Mac, you can split the pane as follows:
 
-![Split pane on terminator.](1-split-terminator.png)
+1. To create a new vertical pane, use ⌘+D
+2. To create a new horizontal pane, use ⌘+Shift+D
+
+To copy text from the terminal, select the text you want to copy and use ⌘+C to copy.
+
+To paste text into the terminal, place your cursor where you want to paste, and use ⌘+V to paste.
+
+#### Terminator on Linux
+
+If you are using `terminator` on Linux, you can split the pane either vertically or horizontally as follows:
 
 1. Right-click anywhere inside the terminal window
 2. Choose "Split pane horizontally" or "Split pane vertically"
+3. You can resize panes by dragging the divider between panes
+
+To copy text from the terminal, select the text you want to copy and either
+
+* right-click, and choose Copy, or
+* use Ctrl+shift+C to copy
+
+To paste text into the terminal, place your cursor where you want to paste, and either
+
+* right-click, and choose Paste, or
+* use Ctrl+shift+P to paste
