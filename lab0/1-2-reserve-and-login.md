@@ -1,4 +1,4 @@
-## 1.2 Reserve and log in to resources on GENI
+## 0.2 Reserve and log in to resources on GENI
 
 Whenever you run an experiment on GENI, you will
 
@@ -34,7 +34,7 @@ There are two ways to set up the hosts and links you want for an experiment:
 * By drawing the configuration on the canvas yourself. Jacks will automatically create the RSpec based on your drawing.
 * By loading an already-prepared RSpec.
 
-In this exercise you will practice both ways.
+In most of the lab exercises in this course, you will load an already-prepared RSpec. But in this exercise, you will practice setting up an experiment both ways.
 
 First, draw the configuration on your canvas.  Click on the black "VM" icon and drag it onto the white canvas. This icon represents a generic default virtual machine, suitable for general-purpose tasks. Repeat the above step two more times. You should now see three VM boxes on the canvas.
 
@@ -70,15 +70,9 @@ Now that you have an empty canvas, we'll load the same configuration you created
 
 At this point, your RSpec is still _unbound_. This means that it is a "generic" document that doesn't specify which GENI _aggregate_ (host site) the resources in your topology will be on. 
 
-Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list in the sidebar, according to the instructions in the box below.
+Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list in the sidebar.
 
-> **Choosing an aggregate**: There are several things to consider when choosing an aggregate:
->
-> * **Aggregate type**: GENI aggregates come in several flavors (e.g. ExoGENI, InstaGENI.) For the lab assignments in this course, we will use only InstaGENI aggregates.
-> * **Current status**: Aggregates sometimes go offline or are otherwise unavailable. Check the [AM Status](https://portal.geni.net/amstatus.php) page to see the status of aggregates at any given time, and avoid those that are listed as "Down." You may also check the calendar of [scheduled maintenance events](http://tick.globalnoc.iu.edu/public_tools/cals/public/gmoc/www/month.php?cal[]=Scheduled) and [unscheduled maintenance events](http://tick.globalnoc.iu.edu/public_tools/cals/public/gmoc/www/month.php?cal[]=Unscheduled) and avoid those which are undergoing maintenance of some kind during the time that you'll need to use them.
-> * **Current load**: Each aggregate has a limited number of VMs, CPU cores, memory, and network capacity, and will refuse requests that it cannot satisfy based on its current load. If the aggregate you choose is overloaded, your request will fail and you will have to try again with another aggregate.
-> * **Load balancing**: To avoid overwhelming any single GENI aggregate, educators using GENI are asked to assign different students to different GENI aggregates. To facilitate this, please choose an aggregate whose name starts with a letter that is no more than 5 letters away from the first letter of your last name. (For example, my last name begins with an F, so I will choose from Case Western, CENIC, Clemson, ... , Kentucky, Kettering.)
-> * **Failure**: If your resource request fails, or your VMs fail to come up, try again on a different aggregate (after deleting any remaining VMs in your slice).
+You might assume that you should choose the aggregate associated with the university where you are a student - for example, NYU InstaGENI if you are an NYU student. But since an aggregate has a limited number of VMs, CPU cores, memory, and network capacity, if all NYU students only used the NYU InstaGENI site, it would become completely overloaded! Instead, use "load balancing" by selecting a different InstaGENI site each time you use the GENI Portal. 
 
 Once your resource request is bound to a particular aggregate, you will be able to reserve your resources; scroll down to the bottom of the page and click on "Reserve Resources." This will submit your RSpec to the aggregate you've selected, which will attempt to satisfy your request. If the aggregate believes it is able to give you the resources you've requested, then you'll see that your reservation has finished:
 
@@ -87,7 +81,7 @@ Once your resource request is bound to a particular aggregate, you will be able 
 > **Note**: If your request fails at this point, you should try again with a different aggregate. If you continue to get failed requests, 
 >
 > * You may have a problem with your RSpec and you should double-check your work from Exercise 2. (For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.) If you can't find your mistake, ask an instructor for help.
-> * You may have failed to notice a system-wide maintenance window or outage - check the outage calendars referenced above.
+> * There may be a system-wide maintenance window or outage - check with your instructor to find out if this is the case.
 
 ### Exercise 7 - Log in to resources
 

@@ -1,4 +1,4 @@
-## 1.1 Set up your account on GENI
+## 0.1 Set up your account on GENI
 
 In this course, you will use [GENI](http://www.geni.net/) to run lab experiments. 
 
@@ -80,7 +80,7 @@ In a safe place, make a note of:
 
 * The passphrase you used,
 * The full path to your private key (`/users/ffund01/.ssh/id_rsa` in the example above) - copy and paste this from your terminal output,
-* The full path to your public key (`/users/ffund01/.ssh/id_rsa.pub` in the example above) - copy and paste this from your terminal output.
+* The full path to your public key, which has the same name as your private key but with a `.pub` extension (`/users/ffund01/.ssh/id_rsa.pub` in the example above) - copy and paste this from your terminal output.
 
 If you forget these, you won't be able to access resources on GENI - so hold on to this information!
 
@@ -115,10 +115,4 @@ In the GENI Portal, click on "Home > Projects" in the menu at the top, then clic
 Requests to join a project are pending until they are approved by the Project Lead (your instructor!); understand that it may take some time for the Project Lead to review and approve your request, so plan accordingly.
 
 Once you have completed all of the exercises on this page and your account has been approved, you can proceed to the next lesson.
-
-
-> **Note**: In this and future lab exercises, you will often have to have multiple terminal windows open and logged in to the same host. It can be useful to have a terminal that lets you split one window into parts, like [this](https://witestlab.poly.edu/blog/content/images/2017/01/protocol-stack-application-1.gif) - for example,
-> * [cmder](http://cmder.net/) for Windows
-> * [terminator](https://launchpad.net/terminator) for Linux
-> * [iTerm2](https://www.iterm2.com/) for Mac
 

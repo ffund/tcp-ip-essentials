@@ -1,4 +1,4 @@
-## 1.3 Inspect network interfaces
+## 0.3 Inspect network interfaces
 
 ### Exercise 8
 
