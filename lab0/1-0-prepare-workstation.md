@@ -9,7 +9,7 @@ You'll need to prepare your workstation with all the software necessary to compl
 
 Wireshark is a software application for capturing, viewing, and analyzing network packets. Download Wireshark from [the Wireshark website](https://www.wireshark.org/download.html).
 
-Then, follow the insturctions to install for your system:
+Then, follow the instructions to install for your system:
 
 * [Instructions for installing Wireshark on Windows](https://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallWinInstall.html). (Note: you only need Wireshark, not the extra components that are bundled along with it.)
 * [Instructions for installing Wireshark on Mac](https://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallOSXInstall.html).
