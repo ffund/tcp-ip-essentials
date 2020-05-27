@@ -115,8 +115,7 @@ Some useful `screen` hints:
 
 
 * If you are working inside a `screen` session, you can end the session and return to your "regular" SSH session using the `exit` command.
-* You can "detach" from a `screen` session (leaving it running) by using Ctrl+A and then D
-
+* You can "detach" from a `screen` session (leaving it running, so you can re-attach to it later) with `screen -d` or with the keyboard shortcut Ctrl+A and then D
 
 ### Exercise 12 - Transferring files to and from remote hosts
 
