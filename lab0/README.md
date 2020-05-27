@@ -4,6 +4,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Set up your lab account
 
+* [0.0 Prepare your workstation](1-0-prepare-workstation.md)
 * [0.1 Set up an account on GENI](1-1-setup-account.md)
 * [0.2 Reserve a simple network on GENI](1-2-reserve-and-login.md)
 * [0.3 Inspect network interfaces](1-3-network-interfaces.md)

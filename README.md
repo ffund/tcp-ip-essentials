@@ -6,6 +6,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Set up your lab account
 
+* [0.0 Prepare your workstation](lab0/1-0-prepare-workstation.md)
 * [0.1 Set up an account on GENI](lab0/1-1-setup-account.md)
 * [0.2 Reserve a simple network on GENI](lab0/1-2-reserve-and-login.md)
 * [0.3 Inspect network interfaces](lab0/1-3-network-interfaces.md)
@@ -13,13 +14,15 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [0.5 Save data and delete resources on GENI](lab0/1-5-delete-resources.md)
 
 
-### Linux and TCP/IP Networking
+### Linux
 
-* [1.5 Exercises with Linux commands]()
-* [1.6 Exercises with diagnostic tools]()
-* [1.7 Exercises with port numbers]()
+
+* [1.1 Learning the basics of the Bash shell](lab1/1-1-linux-shell.md)
+* [1.2 Navigating the filesystem](lab1/1-2-linux-navigating.md)
+* [1.3 Working with files and directories](lab1/1-3-linux-files-directories.md)
+* [1.4 Manipulating output of a command](lab1/1-4-linux-manipulate.md)
+* [1.5 Using `tcpdump` and Wireshark](lab1/1-5-tcpdump-wireshark.md)
 * Optional extra experiment: [TCP/IP protocol layers](https://witestlab.poly.edu/blog/tcp-ip-protocol-stack/)
-* [Linux and TCP/IP Networking exercises](http://hyperion.poly.edu:8080/wiki/index.php/Linux_and_TCP/IP_Networking_(online_version))
 
 ### A single segment network
 
