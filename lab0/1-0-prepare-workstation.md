@@ -28,8 +28,8 @@ You may have a terminal application already on your workstation, but it may not 
 Once you have downloaded and installed your terminal application, open it up and practice using it. Make sure you know:
 
 * How to split the pane in your terminal. 
-* How to copy text from your terminal and paste into another application. This will be helpful when you need to copy 
-* How to copy text from another application and paste into your terminal
+* How to copy text from your terminal and paste into another application. This will be helpful when you need to save some terminal output for your lab report.
+* How to copy text from another application and paste into your terminal. This will be helpful when you need to copy a command from the lab instructions into your terminal, in order to run it.
 
 ### cmder on Windows
 
@@ -39,7 +39,7 @@ If you are using cmder on Windows, you can split the pane as follows:
 2. Where it says "New console split", choose "to bottom" or "to right". You can leave other options at their default settings.
 3. Click "Start".
 
-Note that if you need to split more than once, click on the pane that you want to split (so that it is the active pane) before using the green + symbol to split again. 
+Note that if you need to split more than once, click on the pane that you want to split (so that it is the active pane) before using the green + symbol to split it again. 
 
 To copy text from the terminal, select the text you want to copy. It will be automatically copied to your clipboard, and you can then paste it into any other application.
 
