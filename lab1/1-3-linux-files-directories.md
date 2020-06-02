@@ -1,6 +1,6 @@
 ## 1.3 Working with files and directories
 
-In this section, you will learn how to work with files and directories, using the commands: `cp`, `rm`, `mv`, `cat`, `wget`, `scp`, `nano`                                     
+In this section, you will learn how to work with files and directories, using the commands: `cp`, `rm`, `mv`, `cat`, `wget`, `nano`                                     
 
 ### Exercise 6 - Moving files around the filesystem
 
