@@ -220,3 +220,7 @@ icmp.resptime > 0.04
 to display only the packets with a response time greater than 0.04 seconds.
 
 You can also apply a filter directly from the packet detail pane. For example, right-click on the destination MAC address in any packet, and you will see an "Apply as filter" option. You can choose "Apply as Filter > Selected" to apply a display filter that only shows packets that have the same value as the selected packet for that field, or you can choose "Apply as Filter > Not Selected" to only display packets that have a *different* value from the selected packet for that field.
+
+The [Wireshark documentation](https://www.wireshark.org/docs/man-pages/wireshark-filter.html) includes many examples of display filters, with explanation.
+
+**Lab report**: What would you type in the filter toolbar to only show packets with ICMP sequence number 1? Apply this display filter to `romeo-tcpdump-file.pcap` and show a screenshot of the Wireshark window.
