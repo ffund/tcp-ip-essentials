@@ -85,9 +85,9 @@ Note that as you click on a part of the analysis in the packet detail pane, the 
 
 ![Wireshark highlighting](1-wireshark-highlight.png)
 
-I have annotated this screenshot to also point out the individual fields within the Ethernet header. If you click on the individual fields in the Ethernet header in the packet detail pane, you can see that 
+If you click on the individual fields in the Ethernet header in the packet detail pane, you can further observe that: 
 
-* the first 6 bytes of the packet are the source MAC address (and since a MAC address is customarily given in hex digits, so you can read it straight from the packets bytes pane), 
+* the first 6 bytes of the packet are the source MAC address (and since a MAC address is customarily given in hex digits, you can read it straight from the packets bytes pane), 
 * the next 6 bytes are the destination MAC addresss, 
 * and the next 2 bytes (which are the last bytes of the Ethernet header) are the Type field. The Type field includes information about what upper layer protocol - in this case, IPv4 - is used for this packet.
 
@@ -190,5 +190,31 @@ You can find more information about capture filters in the [online documentation
 
 ### Exercise 14 - Useful display options in Wireshark
 
+Like `tcpdump`, Wireshark is a powerful application with many options and extra features included. A detailed Wireshark user guide is available at the following link: [https://www.wireshark.org/docs/wsug_html_chunked/](https://www.wireshark.org/docs/wsug_html_chunked/)
 
-Wireshark is a powerful application with many more options available. A detailed Wireshark user guide is available at the following link: [https://www.wireshark.org/docs/wsug_html_chunked/](https://www.wireshark.org/docs/wsug_html_chunked/)
+One important feature in Wireshark is the ability to use *display filters* to filter the packets that are displayed on the screen. These filters are conceptually similar to the capture filters in `tcpdump`, but they have very different syntax, and the display filters only control what is displayed, not what is captured or what is included in a file.
+
+Open your first packet capture file in Wireshark, and try applying the display filter
+
+```
+ip.src == 10.10.0.100
+```
+
+To use a display filter, type the filter into the filter toolbar near the top of the Wireshark window, then hit "Enter". The filter toolbar background will be green if the display filter is valid. You should see that only the packets matching the criteria in the display filter are visible.
+
+To clear the display filter and show all packets again, click on the X icon on the right side of the filter toolbar.
+
+When a filter is applied but then you change the filter criteria, it can be difficult to tell whether the filter written in the filter toolbar is applied or not. You can check by moving your mouse over the X icon and the arrow icon on the right side of the filter toolbar. If the arrow icon turns *blue* when you mouse over it, the filter is not applied, and you can click on the blue arrow to apply it. If the filter shown in the filter toolbar is already applied, the arrow will remain gray when you move your mouse over it.
+
+While the display filter syntax may be daunting - there are so many possible fields to filter on! - you don't need to memorize the name of any field in order to use it as a display filter. If you click on any field in the packet display pane (including generated fields that are not explicit in the packet!) the status toolbar at the bottom will show you the field name. You can then use it in a filter. 
+
+![Wireshark display filter](1-wireshark-display.png)
+
+For example (as shown here), if I click on the ICMP response time field for a packet, I can see from the status bar that the name of the field is `icmp.resptime`. Then, I can apply the filter
+
+
+```
+icmp.resptime > 0.04
+```
+
+to display only the packets with a response time greater than 0.04 seconds.
