@@ -40,7 +40,7 @@ echo "Hello world"
 
 and then hit Enter to run the command you've just entered.
 
-Like other programming languages, you can define and use variables in the Bash shell. To see how this works, try defining a new variable called `message` by assigning a value to it:
+Like other programming languages, you can define and use variables in the Bash shell. To see how this works, try defining a new variable called `mymessage` by assigning a value to it:
 
 ```
 mymessage="hello world"
@@ -122,7 +122,7 @@ Tab autocompletion also works for file and directory names, for arguments to
 many commands, and for variables.
 
 For example, suppose you save the string "hello world" in a new variable called
-"mymessage" like this:
+`mymessage` like this:
 
 ```
 mymessage="hello world"
