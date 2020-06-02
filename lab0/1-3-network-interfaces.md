@@ -60,7 +60,7 @@ You can document these details in the form of a network diagram, on which you wi
 
 A sample network diagram is shown below:
 
-![](1-network-diagram.svg
+![](1-network-diagram.svg)
 
 You will submit at least one network diagram like this for each lab assignment. Some lab assignments may involve more than one network topology, in which case you will submit a network diagram for each topology.
 
