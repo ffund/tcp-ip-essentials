@@ -37,10 +37,10 @@ You shouldn't see any error messages this time, now that you are running `tcpdum
 ping -c 5 10.10.0.100
 ```
 
-while the `tcpdump` is still running on "romeo". This will generate some traffic between the "juliet" host and the "romeo" host. You'll see a summary view of each packet in the `tcpdump` output.
+while the `tcpdump` is still running on "romeo". This will generate some traffic between the "juliet" host and the "romeo" host. You'll see a summary view of each packet in the `tcpdump` output. Save this output for your lab report.
 
 
-### Exercise 12 - Save a packet capture to a file and open them in Wireshark
+### Exercise 12 - Save a packet capture to a file and analyze it in Wireshark
 
 For most lab exercises, we will want to use `tcpdump` to capture network packets and *save them to a file* so that we can analyze them afterwards. To save a packet capture to a file, we use the `-w` argument in `tcpdump`.
 
@@ -64,14 +64,130 @@ Unlike before, you won't see a summary of each packet in the `tcpdump` window on
 0 packets dropped by kernel
 ```
 
-In a new terminal, use `scp` to transfer the `romeo-tcpdump-file.pcap` file to your laptop.
+You can quickly see the packet summaries by reading in the file with `tcpdump`, using the `-r` argument to pass the file name:
+
+
+```
+tcpdump -r romeo-tcpdump-file.pcap
+```
+
+(Note that you don't need specifical privileges to print back packet summaries from a file, only to capture live traffic from a network interface!)
+
+In most cases, though, you will want to do a more in-depth analysis using Wireshark on your laptop. Open a new terminal pane and use `scp` to transfer the file to your own laptop. (Note that the packet capture will be located in your home directory on the remote host, at `~/romeo-tcpdump-file.pcap`.)
 
 Then, open Wireshark. Use File > Open to find the file and open it for further analysis. Use the example below to find the main parts of the Wireshark window:
 
 ![Wireshark window](1-wireshark-window.svg)
 
+Click on one ICMP packet to highlight it, and then explore it further in the packet detail pane. Click on the > to expand the details of the header at each layer. 
+
+Note that as you click on a part of the analysis in the packet detail pane, the corresponding bytes from which Wireshark inferred this analysis are highlighted in the bytes pane. For example, if you click on the "Ethernet II" heading in the packet detail pane, you can see that the first 14 bytes of the packet are highlighted in the packet bytes pane:
+
+![Wireshark highlighting](1-wireshark-highlight.png)
+
+I have annotated this screenshot to also point out the individual fields within the Ethernet header. If you click on the individual fields in the Ethernet header in the packet detail pane, you can see that 
+
+* the first 6 bytes of the packet are the source MAC address (and since a MAC address is customarily given in hex digits, so you can read it straight from the packets bytes pane), 
+* the next 6 bytes are the destination MAC addresss, 
+* and the next 2 bytes (which are the last bytes of the Ethernet header) are the Type field. The Type field includes information about what upper layer protocol - in this case, IPv4 - is used for this packet.
+
+Also note that when the Ethernet heading is highlighted, the status bar at the bottom shows "Ethernet (eth) 14 bytes".
+
+In addition to the packet details that are explicit in the packet, like those mentioned above, Wireshark also displays some "generated fields" that are *inferred* from the contents of the packet capture. These fields are shown inside `[` `]` brackets in the packet detail pane.  For example, if you click on an ICMP *reply* packet and expand the ICMP section in the packet detail pane, you can see that Wireshark computes the response time, even though this is not explicit in the packet itself.
+
+
+**Lab report**: Select one ICMP packet in your packet capture. In the packet detail pane, find and select the "Sequence number" field in the ICMP header. Take a screenshot showing this field highlighted in both the packet detail pane and the packet bytes pane. How many bytes are allocated for this field in an ICMP packet? Explain how you can determine the number of bytes reserved for this field, using your screenshot.
 
 
 ### Exercise 13 - Useful display options and capture options in `tcpdump`
 
+
+In addition to the `-i` and `-w` options discussed above, there are a variety of optional arguments that you can use to change the way that `tcpdump` behaves. To explore these options, run
+
+```
+man tcpdump
+```
+
+Use Enter, the up and down arrow keys, or the Page Up and Page Down keys to page through the manual. You can use `q` to quit the man page when you are finished.
+
+Some important options for controlling the `tcpdump` *display* include:
+
+* `-e` is used to print the link-level header (such as MAC addresses for Ethernet packets) on each line of output.
+* `-n` directs `tcpdump` not to try and resolve addresses (such as IP addresses to hostnames), but to just print the addresses directly.
+* `-x` is used to print the payload of each packet (excluding its link level header) in hex digits, in addition to the summary of the packet headers.
+
+
+
+Try running
+
+```
+sudo tcpdump -enx -i eth1
+```
+
+on "romeo". This command combines all of the options listed above, as well as the `-i` option to specify the interface to capture packets on. While this is running, generate an echo request and reply from "juliet" with
+
+```
+ping -c 5 10.10.0.100
+```
+
+Save the `tcpdump` output for your lab report.
+
+The options above only affect what is printed to the standard output on the terminal when you run `tcpdump`. They will have no effect on a packet capture that is saved to a file using the `-w` argument.
+
+In contrast, *capture* options determine what is captured by `tcpdump`, whether you display packet summaries in the terminal output or save packets to a file. 
+
+One useful capture option, `-s`, is used to limit the number of bytes to capture for each packet. This is known as the *snaplen* or *snapshot length*. This option is especially useful when you are capturing network traffic that includes the transfer of a large volume of data. If you capture every packet in its entirety, your packet capture file can become very large and difficult to work with - for example, it may take a very long time to transfer back to your laptop with `scp`. Instead, you can capture just the packet headers, and the packet capture file will be much smaller.
+
+To try this, run
+
+```
+sudo tcpdump -i eth1 -s 34 -w romeo-tcpdump-snaplen.pcap
+```
+
+on "romeo". While this is running, on "juliet" run
+
+```
+ping -c 5 10.10.0.100
+```
+
+After the `ping` finishes, use Ctrl+C to stop the `tcpdump`, and then use `scp` to transfer the packet capture to your laptop. Open it with Wireshark and observe that only the Ethernet header (14 bytes) and IP header (20 bytes) are included in each packet.
+
+Meanwhile, on "romeo", run
+
+```
+ls -l
+``` 
+
+to list the files in your working directory, in "long" format. This format includes the size of each file. The two packet capture files include similar packets, but they have very different sizes. 
+
+Finally, `tcpdump` also supports capture *filters*, which limit which types of packets are captured. Capture filters are listed after the other options.
+
+Try running
+
+```
+sudo tcpdump -i eth1 src host 10.10.0.100
+```
+
+on "romeo", and on "juliet", run
+
+
+```
+ping -c 5 10.10.0.100
+```
+
+After the `ping` finishes, use Ctrl+C to stop the `tcpdump`. Save this output for your lab report.
+
+You can find more information about capture filters in the [online documentation](https://www.tcpdump.org/manpages/pcap-filter.7.html).
+
+
+**Lab report**: Show the output of `tcpdump` for *one* captured ICMP packet, both with and without the `-enx` options. Point out the differences in the output, and explain which option is responsible for each.
+
+**Lab report**: Show the output of `tcpdump`, both with and without the `src host 10.10.0.100` capture filter. What is different, and why?
+
+**Lab report**: What command would you use to capture *only* the Ethernet, IPv4, and TCP headers of packets on a network? Explain your answer. 
+
+
 ### Exercise 14 - Useful display options in Wireshark
+
+
+Wireshark is a powerful application with many more options available. A detailed Wireshark user guide is available at the following link: [https://www.wireshark.org/docs/wsug_html_chunked/](https://www.wireshark.org/docs/wsug_html_chunked/)

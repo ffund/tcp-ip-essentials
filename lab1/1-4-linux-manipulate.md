@@ -47,8 +47,7 @@ To page through one line of output at a time, use
 less /etc/services
 ```
 
-which will show the entire file, but one "page" a time. Hit Enter when you are ready to see the next page to continue scrolling through the file, or press `q`
-to quit at any time.
+which will show the entire file, but one "page" a time. Use Enter, the up and down arrow keys, or the Page Up and Page Down keys to scroll through the file, or press `q` to quit at any time.
 
 One useful feature of `less` is the ability to search for a word. Suppose you want to know what port the `smtp` mail service uses. You can open the file with
 
