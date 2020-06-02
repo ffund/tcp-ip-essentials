@@ -57,6 +57,38 @@ rm mycopy.txt
 With `rm`, there is no "Recycle Bin" and no getting back files you've 
 deleted accidentally - so be very, very careful.
 
+For this lab course, you may occasionally have to modify system configuration files that require system administrator privileges to edit. 
+On Linux, to signal to the operating system that we want to run a command with admin privileges, we preface the command with `sudo` - "superuser do".
+
+Try this now - open the log file `/etc/services`:
+
+```
+nano /etc/services
+```
+
+and try to add a comment (a line of text that begins with the `#` character) at the beginning of the file:
+
+```
+# this is a comment
+```
+
+Then, try to save your edit with Ctrl+O. You should see an error message: "Error writing /etc/services: Permission denied".
+
+To edit this file, you will need to use `sudo`. First, quit your current `nano` session with Ctrl+X (when prompted to save your changes, type N for No.) Then, open the file again with `sudo`:
+
+
+```
+sudo nano /etc/services
+```
+
+Now, you should be able to add the line
+
+```
+# this is a comment
+```
+
+at the beginning of the file, and then save the file before quitting `nano`.
+
 
 ### Exercise 7 - Retrieving files from the Internet
 
@@ -88,7 +120,7 @@ they behave, or what their output looks like.
 For example, take the `ls` command. We can:
 
 * See one file per output line: `ls -1`
-* See "long" output that includes file permissions, ownership, modification dates: `ls -l`
+* See "long" output that includes file permissions, ownership, size, and modification dates: `ls -l`
 * See "long" output and also sort files in order of time of last modification: `ls -lt`
 * See "long" output and sort files so that the most recently modified file is last: `ls -ltr`
 

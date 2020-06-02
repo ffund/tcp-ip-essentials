@@ -16,6 +16,7 @@ Before you start, use `ifconfig -a` to capture the network interface configurati
 
 You will run all of the commands in this exercise in your SSH session (on either host), *not* on your local system. Check the terminal prompt to make sure you are working on the remote host.
 
+**Lab report**: Upload your network diagram for this topology.
                                                                                 
 ### Exercise 1 - "Hello world"
 
@@ -42,7 +43,7 @@ and then hit Enter to run the command you've just entered.
 Like other programming languages, you can define and use variables in the Bash shell. To see how this works, try defining a new variable called `message` by assigning a value to it:
 
 ```
-message="hello world"
+mymessage="hello world"
 ```
 
 (note that there is no space on either side of the `=`).
@@ -51,8 +52,36 @@ message="hello world"
 You can then access the value stored in the variable in your Bash "code" by prefacing the variable name with a `$` sign. Try running:
 
 ```
-echo $message
+echo $mymessage
 ```
+
+In addition to assigning a value to a variable manually, you can also make a variable take on the output of a command as its value. For example, the command `whoami` will return your current username. Try running it now:
+
+```
+whoami
+```
+
+To assign its output to a variable, we enclose it in `$()` when doing the assignment - this tells the shell to evaluate the command and use its output:
+
+```
+myname=$(whoami)
+```
+
+You can now use the `myname` variable in another command:
+
+```
+echo "$mymessage, $myname"
+```
+
+You can even use the output of one command directly in another command, without assigning it to a variable - try
+
+
+```
+echo "$mymessage, $(whoami)"
+```
+
+This feature is known as *command substitution*.
+
 
 ### Exercise 2 - tab autocompletion
 
@@ -108,6 +137,7 @@ echo $mym
 
 and hit Tab, and it will be autocompleted to `echo $mymessage` (which 
 will print "hello world" to the terminal output).
+
 
 ### Exercise 3 - History
 

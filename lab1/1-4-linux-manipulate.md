@@ -120,3 +120,17 @@ We can even use the pipe operator to connect more than two commands. For example
 ```
 ifconfig -a | grep "HWaddr" | awk '{print $1,$5}'
 ```
+
+
+**Lab report**: Run the piped command sequence: 
+
+```
+ifconfig -a | grep "inet addr" > $(hostname -s)-network-config.txt
+```
+
+on the "romeo" host, then answer these questions.
+
+* Explain what each of these commands does, in the context of the command sequence above: `ifconfig -a`,  `grep "inet addr" `, `hostname -s`
+* Explain what each of these operators does, in the context of the command sequence above: `|`, `>`
+* Explan what the complete sequence does.
+* This command saves some output to a file. What is the full path to that file? What command(s) could you use to find out the full path to the file? Show the contents of the file. What command(s) could you use to see the contents of the file?
