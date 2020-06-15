@@ -56,13 +56,13 @@ From this output, you can find out your own public IP address (as observed by th
 Now, add a route to the routing table that is *specific* to the network that you connect from:
 
 ```
-sudo route add -net <FIRST OCTET OF YOUR IP>.0.0.0/8 gw <DEFAULT GW YOU OBSERVED BEFORE>
+sudo route add -net <FIRST OCTET OF YOUR IP>.<SECOND OCTET OF YOUR IP>.0.0/16 gw <DEFAULT GW YOU OBSERVED BEFORE>
 ```
 
 for example:
 
 ```
-sudo route add -net 216.0.0.0/8 gw 172.16.0.1
+sudo route add -net 216.165.0.0/16 gw 172.16.0.1
 ```
 
 Once you have done so, you can delete the default gateway route without losing your SSH connection:
