@@ -28,8 +28,8 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 * [2.6 Network interface exercises](lab2/2-6-network-interface.md)
 * [2.7 ARP exercises](lab2/2-7-arp.md)
-* [2.8 Exercise with ICMP and Ping](lab2/2-8-icmp-ping.md)
 * [2.9 Exercises with IP address and subnet mask](lab2/2-9-ip-subnet.md)
+* [2.8 Exercise with ICMP and Ping](lab2/2-8-icmp-ping.md)
 
 ### Bridges and LANs
 

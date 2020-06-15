@@ -1,8 +1,18 @@
 ## 2.7 ARP exercises
 
-For this experiment, we will reuse the same network as in the previous experiment. 
+In the previous exercise, we saw how processes on the *same host* communicate with one another.
 
-### Exercise 4
+In the next series of exercises, we will explore the requirements for two *different* hosts in the *same network segment* to communicate with one another. These requirements are:
+
+1. At the MAC layer: the sending host must know the destination MAC address of the receiving host. If the destination MAC address is not already in the sending host's ARP table, it will send an ARP request to try and discover the destination MAC address.
+2. At the IP layer: the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies.)
+3. At the transport layer: the destination host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
+
+In the experiments on [this page](2-7-arp.md), you will explore the first condition; in the [next set of experiments](2-9-ip-subnet.md), you will explore the second condition; and in the [final set of experiments](2-8-icmp.md) this week, you will explore the third condition.
+
+For this experiment, we will reuse the same network topology as in the previous experiment. 
+
+### Exercise 4 - ARP
 
 On the "romeo" host, run
 
@@ -10,31 +20,47 @@ On the "romeo" host, run
 arp -i eth1 -n
 ```
 
-to see the entire ARP table for the `eth1` interface (if there are any entries). Observe that all the IP addresses displayed are on the same subnet.
+to see the entire ARP table for the `eth1` interface (if there are any entries).  (If there are no ARP entries, that's OK.) Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same subnet.
 
-We will generate an ARP request for the "juliet" host. If the "juliet" host (10.10.0.101) is already listed in the ARP table, then delete it with
+If the "juliet" host (10.10.0.101) is already listed in the ARP table, then delete it with
 
 ```
-arp -d 10.10.0.101
+sudo arp -d 10.10.0.101
 ```
 
-Save the ARP table for your lab report. (If there are no ARP entries, that's OK.)
+Then, run 
+
+
+```
+arp -i eth1 -n
+```
+
+again, and save the ARP table for your lab report.
+
 
 On "romeo", run
 
 ```
-sudo tcpdump -enx -i eth1 -w $(hostname -s)-arp.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-arp.pcap
 ```
 
 Leave this running. Then, open a second SSH session to "romeo", and in that session, run
 
 ```
-ping -c 3 10.10.0.101
+ping -c 1 10.10.0.101
 ```
-OA
-Then, terminate the `tcpdump` application with Ctrl+C.
 
-The `tcpdump` application will have saved a new file named "romeo-arp.pcap" in your home directory on the "romeo" node. Use `scp` to transfer this file to your laptop. Then, use [Wireshark](https://www.wireshark.org/download.html) to open this file and observe the first few lines of the packet trace to see how ARP is used to resolve an IP address.
+to send an ICMP echo request to 10.10.0.101 ("juliet").
+
+Terminate `tcpdump` with Ctrl+C. 
+
+The `tcpdump` application will have saved a new file named "romeo-arp.pcap" in your home directory on the "romeo" node. You can "play back" a summary of the capture file in the terminal using
+
+
+```
+tcpdump -enX -r $(hostname -s)-arp.pcap
+```
+
 
 Run 
 
@@ -44,74 +70,62 @@ arp -i eth1 -n
 
 on the "romeo" host to see a new line added to the ARP table. Save the new ARP table for your lab report.
 
-**Lab report**: From the saved `tcpdump` output, explain how ARP operates. Also answer the following questions:
+Next, run
+
+```
+sudo tcpdump -i eth1 -w $(hostname -s)-no-arp.pcap
+```
+
+on "romeo", and in a second terminal on "romeo", run
+
+```
+ping -c 1 10.10.0.101
+```
+
+again. Terminate `tcpdump` with Ctrl+C. Then "play back" a summary of the capture file in the terminal using
+
+```
+tcpdump -enX -r $(hostname -s)-no-arp.pcap
+```
+
+
+Use `scp` to transfer both packet capture files to your laptop. Then, you can open them in Wireshark for further analysis.
+
+
+**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why?
+
+**Lab report**: From the first saved `tcpdump` output, answer the following questions:
 
 * What is the target IP address in the ARP request?
-* At the MAC layer, what is the destination Ethernet address of the frame carrying the ARP request?
+* At the MAC layer, what is the destination Ethernet address of the frame carrying the ARP request? Why?
 * What is the frame type field in the Ethernet frame?
-* Who sends the ARP reply?
+* Of the four hosts on your network segment, which host sends the ARP reply? Why?
 
-### Exercise 5
+### Exercise 5 - ARP for a non-existent host
 
 On the "romeo" host, run
 
 ```
-sudo tcpdump -enx -i eth1 -w $(hostname -s)-nonexistent.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-nonexistent.pcap
 ```
 
 Then, in a second terminal window on "romeo", run
 
 ```
-telnet 10.10.0.200
+ping -c 1 10.10.0.200
 ```
 
 Note that there is no host with this IP address in your network configuration.
 
-After `telnet` gives up, stop the `tcpdump` with Ctrl+C. Use `scp` to transfer the new packet capture to your laptop, and open it in Wireshark.
 
-**Lab report**: From the `tcpdump` output, describe how the ARP timeout and retransmission were performed. 
-
-**Lab report**: How many attempts were made to resolve a non-existing IP address?
-
-### Exercise 7
-
-A host can also send a "gratuitous ARP" to make other hosts in the network aware of its IP address and MAC address. This has several uses: for detecting duplicate IP addresses on a network, for updating MAC address tables on the network after a device change (e.g. change from a faulty network interface card to a backup NIC on the same device), and generally to notify hosts about MAC address/IP address mappings in advance so they don't have to ask.
-
-We will generate a gratuitous ARP as follows. First, we need to configure our hosts to accept gratuitous ARPs for all addresses. On each host in your topology ("romeo", "juliet", "hamlet", and "ophelia"), run
+Wait for it to finish. Terminate `tcpdump` with Ctrl+C. Then "play back" a summary of the capture file in the terminal using
 
 ```
-sudo sysctl -w net.ipv4.conf.all.arp_accept=1
+tcpdump -enX -r $(hostname -s)-nonexistent.pcap
 ```
 
-Then, check the ARP table entries for each host to see if it has an entry for "hamlet". If any hosts ("romeo", "juliet", or "ophelia") have an entry for hamlet, delete it. Then check the ARP tables again and save a copy of each one.
+You can also use `scp` to transfer the packet capture to your laptop, and open it in Wireshark.
 
-On romeo, start a tcpdump running to capture packets:
+**Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: In the previous exercise, after sending an ARP request and receiving a reply, "romeo" sends an ICMP echo request. In this exercise, is an ICMP echo request ever sent? Why or why not?
 
-```
-sudo tcpdump -enx -i eth1 -w $(hostname -s)-gratuitous.pcap
-```
-
-Then, on "hamlet", send four gratuitous ARP messages on the network with
-
-```
-sudo arping -c 4 -U 10.10.0.102 -I eth1
-```
-
-Then stop the `tcpdump` with Ctrl+C and transfer the file to your laptop with `scp`. Open it in Wireshark to inspect the captured data.
-
-Use
-
-```
-arp -i eth1 -n
-```
-
-to view and save the ARP table entries on the other three hosts ("romeo, juliet, or ophelia). 
-
-**Lab report**: What is the purpose gratuitous ARP?
-
-**Lab report**: Include a screenshot from Wireshark showing the ARP header of a gratuitous ARP. List the sender IP address, target IP address, sender MAC address, and target MAC address of the gratuitous ARP that you showed.
-
-**Lab report**: Is there a reply to the gratuitous ARP? Why or why not?
-
-
-
+**Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: From the `tcpdump` output, describe how the ARP timeout and retransmission were performed. How many attempts were made to resolve a non-existing IP address? How much time separates each attempt?
