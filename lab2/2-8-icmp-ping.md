@@ -32,22 +32,22 @@ tcpdump -enX -r $(hostname -s)-wrong-port.pcap
 Also transfer the packet capture to your laptop with `scp`.
 
 
-On the "juliet" host, run
-
-
-```
-netstat -ln
-```
-
-to list listening ports.
-
 Next, on the "juliet" host, run
 
 ```
 netcat -l -u 4000
 ```
 
-to start an application listening on UDP port 4000.
+to start an application listening on UDP port 4000. In a second terminal on the "juliet" host, run
+
+
+```
+netstat -ln
+```
+
+to list listening ports. Look for a service listening on UDP port 4000.
+
+
 
 Run
 
