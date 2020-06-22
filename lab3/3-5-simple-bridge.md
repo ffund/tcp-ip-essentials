@@ -1,28 +1,28 @@
 ## 3.5 A simple bridge experiment
 
-For this experiment, we will deviate slightly from the textbook.
+For this experiment, we will use the same network from [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/). After you have completed that experiment through the section titled "Exercise", you will also run the following:
 
-First, carefully read [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/) from the beginning, through the section titled "Exercise".
 
-Then, follow the instructions in the "Run my experiment" section of this page to set up the network topology. Annotate the topology diagram from this experiment to show the interface name, MAC address, and IP address on each interface (if it has one). (Make sure it is apparent from your diagram which bridge interface your annotations refer to, as there are four bridge interfaces!) Include this diagram in an appendix to your lab report.
-
-Continue with the "Run my experiment" section up until the subsection titled "Release your resources". (Don't release your resources yet.) 
-
-**Lab report**: Answer the questions in the "Exercise" subsection for your report.
-
-We will also answer the question posed in the textbook. On node-1 and node-2, run
+On *both* node-1 and node-2, run
 
 ```
-sudo tcpdump -i eth1 -en ip proto 1 -w $(hostname -s)-bridge.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-bridge.pcap
 ```
 
-Then, in another terminal tab or window, send ten ping requests from node-1 to node-2:
+Then, in another terminal tab or window, send echo requests from node-1 to node-2:
 
 ```
-ping -v -c 10 10.0.0.2
+ping -c 3 10.0.0.2
 ```
 
-After receiving the tenth echo reply, stop `tcpdump`.
+After receiving the third echo reply, stop both `tcpdump` processes. You can play back a summary of your packet capture with
+
+```
+tcpdump -en -r $(hostname -s)-bridge.pcap
+```
+
+on each host, and you can use `scp` to transfer them to your laptop for further analysis. 
+
 
 Pick a single ICMP request, and find the packet carrying that ICMP request in both packet captures; the one on node-1 and the one on node-2. (To make sure it is the same packet, check the ICMP sequence number. It should be the same in both.)
 
