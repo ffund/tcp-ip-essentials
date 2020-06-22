@@ -4,6 +4,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Bridges and LANs
 
-* [3.5 A simple bridge experiment](3-5-simple-bridge.md)
-* [3.6 Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
+* [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/) (You will run this experiment and submit answers to the questions in the [Exercise](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#exercise) section)
+* [Addition questions on bridge operation](3-5-simple-bridge.md) (This uses the same topology as "Operation of a basic Ethernet switch or bridge", so don't delete your resources until you finish this section.)
+* [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/) (You will run this experiment and submit answers to the questions in the [Exercise](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#exercise) section)
 
