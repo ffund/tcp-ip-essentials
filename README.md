@@ -33,8 +33,9 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Bridges and LANs
 
+* [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation)
 * [3.5 A simple bridge experiment](lab3/3-5-simple-bridge.md)
-* [3.6 Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
+* [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
 
 
 ### Static and dynamic routing
