@@ -114,5 +114,5 @@ In the GENI Portal, click on "Home > Projects" in the menu at the top, then clic
 
 Requests to join a project are pending until they are approved by the Project Lead (your instructor!); understand that it may take some time for the Project Lead to review and approve your request, so plan accordingly.
 
-Once you have completed all of the exercises on this page and your account has been approved, you can proceed to the next lesson.
+Once you have completed all of the exercises on this page and your account has been approved, you can proceed to the [next lesson](1-2-reserve-and-login.md)
 
