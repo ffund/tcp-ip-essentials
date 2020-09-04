@@ -167,3 +167,4 @@ ffund@ffund-xps:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapo
 services                                      100%   19KB 401.3KB/s   00:00  
 ```
 
+Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md)

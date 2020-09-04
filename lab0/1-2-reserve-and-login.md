@@ -126,3 +126,5 @@ Are you sure you want to continue connecting (yes/no)?
 ```
 
 and you will have to type the work `yes` and hit Enter to continue. If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
+
+Once you are done with this part of the lab , proceed to the [next part](1-3-network-interfaces.md)
