@@ -75,4 +75,4 @@ To paste text into the terminal, place your cursor where you want to paste, and 
 * right-click, and choose Paste, or
 * use Ctrl+shift+P to paste
 
-Once you are done with this part of the lab , proceed to the [next part](/1-1-setup-account.md)
+Once you are done with this part of the lab , proceed to the [next part](1-1-setup-account.md)
