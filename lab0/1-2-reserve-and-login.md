@@ -70,7 +70,7 @@ Now that you have an empty canvas, we'll load the same configuration you created
 
 At this point, your RSpec is still _unbound_. This means that it is a "generic" document that doesn't specify which GENI _aggregate_ (host site) the resources in your topology will be on. 
 
-Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list in the sidebar.
+Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list in the sidebar. There are different types of GENI aggregates - for this course, we will always use the InstaGENI type, so choose a site that has InstaGENI in the name.
 
 You might assume that you should choose the aggregate associated with the university where you are a student - for example, NYU InstaGENI if you are an NYU student. But since an aggregate has a limited number of VMs, CPU cores, memory, and network capacity, if all NYU students only used the NYU InstaGENI site, it would become completely overloaded! Instead, use "load balancing" by selecting a different InstaGENI site each time you use the GENI Portal. 
 
