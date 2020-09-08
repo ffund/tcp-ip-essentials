@@ -82,3 +82,5 @@ When the `ping` finishes, use Ctrl+C to stop the `tcpdump`, then save the output
 
 
 **Lab report**: Show the output of the `tcpdump` in each case. Which network interface carries traffic from the host *to itself* when that traffic is sent to the 127.0.0.1 address? Which network interface carries traffic from the host *to itself* when that traffic is sent to the 10.10.0.100 address? Explain how the evidence from the `tcpdump` output supports your answer.
+
+Once you are done with this part of the lab , proceed to the [next part](2-7-arp.md)

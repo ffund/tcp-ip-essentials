@@ -307,5 +307,4 @@ sudo route add default gw 172.16.0.1
 **Lab report**:  Explain why the other hosts cannot reach "ophelia", whereas "romeo", which has the same subnet mask as "ophelia", can communicate with the other hosts.
 
 
-
-
+Once you are done with this part of the lab , proceed to the [next part](2-8-icmp-ping.md)

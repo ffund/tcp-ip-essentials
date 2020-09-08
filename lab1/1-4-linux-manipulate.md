@@ -134,3 +134,5 @@ on the "romeo" host, then answer these questions.
 * Explain what each of these operators does, in the context of the command sequence above: `|`, `>`
 * Explan what the complete sequence does.
 * This command saves some output to a file. What is the full path to that file? What command(s) could you use to find out the full path to the file? Show the contents of the file. What command(s) could you use to see the contents of the file?
+
+Once you are done with this part of the lab , proceed to the [next part](1-5-tcpdump-wireshark.md)
