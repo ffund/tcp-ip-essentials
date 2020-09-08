@@ -32,10 +32,8 @@ Keep an eye on that terminal prompt while you are working on the lab exercises i
 Sometimes when you are working on a remote host, your SSH session may become "stuck" because of a network connectivity problem. Under these circumstances, you might close the terminal window, open a new terminal window, and re-enter the SSH information to reconnect - all of which takes a lot of time. Fortunately, there is a quick way to "hang up" an SSH session, so that you can start a new SSH session and resume working without having to close your terminal and open a new one. To "hang up" an SSH session, place your cursor in the SSH session that you want to hang up, then: 
 
 1. Hit Enter (to make sure you are typing the hangup command at the beginning of a new line),
-2. Type `~` (on many keyboards, you may need to use Shift to type the tilde symbol),
-3. Then type `.` 
-
-Don't worry if you don't see any characters actually appear in your terminal while you carry out these steps.
+2. Type `~` (on many keyboards, you may need to use Shift to type the tilde symbol), (note that **you won't see anything appear in the terminal output when you type the `~` at the beginning of a new line**!)
+3. Then type `.` (and note that again, **you won't see it appear in the terminal output**!)
 
 Practice hanging up a session, then reconnecting by using the "up" arrow on your keyboard followed by "Enter". 
 
