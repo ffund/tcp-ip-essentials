@@ -129,3 +129,5 @@ You can also use `scp` to transfer the packet capture to your laptop, and open i
 **Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: In the previous exercise, after sending an ARP request and receiving a reply, "romeo" sends an ICMP echo request. In this exercise, is an ICMP echo request ever sent? Why or why not?
 
 **Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: From the `tcpdump` output, describe how the ARP timeout and retransmission were performed. How many attempts were made to resolve a non-existing IP address? How much time separates each attempt?
+
+Once you are done with this part of the lab , proceed to the [next part](2-9-ip-subnet.md)

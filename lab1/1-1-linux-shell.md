@@ -175,3 +175,4 @@ several operations on a file.) Here are some useful shortcuts you can try:
 !*  # all arguments of last command in history
 !$  # last argument of last command in history
 ```
+Once you are done with this part of the lab , proceed to the [next part](1-2-linux-navigating.md)
