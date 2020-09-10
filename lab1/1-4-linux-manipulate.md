@@ -121,6 +121,28 @@ We can even use the pipe operator to connect more than two commands. For example
 ifconfig -a | grep "HWaddr" | awk '{print $1,$5}'
 ```
 
+If you see a piped command sequence and you're unsure what each part does, a good way to find out is to gradually build up the sequence from left to right. For example, for the command sequence above, if you want to find out what it does you might first run:
+
+
+```
+ifconfig -a 
+```
+
+Then add
+
+
+```
+ifconfig -a | grep "HWaddr" 
+```
+
+to see how the output of `ifconfig` is modified by the `grep` command. Finally, run
+
+```
+ifconfig -a | grep "HWaddr" | awk '{print $1,$5}'
+```
+
+and compare to the previous output, to see what the `awk` command does. 
+
 
 **Lab report**: Run the piped command sequence: 
 
