@@ -180,7 +180,7 @@ After the `ping` finishes, use Ctrl+C to stop the `tcpdump`. Save this output fo
 You can find more information about capture filters in the [online documentation](https://www.tcpdump.org/manpages/pcap-filter.7.html).
 
 
-**Lab report**: What command would you run on the "romeo" host to capture *only* the Ethernet, IPv4, and TCP headers (but not the data payload) of packets in a TCP flow going from "romeo" to "juliet"? Explain your answer. Try running this command while generating TCP traffic with `iperf`: use `iperf -s` on "juliet" and `iperf -c romeo` on "romeo", and show the `tcpdump` output. 
+**Lab report**: What command would you run on the "romeo" host to capture *only* the Ethernet, IPv4, and TCP headers (but not the data payload) of packets in a TCP flow going from "romeo" to "juliet"? Explain your answer. Try running this command while generating TCP traffic with `iperf`: use `iperf -s` on "juliet" and `iperf -c juliet` on "romeo", and show the `tcpdump` output. 
 
 **Lab report**: Show the output of `tcpdump` for *one* captured ICMP packet, both with and without the `-enx` options. Point out the differences in the output, and explain which option is responsible for each.
 
