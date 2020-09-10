@@ -71,7 +71,7 @@ You can quickly see the packet summaries by reading in the file with `tcpdump`, 
 tcpdump -r romeo-tcpdump-file.pcap
 ```
 
-(Note that you don't need specifical privileges to print back packet summaries from a file, only to capture live traffic from a network interface!)
+(Note that you don't need special privileges to print back packet summaries from a file, only to capture live traffic from a network interface! That's why you didn't need `sudo` for this command.)
 
 In most cases, though, you will want to do a more in-depth analysis using Wireshark on your laptop. Open a new terminal pane and use `scp` to transfer the file to your own laptop. (Note that the packet capture will be located in your home directory on the remote host, at `~/romeo-tcpdump-file.pcap`.)
 
