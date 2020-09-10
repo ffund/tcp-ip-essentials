@@ -179,13 +179,11 @@ After the `ping` finishes, use Ctrl+C to stop the `tcpdump`. Save this output fo
 
 You can find more information about capture filters in the [online documentation](https://www.tcpdump.org/manpages/pcap-filter.7.html).
 
-
-**Lab report**: What command would you run on the "romeo" host to capture *only* TCP traffic (and no non-TCP traffic) between "romeo" and "juliet"? Explain your answer. Try running this command while generating some traffic with `ping` between "romeo" and "juliet", and show the `tcpdump` output. Did you capture the `ping` traffic? Explain.
-
 **Lab report**: Show the output of `tcpdump` for *one* captured ICMP packet, both with and without the `-enx` options. Point out the differences in the output, and explain which option is responsible for each.
 
 **Lab report**: Show the output of `tcpdump`, both with and without the `src host 10.10.0.100` capture filter. What is different, and why?
 
+**Lab report**: What command would you run on the "romeo" host to capture *only* TCP traffic (and no non-TCP traffic) between "romeo" and "juliet"? Explain your answer. Try running this command while generating some traffic with `ping` between "romeo" and "juliet", and show the `tcpdump` output. Did you capture the `ping` traffic? Explain.
 
 
 ### Exercise 14 - Useful display options in Wireshark
