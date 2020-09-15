@@ -102,4 +102,7 @@ cd ../.. # takes you two directories "higher" from where you were before
 cd -     # takes you to the directory you were in before the last time you ran "cd"
 ```
 
-Once you are done with this part of the lab , proceed to the [next part](1-3-linux-files-directories.md)
+
+Then, return to your home directory.
+
+Once you are done with this part of the lab, proceed to the [next part](1-3-linux-files-directories.md).
