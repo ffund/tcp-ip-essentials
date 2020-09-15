@@ -37,7 +37,7 @@ You shouldn't see any error messages this time, now that you are running `tcpdum
 ping -c 5 10.10.0.100
 ```
 
-while the `tcpdump` is still running on "romeo". This will generate some traffic between the "juliet" host and the "romeo" host. You'll see a summary view of each packet in the `tcpdump` output. When the `ping` is finished, use Ctrl+C to stop the `tcpdump`. Save this output for your lab report.
+while the `tcpdump` is still running on "romeo". This will generate some traffic (ICMP echo requests and replies) between the "juliet" host and the "romeo" host. You'll see a summary view of each packet in the `tcpdump` output. When the `ping` is finished, use Ctrl+C to stop the `tcpdump`. Save this output for your lab report.
 
 
 ### Exercise 12 - Save a packet capture to a file and analyze it in Wireshark
