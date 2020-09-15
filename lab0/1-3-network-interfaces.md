@@ -10,7 +10,6 @@ ifconfig -a
 
 on each host in your topology, and examine the output.
 
-On the romeo and juliet nodes you will see two Ethernet interfaces (and three Ethernet interfaces on the router nodes), even though when you drew the network topology in the GENI Portal, you only set up one link coming out of each of romeo and juliet. For example:
 
 ```
 eth0      Link encap:Ethernet  HWaddr 02:0d:1e:c3:c3:dc  
@@ -41,7 +40,10 @@ lo        Link encap:Local Loopback
           RX bytes:7644 (7.6 KB)  TX bytes:7644 (7.6 KB)
 ```
 
-That's because every host we reserve on GENI will have a "control" interface, that we use to SSH into the VM to run commands. Then, it can also have experiment interfaces (one for each link that we connect to the host, when setting it up in the GENI Portal, and with IP address and netmask according to what we configured in the Portal). We will always use the "experiment" interface, not the "control" interface, for our experiments.
+
+On romeo and juliet, we note two Ethernet interfaces (named `eth0` and `eth1`) and a loopback interface (named `lo`). The loopback interface is a virtual network interface that the computer uses for processes on the same host to communicate with one another using network protocols. The two Ethernet interfaces represent two points of attachment to networks.  On the router node, you'll see three Ethernet interfaces, representing three points of attachment to networks.
+
+Why do we have multiple points of attachment? Every host we reserve on GENI will have a "control" interface connected to the public Internet, that we use to SSH into the VM to run commands. In addition to the "control" interface, it can also have experiment interfaces (one for each link that we connect to the host, when setting it up in the GENI Portal, and with IP address and netmask according to what we configured in the Portal). We will always use the "experiment" interfaces, not the "control" interface, for our lab experiments.
 
 You can distinguish the "control" and "experiment" interfaces by their IP addresses; the experiment interfaces have whatever IP addresses you assigned to them in the GENI Portal. The IP address of the control interface is assigned by the host site, not by you.
 
