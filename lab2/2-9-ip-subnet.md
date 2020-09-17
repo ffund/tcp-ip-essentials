@@ -2,8 +2,7 @@
 
 For this experiment, we will reuse the same network as in the previous experiment.
 
-In this experiment, we will explore the IP layer requirement for communication between two hosts in the *same network segment*: the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies.)
-
+In this experiment, we will explore the IP layer requirement for communication between two hosts in the *same network segment*: the sending host must have an entry in its routing table that applies to the destination host's IP address. If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies.
 
 Before you can work on the exercises in this section, you will have to complete some extra setup steps, in which you manipulate the routing table on the remote hosts.
 
