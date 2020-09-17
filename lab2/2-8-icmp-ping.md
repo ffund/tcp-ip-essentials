@@ -4,6 +4,7 @@ For this experiment, we will reuse the same network as in the previous experimen
 
 In this experiment, we will explore the transport layer requirement for communication between two hosts in the *same network segment*: the destination host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
 
+We'll also see that when you send a UDP packet and there is *not* an application listening for incoming communication on that IP address and transport layer port, you'll get an ICMP port unreachable message.
 
 
 ### Exercise 9 - port unreachable
