@@ -300,7 +300,7 @@ When you are finished running this exercise, you can restore the default gateway
 sudo route add default gw <DEFAULT GW>
 ```
 
-e.g.
+using the default gateway you noted at the beginning of this section, e.g.
 
 ```
 sudo route add default gw 172.16.0.1
