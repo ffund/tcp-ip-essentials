@@ -92,7 +92,7 @@ tcpdump -enX -r $(hostname -s)-no-arp.pcap
 Use `scp` to transfer both packet capture files to your laptop. Then, you can open them in Wireshark for further analysis.
 
 
-**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why?
+**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why? Show evidence from the output of the `arp` commands to support your answer.
 
 **Lab report**: From the first saved `tcpdump` output, answer the following questions:
 
