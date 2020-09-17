@@ -4,8 +4,8 @@ In the previous exercise, we saw how processes on the *same host* communicate wi
 
 In the next series of exercises, we will explore the requirements for two *different* hosts in the *same network segment* to communicate with one another. These requirements are:
 
-1. At the MAC layer: the sending host must know the destination MAC address of the receiving host. If the destination MAC address is not already in the sending host's ARP table, it will send an ARP request to try and discover the destination MAC address.
-2. At the IP layer: the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies.)
+1. At the MAC layer: the sending host must know the destination MAC address of the receiving host, so that it can set the destination MAC address in the MAC layer header. If the destination MAC address is not already in the sending host's ARP table, it will send an ARP request to try and discover the destination MAC address.
+2. At the IP layer: in order to know which network interface to send from, the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies. So two hosts on the same network segment that are in the same subnet automatically meet this requirement.)
 3. At the transport layer: the destination host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
 
 In the experiments on [this page](2-7-arp.md), you will explore the first condition; in the [next set of experiments](2-9-ip-subnet.md), you will explore the second condition; and in the [final set of experiments](2-8-icmp.md) this week, you will explore the third condition.
