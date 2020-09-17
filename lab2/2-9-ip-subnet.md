@@ -2,17 +2,22 @@
 
 For this experiment, we will reuse the same network as in the previous experiment.
 
-In this experiment, we will explore the IP layer requirement for communication between two hosts in the *same network segment*: the sending host must have an entry in its routing table that applies to the destination host's IP address. If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies.
+In this experiment, we will explore the IP layer requirement for communication between two hosts in the *same network segment*: we'll see that the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will *automatically* have an entry in the routing table that applies. Therefore, two hosts on the same network segment automatically meet the IP layer requirement for communication if they are on the same subnet.)
+
+We'll also see what happens if the sending host *doesn't* have an entry in its routing table that applies to the destination host's IP address - for example, if the destination host is not in the same subnet, and we have not added a route specific to that address.
 
 Before you can work on the exercises in this section, you will have to complete some extra setup steps, in which you manipulate the routing table on the remote hosts.
 
 **Note**: If you make a mistake in these setup steps, you may lose your connection to the remote host. Rebooting the host should restore connectivity, in case this happens. To reboot the hosts in your topology, visit the slice page in the GENI Portal, and click on the "Restart" button. Wait a few minutes for your hosts to come back up before you try to connect again.
  
-The aim of this exercise is to learn what happens when you try to send packets to a network that your host doesn't know how to reach.
+The aim of Exercise 10 is to learn what happens when you try to send IP packets to a network that your host doesn't know how to reach.
 
-We are going to trigger a “network is unreachable” error message. This message occurs when there is no route in the host's routing table that describes how to reach a particular destination.
+We are going to trigger a “network is unreachable” error message. This message occurs when there is no route in the host's routing table that describes how to reach a particular destination. 
 
-Currently, however, there is a “default gateway” in the routing table that describes how to route any traffic whose destination address is not specifically given by any other rule. (This is why we can access the host over SSH.) To make this exercise work without losing our SSH connection, we need to replace the default rule with one specific to the IP address we are using to connect. Then we'll be able to observe the "destination unreachable" message AND maintain our SSH connection.
+Currently, however, there is a “default gateway” rule in the routing table that describes how to route *all* traffic whose destination address is not specifically given by any other rule. When there is a "default gateway" rule, we will never observe a "network is unreachable" message.  
+
+However, if we just remove the default gateway rule, we'll lose access to the remote host over SSH, since the SSH connection between you and the remote host is routed using that default gateway rule. 
+To make this exercise work without losing our SSH connection, we need to replace the default rule with one specific to the IP address we are using to connect. Then we'll be able to observe the "destination unreachable" message AND maintain our SSH connection.
 
 I will show you how to do this with an example - to do it yourself, you'll have to substitute the relevant IP addresses and port numbers for _your_ connection in the commands below.
 
@@ -42,9 +47,17 @@ Next, find out what network you’re connecting from by running
 netstat -n  | grep <PORT>
 ```
 
-where in the command above, you substitute the port number that you use to SSH into this node (which you get from the GENI Portal). For example (with port 26203 as the SSH port):
+where in the command above, you substitute the port number that you use to SSH into this node (which you get from the GENI Portal). For example (with port 26203 as the SSH port), I might run
+
 
 ```
+netstat -n  | grep 26203
+```
+
+and see the following output:
+
+```
+
 tcp        0     36 172.17.3.4:26203        216.165.95.188:34488    ESTABLISHED
 tcp        0      0 172.17.3.4:26203        216.165.95.188:34490    ESTABLISHED
 tcp        0      0 172.17.3.4:26203        216.165.95.188:34324    ESTABLISHED
