@@ -107,9 +107,10 @@ The second line won't overwrite the text that is written to `routing-services.tx
 in the first line; it will append to the file instead.
 
 One valuable feature of the Bash shell is the ability to "chain" together multiple
-utilities by using the _pipe_ operator, `|`. We can use this feature to filter the output of any command with `grep`.
+utilities by using the _pipe_ operator, `|`. This operator takes the output of the command
+*before* the pipe, and uses it as input to the command *after* the pipe.
 
-For example, suppose we want to see the MAC address of every network interface card on the host.  We can "pipe" the output of the `ifconfig` command to `grep`:
+We can use this feature to filter the output of any command with `grep` (although that's not the only usage!). For example, suppose we want to see the MAC address of every network interface card on the host.  We can "pipe" the output of the `ifconfig` command to `grep`:
 
 ```
 ifconfig -a | grep "HWaddr"
