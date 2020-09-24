@@ -32,6 +32,13 @@ tcpdump -enX -r $(hostname -s)-wrong-port.pcap
 
 Also transfer the packet capture to your laptop with `scp`.
 
+On "juliet" run
+
+```
+netstat -ln -u
+```
+
+to see what services are listening on UDP ports. Is there anything listening on UDP port 4000? Save this output for your lab report.
 
 Next, on the "juliet" host, run
 
@@ -43,10 +50,10 @@ to start an application listening on UDP port 4000. In a second terminal on the 
 
 
 ```
-netstat -ln
+netstat -ln -u
 ```
 
-to list listening ports. Look for a service listening on UDP port 4000.
+to list listening UDP ports. Look for a service listening on UDP port 4000. Save this output for your lab report.
 
 
 
