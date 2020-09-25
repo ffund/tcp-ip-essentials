@@ -28,9 +28,9 @@ Pick a single ICMP request, and find the packet carrying that ICMP request in bo
 
 In the packet capture on node-1, you will see what this packet looks like as it traverses the link from node-1 to the bridge. In the packet capture on node-2, you will see what this packet looks like as it traverses the link from the bridge to node-2.
 
-**Lab report**: What are the IP and MAC addresses of a packet that went from node-1 to the bridge?
+**Lab report**: What are the sou IP and MAC addresses of a packet that went from node-1 to the bridge? Show the annotated screenshot from your `tcpdump` replay on node-1, with the source and destination IP address and source and destination MAC address clearly labeled. Does node-1 put the bridge's MAC address or node-2's MAC address in the destination address field of the Ethernet header?
 
-**Lab report**: What are the IP and MAC addresses of a packet that went from the bridge to node-2? 
+**Lab report**: What are the IP and MAC addresses of a packet that went from the bridge to node-2? Show the annotated screenshot *of the same packet* from your `tcpdump` replay on node-2, with the source and destination IP address and source and destination MAC address clearly labeled. Does the bridge modify the source or destination MAC address in the Ethernet header?
 
 After completing all this and saving all the output you will need for your lab report, you can delete your resources from this experiment. (The spanning tree experiment will use a different topology.)
 
