@@ -4,9 +4,13 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Bridges and LANs
 
-Unlike some other lab exercises, for this lab, the questions you need to answer for your report are listed at the end of each page. They are not listed within the section that they apply to. You may find it helpful to read the "Exercises" section before you begin, so that you will know in advance what you have to complete.
+Unlike some other lab exercises, for this lab, the instructions do *not* include interspersed notes about what you will need to include/answer in your lab report. Instead, those instructions are listed at the end of the page in an "Exercise" section. Before you start each section, you should carefully read the associated part of the exercise at the end, so that you know what output to save and what questions you will need to answer.
 
-* [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/) (You will run this experiment and submit answers to the questions in the [Exercise](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#exercise) section)
+* [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/). 
+  * When you complete the [Set up the bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#setupthebridge) section, answer the first question in the [Exercise](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#exercise) section.
+  * When you complete the [Learning MAC addresses](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#learningmacaddresses) section, answer the second question in the [Exercise](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#exercise) section.
+  * When you complete the [Effect of a smaller collision domain](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#effectofasmallercollisiondomain) section, answer the third question in the [Exercise](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#exercise) section.
+
 * [Additional questions on bridge operation](3-5-simple-bridge.md) (This uses the same topology as "Operation of a basic Ethernet switch or bridge", so don't delete your resources until you finish this section.)
 * [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/) (You will run this experiment and submit answers to the questions in the [Exercise](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#exercise) section)
 
