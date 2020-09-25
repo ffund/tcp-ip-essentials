@@ -13,7 +13,7 @@ Unlike some other lab exercises, for this lab, the instructions do *not* include
 
 * [Additional questions on bridge operation](3-5-simple-bridge.md) (This uses the same topology as "Operation of a basic Ethernet switch or bridge", so don't delete your resources until you finish this section.)
 * [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/).  Note the questions that you will have to answer after some sections:
-  * When you finish reading the [Background](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#background) section, answer the first question in the [Exercise](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#exercise) section.
+  * When you complete the [Create a broadcast storm](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#createabroadcaststorm) section, answer the first question in the [Exercise](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#exercise) section.
   * When you complete the [Set up bridges to use spanning tree algorithm](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#setupbridgestousespanningtreealgorithm) section, answer the second question in the [Exercise](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#exercise) section.
   * When you complete the [Reacting to changes in the topology](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#reactingtochangesinthetopology) section, answer the third and fourth questions in the [Exercise](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/#exercise) section.
 
