@@ -9,6 +9,15 @@ We'll also see that when you send a UDP packet and there is *not* an application
 
 ### Exercise 9 - port unreachable
 
+On "juliet" run
+
+```
+netstat -ln -u
+```
+
+to see what services are listening on UDP ports. Is there anything listening on UDP port 4000? Save this output for your lab report.
+
+
 While running
 
 ```
@@ -22,7 +31,8 @@ in one terminal window on "romeo", open a second window on "romeo" and run
 netcat -u 10.10.0.101 4000
 ```
 
-You should then see a blinking cursor on the next line. Type a message at this cursor, and hit Enter. This will send a UDP packet carrying your message to the "juliet" host on port 4000, which is not open by default.
+You should then see a blinking cursor on the next line. Type a message at this cursor, and hit Enter. This will send a UDP packet carrying your message to the "juliet" host on port 4000. (As you have seen in the `netstat` output, there is no service listening on this port.)
+
 
 Stop the `tcpdump` and `netcat` with Ctrl+C. You can play back the summary of the packet capture with
 
@@ -32,13 +42,6 @@ tcpdump -enX -r $(hostname -s)-wrong-port.pcap
 
 Also transfer the packet capture to your laptop with `scp`.
 
-On "juliet" run
-
-```
-netstat -ln -u
-```
-
-to see what services are listening on UDP ports. Is there anything listening on UDP port 4000? Save this output for your lab report.
 
 Next, on the "juliet" host, run
 
