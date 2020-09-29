@@ -187,7 +187,7 @@ tcpdump -enX -r $(hostname -s)-host-unreachable.pcap
 
 to play back the summary in the terminal.
 
-Use `scp` to transfer both packet captures to your laptop for further analysis using Wireshark.\
+Use `scp` to transfer both packet captures to your laptop for further analysis using Wireshark.
 
 Also delete the routing table rule you added earlier, with
 
