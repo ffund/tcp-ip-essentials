@@ -87,8 +87,8 @@ Note that as you click on a part of the analysis in the packet detail pane, the 
 
 If you click on the individual fields in the Ethernet header in the packet detail pane, you can further observe that: 
 
-* the first 6 bytes of the packet are the source MAC address (and since a MAC address is customarily given in hex digits, you can read it straight from the packets bytes pane), 
-* the next 6 bytes are the destination MAC addresss, 
+* the first 6 bytes of the packet are the destination MAC address (and since a MAC address is customarily given in hex digits, you can read it straight from the packets bytes pane), 
+* the next 6 bytes are the source MAC addresss, 
 * and the next 2 bytes (which are the last bytes of the Ethernet header) are the Type field. The Type field includes information about what upper layer protocol - in this case, IPv4 - is used for this packet.
 
 Also note that when the Ethernet heading is highlighted, the status bar at the bottom shows "Ethernet (eth) 14 bytes".
