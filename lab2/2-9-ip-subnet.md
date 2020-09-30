@@ -316,7 +316,7 @@ sudo route add default gw 172.16.0.1
 * What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "hamlet"?
 * What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "ophelia"?
 
-**Lab report**:  Explain why the other hosts cannot reach "ophelia", whereas "romeo", which has the same subnet mask as "ophelia", can communicate with the other hosts.
+**Lab report**: Explain why the other hosts cannot exchange ICMP echo messages with "ophelia", while they can with "romeo", which has the same subnet mask as "ophelia". Use your answer to the previous question to support this explanation.
 
 
-Once you are done with this part of the lab , proceed to the [next part](2-8-icmp-ping.md)
+Once you are done with this part of the lab , proceed to the [next part](2-8-icmp-ping.md).
