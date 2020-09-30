@@ -126,7 +126,7 @@ and
 route -n
 ```
 
-to see the current ARP table and routing table. Are there any entries in either table that apply to the address 10.10.10.100?
+to see the current ARP table and routing table. Save these for your lab report. Are there any entries in either table that apply to the address 10.10.10.100?
 
 Then, run
 
@@ -163,7 +163,7 @@ and then use
 route -n
 ```
 
-to see the new routing table.
+to see the new routing table. Save this for your lab report. 
 
 Then, run
 
