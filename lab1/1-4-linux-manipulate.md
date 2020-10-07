@@ -148,7 +148,7 @@ and compare to the previous output, to see what the `awk` command does.
 **Lab report**: Run the piped command sequence: 
 
 ```
-ifconfig -a | grep "inet addr" > $(hostname -s)-network-config.txt
+ifconfig -a | grep "inet " > $(hostname -s)-network-config.txt
 ```
 
 on the "romeo" host, then answer these questions.
