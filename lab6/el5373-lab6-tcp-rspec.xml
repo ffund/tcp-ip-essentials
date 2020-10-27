@@ -3,7 +3,7 @@
     <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
     <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
     <sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
-      <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
+      <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
     </services>
@@ -15,7 +15,7 @@
     <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
     <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
     <sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
-      <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
+      <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
     </services>
@@ -27,7 +27,7 @@
     <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://www.emulab.net/protogeni/jacks-stable/images/router.svg"/>
     <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
     <sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
-      <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
+      <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
     </services>
