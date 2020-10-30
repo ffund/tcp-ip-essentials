@@ -4,7 +4,7 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### TCP study
 
-* [TCP as a connection-oriented transport procotol](el5373-lab6-6x.md)
+* [TCP sockets and the TCP state diagram](el5373-lab6-6x.md)
 * [6.7 Exercises on TCP connection control](el5373-lab6-67.md)
 * [6.8 Exercises on TCP interactive data flow](el5373-lab6-68.md)
 * [6.9 Exercises on TCP bulk data flow](el5373-lab6-69.md)
