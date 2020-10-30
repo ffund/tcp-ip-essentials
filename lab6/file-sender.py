@@ -13,7 +13,7 @@ bytes_sent = 0
 while (b):
     sock.sendall(b)
     bytes_sent += 4096
-    print("Sent %d out of 5767184 bytes" % bytes_sent)
+    print("Sent %d out of 5767184 bytes" % min(bytes_sent, 5767184))
     b = f.read(4096)
 
 sock.shutdown(socket.SHUT_RDWR)
