@@ -11,7 +11,7 @@ f = open('file.txt', "wb")
 bytes_read = 0
 while bytes_read < 5767184:
 	b = conn_sock.recv(4096)
- 	time.sleep(0.1)
+	time.sleep(0.1)
 	f.write(b)
 	bytes_read += len(b)
 
