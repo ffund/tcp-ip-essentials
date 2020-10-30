@@ -1,4 +1,4 @@
-import socket
+import socket, time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 sock.bind(('10.10.2.100', 4000))
