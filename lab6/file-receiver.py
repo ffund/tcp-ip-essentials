@@ -14,3 +14,6 @@ while bytes_read < 5767184:
 	f.write(b)
 	bytes_read += len(b)
 
+conn_sock.shutdown(socket.SHUT_RDWR)
+sock.shutdown(socket.SHUT_RDWR)
+f.close()
