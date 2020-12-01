@@ -10,4 +10,4 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [9.1x Exercises on network layer security](el5373-lab9-91x.md)
 * [9.12 Exercises on firewalls](el5373-lab9-912.md)
 * Optional extra experiment: [DNS spoofing on a LAN](https://witestlab.poly.edu/blog/redirect-traffic-to-a-wrong-or-fake-site-with-dns-spoofing-on-a-lan/)
-
+* Optional extra experiment: [Passive sniffing in wireless networks](https://witestlab.poly.edu/blog/passive-sniffing-in-802-11-networks/)
