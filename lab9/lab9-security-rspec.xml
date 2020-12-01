@@ -48,7 +48,7 @@
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.2.100" type="ipv4" netmask="255.255.255.0"/>
 </interface>
 </node>
-<node xmlns="http://www.geni.net/resources/rspec/3" client_id="public">
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="vpn">
 <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://www.emulab.net/protogeni/jacks-stable/images/server.svg"/>
 <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
 <sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
