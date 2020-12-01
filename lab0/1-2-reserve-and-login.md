@@ -72,16 +72,20 @@ At this point, your RSpec is still _unbound_. This means that it is a "generic" 
 
 Before you can reserve your topology, you need to bind your RSpec to a particular aggregate. To do this, click on the "Site 1" box on the canvas and choose an aggregate from the dropdown list in the sidebar. There are different types of GENI aggregates - for this course, we will always use the InstaGENI type, so choose a site that has InstaGENI in the name.
 
-You might assume that you should choose the aggregate associated with the university where you are a student - for example, NYU InstaGENI if you are an NYU student. But since an aggregate has a limited number of VMs, CPU cores, memory, and network capacity, if all NYU students only used the NYU InstaGENI site, it would become completely overloaded! Instead, use "load balancing" by selecting a different InstaGENI site each time you use the GENI Portal. 
+You might assume that you should choose the aggregate associated with the university where you are a student - for example, NYU InstaGENI if you are an NYU student. But since an aggregate has a limited number of VMs, CPU cores, memory, and network capacity, if all NYU students only used the NYU InstaGENI site, it would become overloaded! Instead, use "load balancing" by selecting a different InstaGENI aggregate each time you use the GENI Portal. To help choose an aggregate, you can refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify InstaGENI sites that have many "free VMs" available. 
+
 
 Once your resource request is bound to a particular aggregate, you will be able to reserve your resources; scroll down to the bottom of the page and click on "Reserve Resources." This will submit your RSpec to the aggregate you've selected, which will attempt to satisfy your request. If the aggregate believes it is able to give you the resources you've requested, then you'll see that your reservation has finished:
 
 ![](1-jacks-status.png)
 
-> **Note**: If your request fails at this point, you should try again with a different aggregate. If you continue to get failed requests, 
->
-> * You may have a problem with your RSpec and you should double-check your work from Exercise 2. (For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.) If you can't find your mistake, ask an instructor for help.
-> * There may be a system-wide maintenance window or outage - check with your instructor to find out if this is the case.
+
+If the InstaGENI site you selected doesn't have enough resources available to satisfy your request (e.g.: not enough free VMs), then your request will fail. If that happens, you should try again with a different aggregate. You can check the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify InstaGENI sites that have many "free VMs" available. 
+
+If you continue to get failed requests, even though you are using the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify InstaGENI sites that have many "free VMs" available,
+
+ * You may have a problem with your RSpec and you should double-check your work from Exercise 2. (For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.) If you can't find your mistake, ask an instructor for help.
+ * There may be a system-wide maintenance window or outage - check with your instructor to find out if this is the case.
 
 ### Exercise 7 - Log in to resources
 
