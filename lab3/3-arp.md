@@ -1,5 +1,20 @@
 ## ARP exercises
 
+For this experiment, we will use a topology with two connected workstations (named "romeo" and "juliet"), with IP addresses configured as follows:
+
+* romeo: 10.10.0.100
+* juliet: 10.10.0.101
+
+each with a netmask of 255.255.255.0. 
+
+To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: https://raw.githubusercontent.com/ffund/tcp-ip-essentials/sp21/lab3/single-segment.xml
+
+Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify an InstaGENI site that has many "free VMs" available. Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
+
+Before you start, use `ifconfig -a` to capture the network interface configuration of each host in this topology. Save this information for your reference.
+
+
+
 ### Exercise - ARP
 
 On the "romeo" host, run
