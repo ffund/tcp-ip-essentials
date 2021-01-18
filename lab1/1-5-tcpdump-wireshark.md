@@ -222,3 +222,7 @@ You can also apply a filter directly from the packet detail pane. For example, r
 The [Wireshark documentation](https://www.wireshark.org/docs/man-pages/wireshark-filter.html) includes many examples of display filters, with explanation.
 
 **Lab report**: What would you type in the filter toolbar to only show packets with ICMP sequence number 1? Apply this display filter to `romeo-tcpdump-file.pcap` and show a screenshot of the Wireshark window.
+
+
+Once you are done with this part of the lab, proceed to the [next part](1-x-loopback.md).
+
