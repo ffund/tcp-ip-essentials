@@ -15,15 +15,14 @@ This version of the lab materials is for the **Spring 2021** semester.
 * [0.4 Working on remote hosts](lab0/1-4-working-on-remote-hosts.md)
 * [0.5 Save data and delete resources on GENI](lab0/1-5-delete-resources.md)
 
-
 ### Linux
-
 
 * [1.1 Learning the basics of the Bash shell](lab1/1-1-linux-shell.md)
 * [1.2 Navigating the filesystem](lab1/1-2-linux-navigating.md)
 * [1.3 Working with files and directories](lab1/1-3-linux-files-directories.md)
 * [1.4 Manipulating output of a command](lab1/1-4-linux-manipulate.md)
 * [1.5 Using `tcpdump` and Wireshark](lab1/1-5-tcpdump-wireshark.md)
+* [1.6 Loopback interface](lab1/1-x-loopback.md)
 * Optional extra experiment: [TCP/IP protocol layers](https://witestlab.poly.edu/blog/tcp-ip-protocol-stack/)
 
 ### A single segment network
