@@ -9,6 +9,6 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [1.3 Working with files and directories](1-3-linux-files-directories.md)
 * [1.4 Manipulating output of a command](1-4-linux-manipulate.md)
 * [1.5 Using `tcpdump` and Wireshark](1-5-tcpdump-wireshark.md)
-* [1.x Loopback interface](1-x-loopback.md)
+* [1.6 Loopback interface](1-x-loopback.md)
 * Optional extra experiment: [TCP/IP protocol layers](https://witestlab.poly.edu/blog/tcp-ip-protocol-stack/)
 
