@@ -2,9 +2,11 @@
 
 This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab-Based Approach](https://www.amazon.com/TCP-IP-Essentials-Lab-Based-Approach/dp/052160124X), adapted to use the GENI testbed rather than an in-house lab.
 
-### Bridges and LANs
+### ARP, Bridges and LANs
 
 Unlike some other lab exercises, for this lab, the instructions do *not* include interspersed notes about what you will need to include/answer in your lab report. Instead, those instructions are listed at the end of the page in an "Exercise" section. Before you start each section, you should carefully read the associated part of the exercise at the end, so that you know what output to save and what questions you will need to answer.
+
+* [ARP exercises](3-arp.md)
 
 * [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/). Note the questions that you will have to answer after some sections:
   * When you complete the [Set up the bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#setupthebridge) section, answer the first question in the [Exercise](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/#exercise) section.

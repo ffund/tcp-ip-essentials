@@ -12,11 +12,9 @@ To set up this topology in the GENI Portal, create a slice, click on "Add Resour
 Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify an InstaGENI site that has many "free VMs" available. Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
 
 
-Before you start, use `ifconfig -a` to capture the network interface configuration of each host in this topology. Draw a diagram of the topology, and label each network interface with its name, IP address, and MAC address.
+Before you start, use `ifconfig -a` to capture the network interface configuration of each host in this topology. Save this information for your reference.
 
 You will run all of the commands in this exercise in your SSH session (on either host), *not* on your local system. Check the terminal prompt to make sure you are working on the remote host.
-
-**Lab report**: Upload your network diagram for this topology.
                                                                                 
 ### Exercise 1 - "Hello world"
 
@@ -175,4 +173,4 @@ several operations on a file.) Here are some useful shortcuts you can try:
 !*  # all arguments of last command in history
 !$  # last argument of last command in history
 ```
-Once you are done with this part of the lab , proceed to the [next part](1-2-linux-navigating.md)
+Once you are done with this part of the lab , proceed to the [next part](1-2-linux-navigating.md).
