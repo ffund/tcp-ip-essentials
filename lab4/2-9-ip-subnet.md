@@ -329,5 +329,3 @@ sudo route add default gw 172.16.0.1
 
 **Lab report**: Explain why the other hosts cannot exchange ICMP echo messages with "ophelia", while they can with "romeo", which has the same subnet mask as "ophelia". Use your answer to the previous question to support this explanation.
 
-
-Once you are done with this part of the lab , proceed to the [next part](2-8-icmp-ping.md).
