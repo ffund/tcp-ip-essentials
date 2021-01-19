@@ -25,15 +25,9 @@ This version of the lab materials is for the **Spring 2021** semester.
 * [1.6 Loopback interface](lab1/1-x-loopback.md)
 * Optional extra experiment: [TCP/IP protocol layers](https://witestlab.poly.edu/blog/tcp-ip-protocol-stack/)
 
-### A single segment network
-
-* [2.6 Network interface exercises](lab2/2-6-network-interface.md)
-* [2.7 ARP exercises](lab2/2-7-arp.md)
-* [2.9 Exercises with IP address and subnet mask](lab2/2-9-ip-subnet.md)
-* [2.8 Exercise with ICMP and Ping](lab2/2-8-icmp-ping.md)
-
 ### Bridges and LANs
 
+* [2.7 ARP](lab3/3-arp.md)
 * [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation)
 * [3.5 A simple bridge experiment](lab3/3-5-simple-bridge.md)
 * [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
