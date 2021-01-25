@@ -1,6 +1,6 @@
 ### Exercise - Loopback interface
 
-In this exercise, you will see how processes *on the same host* can communicate with each other using the loopback interface. 
+Now that you have learned how to use `tcpdump` and Wireshark, you will use these software tools to observe how processes *on the same host* communicate with each other using the *loopback interface*. 
 
 For example: Suppose you have a database server and a web server installed on the same host, and the web server is supposed to display dynamic information from the database on its web pages.
 
