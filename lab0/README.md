@@ -7,5 +7,4 @@
 * [Navigating the filesystem](1-2-linux-navigating.md)
 * [Working with files and directories](1-3-linux-files-directories.md)
 * [Working on remote hosts](1-4-working-on-remote-hosts.md)
-* [Using `tcpdump` and Wireshark](1-5-tcpdump-wireshark.md)
 * [Save data and delete resources on GENI](1-5-delete-resources.md)
