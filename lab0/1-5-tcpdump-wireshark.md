@@ -224,4 +224,4 @@ The [Wireshark documentation](https://www.wireshark.org/docs/man-pages/wireshark
 **Lab report**: What would you type in the filter toolbar to only show packets with ICMP sequence number 1? Apply this display filter to `romeo-tcpdump-file.pcap` and show a screenshot of the Wireshark window.
 
 
-Once you are done with this part of the lab, proceed to the [next part]()1-4-working-on-remote-hosts.md).
+Once you are done with this part of the lab, proceed to the [next part](1-4-working-on-remote-hosts.md).
