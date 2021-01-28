@@ -2,7 +2,7 @@
 
 Finally, in this section you will practice using `tcpdump` and Wireshark, two software applications for *packet capture* and *packet analysis*. Using these applications, we can capture raw network data as it arrives at or leaves any host in our experiments, save the raw network packets in a file, and analyze the packets in this file in order to gain insight into network protocols and their behavior.
 
-You will use these utilities in every lab exercise for the remainder of the course.
+You will use these utilities in other lab exercises for the remainder of the course.
 
 ### Exercise 11 - Capture network traffic with `tcpdump`
 
