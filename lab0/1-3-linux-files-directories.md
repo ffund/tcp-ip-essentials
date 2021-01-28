@@ -138,4 +138,4 @@ You can also use the `man` command to read the complete user manual for a comman
 man ls
 ```
 
-Once you are done with this part of the lab , proceed to the [next part](1-4-linux-manipulate.md)
+Once you are done with this part of the lab , proceed to the [next part](1-4-working-on-remote-hosts.md)
