@@ -131,4 +131,17 @@ Are you sure you want to continue connecting (yes/no)?
 
 and you will have to type the work `yes` and hit Enter to continue. If you have specified your key path and other details correctly, it won't ask you for a password when you log in to the node. (It may ask for the passphrase for your private key if you've set one.)
 
+When you are working inside a login session on a remote node, any commands you run will execute there, not on your laptop. How can you tell whether you're running a command on your laptop or on a remote node? Look at the shell *prompt*!
+
+When you open a new terminal window, you'll have a _local_ shell open. Make a note of what the prompt looks like - any commands you run at this prompt will run on your laptop! For example, my local shell prompt looks like this:
+
+```
+ffund@ffund-xps:~$
+```
+
+It shows my username (`ffund`), hostname (`ffund-xps`), my current working directory (`~`, which is shorthand for my home directory), and then a `$` to signify that I'm working as a normal (unprivileged) user. (If I was working as the privileged "root" user, the prompt would end with a `#` instead.)
+
+When you log in to a remote host, the terminal prompt will change - at the very least, it will show the hostname of the remote host instead of the hostname on the laptop you are working on. When working on remote hosts, the prompt is useful for determining *where* you are running a command.
+
+
 Once you are done with this part of the lab , proceed to the [next part](1-1-linux-shell.md).
