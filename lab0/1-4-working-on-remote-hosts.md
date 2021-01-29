@@ -96,7 +96,6 @@ ffund@ffund-xps:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapo
 services                                      100%   19KB 401.3KB/s   00:00  
 ```
 
-Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md).
 
 **Lab report**: Mistakes with `scp` can be a source of frustration for students, so it's good to know about common errors and what they mean. For each of the following SCP commands, can you identify the mistake I made, and explain how to fix it? (You can try out these "wrong" commands for yourself - just replace the port number, username, and hostname with the relevant one for your experiment resource.)
 
@@ -130,3 +129,6 @@ ffund01@romeo:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.
 Warning: Identity file /users/ffund01/.ssh/id_rsa not accessible: No such file or directory.
 ssh: connect to host pc3.instageni.maxgigapop.net port 25107: Connection timed out
 ```
+
+Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md).
+
