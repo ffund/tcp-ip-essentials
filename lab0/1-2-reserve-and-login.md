@@ -144,4 +144,4 @@ It shows my username (`ffund`), hostname (`ffund-xps`), my current working direc
 When you log in to a remote host, the terminal prompt will change - at the very least, it will show the hostname of the remote host instead of the hostname on the laptop you are working on. When working on remote hosts, the prompt is useful for determining *where* you are running a command.
 
 
-Once you are done with this part of the lab , proceed to the [next part](1-1-linux-shell.md).
+Once you are done with this part of the lab , proceed to the [next part](1-3-network-interfaces.md).
