@@ -122,13 +122,21 @@ ffund@ffund-XPS-13-9300:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.m
 scp: .: not a regular file
 ```
 
-* "Connection timed out"
+* "Connection timed out":
 
 ```
 ffund01@romeo:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services .
 Warning: Identity file /users/ffund01/.ssh/id_rsa not accessible: No such file or directory.
 ssh: connect to host pc3.instageni.maxgigapop.net port 25107: Connection timed out
 ```
+
+* "Permission denied":
+
+```
+ffund@ffund-XPS-13-9300:/$ scp -i ~/.ssh/id_rsa -P 25211 ffund01@pc1.geni.kettering.edu:/etc/services .
+/services: Permission denied
+```
+
 
 Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md).
 
