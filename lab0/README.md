@@ -3,6 +3,7 @@
 * [Prepare your workstation](1-0-prepare-workstation.md)
 * [Set up an account on GENI](1-1-setup-account.md)
 * [Reserve a simple network on GENI](1-2-reserve-and-login.md)
+* [Inspect network interfaces](1-3-network-interfaces.md)
 * [Basics of the Bash shell](1-1-linux-shell.md)
 * [Navigating the filesystem](1-2-linux-navigating.md)
 * [Working with files and directories](1-3-linux-files-directories.md)
