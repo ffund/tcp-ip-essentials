@@ -133,7 +133,7 @@ ssh: connect to host pc3.instageni.maxgigapop.net port 25107: Connection timed o
 * "Permission denied":
 
 ```
-ffund@ffund-XPS-13-9300:/$ scp -i ~/.ssh/id_rsa -P 25211 ffund01@pc1.geni.kettering.edu:/etc/services .
+ffund@ffund-XPS-13-9300:/$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services .
 /services: Permission denied
 ```
 
