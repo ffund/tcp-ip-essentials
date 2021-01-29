@@ -40,6 +40,7 @@ lo        Link encap:Local Loopback
           RX bytes:7644 (7.6 KB)  TX bytes:7644 (7.6 KB)
 ```
 
+(The output may look slightly different, depending on the operating system version that is loaded on the hosts you are using, but the basic elements should be the same.)
 
 On romeo and juliet, we note two Ethernet interfaces (named `eth0` and `eth1`) and a loopback interface (named `lo`). The loopback interface is a virtual network interface that the computer uses for processes on the same host to communicate with one another using network protocols. The two Ethernet interfaces represent two points of attachment to networks.  On the router node, you'll see three Ethernet interfaces, representing three points of attachment to networks.
 
