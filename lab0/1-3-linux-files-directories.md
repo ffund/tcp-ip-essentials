@@ -109,7 +109,9 @@ cat README.txt
 ```
 
 to verify that you've retrieved the file and see its contents.
-Similarly, you can download anything from the web by URL.
+Similarly, you can download anything from the web by URL. 
+
+(If you aren't able to download the file named above for any reason, you can just try to download a different URL.)
 
 
 ### Exercise 8 - flags, man page and `--help`
