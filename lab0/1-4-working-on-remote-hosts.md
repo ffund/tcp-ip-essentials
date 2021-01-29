@@ -128,5 +128,5 @@ scp: .: not a regular file
 ```
 ffund01@romeo:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services .
 Warning: Identity file /users/ffund01/.ssh/id_rsa not accessible: No such file or directory.
-ssh: connect to host pc1.geni.kettering.edu port 25211: Connection timed out
+ssh: connect to host pc3.instageni.maxgigapop.net port 25107: Connection timed out
 ```
