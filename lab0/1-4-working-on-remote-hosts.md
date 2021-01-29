@@ -87,7 +87,7 @@ services                                      100%   19KB 401.3KB/s   00:00
 
 and then, when you run `ls`, you should see the `services` file in your current directory. 
 
-You'll have to make sure you have the necessary file permissions to write files to the directory you are working in! If you get a message indicating a file permission error, you may have to specify a path to a directory in which you have write permission, instead of the `.` argument.
+You'll have to make sure you have the necessary file permissions to write files to the directory you are working in! If you get a "Permission denied" error or similar error about file permissions, you may have to specify a path to a directory in which you have write permission, instead of the `.` argument.
 
 **Lab report**: Transfer the file located at `/etc/services` on your "romeo" host to your laptop. Include a screenshot, or copy and paste from your terminal, to show the command you ran *and* the result showing a successful file transfer. For example
 
