@@ -96,4 +96,37 @@ ffund@ffund-xps:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapo
 services                                      100%   19KB 401.3KB/s   00:00  
 ```
 
-Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md)
+Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md).
+
+**Lab report**: Mistakes with `scp` can be a source of frustration for students, so it's good to know about common errors and what they mean. For each of the following SCP commands, can you identify the mistake I made, and explain how to fix it? (You can try out these "wrong" commands for yourself - just replace the port number, username, and hostname with the relevant one for your experiment resource.)
+
+* "cannot stat 'port number': No such file or directory":
+
+```
+ffund@ffund-XPS-13-9300:~$ scp -i ~/.ssh/id_rsa -p 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services .
+cp: cannot stat '25107': No such file or directory
+```
+
+* Usage message:
+
+```
+ffund@ffund-XPS-13-9300:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services
+usage: scp [-346BCpqrTv] [-c cipher] [-F ssh_config] [-i identity_file]
+            [-J destination] [-l limit] [-o ssh_option] [-P port]
+            [-S program] source ... target
+```
+
+* "Not a regular file":
+
+```
+ffund@ffund-XPS-13-9300:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net: /etc/services .
+scp: .: not a regular file
+```
+
+* "Connection timed out"
+
+```
+ffund01@romeo:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapop.net:/etc/services .
+Warning: Identity file /users/ffund01/.ssh/id_rsa not accessible: No such file or directory.
+ssh: connect to host pc1.geni.kettering.edu port 25211: Connection timed out
+```
