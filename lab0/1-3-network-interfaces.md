@@ -48,6 +48,4 @@ Why do we have multiple points of attachment? Every host we reserve on GENI will
 
 You can distinguish the "control" and "experiment" interfaces by their IP addresses; the experiment interfaces have whatever IP addresses you assigned to them in the GENI Portal. The IP address of the control interface is assigned by the host site, not by you.
 
-**Lab report**: Show the output of `ifconfig -a` for each host in _your_ topology: romeo, juliet, and the router. Make sure you show which output comes from which host. Also, for each, indicate the name of the "control" interface (e.g. `eth0`, `eth1`, `eth2`) and the name of each "experiment" interface, and explain how you can tell which is which.
-
-Once you are done with this part of the lab , proceed to the [next part](1-4-working-on-remote-hosts.md)
+Once you are done with this part of the lab , proceed to the [next part](1-1-linux-shell.md)
