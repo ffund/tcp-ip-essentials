@@ -8,6 +8,8 @@ You will use these utilities in every lab exercise for the remainder of the cour
 
 Both Wireshark and `tcpdump` can be used to capture packets from a live network. However, `tcpdump` is a terminal-based application while Wireshark has a graphical user interface. Since we have terminal-based SSH sessions on our remote hosts, we will use `tcpdump` to capture network packets.
 
+Note that despite its name, `tcpdump` does not only capture TCP packets - it captures all types of packets!
+
 We will start by learning how to use `tcpdump` to capture all network packets arriving at or leaving a particular network interface. When using `tcpdump`, we will use the `-i` argument to specify the name of the interface that we want to capture traffic on. 
 
 On the "romeo" host, run
