@@ -37,7 +37,8 @@ You shouldn't see any error messages this time, now that you are running `tcpdum
 ping -c 5 10.10.0.100
 ```
 
-while the `tcpdump` is still running on "romeo". This will generate some traffic between the "juliet" host and the "romeo" host. (The `ping` application generates ICMP echo requests, which will elicit ICMP echo responses from the target host. ICMP is a network-layer protocol used for error and control messages.)
+while the `tcpdump` is still running on "romeo". This will generate some traffic between the "juliet" host and the "romeo" host. (The `ping` application generates ICMP echo requests to a target host, which will send ICMP echo responses in reply. ICMP is a network-layer protocol used for error and control messages.)
+
 
 You'll see a summary view of each packet in the `tcpdump` output. When the `ping` is finished, use Ctrl+C to stop the `tcpdump`. Save this output for your lab report.
 
@@ -96,7 +97,6 @@ If you click on the individual fields in the Ethernet header in the packet detai
 Also note that when the Ethernet heading is highlighted, the status bar at the bottom shows "Ethernet (eth) 14 bytes".
 
 In addition to the packet details that are explicit in the packet, like those mentioned above, Wireshark also displays some "generated fields" that are *inferred* from the contents of the packet capture. These fields are shown inside `[` `]` brackets in the packet detail pane.  For example, if you click on an ICMP *reply* packet and expand the ICMP section in the packet detail pane, you can see that Wireshark computes the response time, even though this is not explicit in the packet itself.
-
 
 **Lab report**: Select one ICMP packet in your packet capture. In the packet detail pane, find and select the "Sequence number" field in the ICMP header. Take a screenshot showing this field highlighted in both the packet detail pane and the packet bytes pane. How many bytes are allocated for this field in an ICMP packet? Explain how you can determine the number of bytes reserved for this field, using your screenshot.
 
