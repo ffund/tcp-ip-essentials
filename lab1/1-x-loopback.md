@@ -1,13 +1,13 @@
 ### Exercise - Loopback interface
 
-Now that you have learned how to use `tcpdump` and Wireshark, you will use these software tools to observe how processes *on the same host* communicate with each other using the *loopback interface*. 
+Now that you have learned how to use `tcpdump` and Wireshark, you will use these software tools to observe how processes *on the same host* communicate with each other using the *loopback interface*.  The loopback interface does not send packets or receive packets from an actual network link. When a packet is "sent" to the loopback interface, it is simply placed on the loopback interface's input queue, and "received" from there.
 
 For example: Suppose you have a database server and a web server installed on the same host, and the web server is supposed to display dynamic information from the database on its web pages.
 
 * If the database server and web server were on two different hosts, they would communicate across a network, so that the web server could retrieve information from the database.
 * If the database server and web server are on the same host, they'll still communicate using network protocols, but these communications won't appear on any network link. Instead, they'll appear across the loopback interface. "Packets" sent on the loopback interface are not sent on any network, but are sent to other processes on the same host.
 
-
+In the `ifconfig` output on each host, you'll see an interface named `lo`, which is the loopback interface. This interface will typically be assigned the IPv4 address 127.0.0.1. However, any "local" address - an address assigned to any interface on the host - is treated like a loopback address, and packets sent to a local address from the host itself will be delivered by the loopback interface.
 
 On the "romeo" host, run
 
