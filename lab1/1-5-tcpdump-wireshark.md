@@ -98,7 +98,7 @@ Also note that when the Ethernet heading is highlighted, the status bar at the b
 
 In addition to the packet details that are explicit in the packet, like those mentioned above, Wireshark also displays some "generated fields" that are *inferred* from the contents of the packet capture. These fields are shown inside `[` `]` brackets in the packet detail pane.  For example, if you click on an ICMP *reply* packet and expand the ICMP section in the packet detail pane, you can see that Wireshark computes the response time, even though this is not explicit in the packet itself.
 
-**Lab report**: Select one ICMP packet in your packet capture. In the packet detail pane, find and select the "Sequence number" field in the ICMP header. Take a screenshot showing this field highlighted in both the packet detail pane and the packet bytes pane. How many bytes are allocated for this field in an ICMP packet? Explain how you can determine the number of bytes reserved for this field, using your screenshot.
+**Lab report**: Select one ICMP packet in your packet capture. In the packet detail pane, find and select the "Type" field in the ICMP header. Take a screenshot showing this field highlighted in both the packet detail pane and the packet bytes pane. How many bytes are allocated for this field in an ICMP packet? Explain how you can determine the number of bytes reserved for this field, using your screenshot.
 
 
 ### Exercise 13 - Useful display options and capture options in `tcpdump`
@@ -179,13 +179,13 @@ ping -c 5 10.10.0.100
 
 After the `ping` finishes, use Ctrl+C to stop the `tcpdump`. Save this output for your lab report.
 
-You can find more information about capture filters in the [online documentation](https://www.tcpdump.org/manpages/pcap-filter.7.html).
+You can find more information about capture filters in the [online documentation](https://www.tcpdump.org/manpages/pcap-filter.7.html). Note that you can use `and`, `or` and `not` in capture filters, to create complex filter expressions with multiple conditions.
 
 **Lab report**: Show the output of `tcpdump` for *one* captured ICMP packet, both with and without the `-enx` options. Point out the differences in the output, and explain which option is responsible for each.
 
 **Lab report**: Show the output of `tcpdump`, both with and without the `src host 10.10.0.100` capture filter. What is different, and why?
 
-**Lab report**: What command would you run on the "romeo" host to capture *only* TCP traffic (and no non-TCP traffic) between "romeo" and "juliet"? Explain your answer. Try running this command while generating some traffic with `ping` between "romeo" and "juliet", and show the `tcpdump` output. Did you capture the `ping` traffic? Explain.
+**Lab report**: What command would you run on the "romeo" host to capture all network traffic between "romeo" and "juliet" *except* ICMP packets? Explain your answer. Try running this command while generating some traffic with `ping` between "romeo" and "juliet", and show the `tcpdump` output. Did you capture the ICMP echo requests or replies? Explain.
 
 
 ### Exercise 14 - Useful display options in Wireshark
