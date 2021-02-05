@@ -1,16 +1,15 @@
 ## 2.7 ARP exercises
 
-In the previous exercise, we saw how processes on the *same host* communicate with one another.
+In the exercises on this page, we will see how networked devices use ARP to learn MAC addresses of other devices on the same network segment. 
 
-In the next series of exercises, we will explore the requirements for two *different* hosts in the *same network segment* to communicate with one another. These requirements are:
+Each network interface on a host or a router has a MAC address associated with it. This is a fixed address! It does not change even if the interface detaches from one network and attached to a different network.
 
-1. At the MAC layer: the sending host must know the destination MAC address of the receiving host, so that it can set the destination MAC address in the MAC layer header. If the destination MAC address is not already in the sending host's ARP table, it will send an ARP request to try and discover the destination MAC address.
-2. At the IP layer: in order to know which network interface to send from, the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will automatically have an entry in the routing table that applies. So two hosts on the same network segment that are in the same subnet automatically meet this requirement.)
-3. At the transport layer: the destination host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
+When a frame is *transmitted* on a network segment, the sender puts the destination's MAC address into the link-layer header of the frame and then sends the
+frame into the LAN. When a frame is *received* by a network interface, it checks to see whether the destination MAC address in the frame header matches its own MAC address. If it matches, the enclosed packet will be passed up the protocol stack; if not, the frame is discarded.
 
-In the experiments on [this page](2-7-arp.md), you will explore the first condition; in the [next set of experiments](2-9-ip-subnet.md), you will explore the second condition; and in the [final set of experiments](2-8-icmp.md) this week, you will explore the third condition.
+Higher layer protocols, however, are only aware of the *global* destination of a packet, which is its network layer address (IP address). Only the link layer, which is concerned with delivery of the packet to the next destination on the *local* network, needs its destination MAC address! When a packet is passed down the protocol stack from higher layers to the link layer, it has a destination IP address but not a MAC address. How does the link layer determine the MAC address for the host with a particular destination IP address?
 
-For this experiment, we will reuse the same network topology as in the previous experiment. 
+ARP is used to resolve IP addresses to MAC addresses. Each host and router maintains an ARP table with all known IP address-MAC address associations. When sending a frame, it will first check this table to see if the MAC address for the destination IP address is already known. If the destination MAC address is *not* already in the sending host's ARP table, it will send an ARP request to try and discover the destination MAC address.
 
 ### Exercise 4 - ARP
 
