@@ -36,7 +36,7 @@ This version of the lab materials is for the **Spring 2021** semester.
 ### Static and dynamic routing
 
 * [4.5 A simple router experiment](lab4/el5373-lab4-45.md)
-* [4.6 RIP expercises](lab4/el5373-lab4-46.md)
+* [4.6 RIP exercises](lab4/el5373-lab4-46.md)
 * [4.7 Routing experiments with ICMP](lab4/el5373-lab4-47.md)
 * Optional extra experiment: [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
 * Optional extra experiment: [Dijkstra's shortest path algorithm](https://witestlab.poly.edu/blog/dijkstras-shortest-path-algorithm/)
