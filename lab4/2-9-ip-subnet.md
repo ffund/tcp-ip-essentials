@@ -1,5 +1,15 @@
 ## 2.9 Exercises with IP address and subnet mask
 
+You may think that a routing table (also known as a forwarding table) is only relevant to *routers*, but in this experiment we will see that hosts also maintain and use a routing table! When a host prepares to send an IP packet, it consults its routing table:
+
+* to find out whether the destination is "directly connected" - on the same LAN as the sending host - or if the destination is reached through a router, and if so, what is the IP address of the router. If the destination is directly connected, the sender will use ARP to find out the MAC address associated with the destination IP address, and then it will use that MAC address in the destination field of the Ethernet header. If the destination is reached through a router, the sender will use ARP to find out the router's MAC address, and it will put the router's MAC address in the destination field of the Ethernet header, since the frame should be delivered to the router.
+* if the host has multiple network interfaces, it uses the routing table to find out which interface the the packet should be sent from.
+
+In these experiments, we'll see that in order to send a packet, the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will *automatically* have an entry in the routing table that applies.) We'll also see what happens if the sending host *doesn't* have an entry in its routing table that applies to the destination host's IP address - for example, if the destination host is not in the same subnet, and we have not added a route specific to that address.
+
+
+### Reserve resources
+
 For this experiment, we will use a topology with four connected workstations on a single network segment, with IP addresses configured as follows:
 
 * romeo: 10.10.0.100
@@ -12,13 +22,6 @@ each with a netmask of 255.255.255.0.
 To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: [https://raw.githubusercontent.com/ffund/tcp-ip-essentials/master/lab4/lab2-single-segment-rspec.xml](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/master/lab2/lab2-single-segment-rspec.xml)
 
 Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify an InstaGENI site that has many "free VMs" available. Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
-
-You may think that routing happens only at *routers*, but in this experiment we will see that hosts also make routing decisions! When a host prepares to send an IP packet, it consults its routing table:
-
-* to find out whether the destination is "directly connected" - on the same LAN as the sending host - or if the destination is reached through a router, and if so, what is the IP address of the router. If the destination is directly connected, the sender will use ARP to find out the MAC address associated with the destination IP address, and then it will use that MAC address in the destination field of the Ethernet header. If the destination is reached through a router, the sender will use ARP to find out the router's MAC address, and it will put the router's MAC address in the destination field of the Ethernet header, since the frame should be delivered to the router.
-* if the host has multiple network interfaces, it uses the routing table to find out which interface the the packet should be sent from.
-
-In these experiments, we'll see that in order to send a packet, the sending host must have an entry in its routing table that applies to the destination host's IP address. (If the destination host is in the same subnet as the sending host, then it will *automatically* have an entry in the routing table that applies.) We'll also see what happens if the sending host *doesn't* have an entry in its routing table that applies to the destination host's IP address - for example, if the destination host is not in the same subnet, and we have not added a route specific to that address.
 
 
 ### Remove the default route
