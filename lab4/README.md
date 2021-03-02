@@ -11,6 +11,3 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Part II
 
-* [4.6 RIP exercises](el5373-lab4-46.md)
-* [4.7 Routing experiments with ICMP](el5373-lab4-47.md)
-* Optional experiment: [Dijkstra's shortest path algorithm](https://witestlab.poly.edu/blog/dijkstras-shortest-path-algorithm/)
