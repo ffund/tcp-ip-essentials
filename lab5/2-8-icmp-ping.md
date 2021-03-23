@@ -2,9 +2,9 @@
 
 For this experiment, we will reuse the same network as in the previous experiment.
 
-In this experiment, we will explore the transport layer requirement for communication between two hosts in the *same network segment*: the destination host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
+We know that for data to be passed up from the transport layer to the application layer, the host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
 
-We'll also see that when you send a UDP packet and there is *not* an application listening for incoming communication on that IP address and transport layer port, you'll get an ICMP port unreachable message.
+In this experiment, we'll see that when you send a UDP packet and there is *not* an application listening for incoming communication on that IP address and transport layer port, you'll get an ICMP port unreachable message.
 
 
 ### Exercise 9 - port unreachable
@@ -84,7 +84,7 @@ tcpdump -enX -r $(hostname -s)-open-port.pcap
 Also transfer the packet capture to your laptop with `scp`.
 
 
-**Lab report**: Study the saved ICMP port unreachable message (see Fig. 2.7 in the text book). Why are the first 8 bytes of the original IP datagram payload included in the ICMP message?
+**Lab report**: Study the saved ICMP port unreachable message (see Fig. 2.7 in the text book). Why are the first bytes of the original IP datagram payload included in the ICMP message?
 
 
 **Lab report**: What transport layer protocol (UDP or TCP) and port number did you attempt to contact "juliet" on? Is any service listening on that port in the first case? Is any service listening on that port in the second case? Use the `netstat` and `tcpdump` output to explain.
