@@ -1,4 +1,4 @@
-## 0.1 Set up your account on GENI
+## Set up your account on GENI
 
 In this course, you will use [GENI](http://www.geni.net/) to run lab experiments. 
 
@@ -10,7 +10,7 @@ Before you can run lab experiments on GENI, you will need to set up an account. 
 
 First, go to [https://portal.geni.net](https://portal.geni.net) and click on "Use GENI".
 
-On the next screen, you will be prompted to choose an Identity Provider. Start typing the name of your university into the text input box. The field will start to suggest matching institutions after you type a few letters; when you see the name of your university appear underneath the text input box, click on it to select it, then choose "Continue". Then, when prompted, log in to your university account. (Your home institution username and password will not be sent to GENI; if you would like to read more about how this works, see [InCommon Federation Basics](http://www.incommon.org/federation/basics.html).)
+On the next screen, you will be prompted to choose an Identity Provider. Start typing the name of your university into the text input box. The field will start to suggest matching institutions after you type a few letters; when you see the name of your university appear underneath the text input box, click on it to select it, then choose "Continue". Then, when prompted, log in to your university account. (Your home institution username and password will not be sent to GENI; if you would like to read more about how this works, see [InCommon Federation Basics](https://www.incommon.org/federation/basics.html).)
 
 > If your institution does *not* appear in the list:
 > 
@@ -40,9 +40,7 @@ This property can be exploited for authenticating login to a remote machine. Fir
 
 Of course, this relies on you keeping your private key a secret. Never share your private key with anyone else, and never post it online.
 
-On your laptop, you're going to generate a key pair and upload the public key to the GENI portal. Then, you'll use that key from now on to log in to GENI resources.
-
-If you are using Windows, download and install [Git Bash](https://git-scm.com/downloads) and use its terminal. If you are using a Mac or Linux-based laptop, open a terminal.
+On your laptop, you're going to generate a key pair and upload the public key to the GENI portal. Then, you'll use that key from now on to log in to GENI resources. Open a Bash terminal (such as `cmder` in Windows, or the built-in terminal in Mac or Linux).
 
 Generate a key with:
 
@@ -113,6 +111,4 @@ Your course instructor should have already set up a project for your course, and
 In the GENI Portal, click on "Home > Projects" in the menu at the top, then click "[Join a Project](https://portal.geni.net/secure/join-project.php)". Type the project name that your instructor gave you into the box where it says "Enter a Project Name", click "Join", and proceed to send the join request. 
 
 Requests to join a project are pending until they are approved by the Project Lead (your instructor!); understand that it may take some time for the Project Lead to review and approve your request, so plan accordingly.
-
-Once you have completed all of the exercises on this page and your account has been approved, you can proceed to the [next lesson](1-2-reserve-and-login.md)
 

@@ -1,4 +1,4 @@
-## 0.0 Prepare your workstation
+## Prepare your workstation
 
 You'll need to prepare your workstation with all the software necessary to complete the lab assignments in this course. You will primarily need two pieces of software:
 
@@ -21,7 +21,7 @@ The primary software application you'll need is a terminal, which you will use t
 
 You may have a terminal application already on your workstation, but it may not be ideal for this course. To complete these lab exercises, you will often have to run and monitor the output of multiple commands in several independent terminal sessions. It is therefore *strongly recommended* to use a terminal that lets you split one terminal window into multiple panes - for example,
 
-* [cmder](http://cmder.net/) for Windows. (Get the full version, not the mini version.)
+* [cmder](https://cmder.net/) for Windows. (Get the full version, not the mini version.)
 * [iTerm2](https://www.iterm2.com/) for Mac
 * [terminator](https://launchpad.net/terminator) for Linux
 
@@ -75,4 +75,3 @@ To paste text into the terminal, place your cursor where you want to paste, and 
 * right-click, and choose Paste, or
 * use Ctrl+shift+P to paste
 
-Once you are done with this part of the lab , proceed to the [next part](1-1-setup-account.md)
