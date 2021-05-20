@@ -6,7 +6,7 @@ GENI is a "virtual lab" for experiments on networking and distributed systems. I
 
 Before you can run lab experiments on GENI, you will need to set up an account. Once you have completed the steps on this page, you will have an account that you can use for the duration of the course.
 
-### Exercise 1
+### Exercise - Create an account
 
 First, go to [https://portal.geni.net](https://portal.geni.net) and click on "Use GENI".
 
@@ -23,7 +23,7 @@ On the next screen, you will be prompted to choose an Identity Provider. Start t
 
 Review the policies on the next page, check both boxes, and click "Activate" to log in to the GENI Portal.
 
-### Exercise 2
+### Exercise - Set up SSH keys
 
 In this exercise, you will set up a pair of SSH keys with which you will access resources on GENI. (If you have already used GENI and have a key pair set up in the GENI Portal, and you still have access to those keys, you don't need to create new keys - you can skip this exercise and go on to the next one.)
 
@@ -98,7 +98,7 @@ Note that this only applies to resources you reserved after uploading a key. If 
 In general, a common mistake students make is to delete or replace their keys if they are having trouble logging in to a resource. This is usually not helpful, and in most cases makes things worse. Deleting a key is like forgetting a password - don't do it!
 
 
-### Exercise 3
+### Exercise - Join a project
 
 
 GENI users are organized into projects (read more [here](http://groups.geni.net/geni/wiki/GENIConcepts#Project).) 

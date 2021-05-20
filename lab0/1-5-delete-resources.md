@@ -1,6 +1,6 @@
-## 0.5 Delete resources
+## Delete resources
 
-### Exercise 13 - Delete your resources
+### Exercise - Delete your resources
 
 Part of being a good GENI citizen is releasing resources when you're not using them anymore. When you have finished all parts of your lab assignment (successfully), finished your network diagram, and retrieved all data from your remote hosts, use the "Delete" button at the bottom of the canvas in the GENI portal to delete your resources.
 

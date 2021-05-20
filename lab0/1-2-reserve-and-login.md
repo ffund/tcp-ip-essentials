@@ -9,7 +9,7 @@ Whenever you run an experiment on GENI, you will
 
 Also, when you finish an experiment and have saved all the data somewhere safe, you will _delete_ the resources in your experiment to free them for use by other experimenters.
 
-### Exercise 4 - Create a slice
+### Exercise - Create a slice
 
 
 To do anything on GENI, you need to create a *slice*. A slice is a "container" for the resources that will be used in an experiment (read more [here](http://groups.geni.net/geni/wiki/GENIConcepts#Slice)).
@@ -21,7 +21,7 @@ Create a slice by clicking [New Slice](https://portal.geni.net/secure/createslic
 **Slices expire**. That's OK - they are supposed to expire if you're finished with an experiment. But pay special attention to your slice expiration date! When your slice expires, you will lose access to all of the resources in your slice. Individual resources have their own expiration date, which may be different than, but not later than, the slice expiration date. You must make sure to retrieve any data saved on your resources before they expire.
 
 
-### Exercise 5 - Set up resources
+### Exercise - Set up resources
 
 Once you have created your slice, you will be presented with a blank canvas that allows you to manage resources in your slice. You can click on "Add resources" to add resources (hosts and links) in your desired configuration to your slice. This will open a web-based tool called Jacks. Jacks is a graphical tool for creating a Resource Specification document (RSpec) and submitting a request for the resources described in the RSpec.
 
@@ -65,7 +65,7 @@ Try this out for yourself: use the "Download RSpec" button below the canvas to s
 Now that you have an empty canvas, we'll load the same configuration you created previously, from the file that you downloaded. Below the canvas, you'll see a "Choose RSpec" section with a few choices (portal, file, URL, text box) that allows you to provide an RSpec document in several ways. Choose the "file" option and choose the file that you've just saved your RSpec to. You should see your three-node topology displayed on the canvas.
 
 
-### Exercise 6 - Reserve resources
+### Exercise - Reserve resources
 
 
 At this point, your RSpec is still _unbound_. This means that it is a "generic" document that doesn't specify which GENI _aggregate_ (host site) the resources in your topology will be on. 
@@ -87,7 +87,7 @@ If you continue to get failed requests, even though you are using the [monitor w
  * You may have a problem with your RSpec and you should double-check your work from Exercise 2. (For example, if you put an IP address in the "Capacity" field instead of the "IP Address" field, your reservation request will fail.) If you can't find your mistake, ask an instructor for help.
  * There may be a system-wide maintenance window or outage - check with your instructor to find out if this is the case.
 
-### Exercise 7 - Log in to resources
+### Exercise - Log in to resources
 
 Once you have successfully reserved your resources, it will still take some time before your resources are ready for you to log in. To see resource status, go to the slice page: in the menu bar at the top of the page, choose Home > Slices and then click on the name of the slice.
 

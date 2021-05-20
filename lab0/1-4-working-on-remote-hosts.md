@@ -1,9 +1,9 @@
-## 0.4 Working on remote hosts
+## Working on remote hosts
 
 There are a few extra challenges associated with working on remote hosts via SSH, especially if your network connection is unreliable. Some common pitfalls and tricks are listed on this page.
 
 
-### Exercise 10 - Dealing with disconnection
+### Exercise - Dealing with disconnection
 
 When you open a new terminal window, you'll have a _local_ shell open. Make a note of what the prompt looks like. For example, mine looks like this:
 
@@ -48,7 +48,7 @@ Practice hanging up a session, then reconnecting by using the "up" arrow on your
 
 
 
-### Exercise 11 - Using `screen`
+### Exercise - Using `screen`
 
 
 In addition to the inconvenience of having to restart a stuck SSH session, there may be further complications when your SSH session is stuck or disconnected *while a process is still running in it*. When that happens, you may have to kill the running process and re-start it, or you won't be able to access its output.
@@ -115,7 +115,7 @@ Some useful `screen` hints:
 * If you are working inside a `screen` session, you can end the session and return to your "regular" SSH session using the `exit` command.
 * You can "detach" from a `screen` session (leaving it running, so you can re-attach to it later) with `screen -d` or with the keyboard shortcut Ctrl+A and then D
 
-### Exercise 12 - Transferring files to and from remote hosts
+### Exercise - Transferring files to and from remote hosts
 
 When running lab exercises, you'll generate data on remote hosts on GENI, and then you will have to transfer the data back to your laptop for analysis.
 
@@ -165,4 +165,3 @@ ffund@ffund-xps:~$ scp -i ~/.ssh/id_rsa -P 25107 ffund01@pc3.instageni.maxgigapo
 services                                      100%   19KB 401.3KB/s   00:00  
 ```
 
-Once you are done with this part of the lab , proceed to the [next part](1-5-delete-resources.md)
