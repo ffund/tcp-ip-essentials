@@ -4,6 +4,10 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ## Table of contents
 
+### Course Info
+
+* [Frequently asked questions](online-faq)
+
 ### Lab 0: Set up your lab account
 
 * [Prepare your workstation](lab0/1-0-prepare-workstation)
