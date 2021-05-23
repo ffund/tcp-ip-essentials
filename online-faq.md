@@ -37,8 +37,8 @@ To understand the time commitment associated with this lab, it may help to have 
 
 In the online lab, you'll run exactly the same experiments that students used to do in those 3 hour 40 minute in-person sessions. However, it may take more or less time than 3 hours and 40 minutes -
 
-* if you have previous experience with network protocols and the Linux networking utilities, you will probably not need the full 3-4 hours each week. 
 * the average student should probably expect to spend 3-4 hours each week working on the lab experiment.
+* if you have previous experience with network protocols and the Linux networking utilities, you will probably not need the full 3-4 hours each week. 
 * if you are not as comfortable with network protocols and the Linux networking utilities, you may need more than the 3-4 hours usually allotted to complete the experiment.
 
 Also note that this does not necessarily include time to prepare for the lab (by reviewing the instructions and the relevant book chapter in advance) and the time to analyze results and answer the questions in Gradescope.
