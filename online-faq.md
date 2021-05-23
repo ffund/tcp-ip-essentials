@@ -43,6 +43,8 @@ In the online lab, you'll run exactly the same experiments that students used to
 
 Also note that this does not necessarily include time to prepare for the lab (by reviewing the instructions and the relevant book chapter in advance) and the time to analyze results and answer the questions in Gradescope.
 
+If you find that you are spending much more than 3-4 hours per week on the lab, please reach out to the lab instructor to ask for help! We can discuss the situation to find out what is taking so long, and help you make any necessary adjustments.
+
 
 ## Collaboration/academic integrity
 
