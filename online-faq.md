@@ -31,6 +31,19 @@ There are two ways to get help:
 * Post a question on the Q&A forum for this course.
 * Attend a Zoom office hours session with the instructor or a course assistant. 
 
+#### How long should I expect to spend on each lab assignment?
+
+To understand the time commitment associated with this lab, it may help to have some historical background! The Internet Architecture and Protocols course used to require an in-person lab in addition to the in-person lecture. The lab session was scheduled as a weekly 3 hour 40 minute time slot, and students worked in teams to execute the lab experiment during that time. (The 3 hour and 40 minute time slot did not necessarily include time to prepare for the lab experiment by reading the instructions, which students were expected to do in advance, or the time to analyze the results and write the lab report after completing the experiment.)
+
+In the online lab, you'll run exactly the same experiments that students used to do in those 3 hour 40 minute in-person sessions. However, it may take more or less time than 3 hours and 40 minutes -
+
+* if you have previous experience with network protocols and the Linux networking utilities, you will probably not need the full 3-4 hours each week. 
+* the average student should probably expect to spend 3-4 hours each week working on the lab experiment.
+* if you are not as comfortable with network protocols and the Linux networking utilities, you may need more than the 3-4 hours usually allotted to complete the experiment.
+
+Also note that this does not necessarily include time to prepare for the lab (by reviewing the instructions and the relevant book chapter in advance) and the time to analyze results and answer the questions in Gradescope.
+
+
 ## Collaboration/academic integrity
 
 #### Can I ask for help with the lab assignment or with the answers to the lab report questions on Gradescope?
