@@ -52,6 +52,8 @@ If you find that you are spending much more than 3-4 hours per week on the lab, 
 
 You can ask for help on our course Q&A site or during Zoom office hours. When you ask questions on the Q&A site, other students who have a similar problem will also benefit from the answer!
 
+It's OK for your questions to include screenshots or data from your own lab experiment, even though it will be visible to other students - you don't have to worry about "giving away an answer" to other students by including it in your question. (You are not allowed to send screenshots or data from the lab directly to another student, or share it on another forum - but you *are* allowed to include it in a question on the Q&A site.)
+
 You are not allowed to ask for help on Chegg, CourseHero, private messages or group messages with other students, or in other online forums. 
 
 #### Can I work on the lab assignment together with another student?
@@ -78,7 +80,11 @@ You may have seen lab reports from previous semesters (either from friends, or o
 
 As your work on each lab exercise, you'll answer some short questions by filling in your answers in an online form in Gradescope. 
 
-Here's a brief tutorial to show you how it works:
+Some of the questions will ask you to upload a screenshot of parts of the lab exercise, and annotate it to indicate certain relevant parts. Other questions will ask you to explain or comment on your screenshots.
+
+You will not have to write a traditional "lab report" explaining lab procedure etc. You *only* have to answer the specific questions that are asked in Gradescope.
+
+Here's a brief tutorial to show you how Gradescope works:
 
 <iframe width="480" height="270" src="https://www.youtube.com/embed/j_kha2UkeMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
