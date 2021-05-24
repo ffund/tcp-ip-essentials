@@ -12,7 +12,7 @@ Also, when you finish an experiment and have saved all the data somewhere safe, 
 ### Exercise - Create a slice
 
 
-To do anything on GENI, you need to create a *slice*. A slice is a "container" for the resources that will be used in an experiment (read more [here](http://groups.geni.net/geni/wiki/GENIConcepts#Slice)).
+To do anything on GENI, you need to create a *slice*. A slice is a "container" for the resources that will be used in an experiment (read more [here](https://groups.geni.net/geni/wiki/GENIConcepts#Slice)).
 
 Slices have _members_; anyone who has is a member of a slice will have their keys installed on all resources that have been reserved since they were added as a member. As project lead, your instrutor has access to all resources on all slices in the project. When you create a slice, you will have access to the resources in your slice, as long as you don't lose your key!
 
