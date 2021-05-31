@@ -10,12 +10,12 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 
 ### Lab 0: Set up your lab account
 
-* [Prepare your workstation](lab0/1-0-prepare-workstation)
-* [Set up an account on GENI](lab0/1-1-setup-account)
-* [Reserve a simple network on GENI](lab0/1-2-reserve-and-login)
-* [Inspect network interfaces](lab0/1-3-network-interfaces)
-* [Working on remote hosts](lab0/1-4-working-on-remote-hosts)
-* [Save data and delete resources on GENI](lab0/1-5-delete-resources)
+* [0.1 Prepare your workstation](lab0/1-0-prepare-workstation)
+* [0.2 Set up an account on GENI](lab0/1-1-setup-account)
+* [0.3 Reserve a simple network on GENI](lab0/1-2-reserve-and-login)
+* [0.4 Inspect network interfaces](lab0/1-3-network-interfaces)
+* [0.5 Working on remote hosts](lab0/1-4-working-on-remote-hosts)
+* [0.6 Save data and delete resources on GENI](lab0/1-5-delete-resources)
 
 ### Lab 1: Linux
 
