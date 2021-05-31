@@ -4,7 +4,7 @@ Finally, in this section you will practice using `tcpdump` and Wireshark, two so
 
 You will use these utilities in every lab exercise for the remainder of the course.
 
-### Exercise 11 - Capture network traffic with `tcpdump`
+### Exercise - Capture network traffic with `tcpdump`
 
 Both Wireshark and `tcpdump` can be used to capture packets from a live network. However, `tcpdump` is a terminal-based application while Wireshark has a graphical user interface. Since we have terminal-based SSH sessions on our remote hosts, we will use `tcpdump` to capture network packets.
 
@@ -45,7 +45,7 @@ while the `tcpdump` is still running on "romeo". This will generate some traffic
 You'll see a summary view of each packet in the `tcpdump` output. When the `ping` is finished, use Ctrl+C to stop the `tcpdump`. Save this output for your lab report.
 
 
-### Exercise 12 - Save a packet capture to a file and analyze it in Wireshark
+### Exercise - Save a packet capture to a file and analyze it in Wireshark
 
 For most lab exercises, we will want to use `tcpdump` to capture network packets and *save them to a file* so that we can analyze them afterwards. To save a packet capture to a file, we use the `-w` argument in `tcpdump`.
 
@@ -103,7 +103,7 @@ In addition to the packet details that are explicit in the packet, like those me
 **Lab report**: Select one ICMP packet in your packet capture. In the packet detail pane, find and select the "Type" field in the ICMP header. Take a screenshot showing this field highlighted in both the packet detail pane and the packet bytes pane. How many bytes are allocated for this field in an ICMP packet? Explain how you can determine the number of bytes reserved for this field, using your screenshot.
 
 
-### Exercise 13 - Useful display options and capture options in `tcpdump`
+### Exercise - Useful display options and capture options in `tcpdump`
 
 
 In addition to the `-i` and `-w` options discussed above, there are a variety of optional arguments that you can use to change the way that `tcpdump` behaves. To explore these options, run
@@ -190,7 +190,7 @@ You can find more information about capture filters in the [online documentation
 **Lab report**: What command would you run on the "romeo" host to capture all network traffic between "romeo" and "juliet" *except* ICMP packets? Explain your answer. Try running this command while generating some traffic with `ping` between "romeo" and "juliet", and show the `tcpdump` output. Did you capture the ICMP echo requests or replies? Explain.
 
 
-### Exercise 14 - Useful display options in Wireshark
+### Exercise - Useful display options in Wireshark
 
 Like `tcpdump`, Wireshark is a powerful application with many options and extra features included. A detailed Wireshark user guide is available at the following link: [https://www.wireshark.org/docs/wsug_html_chunked/](https://www.wireshark.org/docs/wsug_html_chunked/)
 
@@ -226,7 +226,4 @@ You can also apply a filter directly from the packet detail pane. For example, r
 The [Wireshark documentation](https://www.wireshark.org/docs/man-pages/wireshark-filter.html) includes many examples of display filters, with explanation.
 
 **Lab report**: What would you type in the filter toolbar to only show packets with ICMP sequence number greater than 1? Apply this display filter to `romeo-tcpdump-file.pcap` and show a screenshot of the Wireshark window.
-
-
-Once you are done with this part of the lab, proceed to the [next part](1-x-loopback.md).
 

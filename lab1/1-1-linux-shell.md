@@ -16,7 +16,7 @@ Before you start, use `ifconfig -a` to capture the network interface configurati
 
 You will run all of the commands in this exercise in your SSH session (on either host), *not* on your local system. Check the terminal prompt to make sure you are working on the remote host.
                                                                                 
-### Exercise 1 - "Hello world"
+### Exercise - "Hello world"
 
 When you run commands in a terminal environment, you are actually *programming* 
 the computer. Each command is a line of code, that is then executed by an *interpreter*.
@@ -81,7 +81,7 @@ echo "$mymessage, $(whoami)"
 This feature is known as *command substitution*.
 
 
-### Exercise 2 - tab autocompletion
+### Exercise - tab autocompletion
 
 
 Many terminals have a feature called "tab autocompletion" where, when 
@@ -137,7 +137,7 @@ and hit Tab, and it will be autocompleted to `echo $mymessage` (which
 will print "hello world" to the terminal output).
 
 
-### Exercise 3 - History
+### Exercise - History
 
 It's often useful to be able to see and re-run commands you've previously run. 
 
@@ -173,4 +173,3 @@ several operations on a file.) Here are some useful shortcuts you can try:
 !*  # all arguments of last command in history
 !$  # last argument of last command in history
 ```
-Once you are done with this part of the lab , proceed to the [next part](1-2-linux-navigating.md).

@@ -2,7 +2,7 @@
 
 In this section, you will learn how to work with files and directories, using the commands: `cp`, `rm`, `mv`, `cat`, `wget`, `nano`                                     
 
-### Exercise 6 - Moving files around the filesystem
+### Exercise - Moving files around the filesystem
 
 The easiest way to create a file is to just open it for editing. We will 
 use the `nano` text editor to open file called `newfile.txt`:
@@ -90,7 +90,7 @@ Now, you should be able to add the line
 at the beginning of the file, and then save the file before quitting `nano`.
 
 
-### Exercise 7 - Retrieving files from the Internet
+### Exercise - Retrieving files from the Internet
 
 Use `wget` to download a file from the Internet. 
 
@@ -105,14 +105,28 @@ wget https://witestlab.poly.edu/bikes/README.txt
 Then, use
 
 ```
+ls
+```
+
+to verify that you have retrieved the file, and
+
+```
 cat README.txt
 ```
 
-to verify that you've retrieved the file and see its contents.
+see its contents.
 Similarly, you can download anything from the web by URL.
 
+> **Note**: Occasionally, students may see the following error when attempting this exercise:
+> 
+> Resolving witestlab.poly.edu (witestlab.poly.edu)... failed: Temporary failure in name resolution.
+> wget: unable to resolve host address ‘witestlab.poly.edu’
+> 
+> This can happen if there is a problem with the DNS server at the InstaGENI site you are using. To practice using `wget`, you can just use a different URL instead. For example:
+> 
+> `wget https://raw.githubusercontent.com/ffund/tcp-ip-essentials/master/lab1/1-3-linux-files-directories.md` 
 
-### Exercise 8 - flags, man page and `--help`
+### Exercise - flags, man page and `--help`
 
 Bash utilities typically have some flags you can use to modify the way 
 they behave, or what their output looks like. 
@@ -138,4 +152,3 @@ You can also use the `man` command to read the complete user manual for a comman
 man ls
 ```
 
-Once you are done with this part of the lab , proceed to the [next part](1-4-linux-manipulate.md)

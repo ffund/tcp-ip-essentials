@@ -3,7 +3,7 @@
 
 In this section, you will learn about the structure of the Linux filesystem, and some basic commands for navigating the filesystem: `pwd`, `ls`, `cd`, `mkdir`
 
-### Exercise 4 - Basic filesystem navigation
+### Exercise - Basic filesystem navigation
 
 First, check where you are currently located in the filesystem with the `pwd`
 ("**p**rint **w**orking **d**irectory") command:
@@ -40,7 +40,7 @@ pwd
 
 again to verify your current working directory.
 
-### Exercise 5 - Relative and absolute paths
+### Exercise - Relative and absolute paths
 
 You may have noticed that when you run the `pwd` command, it gives you 
 a full path with several directory names separated by a `/` character.
@@ -104,5 +104,3 @@ cd -     # takes you to the directory you were in before the last time you ran "
 
 
 Then, return to your home directory.
-
-Once you are done with this part of the lab, proceed to the [next part](1-3-linux-files-directories.md).

@@ -2,7 +2,7 @@
 
 In this section, you will learn how to use the commands `head`, `tail`, `less`, and `grep` to manipulate the output of a command. You'll also learn how to do I/O redirection with `>` and `>>`.
 
-### Exercise 9 - See more or less
+### Exercise - See more or less
 
 We'll often want to see more or less of a command that has a lot of output.
 
@@ -81,7 +81,7 @@ grep "FTP" /etc/services
 
 
 
-### Exercise 10 - I/O redirection and pipes
+### Exercise - I/O redirection and pipes
 
 
 For example, suppose we want to get all of the lines in `/etc/services` related to services that operate over UDP. We can save those lines to a file called `udp-services.txt` in our home directory, by using the `>` operator to redirect the output of the `grep` command:
@@ -147,4 +147,3 @@ and compare to the previous output, to see what the `awk` command does.
 
 **Lab report**: Answer the multiple-choice and short-answer questions related to the Linux environment.
 
-Once you are done with this part of the lab, proceed to the [next part](1-5-tcpdump-wireshark.md).

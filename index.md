@@ -17,3 +17,11 @@ This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab
 * [Working on remote hosts](lab0/1-4-working-on-remote-hosts)
 * [Save data and delete resources on GENI](lab0/1-5-delete-resources)
 
+### Lab 1: Linux
+
+* [1.1 Learning the basics of the Bash shell](lab1/1-1-linux-shell)
+* [1.2 Navigating the filesystem](lab1/1-2-linux-navigating)
+* [1.3 Working with files and directories](lab1/1-3-linux-files-directories)
+* [1.4 Manipulating output of a command](lab1/1-4-linux-manipulate)
+* [1.5 Using `tcpdump` and Wireshark](lab1/1-5-tcpdump-wireshark)
+
