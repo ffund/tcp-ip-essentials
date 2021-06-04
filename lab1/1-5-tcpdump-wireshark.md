@@ -102,6 +102,18 @@ In addition to the packet details that are explicit in the packet, like those me
 
 **Lab report**: Select one ICMP packet in your packet capture. In the packet detail pane, find and select the "Type" field in the ICMP header. Take a screenshot showing this field highlighted in both the packet detail pane and the packet bytes pane. How many bytes are allocated for this field in an ICMP packet? Explain how you can determine the number of bytes reserved for this field, using your screenshot.
 
+**Lab report**: In a previous lesson, you studied the format of the IP header (see e.g. Figure 0.13 in the TCP/IP Essentials textbook). Now, you'll use Wireshark look at the IP header of one of the packets you captured, and identify the value of each field in the IP header.
+
+* In Wireshark, select one of the ICMP packets that you have captured. 
+* In the packet details pane, expand the IP header and everything within it (e.g. the Differentiated Services Field and Flags sections) so that the *complete* details of the IP header are visible.
+* In the packet bytes pane, right click and choose `...as bits` to change the display from hex digits to bits.
+* Take a screenshot showing the packet details pane (with all IP header fields visible) and the packet bytes pane (with the entire packet in bits).
+* Annotate your screenshot: among the bits shown in the packet bytes pane, draw a box around *each* of the IP header fields from the following diagram (12 boxes, one for each of 12 header fields). For your convenience, I have indicated the number of bits that should be in each box:
+
+![tcp-ip-headers-ipv4.svg](tcp-ip-headers-ipv4.svg)
+
+* Compare the bits you have highlighted for each field in the packet bytes pane, to the value of the same field shown in the packet details pane. Is it the same? Explain.
+
 
 ### Exercise - Useful display options and capture options in `tcpdump`
 
