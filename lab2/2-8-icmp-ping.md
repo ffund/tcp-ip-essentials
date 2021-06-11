@@ -1,4 +1,4 @@
-## Exercise with ICMP and Ping
+## Exercise with ICMP Port Unreachable
 
 For data to be passed up from the transport layer to the application layer, the host must have an application listening for incoming communication on the IP address and transport layer port to which the traffic is sent.
 
