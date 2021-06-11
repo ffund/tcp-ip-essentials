@@ -16,10 +16,10 @@ If there is no rule in the routing table that applies to the destination IP addr
 
 When will there be a rule that applies to the destination address in the packet?
 
-* When you configure the routing table to add such a rule - we won't do this in Lab 2, though.
+* When you modify the routing table to add such a rule.
 * When a network interface is configured with an IP address and subnet mask, a rule is automatically added to the routing table that applies to all destination addresses in the same subnet.
 
-In these *Exercises with IP address and subnet mask*, a Host A can send to Host B if Host B's IP address is within the range of addresses in Host A's subnet. This is because of that automatically added rule. If Host B's IP address is not within the range of addresses in Host A's subnet, then there will be no automatically added rule that applies to messages to Host B. Under these circumstances, either (1) a rule must be added, or (2) the packet will not be sent, and a "Network unreachable" error is returned. In Lab 2, we will observe the second behavior - we won't manually add a rule, so we will see the "Network unreachable" error.
+In these *Exercises with IP address and subnet mask*, a Host A can send to Host B if Host B's IP address is within the range of addresses in Host A's subnet. This is because of that automatically added rule. If Host B's IP address is not within the range of addresses in Host A's subnet, then there will be no automatically added rule that applies to messages to Host B. Under these circumstances, either (1) a rule must be added, or (2) the packet will not be sent, and a "Network unreachable" error is returned.
 
 In summary, the correct understanding should be: two hosts on the same network segment can reach one another only if
 
