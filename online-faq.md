@@ -94,7 +94,7 @@ You will submit all your work on Gradescope. To open Gradescope from Brightspace
 
 #### How do I join this course on Gradescope?
 
-In Brightspace, click on Content, then Course Tools, then Gradescope. This will prompt you to create an account or sign into your account (if you have one already), and then it will automatically add you to our course on Gradescope.
+In Brightspace, click on Content, then Course Tools, then Gradescope setup instructions. Follow the instructions there to join the course on Gradescope.
 
 
 #### Why are there two due dates for each assignment in Gradescope?
@@ -107,6 +107,29 @@ Each assignment has two due dates in Gradescope - a regular due date and a "late
 * "One free late pass" policy: For *one* lab assignment this semester, if exceptional and unanticipated circumstances prevent you from submitting your work before the regular due date - for example, if you are sick - you may submit after the regular due date, but before the "late" due date. You don't have to ask permission or let me know when you are using your "late pass", but you can only use it once during the semester.
 * Once the late due date passes, Gradescope will close submissions and you will not be able to submit your work for that assignment.
 * If you experience technical problems while working on a lab, make sure to ask for help (on the Q&A site) *before* the regular due date, so that you can get help and submit your work before Gradescope closes submissions! Even if you are using your "late pass", make sure that you give yourself enough time before submissions are closed to get help in case of technical issues. Don't wait to ask for help until it's too late to submit.
+
+#### What kind of questions will I have to answer in Gradescope?
+
+The types of questions include:
+
+* Multiple choice and multiple select options
+* Short answer (e.g. a word or phrase, or a number). These are graded automatically, so if the instructions specify what type of answer you should give (e.g. number of seconds as an integer value), please follow those instructions carefully and don't add any extra text!
+* Written explanation. Make sure to answer the *specific question* that is asked. Often, the prompt will include multiple specific questions and you should make sure to address each of them in your answer for full credit. Also, do not include information that is *not* directly relevant to answering the question.
+* File upload or annotated file upload. You will often have to submit a screenshot showing part of your lab configuration, or the output of a command, for example. As you work on the lab, review the questions in Gradescope and make sure you capture everything that you'll need to submit. It's also important that if your screenshot shows an entire window with a lot of content on it, you should crop your screenshot to only show the part(s) that answer the question before you submit it.
+
+#### What types of files should I make for file upload questions?
+
+Although Gradescope will allow you to upload many different types of files, the grader may not be able to read some of them. For file upload questions, please use one of the following formats *only*:
+
+* PNG image (preferred)
+* JPG image
+* PDF
+
+Do *not* upload:
+
+* PCAP files
+* DOC or DOCX files
+* Other image formats
 
 
 #### Can I make corrections or resubmit my work after I submit a lab report in Gradescope?
