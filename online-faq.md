@@ -136,7 +136,7 @@ Do *not* upload:
 
 Yes, you can make corrections and resubmit as many times as you want until the regular due date.
 
-#### Yes, you can make corrections and resubmit as many times as you want until the regular due date.
+#### How will I review my work, once it is graded?
 
 You can review your graded work in Gradescope and see exactly why you lost points. Here's a video that shows how it works:
 
