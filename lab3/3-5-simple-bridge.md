@@ -1,4 +1,4 @@
-## 3.5 A simple bridge experiment
+## Exercise - a simple bridge experiment
 
 For this experiment, we will use the same network from [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation/). After you have completed that experiment through the section titled "Exercise", you will also run the following:
 
