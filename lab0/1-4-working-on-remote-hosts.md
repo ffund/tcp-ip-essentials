@@ -145,7 +145,7 @@ For example, if the file is located on a remote host where
 you would run
 
 ```
-scp -i ~/.ssh/id_rsa -P 25017 ffd01@pc3.instageni.maxgigapop.net:/etc/services .
+scp -i ~/.ssh/id_rsa -P 25017 ff524@pc3.instageni.maxgigapop.net:/etc/services .
 ```
 
 and the output would look like this:
