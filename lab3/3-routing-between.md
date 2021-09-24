@@ -197,6 +197,15 @@ Use method A, B, *or* C to add a route on **romeo** that will forward traffic to
 
 Then, get all the routing table rules for the experiment interfaces. 
 
+On romeo, othello, router-1 and router-2, run
+
+
+```
+route -n
+```
+
+Save these outputs for your lab report.
+
 
 Restart the six `tcpdump` processes.
 
@@ -258,7 +267,7 @@ On romeo, othello, router-1 and router-2, run
 route -n
 ```
 
-(you should see the new rule you added on router-1!) Save these outputs for your lab report.
+and note the two new rules you added. Save these outputs for your lab report.
 
 
 Restart the six `tcpdump` processes.
