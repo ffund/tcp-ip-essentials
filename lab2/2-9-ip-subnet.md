@@ -119,9 +119,9 @@ This error is *not* a cause for concern, and you can safely ignore it. But if yo
 
 ```
 sudo hostname $(hostname -s)
-
 ```
 
+and you'll see the `sudo: unable to resolve host` one last time, but then you won't see it again for later `sudo` commands.
 
 ### Exercise - network unreachable
 
@@ -306,20 +306,6 @@ From "hamlet" or "juliet", ping "ophelia" (10.10.0.120).
 
 Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all the hosts.
 
-
-
-
-When you are finished running this exercise, you can restore the default gateway route on all hosts with
-
-```
-sudo route add default gw <DEFAULT GW>
-```
-
-using the default gateway you noted at the beginning of this section, e.g.
-
-```
-sudo route add default gw 172.16.0.1
-```
 
 **Lab report**: In the routing table for each host, show the rule that applies to traffic that is sent within the same subnet. (This rule is added to the routing table automatically when you configure the IP address and netmask on the network interface.) 
 
