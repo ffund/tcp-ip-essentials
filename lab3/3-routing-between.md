@@ -107,6 +107,23 @@ In this exercise, we will focus on routing traffic between two hosts in differen
 * three terminal windows on router-2
 * two terminal windows on the othello host
 
+Reserve four terminal windows - one on each host - for running interactive commands. Then, the remaining terminal windows will be used to observe network traffic with `tcpdump`. Arrange the six terminal windows in order and run a `tcpdump` on
+
+1. the experiment interface of romeo (on the red network)
+2. the interface of router-1 that is on the red network
+3. the interface of router-1 that is on the blue network
+4. the interface of router-2 that is on the blue network
+5. the interface of router-2 that is on the green network
+6. the interface of othello that is on the green network
+
+Use the `-n` argument to `tcpdump` so that addresses will be shown in dotted decimal notation and not resolved to hostnames, and use `icmp` to filter the traffic so you only capture ICMP traffic. For example:
+
+```
+sudo tcpdump -n -i eth1 icmp
+```
+
+(if you are capturing on `eth1`).
+
 #### Part 1: No added rules
 
 First, get all the routing table rules for the experiment interfaces. 
@@ -119,27 +136,6 @@ route -n
 ```
 
 Save these outputs for your lab report.
-
-Then, run a `tcpdump` on each experiment interface. On romeo and othello, run
-
-```
-sudo tcpdump -n -i eth1
-```
-
-On router-1 and router-2, run
-
-
-```
-sudo tcpdump -n -i eth1
-```
-
-in one terminal window, and
-
-```
-sudo tcpdump -n -i eth2
-```
-
-in a second terminal window. Leave these running. 
 
 On romeo, run
 
@@ -202,36 +198,7 @@ Use method A, B, *or* C to add a route on **romeo** that will forward traffic to
 Then, get all the routing table rules for the experiment interfaces. 
 
 
-On romeo, othello, router-1 and router-2, run
-
-
-```
-route -n
-```
-
-(you should see the new rule you added on romeo!) Save these outputs for your lab report.
-
-
-Then, run a `tcpdump` on each experiment interface. On romeo and othello, run
-
-```
-sudo tcpdump -n -i eth1
-```
-
-On router-1 and router-2, run
-
-
-```
-sudo tcpdump -n -i eth1
-```
-
-in one terminal window, and
-
-```
-sudo tcpdump -n -i eth2
-```
-
-in a second terminal window. Leave these running. 
+Restart the six `tcpdump` processes.
 
 On romeo, run
 
@@ -261,27 +228,7 @@ route -n
 
 (you should see the new rule you added on router-1!) Save these outputs for your lab report.
 
-
-Next, run a `tcpdump` on each experiment interface. On romeo and othello, run
-
-```
-sudo tcpdump -n -i eth1
-```
-
-On router-1 and router-2, run
-
-
-```
-sudo tcpdump -n -i eth1
-```
-
-in one terminal window, and
-
-```
-sudo tcpdump -n -i eth2
-```
-
-in a second terminal window. Leave these running. 
+Restart the six `tcpdump` processes.
 
 On romeo, run
 
@@ -314,26 +261,7 @@ route -n
 (you should see the new rule you added on router-1!) Save these outputs for your lab report.
 
 
-Next, run a `tcpdump` on each experiment interface. On romeo and othello, run
-
-```
-sudo tcpdump -n -i eth1
-```
-
-On router-1 and router-2, run
-
-
-```
-sudo tcpdump -n -i eth1
-```
-
-in one terminal window, and
-
-```
-sudo tcpdump -n -i eth2
-```
-
-in a second terminal window. Leave these running. 
+Restart the six `tcpdump` processes.
 
 On romeo, run
 
