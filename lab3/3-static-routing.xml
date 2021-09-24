@@ -1,0 +1,149 @@
+<rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:tour="http://www.protogeni.net/resources/rspec/ext/apt-tour/1" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="romeo">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.100" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="juliet">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.101" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="hamlet">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.102" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="ophelia">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.103" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="router-1">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://www.emulab.net/protogeni/jacks-stable/images/router.svg"/>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.1" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.100.1" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="router-2">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://www.emulab.net/protogeni/jacks-stable/images/router.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.1.1" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.100.2" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="router-3">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://www.emulab.net/protogeni/jacks-stable/images/router.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.2.1" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-10">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.100.3" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="othello">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="emulab-xen">
+<disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
+</sliver_type>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.1.104" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7">
+<ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.2.104" type="ipv4" netmask="255.255.255.0"/>
+</interface>
+</node>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-0">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-1">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-2">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-3">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-10"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+</link>
+</rspec>
