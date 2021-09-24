@@ -2,41 +2,24 @@
 
 In these exercises, we will configure IP addresses and subnet masks of the hosts on the single segment network in various ways, and observe the effect of each configuration as hosts try to reach one another over the network segment.
 
-Students who complete these exercises often come away believing that two hosts on the same network segment can reach one another only if their IP addresses and subnet masks are configured so that they are in the same subnet. But, this is **not correct**! I will try to address this misconception in advance.
-
-For a message to be transmitted on a network segment, the sending host needs to know which network interface (assuming it has more than one interface) to send the message from. To identify the interface that the packet should be sent from, the sending host
+Note that in these exercises, the packets will not be forwarded by a router - all of the hosts are physically connected to the same network segment, with no router separating them. However, routing principles are relevant even for packets sent between hosts on the same network segment! For a message to be transmitted on a network segment, the sending host needs to know which network interface (assuming it has more than one interface) to send the message from. To identify the interface that the packet should be sent from, the sending host
 
 * looks at its routing table,
 * identifies the rule in the routing table that applies to the destination IP address in the packet,
 * and sends the packet using the network interface specified by that rule.
 
-(You may have thought a routing table is only relevant when there are routers connecting multiple networks; but routing tables are also used at end hosts to determine how to send packets, even on a single segment!) 
+(You may have thought a routing table is only relevant when there are routers connecting multiple networks; but routing tables are also used at end hosts to determine how to send packets, even on a single segment!)
 
 If there is no rule in the routing table that applies to the destination IP address in the packet, a "Network unreachable" is returned and nothing is sent on the network segment.
 
-When will there be a rule that applies to the destination address in the packet?
-
-* When you modify the routing table to add such a rule.
-* When a network interface is configured with an IP address and subnet mask, a rule is automatically added to the routing table that applies to all destination addresses in the same subnet.
-
-In these *Exercises with IP address and subnet mask*, a Host A can send to Host B if Host B's IP address is within the range of addresses in Host A's subnet. This is because of that automatically added rule. If Host B's IP address is not within the range of addresses in Host A's subnet, then there will be no automatically added rule that applies to messages to Host B. Under these circumstances, either (1) a rule must be added, or (2) the packet will not be sent, and a "Network unreachable" error is returned.
-
-In summary, the correct understanding should be: two hosts on the same network segment can reach one another only if
-
-* **either** their IP addresses and subnet masks are configured so that they are in the same subnet,
-* **or** a rule has been added to their routing tables to describe which interface to use to communicate with one another.
-
-**otherwise**, the sender will observe a "Network unreachable" error.
 
 ### Remove the default route
 
-Before you can work on the exercises in this section, you will have to complete some extra setup steps, in which you manipulate the routing table on the remote hosts.
+Before you can work on the exercises in this section, you will have to complete some extra setup steps, in which you remove the default rule from the routing table on the remote hosts.
 
 **Note**: If you make a mistake in these setup steps, you may lose your connection to the remote host. Rebooting the host should restore connectivity, in case this happens. To reboot the hosts in your topology, visit the slice page in the GENI Portal, and click on the "Restart" button. Wait a few minutes for your hosts to come back up before you try to connect again.
  
-The aim of the next exercise is to learn what happens when you try to send IP packets to a network that your host doesn't know how to reach.
-
-We are going to trigger a “network is unreachable” error message. This message occurs when there is no route in the host's routing table that describes how to reach a particular destination. 
+The aim of the next exercise is to learn what happens when you try to send IP packets to a network that your host doesn't know how to reach. We are going to trigger a “network is unreachable” error message. This message occurs when there is no route in the host's routing table that describes how to reach a particular destination. 
 
 Currently, however, there is a “default gateway” rule in the routing table that describes how to route *all* traffic whose destination address is not specifically given by any other rule. When there is a "default gateway" rule, we will never observe a "network is unreachable" message.  
 
@@ -45,7 +28,7 @@ To make this exercise work without losing our SSH connection, we need to replace
 
 I will show you how to do this with an example - to do it yourself, you'll have to substitute the relevant IP addresses and port numbers for _your_ connection in the commands below.
 
-You will repeat the steps below for all four hosts in your topology.
+You will repeat the steps below for four hosts in your topology: romeo, juliet, hamlet, and ophelia.
 
 
 First, use
@@ -63,7 +46,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 172.16.0.0      0.0.0.0         255.240.0.0     U     0      0        0 eth0
 ```
 
-Make a note of the default gateway - here, 172.16.0.1.
+To find the default gateway, look for the line with the destination address 0.0.0.0, then find the value in the Gateway column. Make a note of the default gateway - in my example, it is 172.16.0.1.
 
 Next, find out what network you’re connecting from by running
 
@@ -101,6 +84,8 @@ for example:
 sudo route add -net 216.165.0.0/16 gw 172.16.0.1
 ```
 
+This will make sure that your SSH connection continues to be routed through the Internet-connected router at the InstaGENI site, even when you delete the default rule.
+
 Once you have done so, you can delete the default gateway route without losing your SSH connection:
 
 ```
@@ -121,7 +106,8 @@ route -n
 
 and make sure there is no default gateway rule (no rule with 0.0.0.0 as the destination). If your routing table looks good, you can continue!
 
-Remember to repeat this step on all of the hosts in the topology.
+Remember to repeat this step on four hosts in your topology: romeo, juliet, hamlet, and ophelia.
+
 
 **IMPORTANT NOTE**: As a result of the steps above, you may get the following error message whenever you use `sudo` for the remainder of this lab exercise:
 
@@ -129,7 +115,12 @@ Remember to repeat this step on all of the hosts in the topology.
 sudo: unable to resolve host
 ```
 
-This error is *not* a cause for concern, and you can safely ignore it.
+This error is *not* a cause for concern, and you can safely ignore it. But if you want to "fix" it anyway, you can run
+
+```
+sudo hostname $(hostname -s)
+
+```
 
 
 ### Exercise - network unreachable
