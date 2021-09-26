@@ -1,4 +1,4 @@
-## Exercises with IP address and subnet mask
+## Exercises with IP address and subnet mask in a single segment network
 
 In these exercises, we will configure IP addresses and subnet masks of the hosts on the single segment network in various ways, and observe the effect of each configuration as hosts try to reach one another over the network segment.
 
@@ -17,14 +17,13 @@ If there is no rule in the routing table that applies to the destination IP addr
 
 Before you can work on the exercises in this section, you will have to complete some extra setup steps, in which you remove the default rule from the routing table on the remote hosts.
 
-**Note**: If you make a mistake in these setup steps, you may lose your connection to the remote host. Rebooting the host should restore connectivity, in case this happens. To reboot the hosts in your topology, visit the slice page in the GENI Portal, and click on the "Restart" button. Wait a few minutes for your hosts to come back up before you try to connect again.
+**Note**: If you make a mistake in these setup steps, you may lose your connection to the remote host. Rebooting the host should restore connectivity, in case this happens. To reboot the hosts in your topology, visit the slice page in the GENI Portal, and click on the "Restart" button. Wait a few minutes for your hosts to come back up before you try to connect again. Then, try again (following the instructions carefully)!
  
 The aim of the next exercise is to learn what happens when you try to send IP packets to a network that your host doesn't know how to reach. We are going to trigger a “network is unreachable” error message. This message occurs when there is no route in the host's routing table that describes how to reach a particular destination. 
 
-Currently, however, there is a “default gateway” rule in the routing table that describes how to route *all* traffic whose destination address is not specifically given by any other rule. When there is a "default gateway" rule, we will never observe a "network is unreachable" message.  
+Currently, however, there is a “default gateway” rule in the routing table that describes how to route *all* traffic whose destination address is not specifically given by any other rule. When there is a "default gateway" rule, we will never observe a "network is unreachable" message.  Therefore, we will need to remove this rule.
 
-However, if we just remove the default gateway rule, we'll lose access to the remote host over SSH, since the SSH connection between you and the remote host is routed using that default gateway rule. 
-To make this exercise work without losing our SSH connection, we need to replace the default rule with one specific to the IP address we are using to connect. Then we'll be able to observe the "destination unreachable" message AND maintain our SSH connection.
+However, if we just remove the default gateway rule, we'll lose access to the remote host over SSH, since the SSH connection between your device and the remote host is routed using that default gateway rule. To make this exercise work without losing our SSH connection, we need to replace the default rule with one specific to the IP address we are using to connect. Then we'll be able to observe the "destination unreachable" message AND maintain our SSH connection.
 
 I will show you how to do this with an example - to do it yourself, you'll have to substitute the relevant IP addresses and port numbers for _your_ connection in the commands below.
 
@@ -172,7 +171,9 @@ Next, add a rule to the routing table on "romeo" that applies to 10.10.10.100:
 sudo route add -host 10.10.10.100 dev eth1
 ```
 
-and then use 
+This rule says: "Send traffic for the host address 10.10.10.100 directly from the `eth1` interface". ("Directly" means that the packet will not be forwarded by a router. Since we did not specify the address of a "next hop" router, this route is a "direct" route.)
+
+Then use 
 
 ```
 route -n
@@ -180,7 +181,7 @@ route -n
 
 to see the new routing table. Save this for your lab report. 
 
-Then, run
+Now, run
 
 
 ```
@@ -211,8 +212,7 @@ sudo route del -host 10.10.10.100 dev eth1
 ```
 
 
-
-**Lab report**: Can you see any ICMP echo request sent on the network? Why? Explain what happened using the `route -n` output and the `ping` output in each case.
+**Lab report**: Can you see any ICMP echo request sent on the network? Why? Explain what happened using the `route -n` output, the `ping` output, and the `tcpdump` output in each case.
 
 
 **Lab report**: Why does "romeo" not send any ARP request in the first part of this exercise, but does send ARP requests in the second part?
@@ -220,6 +220,21 @@ sudo route del -host 10.10.10.100 dev eth1
 
 
 ### Exercise - experiments with subnet masks
+
+In the previous exercise, we saw that if there is no rule in a routing table that applies to a packet's destination address, the packet will not be sent and a "Network unreachable" error is raised.
+
+However, you may recall that in previous experiments, we exchanged packets between hosts without adding any rules to their routing tables! This is because when a network interface is configured with an IP address and subnet mask, a "directly connected network" rule is *automatically* added to the routing table. This rule applies to all destination addresses in the same subnet as the network interface, and says to send all traffic directly (without an "next hop" router) from that interface. 
+
+Because of the automatically added rule, a Host A can send to Host B if Host B's IP address is within the range of addresses in Host A's subnet. If Host B's IP address is not within the range of addresses in Host A's subnet, then there will be no automatically added rule that applies to messages to Host B. Under these circumstances, either (1) a rule must be added, or (2) the packet will not be sent, and a "Network unreachable" error is returned.
+
+In summary, two hosts on the same network segment can reach one another only if
+
+* **either** their IP addresses and subnet masks are configured so that they are in the same subnet,
+* **or** a rule has been added to their routing tables to describe which interface to send the packets from.
+
+**otherwise**, the sender will observe a "Network unreachable" error.
+
+---
 
 For this experiment, you will need *two* terminals on *each* host in your topology. Set up your terminal application accordingly.
 
