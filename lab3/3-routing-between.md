@@ -294,19 +294,19 @@ and save the output for your lab report.
 Start a `tcpdump` on romeo with
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-static-headers.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-static-headers.pcap icmp
 ```
 
 and on othello, router-1, and router-2, with
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-1-static-headers.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-1-static-headers.pcap icmp
 ```
 
 in one terminal window and
 
 ```
-sudo tcpdump -i eth2 -w $(hostname -s)-2-static-headers.pcap
+sudo tcpdump -i eth2 -w $(hostname -s)-2-static-headers.pcap icmp
 ```
 
 in a second terminal window.
@@ -377,13 +377,13 @@ and save the output. Note that there are now *two* rules that match othello's ad
 Start a `tcpdump` on both interfaces of router-2 and on both interfaces of router-3:
 
 ```
-sudo tcpdump -env -i eth1
+sudo tcpdump -env -i eth1 icmp
 ```
 
 and
 
 ```
-sudo tcpdump -env -i eth2
+sudo tcpdump -env -i eth2 icmp
 ```
 
 Make sure you know which `tcpdump` shows the interface on the **blue network** and which shows the interface on the **green network** or the **purple network**.
@@ -418,13 +418,13 @@ and save the output. Note that there are now *three* rules that match othello's 
 Start a `tcpdump` on both interfaces of router-2 and on both interfaces of router-3:
 
 ```
-sudo tcpdump -env -i eth1
+sudo tcpdump -env -i eth1 icmp
 ```
 
 and
 
 ```
-sudo tcpdump -env -i eth2
+sudo tcpdump -env -i eth2 icmp
 ```
 
 Make sure you know which `tcpdump` shows the interface on the **blue network** and which shows the interface on the **green network** or the **purple network**.
