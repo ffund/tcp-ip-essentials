@@ -444,6 +444,6 @@ Stop the `tcpdump` processes and save the output for your lab report.
 
 **Lab report**: Use your `tcpdump` output to answer the following questions about Part 1 and Part 2 of this exercise:
 
-* In your `tcpdump` output from interfaces on the **blue network**, note of the packet's destination MAC address - is it router-2's MAC address or router-3's MAC address? 
-* In your `tcpdump` output from the **green network**, can you see the packet - was it forwarded to othello by router-2? Or do you see it on the **purple network**, because it was forwarded to othello by router-3? 
+* In your `tcpdump` output from interfaces on the **blue network**, note the ICMP echo *request* packet's destination MAC address - is it router-2's MAC address or router-3's MAC address? 
+* In your `tcpdump` output from the **green network**, can you see the ICMP echo *request* packet - was it forwarded to othello by router-2? Or do you see it on the **purple network**, because it was forwarded to othello by router-3? 
 * Which of the rules in router-1's routing table matches the destination address 10.10.1.104? Which one rule was applied in this case, and why?
