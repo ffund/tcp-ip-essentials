@@ -355,6 +355,11 @@ In the previous exercise, you added a rule to the routing table on router-1 that
 
 Now, we will add more routes so that multiple rules in router-1's routing table match the destination address 10.10.1.104, and we'll see which rule is actually applied.
 
+First, let's make sure that router-3 can also forward packets to the destination address 10.10.1.104. Add a rule on router-3 that uses othello's interface on the **purple network** as the next hop toward the green network:
+
+```
+sudo route add -net 10.10.1.0/24 gw 10.10.2.104
+```
 
 #### Part 1: 10.10.0.0/16
 
