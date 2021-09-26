@@ -332,5 +332,5 @@ Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all
 * What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "hamlet"?
 * What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "ophelia"?
 
-**Lab report**: Explain why the other hosts cannot exchange ICMP echo messages with "ophelia", while they can with "romeo", which has the same subnet mask as "ophelia". Use your answer to the previous question to support this explanation.
+**Lab report**: For each of the four parts of this experiment, show the `tcpdump` output for both endpoints - the host you ping *from* and the host you send the ping *to*. Then, explain why the other hosts cannot exchange ICMP echo messages with "ophelia", while they can with "romeo", which has the same subnet mask as "ophelia". Use your answer to the previous question to support this explanation.
 

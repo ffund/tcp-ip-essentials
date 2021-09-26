@@ -1,10 +1,10 @@
-## Routing between networks
+## Exercises with static routing between networks
 
 In these exercises, we will observe how routing principles apply when packets are forwarded by a router from one network segment to the next.
 
 ### Remove the default route
 
-In a previous exercise, you removed the default route on the romeo, juliet, hamlet, and ophelia hosts. Now, you will repeat this procedure for router-1, router-2, router-3, and othello.
+You have previously removed the default route on the romeo, juliet, hamlet, and ophelia hosts. Now, you will repeat this procedure on router-1, router-2, router-3, and othello.
 
 First, use
 
@@ -350,3 +350,5 @@ In a previous lesson, you answered a similar question for traffic traversing a b
 
 **Lab report**: Also examine the TTL field in the IP header. What happens to the value in this field when a packet is forwarded by a router?
 
+
+### Exercise - longest prefix matching
