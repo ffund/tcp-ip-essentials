@@ -278,7 +278,7 @@ Stop the `tcpdump` processes and save the output for your lab report.
 
 * Show the route(s) that you added (if any). 
 * Show the routing table on romeo, othello, router-1, and router-2 at each stage. On which hosts and routers is there a rule that matches destination addresses in the **green network**?  On which hosts and routers is there a rule that matches destination addresses in the **red network**? 
-* Show the `tcpdump` output on each network interface. On which network interfaces did you see the ICMP echo *request* in the `tcpdump` output: On which network interfaces did you see the ICMP echo *reply* in the `tcpdump` output?
+* Show the `tcpdump` output on each network interface. On which network interfaces did you see the ICMP echo *request* in the `tcpdump` output? On which network interfaces did you see the ICMP echo *reply* in the `tcpdump` output?
 
 ### Exercise - packet headers
 
