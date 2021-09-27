@@ -6,6 +6,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1">
@@ -20,6 +21,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0">
@@ -34,6 +36,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2">
@@ -48,6 +51,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3">
@@ -63,6 +67,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4">
@@ -79,6 +84,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6">
@@ -95,6 +101,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8">
@@ -111,6 +118,7 @@
 <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"/>
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
+
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5">
@@ -128,16 +136,40 @@
 <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
 <link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-0" dest_id="interface-1" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-0" dest_id="interface-2" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-0" dest_id="interface-3" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-0" dest_id="interface-4" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-1" dest_id="interface-0" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-1" dest_id="interface-2" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-1" dest_id="interface-3" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-1" dest_id="interface-4" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-2" dest_id="interface-0" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-2" dest_id="interface-1" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-2" dest_id="interface-3" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-2" dest_id="interface-4" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-3" dest_id="interface-0" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-3" dest_id="interface-1" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-3" dest_id="interface-2" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-3" dest_id="interface-4" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-4" dest_id="interface-0" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-4" dest_id="interface-1" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-4" dest_id="interface-2" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-4" dest_id="interface-3" capacity="1000"/>
 </link>
 <link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-1">
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5"/>
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6"/>
 <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-5" dest_id="interface-6" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-6" dest_id="interface-5" capacity="1000"/>
 </link>
 <link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-2">
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7"/>
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8"/>
 <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-7" dest_id="interface-8" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-8" dest_id="interface-7" capacity="1000"/>
 </link>
 <link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-3">
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9"/>
@@ -145,5 +177,11 @@
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11"/>
 <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
 <link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-9" dest_id="interface-10" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-9" dest_id="interface-11" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-10" dest_id="interface-9" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-10" dest_id="interface-11" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-11" dest_id="interface-9" capacity="1000"/>
+<property xmlns="http://www.geni.net/resources/rspec/3" source_id="interface-11" dest_id="interface-10" capacity="1000"/>
 </link>
 </rspec>
