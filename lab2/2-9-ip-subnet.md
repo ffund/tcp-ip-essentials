@@ -322,6 +322,23 @@ From "hamlet" or "juliet", ping "ophelia" (10.10.0.120).
 Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all the hosts.
 
 
+### Restore the original netmask
+
+Once you have finished these steps, restore the original network interface configuration on romeo, juliet, hamlet, and ophelia. 
+Refer to the network diagram from the resource reservation step, and use the syntax
+
+
+```
+sudo ifconfig INTERFACE IP-ADDRESS netmask NETMASK
+```
+
+substituting appropriate values for `INTERFACE` name, `IP-ADDRESS`, and `NETMASK`.
+
+
+---
+
+
+
 **Lab report**: In the routing table for each host, show the rule that applies to traffic that is sent within the same subnet. (This rule is added to the routing table automatically when you configure the IP address and netmask on the network interface.) 
 
 
