@@ -322,7 +322,7 @@ From "hamlet" or "juliet", ping "ophelia" (10.10.0.120).
 Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all the hosts.
 
 
-### Restore the original netmask
+### Restore the original configuration
 
 Once you have finished these steps, restore the original network interface configuration on romeo, juliet, hamlet, and ophelia. 
 Refer to the network diagram from the resource reservation step, and use the syntax
