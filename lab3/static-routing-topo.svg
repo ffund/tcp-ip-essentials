@@ -20,7 +20,7 @@
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"><metadata
      id="metadata840"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs838"><clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath850"><path
@@ -787,9 +787,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="0.75216751"
-     inkscape:cx="441.02485"
-     inkscape:cy="332.91087"
+     inkscape:zoom="1.3045405"
+     inkscape:cx="212.6212"
+     inkscape:cy="134.99693"
      inkscape:window-x="1992"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -982,6 +982,7 @@
      sodipodi:role="line"
      id="tspan1558">romeo</tspan></text>
 
+
 </g><g
        id="g1562"
        transform="matrix(2.282932,0,0,2.282932,1459.198,1655.7052)"><path
@@ -1032,6 +1033,7 @@
      y="0"
      sodipodi:role="line"
      id="tspan1598">juliet</tspan></text>
+
 
 </g><g
        id="g1602"
@@ -1084,6 +1086,7 @@
      sodipodi:role="line"
      id="tspan1638">hamlet</tspan></text>
 
+
 </g><g
        id="g1642"
        transform="matrix(2.282932,0,0,2.282932,1491.1589,1947.9204)"><path
@@ -1134,6 +1137,7 @@
      y="0"
      sodipodi:role="line"
      id="tspan1678">ophelia</tspan></text>
+
 
 </g><g
        id="g1682"
@@ -1240,6 +1244,7 @@
      sodipodi:role="line"
      id="tspan1746">router-1</tspan></text>
 
+
 </g><g
        id="g1750"
        transform="matrix(2.282932,0,0,2.282932,2467.4175,1558.3739)"><path
@@ -1326,6 +1331,7 @@
      y="0"
      sodipodi:role="line"
      id="tspan1804">router-2</tspan></text>
+
 
 </g><g
        id="g1808"
@@ -1414,6 +1420,7 @@
      sodipodi:role="line"
      id="tspan1862">router-3</tspan></text>
 
+
 </g><g
        id="g1866"
        transform="matrix(2.282932,0,0,2.282932,2914.0247,1855.3201)"><path
@@ -1464,6 +1471,7 @@
      y="0"
      sodipodi:role="line"
      id="tspan1902">othello</tspan></text>
+
 
 </g><g
        id="g1906"
@@ -1551,6 +1559,7 @@
      sodipodi:role="line"
      id="tspan2336">v1.6</tspan></text>
 
+
 </g></g></g></g></g></g><text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1562,6 +1571,7 @@
      x="1266.0715"
      y="1401.5975"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.100</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1575,6 +1585,7 @@
      y="1731.7306"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.101</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1585,7 +1596,8 @@
      id="tspan2512-7"
      x="600.25055"
      y="1924.5012"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.102</tspan></text>
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.103</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1597,7 +1609,8 @@
      id="tspan2512-9"
      x="1278.8798"
      y="2295.0371"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.103</tspan></text>
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.102</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1611,6 +1624,7 @@
      y="1916.0624"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.1</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1622,6 +1636,7 @@
      x="1949.5642"
      y="1931.5001"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#0000ff;fill-opacity:1;stroke-width:3.12500024">10.10.100.1</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1635,6 +1650,7 @@
      y="1522.3987"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#0000ff;fill-opacity:1;stroke-width:3.12500024">10.10.100.2</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1646,6 +1662,7 @@
      x="2198.8499"
      y="2133.4587"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#0000ff;fill-opacity:1;stroke-width:3.12500024">10.10.100.3</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1659,6 +1676,7 @@
      y="1363.2542"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#009e00;fill-opacity:1;stroke-width:3.12500024">10.10.1.1</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#009e00;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1670,6 +1688,7 @@
      x="3432.0759"
      y="1736.693"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#009e00;fill-opacity:1;stroke-width:3.12500024">10.10.1.104</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1683,6 +1702,7 @@
      y="2131.3857"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#aa18ff;fill-opacity:1;stroke-width:3.12500024">10.10.2.104</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#aa18ff;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1694,6 +1714,7 @@
      x="2889.1462"
      y="2272.644"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#aa18ff;fill-opacity:1;stroke-width:3.12500024">10.10.2.1</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1707,6 +1728,7 @@
      y="1740.8477"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#ff0000;fill-opacity:1;stroke-width:3.12500024">10.10.0.0/24</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1718,6 +1740,7 @@
      x="2478.925"
      y="1871.7734"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#0000ff;fill-opacity:1;stroke-width:3.12500024">10.10.100.0/24</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -1731,6 +1754,7 @@
      y="1715.9197"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#009e00;fill-opacity:1;stroke-width:3.12500024">10.10.1.0/24</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.00000381px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#aa18ff;fill-opacity:1;stroke:none;stroke-width:3.12500024"
@@ -1742,5 +1766,6 @@
      x="2914.1821"
      y="2031.6737"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:58.33333588px;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono';fill:#aa18ff;fill-opacity:1;stroke-width:3.12500024">10.10.2.0/24</tspan></text>
+
 
 </g></svg>
