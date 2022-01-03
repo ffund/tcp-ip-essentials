@@ -149,6 +149,8 @@ Use the Regrade Request feature in Gradescope, which will automatically send a m
 
 <iframe width="480" height="270" src="https://www.youtube.com/embed/TOHCkI12mh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+A regrade request should be submitted within 3 days of the grade release.
+
 
 ## Other important policies
 
