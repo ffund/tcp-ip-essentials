@@ -10,6 +10,7 @@ The lab section of the course has its own Brightspace site (it is separate from 
 
 Within the module for each lab, you will find:
 
+* A message on the module's "home" page, including some context for the week's assignment and any important details you'll need that are not included in the materials
 * A lab manual, with step-by-step instructions for completing the lab assignment
 * A video playlist that you can watch to see the instructor doing each step of the lab assignment
 * A link to a survey that you can fill out to give us feedback about the lab assignment. Please fill this out, it's really helpful to us!
