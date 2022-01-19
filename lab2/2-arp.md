@@ -82,6 +82,9 @@ tcpdump -enX -r $(hostname -s)-no-arp.pcap
 
 Use `scp` to transfer both packet capture files to your laptop. Then, you can open them in Wireshark for further analysis.
 
+> **Note**: In your packet capture, depending on the timing of your experiment, you may observe an ARP request and reply *after* the ICMP echo request and response are exchanged. And if you look closely at this unexpected ARP request, you may notice that the destination MAC address is not the broadcast address (as with a "regular" ARP request, when the sender needs to resolve an IP address and does not know the associated MAC address) - this ARP request has a unicast destination MAC address. This type of ARP request is an ARP *poll*. ARP polls can be sent by a host that wants to confirm the validity of an existing entry in their ARP table, for example an entry that might be getting a little bit old.
+
+
 
 **Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why? Show evidence from the output of the `arp` commands to support your answer.
 
