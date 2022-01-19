@@ -29,7 +29,7 @@ Use the material in the Content module for that week to complete the lab assignm
 There are two ways to get help:
 
 * Post a question on the Q&A forum for this course.
-* Attend a Zoom office hours session with the instructor or a course assistant. 
+* Attend a Zoom office hours session with the lab instructor. 
 
 #### How long should I expect to spend on each lab assignment?
 
@@ -58,11 +58,15 @@ You are not allowed to ask for help on Chegg, CourseHero, private messages or gr
 
 #### Can I work on the lab assignment together with another student?
 
-You can work on the lab assignment at the same time as another student, and discuss your results as you work. But,
+You can work on the lab assignment at the same time as another student, and discuss your results *verbally* as you work. But,
 
 * You must set up your own resources on GENI and run the lab exercise yourself - you are not allowed to use another student's account or resources in another student's GENI "slice". Also, you aren't allowed to type commands into another student's terminal. 
-* You must submit data and screenshots from your own execution of the lab - you are not allowed to submit another student's data. Also, you must annotate screenshots etc. yourself - you are not allowed to ask another student to do it for you.
+* You must submit data and screenshots from your own execution of the lab - you are not allowed to submit another student's data. Also, you must annotate screenshots etc. yourself - you are not allowed to ask another student to do it for you. You are not allowed to send your data or screenshots to another student.
 * You must answer the questions in Gradescope yourself. You are not allowed to share the answers with another student.
+
+#### Can I share screenshots, data, or answers with another student, but just for comparison or to improve our understanding?
+
+Only *after* the "late due date" for the assignment! Before the late due date, you can discuss your work and your results verbally, but you are not allowed to share your screenshots, data, or answers. 
 
 #### Can I use outside resources, such as reference materials or lab reports from previous semesters?
 
@@ -74,19 +78,22 @@ It may be helpful to use reference materials, such as the textbook, lab manual, 
 
 You may have seen lab reports from previous semesters (either from friends, or online). You are not permitted to use these. We make updates and corrections to the lab procedure and questions every semester, so you shouldn't use previous lab reports even just to see what the answers should look like (for example - to see what parts of a screenshot to annotate), since these details often change from one semester to the next.
 
-## Submitting Lab Work
+#### If I violate the collaboration or academic integrity policies, what will happen?
+
+The specific penalty depends on the type of violation and whether or not it is the first violation. Please refer to Section D **Sanctions Available in Academic Misconduct Matters** in the [Student Code of Conduct](https://engineering.nyu.edu/student-life/student-activities/office-student-affairs/policies/code-conduct) for examples of potential penalties.
+
+Note that in order to deter violations, the consequence for submitting work that is in violation of these policies is designed to be much *worse* than submitting nothing! For example: a student who submits a friend's screenshot for one question on a lab assignment will get a zero grade for the entire assignment, not only for that question. (The friend who shared the screenshot will also get a zero grade, since sharing screenshots or data is a violation of the collaboration policy.)
+
+## Submitting lab work
 
 #### What do I need to submit after each lab exercise? Do I need to write a report?
 
 As your work on each lab exercise, you'll answer some short questions by filling in your answers in an online form in Gradescope. 
 
-Some of the questions will ask you to upload a screenshot of parts of the lab exercise, and annotate it to indicate certain relevant parts. Other questions will ask you to explain or comment on your screenshots.
+Some of the questions will ask you to upload a screenshot of parts of the lab exercise. Many questions will ask you to annotate your screenshots to indicate certain relevant parts, to show that you understand how to use and interpret the data you collect in the lab. Other questions will ask you to explain or comment on your screenshots or data.
 
 You will not have to write a traditional "lab report" explaining lab procedure etc. You *only* have to answer the specific questions that are asked in Gradescope.
 
-Here's a brief tutorial to show you how Gradescope works:
-
-<iframe width="480" height="270" src="https://www.youtube.com/embed/j_kha2UkeMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Where will I submit my lab work?
 
@@ -96,17 +103,12 @@ You will submit all your work on Gradescope. To open Gradescope from Brightspace
 
 In Brightspace, click on Content, then Course Tools, then Gradescope setup instructions. Follow the instructions there to join the course on Gradescope.
 
+#### How do I write answers in Gradescope?
 
-#### Why are there two due dates for each assignment in Gradescope?
+Here's a brief tutorial to show you how Gradescope works:
 
+<iframe width="480" height="270" src="https://www.youtube.com/embed/j_kha2UkeMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Each assignment has two due dates in Gradescope - a regular due date and a "late" due date.
-
-* Your work is due by the regular due date.
-* If you submit (or resubmit) your work within a few hours after the regular due date, it will be marked "LATE" in Gradescope. However, there won't be any penalty for a submission that is only a few hours late.
-* "One free late pass" policy: For *one* lab assignment this semester, if exceptional and unanticipated circumstances prevent you from submitting your work before the regular due date - for example, if you are sick - you may submit after the regular due date, but before the "late" due date. You don't have to ask permission or let me know when you are using your "late pass", but you can only use it once during the semester.
-* Once the late due date passes, Gradescope will close submissions and you will not be able to submit your work for that assignment.
-* If you experience technical problems while working on a lab, make sure to ask for help (on the Q&A site) *before* the regular due date, so that you can get help and submit your work before Gradescope closes submissions! Even if you are using your "late pass", make sure that you give yourself enough time before submissions are closed to get help in case of technical issues. Don't wait to ask for help until it's too late to submit.
 
 #### What kind of questions will I have to answer in Gradescope?
 
@@ -117,13 +119,15 @@ The types of questions include:
 * Written explanation. Make sure to answer the *specific question* that is asked. Often, the prompt will include multiple specific questions and you should make sure to address each of them in your answer for full credit. Also, do not include information that is *not* directly relevant to answering the question.
 * File upload or annotated file upload. You will often have to submit a screenshot showing part of your lab configuration, or the output of a command, for example. As you work on the lab, review the questions in Gradescope and make sure you capture everything that you'll need to submit. It's also important that if your screenshot shows an entire window with a lot of content on it, you should crop your screenshot to only show the part(s) that answer the question before you submit it.
 
-#### What types of files should I make for file upload questions?
+#### What types of files should I upload for file upload questions?
 
 Although Gradescope will allow you to upload many different types of files, the grader may not be able to read some of them. For file upload questions, please use one of the following formats *only*:
 
 * PNG image (preferred)
 * JPG image
 * PDF
+
+After uploading a file and saving your submission in Gradescope, make sure it is visible and that any text or annotations in the image are readable within Gradescope.
 
 Do *not* upload:
 
@@ -132,9 +136,74 @@ Do *not* upload:
 * Other image formats
 
 
+## Submission deadlines
+
+
+#### Why are there two due dates for each assignment in Gradescope?
+
+
+Each assignment has two due dates in Gradescope - a regular due date and a "late" due date.
+
+* Your work is due by the regular due date.
+* If you submit work or update your submission between the regular due date and the late due date, it counts as "LATE". Please refer to the next question for more information on "LATE" penalties.
+* Once the late due date passes, Gradescope will close submissions and you will not be able to submit your work for that assignment. No new submissions or changes are accepted after the "late" due date.
+
 #### Can I make corrections or resubmit my work after I submit a lab report in Gradescope?
 
-Yes, you can make corrections and resubmit as many times as you want until the regular due date.
+Yes, you can make corrections and resubmit as many times as you want until the *regular* due date. 
+
+If you make changes after the regular due date (but before the *late* due date) then the submission will be considered "late". (See "What are the penalties for late submission?")
+
+#### What are the penalties for late submission?
+
+At the end of the semester, I will download your "Total Lateness" from Gradescope - this is the sum of all "late" time used across all lab assignments. 
+
+To accommodate exceptional and unanticipated circumstances that prevent you from submitting your work before the regular due date - for example, if you are sick - you have up to 48 *total* hours of "free" lateness. For example, if:
+
+* your Lab 3 submission is 12 hours late, because your home Internet access broke just before the deadline, and you had to submit your work the next morning, on campus,
+* your Lab 8 submission is 35 hours late, because you finished most of the assignment early, but then had a migraine headache before you could finish the rest,
+* and the rest of your work is submitted on time,
+
+then there is no penalty, because the "Total Lateness" across all assignments is less than 48 hours. (You don't have to ask permission, and you don't have to let me know why your submission was late.)
+
+There is a penalty off your overall lab grade of 0.5 point/hour after 48 hours. For example, if you earn a perfect score on every lab assignment but had 73 hours of "Total Lateness" across the entire semester, your lab score will be 100-(1/2)25 = 87.5.
+
+#### Do you have any tips for avoiding late submissions?
+
+Each lab assignment is available to work on for a full week or more (including two full Sundays), and the schedule of lab due dates is published on the first day of the semester, so you can plan your schedule.
+
+The best way to avoid late submission is to start working on the lab as soon as it is available, rather than waiting until a day or two before the deadline. This way, if the lab takes longer than you expected, or you have an exam for another course on the day the lab is due, or if your computer breaks - you still have plenty of time to finish before the deadline.
+
+This is especially important if you have already used some of your "free" late hours, since you have less slack left to accommodate unexpected situations.
+
+If you experience technical problems while working on a lab, make sure to ask for help (on the Q&A site) right away, so that you can get help and submit your work on time! Don't wait to ask for help.
+
+
+### What should I do if I need extra time on a lab assignment because of a disability?
+
+If you need extra time on an assignment because of a disability (for example: you need to take frequent breaks from a computer screen because of a vision problem, or you have an executive function disorder), you will need to work with the Moses Center to request accommodations beyond the "48 free late hours". Please refer to the "Moses Center Statement of Disability" section. 
+
+(Note that disability accommodations are not retroactive, so you should begin this process at the beginning of the semester if you think you may need it, rather than waiting until you are already struggling.)
+
+The Moses Center will reach out to your professors directly if your accommodations are approved, so you do not need to share any details of your disability with me.
+
+### What should I do if I need extra time on a lab assignments because of illness, religious practice, or a death in the immediate family?
+
+If you need extra time on an assignment (beyond the "48 free late hours") because of illness (including COVID-19), religious practice, or a death in the immediate family, please contact the student advocate. Refer to the "Illness or other exceptional situation" section for details.
+
+The student advocate will reach out to your professors directly to recommend excused absences or extended deadlines, so you do not need to share any details of your personal circumstance with me.
+
+
+## Grading and regrading
+
+### How are the lab assignments scored? 
+
+Each lab assignment is graded out of 10 points. 
+
+A team of graders reviews all of the lab assignments, under the supervision of the lab instructor. For each question, a detailed rubric specifies how many points should be deducted for different types of errors. The grader reviews the submission and indicates which of the deductions or comments listed in the rubric apply.
+
+After the grades are released, you'll be able to see exactly which rubric items the graders applied to your submission, so you can understand and learn from any mistakes.
+
 
 #### How will I review my work, once it is graded?
 
@@ -149,7 +218,15 @@ Use the Regrade Request feature in Gradescope, which will automatically send a m
 
 <iframe width="480" height="270" src="https://www.youtube.com/embed/TOHCkI12mh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-A regrade request should be submitted within 3 days of the grade release.
+A regrade request should be submitted within **3 days** of the grade release.
+
+
+### How is the overall lab grade computed? Are any lab grades dropped?
+
+There are a total of 12 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
+
+Sum of 9 highest lab grades + (1/2) 3rd-lowest lab grade + (1/4) 2nd-lowest lab grade + (1/4) lowest lab grade - (1/2) excess lateness hours (beyond 48 "free" hours)
+
 
 
 ## Other important policies
@@ -164,5 +241,5 @@ If you are student with a disability who is requesting accommodations, please co
 
 #### Illness or other exceptional situation
 
-If you are experiencing an illness or any other situation that might affect your academic performance in a class, please email Deanna Rayment, Coordinator of Student Advocacy, Compliance and Student Affairs: deanna.rayment@nyu.edu. Deanna can reach out to your instructors on your behalf when warranted.
+If you are experiencing an illness or any other situation that might affect your academic performance in a class, please email the student advocate: eng.studentadvocate@nyu.edu . The student advocate can reach out to your instructors on your behalf when warranted.
 
