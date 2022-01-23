@@ -166,7 +166,7 @@ To accommodate exceptional and unanticipated circumstances that prevent you from
 * your Lab 8 submission is 35 hours late, because you finished most of the assignment early, but then had a migraine headache before you could finish the rest,
 * and the rest of your work is submitted on time,
 
-then there is no penalty, because the "Total Lateness" across all assignments is less than 48 hours. (You don't have to ask permission, and you don't have to let me know why your submission was late.)
+then there is no penalty, because the "Total Lateness" across all assignments is only 47 hours, and hasn't exceeded the "free" amount (48 hours). (You don't have to ask permission, and you don't have to let me know why your submission was late.)
 
 There is a penalty off your overall lab grade of 0.5 point/hour after 48 hours. For example, if you earn a perfect score on every lab assignment but had 73 hours of "Total Lateness" across the entire semester, your lab score will be 100-(1/2)25 = 87.5.
 
@@ -176,7 +176,7 @@ Each lab assignment is available to work on for a full week or more (including t
 
 The best way to avoid late submission is to start working on the lab as soon as it is available, rather than waiting until a day or two before the deadline. This way, if the lab takes longer than you expected, or you have an exam for another course on the day the lab is due, or if your computer breaks - you still have plenty of time to finish before the deadline.
 
-This is especially important if you have already used some of your "free" late hours, since you have less slack left to accommodate unexpected situations.
+This is especially important if you have already used some of your "free" late hours, since you have less slack left to accommodate unexpected situations. (In general, I advise you to save your "free" late hours to the extent possible, and not use them up early in the course - if you use them up early, then you won't have any left if unexpected circumstances arise later in the semester.)
 
 If you experience technical problems while working on a lab, make sure to ask for help (on the Q&A site) right away, so that you can get help and submit your work on time! Don't wait to ask for help.
 
