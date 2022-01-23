@@ -14,6 +14,7 @@ Within the module for each lab, you will find:
 * A lab manual, with step-by-step instructions for completing the lab assignment
 * A video playlist that you can watch to see the instructor doing each step of the lab assignment
 * A link to a survey that you can fill out to give us feedback about the lab assignment. Please fill this out, it's really helpful to us!
+* For some lab assignments (starting with Lab 2), you'll also get a problem set for practicing the lab concepts and skills
 
 ## Lab sessions
 
