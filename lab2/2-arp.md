@@ -11,7 +11,13 @@ On the "romeo" host, run
 arp -i eth1 -n
 ```
 
-to see the entire ARP table for the `eth1` interface (if there are any entries).  (If there are no ARP entries, that's OK.) Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same subnet. 
+to see the entire ARP table for the `eth1` interface (if there are any entries).  If there are no ARP entries, the output will say
+
+```
+arp: in X entries no match found.
+```
+
+which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same subnet. 
 
 If the "juliet" host (10.10.0.101) is already listed in the ARP table, then delete it with
 
@@ -60,6 +66,8 @@ arp -i eth1 -n
 ```
 
 on the "romeo" host to see a new line added to the ARP table. Save the new ARP table for your lab report.
+
+> **Note**: If you observe the output of `arp -i eth1 -n` on the "juliet" host, you'll see that a new line is added to the ARP table with romeo's address, even though "juliet" did not send an ARP request to resolve romeo's address! When "juliet" receives and responds to an ARP request for its own address, it will also update its ARP table to include the IP address and MAC address of the host that sent the ARP request. 
 
 Next, run
 
