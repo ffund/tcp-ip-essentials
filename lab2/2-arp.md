@@ -128,6 +128,8 @@ tcpdump -enX -r $(hostname -s)-nonexistent.pcap
 
 You can also use `scp` to transfer the packet capture to your laptop, and open it in Wireshark.
 
+> **Note**: The message "Destination Host Unreachable" in the `ping` output reflects that an ICMP Destination Unreachable: Host Unreachable message was received! This message is sent by the host *to itself* when it cannot resolve an IP address (e.g. due to ARP timeout). Since it is sent from the host to itself, it is sent over the loopback interface, and you won't see it in your packet capture. However, if you repeat this experiment while running `sudo tcpdump -nve -i lo icmp` on "romeo", you'll observe this ICMP Destination Unreachable: Host Unreachable message on the loopback interface.
+
 **Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: In the previous exercise, after sending an ARP request and receiving a reply, "romeo" sends an ICMP echo request. In this exercise, is an ICMP echo request ever sent? Why or why not?
 
 **Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: From the `tcpdump` output, describe how the ARP timeout and retransmission were performed. How many attempts were made to resolve a non-existing IP address? How much time separates each attempt?
