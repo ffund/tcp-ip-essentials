@@ -1,11 +1,11 @@
 ## ARP exercises
 
-In these exercises, we will consider communication between hosts in the same network segment. To put a packet on the network segment, the sending host wraps the packet in a Layer 2 header, which must include the destination MAC address. So the sending host needs to know the receiver’s MAC address before it can try to send the packet. If it doesn’t know the MAC address, it will try to find out using ARP. 
+In these exercises, we will consider communication between hosts in the same network segment. To put a packet on the network segment, the sending host wraps the packet in a Layer 2 header, which must include the destination MAC address. The sending host needs to know the receiver’s MAC address before it can try to send the packet. If it doesn’t know the MAC address, it will try to find out using ARP. 
 
 
 ### Exercise - ARP
 
-On the "romeo" host, run
+On each host, run
 
 ```
 arp -i eth1 -n
@@ -17,9 +17,9 @@ to see the entire ARP table for the `eth1` interface (if there are any entries).
 arp: in X entries no match found.
 ```
 
-which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same subnet. 
+which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
 
-If the "juliet" host (10.10.0.101) is already listed in the ARP table, then delete it with
+*If* the "juliet" host (10.10.0.101) is already listed in an ARP table, then delete it with
 
 ```
 sudo arp -d 10.10.0.101
@@ -32,7 +32,7 @@ Then, run
 arp -i eth1 -n
 ```
 
-again, and save the ARP table for your lab report.
+again, and save the ARP tables from each host for your lab report.
 
 
 On "romeo", run
@@ -51,6 +51,15 @@ to send an ICMP echo request to 10.10.0.101 ("juliet").
 
 Terminate `tcpdump` with Ctrl+C. 
 
+Run 
+
+```
+arp -i eth1 -n
+```
+
+each host, again. Save the new ARP tables for your lab report.
+
+
 The `tcpdump` application will have saved a new file named "romeo-arp.pcap" in your home directory on the "romeo" node. You can "play back" a summary of the capture file in the terminal using
 
 
@@ -59,15 +68,7 @@ tcpdump -enX -r $(hostname -s)-arp.pcap
 ```
 
 
-Run 
-
-```
-arp -i eth1 -n
-```
-
-on the "romeo" host to see a new line added to the ARP table. Save the new ARP table for your lab report.
-
-> **Note**: If you observe the output of `arp -i eth1 -n` on the "juliet" host, you'll see that a new line is added to the ARP table with romeo's address, even though "juliet" did not send an ARP request to resolve romeo's address! When "juliet" receives and responds to an ARP request for its own address, it will also update its ARP table to include the IP address and MAC address of the host that sent the ARP request. 
+> **Note**: You'll see that a new line is added to juliet's ARP table with romeo's address, even though "juliet" did not send an ARP request to resolve romeo's address! When "juliet" receives and responds to an ARP request for its own address, it will also update its ARP table to include the IP address and MAC address of the host that _sent_ the ARP request. 
 
 Next, run
 
@@ -103,15 +104,28 @@ Use `scp` to transfer both packet capture files to your laptop. Then, you can op
 * What is the frame type field in the Ethernet frame?
 * Of the four hosts on your network segment, which host sends the ARP reply? Why?
 
+
+**Lab report**: When an ARP request and ARP reply appear on a network segment, which hosts on the network segment will add the *target MAC address of the ARP request* to their ARP table? Which hosts on the network segment will add the *source MAC address of the ARP request* to their ARP table? Use the ARP tables you captured to explain your answer.
+
 ### Exercise - ARP for a non-existent host
+
+For this experiment, you will need *three* terminal windows on the "romeo" host.
 
 On the "romeo" host, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-nonexistent.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-eth1-nonexistent.pcap
 ```
 
-Then, in a second terminal window on "romeo", run
+In a second terminal window on "romeo", run
+
+```
+sudo tcpdump -i lo -w $(hostname -s)-lo-nonexistent.pcap icmp
+```
+
+to capture ICMP traffic on the loopback interface (i.e. ICMP messages sent from romeo to itself).
+
+Then, in a third terminal window on "romeo", run
 
 ```
 ping -c 1 10.10.0.200
@@ -120,18 +134,33 @@ ping -c 1 10.10.0.200
 Note that there is no host with this IP address in your network configuration.
 
 
-Wait for it to finish. Terminate `tcpdump` with Ctrl+C. Then "play back" a summary of the capture file in the terminal using
+Wait for it to finish. Terminate both `tcpdump` processes with Ctrl+C. 
 
-```
-tcpdump -enX -r $(hostname -s)-nonexistent.pcap
-```
-
-You can also use `scp` to transfer the packet capture to your laptop, and open it in Wireshark.
 
 The message "Destination Host Unreachable" in the `ping` output reflects that an ICMP message of type `Destination Unreachable` with code `Host Unreachable` was received! This message is sent by the host *to itself* when it cannot resolve an IP address (e.g. due to ARP timeout). 
 
-Since it is sent from the host to itself, it is sent over the loopback interface, and you won't see it in your packet capture. However, if you repeat this experiment while running `sudo tcpdump -nve -i lo icmp` on "romeo", you'll observe this ICMP Destination Unreachable: Host Unreachable message on the loopback interface.
+"Play back" a summary of the loopback capture file in the terminal using
 
-**Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: In the previous exercise, after sending an ARP request and receiving a reply, "romeo" sends an ICMP echo request. In this exercise, is an ICMP echo request ever sent? Why or why not?
+```
+tcpdump -enX -r $(hostname -s)-lo-nonexistent.pcap
+```
 
-**Lab report**: Show the summary `tcpdump` output, and use it to answer the following questions: From the `tcpdump` output, describe how the ARP timeout and retransmission were performed. How many attempts were made to resolve a non-existing IP address? How much time separates each attempt?
+Observe this message in the loopback interface capture.
+
+Also, "play back" a summary of the Ethernet capture file in the terminal using
+
+```
+tcpdump -enX -r $(hostname -s)-eth1-nonexistent.pcap
+```
+
+You can also use `scp` to transfer the packet captures to your laptop, and open them in Wireshark to see these packets in more detail.
+
+
+**Lab report**: Show the summary `tcpdump` output from the Ethernet interface, and use it to answer the following questions: 
+
+* In the previous exercise, after sending an ARP request and receiving a reply, "romeo" sends an ICMP echo request. In this exercise, is an ICMP echo request ever sent? Why or why not?
+* From the `tcpdump` output, describe how the ARP timeout and retransmission were performed. How many attempts were made to resolve a non-existing IP address? How much time separates each attempt?
+
+**Lab report**: Show the ICMP message you captured on the loopback interface, and answer these questions:
+
+* What is the value of the **type** field and the **code** field in the ICMP message?
