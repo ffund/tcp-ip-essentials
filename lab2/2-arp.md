@@ -105,7 +105,7 @@ Use `scp` to transfer both packet capture files to your laptop. Then, you can op
 * Of the four hosts on your network segment, which host sends the ARP reply? Why?
 
 
-**Lab report**: When an ARP request and ARP reply appear on a network segment, which hosts on the network segment will add the *target MAC address of the ARP request* to their ARP table? Which hosts on the network segment will add the *source MAC address of the ARP request* to their ARP table? Use the ARP tables you captured to explain your answer.
+**Lab report**: When an ARP request and ARP reply appear on a network segment, which hosts on the network segment will add the *target MAC address of the ARP request* to their ARP table? Which hosts on the network segment will add the *source MAC address of the ARP request* to their ARP table? Explain in general, as well as for the specific case of this netowrk. Use the ARP tables you captured to support your answer.
 
 ### Exercise - ARP for a non-existent host
 
