@@ -164,3 +164,4 @@ You can also use `scp` to transfer the packet captures to your laptop, and open 
 **Lab report**: Show the ICMP message you captured on the loopback interface, and answer these questions:
 
 * What is the value of the **type** field and the **code** field in the ICMP message?
+* Why does this message appear on the loopback interface, and not on the Ethernet segment?
