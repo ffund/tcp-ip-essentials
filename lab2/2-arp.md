@@ -105,7 +105,7 @@ Use `scp` to transfer both packet capture files to your laptop. Then, you can op
 * Of the four hosts on your network segment, which host sends the ARP reply? Why?
 
 
-**Lab report**: When an ARP request and ARP reply appear on a network segment, which hosts on the network segment will add the *target MAC address of the ARP request* to their ARP table? Which hosts on the network segment will add the *source MAC address of the ARP request* to their ARP table? Explain in general, as well as for the specific case of this netowrk. Use the ARP tables you captured to support your answer.
+**Lab report**: When an ARP request and ARP reply appear on a network segment, which hosts on the network segment will add the *target MAC address of the ARP request* to their ARP table? Which hosts on the network segment will add the *source MAC address of the ARP request* to their ARP table? Explain in general, as well as for the specific case of this network. Use the ARP tables you captured to support your answer.
 
 ### Exercise - ARP for a non-existent host
 
@@ -163,5 +163,5 @@ You can also use `scp` to transfer the packet captures to your laptop, and open 
 
 **Lab report**: Show the ICMP message you captured on the loopback interface, and answer these questions:
 
-* What is the value of the **type** field and the **code** field in the ICMP message?
+* What is the value of the ICMP **type** field and the ICMP **code** field in the ICMP message?
 * Why does this message appear on the loopback interface, and not on the Ethernet segment?
