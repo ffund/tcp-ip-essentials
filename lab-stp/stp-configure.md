@@ -45,7 +45,7 @@ Then, run
 brctl showstp br0
 ```
 
-on this bridge. Initially, the state of the bridge ports may appear as "learning". Repeat this until the state of each port is either "forwarding" or "blocked". Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
+on this bridge. Initially, the state of the bridge ports may appear as "learning". Repeat this until the state of each port is either "forwarding" or "blocked", and the "flags" section of the output is blank. Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
 
 ```
 tcpdump -nv -r stp-$(hostname -s)-1.pcap
@@ -82,7 +82,7 @@ Wait until the output of
 brctl showstp br0
 ```
 
-on both of the "active" bridges ("bridge-3" and "bridge-2") shows that all ports are either "forwarding" or "blocked". 
+on both of the "active" bridges ("bridge-3" and "bridge-2") shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. 
 
 
 Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
@@ -129,7 +129,7 @@ Wait until the output of
 brctl showstp br0
 ```
 
-on all of the "active" bridges ("bridge-3", "bridge-2", and "bridge-1") shows that all ports are either "forwarding" or "blocked". 
+on all of the "active" bridges ("bridge-3", "bridge-2", and "bridge-1") shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. 
 
 
 Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
@@ -165,7 +165,7 @@ Wait until the output of
 brctl showstp br0
 ```
 
-on each of the four bridges shows that all ports are either "forwarding" or "blocked". 
+on each of the four bridges shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. 
 
 
 Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
