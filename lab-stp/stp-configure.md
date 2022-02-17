@@ -97,11 +97,9 @@ Look at the BPDUs captured by "othello" on the network segment between the two "
 
 Next, look at the BPDUs captured by "romeo", on the network segment connected by the first bridge that we brought up. At the end of this stage, is the BPDU sent by this bridge different from the BPDU you captured in the previous section, when there was only one bridge in the network?
 
-Finally, look at the BPDUs captured by "hamlet", on the network segment connected to the new root bridge.
 
-**Lab report**:
+**Lab report**:Using the BPDUs captured by "othello" and "romeo", explain what happens when a bridge with a lower ID joins the network.
 
-**Lab report**: Are the STP BPDUs forwarded by the bridges from one network segment to the next?
 
 
 ### Network of three bridges 
