@@ -55,7 +55,7 @@ or use `scp` to transfer them to your laptop and open them in Wireshark.
 
 The bridge will have sent BPDUs on each of the network segments it is on, so you should find BPDUs in two of the packet captures: the packet capture on "romeo" and the packet capture on "othello". (The other two packet captures will not have BPDUs, since those network segments do not have any active bridge.)
 
-**Lab report**: Show the BPDU sent by the bridge in the network segment that "romeo" is on, and identify the key values in the BPDU. The, show the BPDU sent by the bridge on the network segment that "othello" is on, and identify the key values in the BPDU.
+**Lab report**: Show the BPDU sent by the bridge in the network segment that "romeo" is on, and identify the key values in the BPDU. Then, show the BPDU sent by the bridge on the network segment that "othello" is on, and identify the key values in the BPDU.
 
 
 ### Network of two bridges 
