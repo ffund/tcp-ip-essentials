@@ -4,7 +4,7 @@ The spanning tree protocol creates a loop-free forwarding topology, so as to avo
 
 We will bring up one bridge at a time, with "bridge-1" last so that there is no loop in the network until the end.
 
-For this sectionm, you will need one SSH session on each bridge, and _two_ SSH sessions on the "romeo" host. 
+For this section, you will need one SSH session on each bridge, and _two_ SSH sessions on the "romeo" host. 
 
 In one session the "romeo" host, run
 
