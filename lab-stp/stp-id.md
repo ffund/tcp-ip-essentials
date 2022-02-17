@@ -33,7 +33,7 @@ and confirm that you see a "yes" in the "STP enabled" column on each bridge.
 
 Also make a node of each bridge's bridge ID, which is displayed as 16 hex digits. The bridge ID is formed by concatenating a priority value and the MAC address of the `br0` interface:
 
-* The default priority is 32768, which is `8000` in hex digits.*
+* The default priority is 32768, which is `8000` in hex digits.
 * The software bridge package we are using assigns to `br0` the lowest MAC address of all of the bridged interfaces, so this is the MAC address that will be used in the bridge ID.
 
 Identify the bridge that has the lowest bridge ID. This is the bridge that would be the root bridge, if all of the bridges were active.
