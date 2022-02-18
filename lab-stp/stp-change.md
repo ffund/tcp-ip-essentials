@@ -14,19 +14,14 @@ ping 10.10.0.102
 
 to send ICMP echo requests to "hamlet". A new ICMP echo request (with increasing sequence number) will be sent after each second.
 
-On "hamlet" - the host that is the target of the pings - use `tcpdump` to capture ICMP packets:
 
-```
-sudo tcpdump -i eth1 -w icmp-change-$(hostname -s).pcap
-```
-
-On the other three hosts, run
+On all four hosts, run
 
 ```
 sudo tcpdump -i eth1 -w stp-change-$(hostname -s).pcap
 ```
 
-Then, "bridge-2" -  the _root_ bridge in the spanning tree - bring the bridge interface down with
+Then, on "bridge-2" -  the _root_ bridge in the spanning tree - bring the bridge interface down with
 
 ```
 sudo ifconfig br0 down
