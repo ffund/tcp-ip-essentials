@@ -19,7 +19,7 @@ While this usually works well, problems arise in the event of a bridging loop. F
 * Other switches in the network will also flood copies of the packet out all ports other than the one it arrives on. 
 * Eventually, it will re-appear at the switch that first flooded the packet - but on a different port than the one it originally arrived on. Copies will be flooded out all other ports, including the port that the packet was first seen on.
 * As more and more copies are created, the large volume of copies can saturate the network, preventing other traffic from getting through.
-* Because Ethernet frames do not have a time-to-live (TTL) field, like IP packets, they will not be discarded - copies of the frame can keep circulating in the network forever.
+* Because Ethernet frames do not have a time-to-live (TTL) field (IP packets _do_ have a TTL field!), they will not be discarded - copies of the frame can keep circulating in the network forever.
 
 The spanning tree protocol addresses this issue in a network with physical loops by setting some redundant paths to a blocked state and leaving others in a forwarding state. This creates a loop-free logical topology, so that a broadcast storm cannot occur. However, the network still benefits from the added reliability of redundant paths: if a link that is in a forwarding state becomes unavailable, then the protocol will reconfigure the tree and re-activate blocked paths as necessary, to restore connectivity.
 
