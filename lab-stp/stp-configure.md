@@ -62,6 +62,7 @@ The bridge will have sent BPDUs on each of the network segments it is on, so you
 
 Next, we'll bring up a second bridge: **bridge-2**, which has the _smallest_ bridge ID of all the bridges in the network. We'll use this as an opportunity to understand how the root bridge is elected, when there is more than one bridge in the network.
 
+
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
@@ -93,13 +94,31 @@ tcpdump -nv -r stp-$(hostname -s)-2.pcap
 
 or use `scp` to transfer them to your laptop and open them in Wireshark.
 
+---
+
+In the spanning tree protocol, there are four tiebreakers that can be applied to "competing" BPDUs, to definitively determine the bridge configuration. They are (in order):
+
+1. Lowest root bridge ID
+2. Lowest root path cost
+3. Lowest sender bridge ID
+4. Lowest sender bridge port
+
+When two different BPDUs are sent on a link, or when a bridge receives a BPDU with a configuration that disagrees with its own current configuration, it uses these tiebreakers to determine the "winning" configuration. In this section, we'll see how the "lowest root bridge ID" tiebreakers is applied! 
+
+In this experiment, initially "bridge-3" is sending BPDUs on both of its ports announcing *itself* as the root bridge. 
+
+However, when "bridge-2" comes online and receives these BPDUs, it will realize that its own initial configuration (with itself as the root bridge!), should "win" becuase of a lower root bridge ID. So "bridge-2" will start sending BPDUs announcing itself as the root bridge. 
+
+When "bridge-3" receives this BPDU, it will compare the BPDU to its existing STP configuration, realize that the root bridge ID in the new BPDU is lower, and update its configuration to reflect the new BPDU.
+
+---
+
 Look at the BPDUs captured by "othello" on the network segment between the two "active" bridges. What happens when a bridge with a lower ID joins the network? 
 
 Next, look at the BPDUs captured by "romeo", on the network segment connected by the first bridge that we brought up. At the end of this stage, is the BPDU sent by this bridge different from the BPDU you captured in the previous section, when there was only one bridge in the network?
 
 
 **Lab report**:Using the BPDUs captured by "othello" and "romeo", explain what happens when a bridge with a lower ID joins the network.
-
 
 
 ### Network of three bridges 
@@ -137,6 +156,32 @@ tcpdump -nv -r stp-$(hostname -s)-3.pcap
 ```
 
 or use `scp` to transfer them to your laptop and open them in Wireshark.
+
+---
+
+Any bridge that is not a root bridge must elect a root port. This should be the port that is "closer" to the root bridge - i.e., has the lowest root path cost. 
+
+Every bridge interface is assigned a "path cost". This is typically, a value inversely proportional to the link speed of the interface. A 1 Gbps interface will have a lower path cost than a 100 Mbps interface! This value does not depend on the network topology, or how far the interface is from the root bridge; it's just a feature of the interface.
+
+The "root path cost" of an interface _does_ depend on the network topology! The root path cost tells us: suppose we would send a frame through this interface, toward the root bridge. **What is the cumulative cost of every bridge interface (including this one!) that would have to send/forward this frame before it is received at the root bridge?**
+
+A bridge doesn't need to know the entire network topology to compute this value, though. It just needs to know the root path cost of the _designated bridge port_ on this network segment. (The designated bridge port is the one that has the lowest root path cost, of all the bridge ports on the network segment.) And, the designated bridge port sends BPDUs on the network segment that tell its neighbors its root path cost.
+
+When a bridge comes online and receives a BPDU advertising a root bridge ID that is lower than its own, it adopts this root bridge configuration. Then, the bridge will compute the root path cost of each of its ports. This is the cumulative cost of every bridge port that would need to forward a frame, for it to reach the root bridge.
+
+* find out the "designated cost" on each of its ports. This is the "root path cost" of the designated bridge port on the network segment this port is on, read from received BPDUs.
+* compute the root path cost of each of its ports. This is the cost associated with forwarding through this port, plus the designated cost.
+
+The port with the smallest root path cost will become the root port, and this port's root path cost will become the bridge's overall root path cost.
+
+The bridge will then determine if one of its ports should become the designated bridge port on its network segment. 
+
+* If a bridge port does not receive any BPDUs, it is the _only_ bridge port on that network segment, and it becomes the designated bridge port. It will being sending BPDUs on that network segment, with its bridge ID, port ID, root ID, and root path cost.
+* If a bridge port 
+
+
+If a bridge receives a BPDU on a port with 
+
 
 ### Network of four bridges 
 
