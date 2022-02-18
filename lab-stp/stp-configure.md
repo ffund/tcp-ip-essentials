@@ -45,7 +45,10 @@ Then, run
 brctl showstp br0
 ```
 
-on this bridge. Initially, the state of the bridge ports may appear as "learning". Repeat this until the state of each port is either "forwarding" or "blocked", and the "flags" section of the output is blank. Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
+on this bridge. Initially, the state of the bridge ports may appear as "learning". Repeat this until the state of each port is either "forwarding" or "blocked", and the "flags" section of the output is blank. Save the final output.
+
+
+Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
 
 ```
 tcpdump -nv -r stp-$(hostname -s)-1.pcap
@@ -83,7 +86,7 @@ Wait until the output of
 brctl showstp br0
 ```
 
-on both of the "active" bridges ("bridge-3" and "bridge-2") shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. 
+on both of the "active" bridges ("bridge-3" and "bridge-2") shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. Save the final output on each bridge.
 
 
 Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
@@ -118,7 +121,7 @@ Look at the BPDUs captured by "othello" on the network segment between the two "
 Next, look at the BPDUs captured by "romeo", on the network segment connected by the first bridge that we brought up. At the end of this stage, is the BPDU sent by this bridge different from the BPDU you captured in the previous section, when there was only one bridge in the network?
 
 
-**Lab report**:Using the BPDUs captured by "othello" and "romeo", explain what happens when a bridge with a lower ID joins the network.
+**Lab report**: Using the BPDUs captured by "othello" and "romeo", explain what happens when a bridge with a lower ID joins the network.
 
 
 ### Network of three bridges 
@@ -146,7 +149,7 @@ Wait until the output of
 brctl showstp br0
 ```
 
-on all of the "active" bridges ("bridge-3", "bridge-2", and "bridge-1") shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. 
+on all of the "active" bridges ("bridge-3", "bridge-2", and "bridge-1") shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank.  Save the final output on each bridge.
 
 
 Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
@@ -161,26 +164,22 @@ or use `scp` to transfer them to your laptop and open them in Wireshark.
 
 Any bridge that is not a root bridge must elect a root port. This should be the port that is "closer" to the root bridge - i.e., has the lowest root path cost. 
 
-Every bridge interface is assigned a "path cost". This is typically, a value inversely proportional to the link speed of the interface. A 1 Gbps interface will have a lower path cost than a 100 Mbps interface! This value does not depend on the network topology, or how far the interface is from the root bridge; it's just a feature of the interface.
+Every bridge port is assigned a "path cost". This is typically, a value inversely proportional to the link speed of the interface. A 1 Gbps interface will have a lower path cost than a 100 Mbps interface! This value does not depend on the network topology, or how far the interface is from the root bridge; it's just a feature of the port.
 
-The "root path cost" of an interface _does_ depend on the network topology! The root path cost tells us: suppose we would send a frame through this interface, toward the root bridge. **What is the cumulative cost of every bridge interface (including this one!) that would have to send/forward this frame before it is received at the root bridge?**
+The "root path cost" of a bridge port _does_ depend on the network topology! The root path cost tells us: suppose we would send a frame through this port, toward the root bridge. **What is the cumulative cost of every bridge port (including this one!) that would have to send/forward this frame before it is received at the root bridge?**
 
-A bridge doesn't need to know the entire network topology to compute this value, though. It just needs to know the root path cost of the _designated bridge port_ on this network segment. (The designated bridge port is the one that has the lowest root path cost, of all the bridge ports on the network segment.) And, the designated bridge port sends BPDUs on the network segment that tell its neighbors its root path cost.
+A bridge doesn't need to know the entire network topology to compute this value, though. It just needs to know the root path cost of the _designated bridge port_ on this network segment. (The designated bridge port is the one that has the lowest root path cost, of all the bridge ports on the network segment.) And, the designated bridge port sends BPDUs on the network segment that tell its neighbors its root path cost. This value is the "designated cost" of the interface.
 
-When a bridge comes online and receives a BPDU advertising a root bridge ID that is lower than its own, it adopts this root bridge configuration. Then, the bridge will compute the root path cost of each of its ports. This is the cumulative cost of every bridge port that would need to forward a frame, for it to reach the root bridge.
+Then, a bridge can compute the root path cost of each port: just add the interface "path cost" to the "designated cost".
 
-* find out the "designated cost" on each of its ports. This is the "root path cost" of the designated bridge port on the network segment this port is on, read from received BPDUs.
-* compute the root path cost of each of its ports. This is the cost associated with forwarding through this port, plus the designated cost.
+Once a bridge has computed the root path cost of each of its ports, it will select the port with the lowest root path cost as the root port. (This is tiebreakers #2, lowest root path cost!) 
 
-The port with the smallest root path cost will become the root port, and this port's root path cost will become the bridge's overall root path cost.
+Also, the root path cost of the root port becomes the bridge's overall root path cost. 
 
-The bridge will then determine if one of its ports should become the designated bridge port on its network segment. 
+What if there is a tie when determining the root port? If two ports have the same smallest root path cost, tiebreakers #3 (lowest sender bridge ID) and, in cast of another tie, tiebreaker #4 (lowest sender bridge port) will be applied to the BPDUs received on each port. 
 
-* If a bridge port does not receive any BPDUs, it is the _only_ bridge port on that network segment, and it becomes the designated bridge port. It will being sending BPDUs on that network segment, with its bridge ID, port ID, root ID, and root path cost.
-* If a bridge port 
+Root path cost is also used to decide which bridge port is the designated bridge port on a network segment. If a bridge receives a BPDU on a port, but this port's "root path cost" is less than the "root path cost" in the BPDU, then this bridge port "wins" on tiebreaker #2 (lowest root path cost) and should become the new designated bridge port on this network segment. It will begin sending BPDUs on the network segment, and other bridge port on the network segment will update their configuration to reflect the new designated bridge port and cost.
 
-
-If a bridge receives a BPDU on a port with 
 
 
 ### Network of four bridges 
@@ -208,7 +207,7 @@ Wait until the output of
 brctl showstp br0
 ```
 
-on each of the four bridges shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank. 
+on each of the four bridges shows that all ports are either "forwarding" or "blocked", and the "flags" section of the output is blank.  Save the final output on each bridge.
 
 
 Then, stop the `tcpdump` processes running on the four hosts. You can play these back with
@@ -219,6 +218,8 @@ tcpdump -nv -r stp-$(hostname -s)-4.pcap
 
 or use `scp` to transfer them to your laptop and open them in Wireshark.
 
+
+---
 
 ### Draw the spanning tree
 
