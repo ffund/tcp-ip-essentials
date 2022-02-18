@@ -39,7 +39,7 @@ Also make a node of each bridge's bridge ID, which is displayed as 16 hex digits
 Identify the bridge that has the lowest bridge ID. This is the bridge that would be the root bridge, if all of the bridges were active.
 
 
-**Lab report**: Show the `brctl` output for each bridge (include the prompt, so that it is evident which bridge each output is from). Which bridge would be elected the root bridge in the spanning tree (if you did not change any bridge priority)?
+**Lab report**: Show the `brctl show br0` output for each bridge (include the prompt, so that it is evident which bridge each output is from). Which bridge would be elected the root bridge in the spanning tree (if you did not change any bridge priority)?
 
 ### Understanding the `showstp` outut
 

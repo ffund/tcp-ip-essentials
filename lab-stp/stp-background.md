@@ -23,6 +23,7 @@ While this usually works well, problems arise in the event of a bridging loop. F
 
 The spanning tree protocol addresses this issue in a network with physical loops by setting some redundant paths to a blocked state and leaving others in a forwarding state. This creates a loop-free logical topology, so that a broadcast storm cannot occur. However, the network still benefits from the added reliability of redundant paths: if a link that is in a forwarding state becomes unavailable, then the protocol will reconfigure the tree and re-activate blocked paths as necessary, to restore connectivity.
 
+
 ![](spanning-tree-example.svg)
 _<small>Example of a bridged network with a loop, and the minimum spanning tree with the loop removed. (From "TCP/IP Essentials: A Lab-Based Approach", Figure 3.3.)</small>_
 
@@ -35,4 +36,13 @@ To create a loop-free tree, each bridge in the network assigns itself a unique b
 
 To execute this protocol in a distributed fashion, bridges exchange BPDUs with their neighbors describing their current spanning tree configuration, and then they update their configuration based on the received BPDUs. Eventually, the network will converge to a common spanning tree. 
 
-In this experiment, we will create a topology with a loop, then watch as the spanning tree algorithm creates a logical loop-free topology.
+Occasionally, there may be a tie - for example, if a bridge receives BPDUs on two ports with the same root bridge ID and the same root path cost, which should become the root port? The STP includes four criteria that are used to break ties, in order:
+
+In the spanning tree protocol, there are four tiebreakers that can be applied to "competing" BPDUs, to definitively determine the bridge configuration. They are (in order):
+
+1. Lowest root bridge ID
+2. Lowest root path cost
+3. Lowest sender bridge ID
+4. Lowest sender bridge port
+
+

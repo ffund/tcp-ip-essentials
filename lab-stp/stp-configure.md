@@ -121,7 +121,14 @@ Look at the BPDUs captured by "othello" on the network segment between the two "
 Next, look at the BPDUs captured by "romeo", on the network segment connected by the first bridge that we brought up. At the end of this stage, is the BPDU sent by this bridge different from the BPDU you captured in the previous section, when there was only one bridge in the network?
 
 
-**Lab report**: Using the BPDUs captured by "othello" and "romeo", explain what happens when a bridge with a lower ID joins the network.
+**Lab report**: Show the BPDU that "bridge-2" receives when it first comes up (from the BPDUs captured by "othello"), and the BPDU that "bridge-2" eventually sends on the same network segment. Also show the final `brctl showstp br0` output from "bridge-2" and "bridge-3" at this part of the experiment. 
+
+**Lab report**: Before it receives any BPDUs, "bridge-2" considers itself the root bridge. After it receives a BPDU, will "bridge-2" consider itself the root bridge, or will it adopt the root bridge configuration from the BPDU it receives from "bridge-3"? Explain - which criteria breaks the tie?
+
+**Lab report**: After "bridge-2" comes up, "bridge-3" changes its own network configuration the BPDU that "bridge-2" receives when it first comes up (from the BPDUs captured by "othello"), and the BPDU that "bridge-2" eventually sends on the same network segment. Also show the final `brctl showstp br0` output from "bridge-2" and "bridge-3" at this part of the experiment. Before it receives any BPDUs, "bridge-2" considers itself the root bridge. After it receives a BPDU, will "bridge-2" consider itself the root bridge, or will it adopt the root bridge configuration from the received BPDU? Explain - which criteria breaks the tie?
+
+
+**Lab report**: At the end of this part of the experiment, which bridge sends BPDUs on the link between "bridge-2" and "bridge-1" (as captured on "hamlet")? Which bridge sends BPDUs on the link between "bridge-3" and "bridge-4" (as captured on "romeo")? Which bridge sends BPDUs on the link between "bridge-2" and "bridge-3" (as captured on "othello")? Explain.
 
 
 ### Network of three bridges 
@@ -218,8 +225,16 @@ tcpdump -nv -r stp-$(hostname -s)-4.pcap
 
 or use `scp` to transfer them to your laptop and open them in Wireshark.
 
+When "bridge-4" comes up, it receives a different BPDU on each of its ports: one from "bridge-1" and one from "bridge-3". 
 
----
+**Lab report**: Show the BPDU that "bridge-4" receives on its port 1 when the bridge comes up, and the BPDU that "bridge-4" receives on its port 2 when the bridge comes up. Also show the final `brctl showstp br0` output from this bridge. Explain the configuration of "bridge-4" with respect to the four tiebreaker criteria:
+
+* Before it receives any BPDUs, "bridge-4" considers itself the root bridge. After it receives the two BPDUs, will "bridge-4" consider itself the root bridge, or will it adopt the root bridge configuration from one of the BPDUs? Explain - which criteria breaks the tie?
+* Which of the two ports on "bridge-4" becomes the root port? Explain with reference to the four tiebreaker criteria - indicate which criteria the two BPDUs were tied on, and which criteria broke the tie. 
+* For each network segment it is on, "bridge-4" will compare two possible designated bridge ports: its own port on the network segment, and the bridge port that sends a BPDU on the network segment. Does "bridge-4" become the designated bridge on any network segment? Explain with reference to the four tiebreaker criteria - indicate which criteria the two possibilities were tied on, and which criteria broke the tie.
+
+Also answer: What is the final state of each port on "bridge-4"? Explain.  
+
 
 ### Draw the spanning tree
 
@@ -234,4 +249,4 @@ Finally, you will draw the spanning tree configuration of the network. You can u
 * Next to each bridge, write the root path cost for that bridge.
 
 
-**Lab report**: Submit your drawing.
+**Lab report**: Submit your drawing, along with the *final* `brctl showstp br0` screenshots from each bridge.
