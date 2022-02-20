@@ -37,3 +37,11 @@ and see how they reconfigure themselves to work around the change in the topolog
 
 Once the ICMP echo requests are getting through again, stop the `tcpdump` instances.  Use `scp` to transfer these to your laptop. Also run `brctl showstp br0` to get the bridge port state on all four bridges, and save these for your lab report.
 
+
+
+ **Lab report**: Describe the path that the ICMP echo requests took through the network *before* you brought down the root bridge, and describe the path that the ICMP echo requests took through the network *after* you brought down the root bridge.
+
+ 
+**Lab report**: When you changed the topology, how much time elapsed between the last ping request arriving at the target _before_ you brought the root bridge down, and the first ping request arriving at the target _after_ you brought the root bridge down? (Use the packet capture from the network segment on which the target node was located.)
+ Show evidence from your packet captures to support your answer.
+

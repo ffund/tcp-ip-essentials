@@ -195,9 +195,8 @@ or use `scp` to transfer them to your laptop and open them in Wireshark.
 
 * **Elect the root bridge**: Before it receives any BPDUs, "bridge-4" considers itself the root bridge. After it receives the two BPDUs, will "bridge-4" consider itself the root bridge, or will it adopt the root bridge configuration from one of the BPDUs? Explain. What tiebreaker criteria does it use to decide which configuration to adopt in this instance?
 * **Elect the root port**: Which of the two ports on "bridge-4" becomes the root port? Explain. What tiebreaker criteria does it use to decide which configuration to adopt in this instance?
-* **Select a designated bridge and port**: For each network segment it is on, "bridge-4" will compare two possible designated bridge ports: its own port on the network segment, and the bridge port that sends a BPDU on the network segment. Does "bridge-4" become the designated bridge on any network segment? Explain with reference to the four tiebreaker criteria - indicate which criteria the two possibilities were tied on, and which criteria broke the tie.
-
-Also answer: What is the final state of each port on "bridge-4"? Explain.  
+* **Select a designated bridge and port**: For each network segment it is on, "bridge-4" will compare two possible designated bridge ports: its own port on the network segment, and the bridge port that sends a BPDU on the network segment. Does "bridge-4" become the designated bridge on any network segment? Explain. What tiebreaker criteria does it use to decide which configuration to adopt in this instance?
+* **Set bridge ports’ states**: What is the final state of each port on "bridge-4"? Explain.  
 
 
 ### Draw the spanning tree
