@@ -2,44 +2,53 @@
 
 This repository includes the exercises in the textbook [TCP/IP Essentials: A Lab-Based Approach](https://www.amazon.com/TCP-IP-Essentials-Lab-Based-Approach/dp/052160124X), adapted to use the GENI testbed rather than an in-house lab.
 
-This version of the lab materials is for the **Spring 2021** semester.
+This version of the lab materials is for the **Spring 2022** semester.
 
 ## Table of contents
 
 ### Set up your lab account
 
-* [0.0 Prepare your workstation](lab0/1-0-prepare-workstation.md)
-* [0.1 Set up an account on GENI](lab0/1-1-setup-account.md)
-* [0.2 Reserve a simple network on GENI](lab0/1-2-reserve-and-login.md)
-* [0.3 Inspect network interfaces](lab0/1-3-network-interfaces.md)
-* [0.4 Working on remote hosts](lab0/1-4-working-on-remote-hosts.md)
-* [0.5 Save data and delete resources on GENI](lab0/1-5-delete-resources.md)
+* [Prepare your workstation](lab0/1-0-prepare-workstation.md)
+* [Set up an account on GENI](lab0/1-1-setup-account.md)
+* [Reserve a simple network on GENI](lab0/1-2-reserve-and-login.md)
+* [Inspect network interfaces](lab0/1-3-network-interfaces.md)
+* [Working on remote hosts](lab0/1-4-working-on-remote-hosts.md)
+* [Save data and delete resources on GENI](lab0/1-5-delete-resources.md)
 
 ### Linux
 
-* [1.1 Learning the basics of the Bash shell](lab1/1-1-linux-shell.md)
-* [1.2 Navigating the filesystem](lab1/1-2-linux-navigating.md)
-* [1.3 Working with files and directories](lab1/1-3-linux-files-directories.md)
-* [1.4 Manipulating output of a command](lab1/1-4-linux-manipulate.md)
-* [1.5 Using `tcpdump` and Wireshark](lab1/1-5-tcpdump-wireshark.md)
-* [1.6 Loopback interface](lab1/1-x-loopback.md)
-* Optional extra experiment: [TCP/IP protocol layers](https://witestlab.poly.edu/blog/tcp-ip-protocol-stack/)
+* [Learning the basics of the Bash shell](lab1/1-1-linux-shell.md)
+* [Navigating the filesystem](lab1/1-2-linux-navigating.md)
+* [Working with files and directories](lab1/1-3-linux-files-directories.md)
+* [Manipulating output of a command](lab1/1-4-linux-manipulate.md)
+* [Using `tcpdump` and Wireshark](lab1/1-5-tcpdump-wireshark.md)
+* [Loopback interface](lab1/1-x-loopback.md)
 
-### Bridges and LANs
+### ARP, Bridges 
 
-* [2.7 ARP](lab3/3-arp.md)
+* [Reserve resources for ARP experiment](lab2/2-reserve-resources)
+* [ARP exercises](lab2/2-arp)
 * [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation)
-* [3.5 A simple bridge experiment](lab3/3-5-simple-bridge.md)
-* [Spanning tree protocol](https://witestlab.poly.edu/blog/the-spanning-tree-protocol/)
+* [A simple bridge experiment](lab3/3-5-simple-bridge.md)
 
+### Spanning tree protocol 
+* [Background](lab-stp/stp-background)
+* [Reserve resources](lab-stp/stp-reserve)
+* [Set up bridge interfaces](lab-stp/stp-setup)
+* [Create a broadcast storm](lab-stp/stp-broadcast)
+* [Before beginning the spanning tree protocol](lab-stp/stp-id)
+* [Observe the spanning tree protocol](lab-stp/stp-configure)
+* [Test the loop-free topology](lab-stp/stp-loopfree)
+* [Adapt to changes in the topology](lab-stp/stp-change)
 
-### Static and dynamic routing
+### Static routing
 
 * [4.5 A simple router experiment](lab4/el5373-lab4-45.md)
+
+### Dynamic routing
+
 * [4.6 RIP exercises](lab4/el5373-lab4-46.md)
 * [4.7 Routing experiments with ICMP](lab4/el5373-lab4-47.md)
-* Optional extra experiment: [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
-* Optional extra experiment: [Dijkstra's shortest path algorithm](https://witestlab.poly.edu/blog/dijkstras-shortest-path-algorithm/)
 
 ### UDP and its applications
 
