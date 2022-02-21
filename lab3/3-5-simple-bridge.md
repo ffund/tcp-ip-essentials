@@ -32,6 +32,4 @@ In the packet capture on node-1, you will see what this packet looks like as it 
 
 **Lab report**: What are the source and destination IP and MAC addresses of the same packet when it goes from the bridge to node-2? Show the annotated screenshot *of the same packet* from your `tcpdump` replay on node-2, with the source and destination IP address and source and destination MAC address clearly labeled. Does the bridge modify the source or destination MAC address in the Ethernet header?
 
-After completing all this and saving all the output you will need for your lab report, you can delete your resources from this experiment. (The spanning tree experiment will use a different topology.)
-
-
+After completing all this and saving all the output you will need for your lab report, you can delete your resources from this experiment. 

@@ -1,4 +1,6 @@
-## Spanning tree procotol
+# TCP/IP Essentials: A Lab-Based Approach
+
+### Spanning tree procotol
 
 * [Background](stp-background)
 * [Reserve resources](stp-reserve)
