@@ -1,5 +1,5 @@
 ```mermaid
-graph TD
+    classDef hi fill:#f9f;
     A["Look up destination IP in routing table"] 
     A -->|"Matching route is<br/>directly connected (G=0)"| B["Check if destination IP<br/> is in ARP table"]
     A -->|"No matching route"| D["Return error:<br/> Network is unreachable"]
@@ -9,6 +9,7 @@ graph TD
     E -->|"ARP reply"|F
     E -->|"ARP timeout"|I["Send to self: ICMP <br/>Destination Unreachable:<br/> Host Unreachable<br/> (destination IP)"]
     C -->|"Not in table"| G["Try to resolve<br/> gateway IP by<br/> sending ARP request(s)"]
-    G -->|"ARP reply"|H["Send to destination IP<br/> with gateway's<br/> MAC address"]
     G -->|"ARP timeout"|J["Send to self: ICMP <br/>Destination Unreachable:<br/> Host Unreachable<br/> (gateway IP)"]
+    G -->|"ARP reply"|H["Send to destination IP<br/> with gateway's<br/> MAC address"]
+    C -->|"In ARP table"| H
 ```
