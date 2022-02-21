@@ -14,4 +14,4 @@ graph TD
     G -->|"ARP timeout"|J["Send to self: ICMP <br/>Destination Unreachable:<br/> Host Unreachable<br/> (gateway IP)"]
     G -->|"ARP reply"|H["Send to destination IP<br/> with gateway's<br/> MAC address"]
     C -->|"In ARP table"| H
-    ```
+```
