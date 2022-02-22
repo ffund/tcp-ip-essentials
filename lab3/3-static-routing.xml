@@ -8,6 +8,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.100" type="ipv4" netmask="255.255.255.0"/>
@@ -23,6 +25,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.101" type="ipv4" netmask="255.255.255.0"/>
@@ -38,6 +42,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.102" type="ipv4" netmask="255.255.255.0"/>
@@ -53,6 +59,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.103" type="ipv4" netmask="255.255.255.0"/>
@@ -69,6 +77,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.1" type="ipv4" netmask="255.255.255.0"/>
@@ -86,6 +96,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.1.1" type="ipv4" netmask="255.255.255.0"/>
@@ -103,6 +115,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.2.1" type="ipv4" netmask="255.255.255.0"/>
@@ -120,6 +134,8 @@
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/delete-default-route.sh | bash" shell="/bin/sh"/>
+
 </services>
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.1.104" type="ipv4" netmask="255.255.255.0"/>
