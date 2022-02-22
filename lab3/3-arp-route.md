@@ -102,7 +102,7 @@ ping -c 1 10.10.0.101
 
 to send an ICMP echo request to juliet.
 
-After the reponse is returned, stop the `tcpdump` and play it back with 
+After the reponse is returned, save the `ping` output for your lab report. Then, stop the `tcpdump` and play it back with 
 
 ```
 tcpdump -enX -r $(hostname -s)-direct-resolve-arp.pcap
@@ -137,7 +137,7 @@ ping -c 1 10.10.0.101
 
 to send an ICMP echo request to juliet.
 
-After the reponse is returned, stop the `tcpdump` and play it back with 
+After the reponse is returned, save the `ping` output for your lab report. Then, stop the `tcpdump` and play it back with 
 
 ```
 tcpdump -enX -r $(hostname -s)-direct-table-arp.pcap
@@ -169,9 +169,9 @@ ping -c 1 10.10.0.200
 
 Note that there is no host with this IP address in your network configuration.
 
-Wait for it to finish. Terminate both `tcpdump` processes with Ctrl+C. 
+Wait for it to finish, then save the `ping` output for your lab report. Terminate both `tcpdump` processes with Ctrl+C. 
 
-"Play back" a summary of the packet captures using
+Play back a summary of the packet captures using
 
 ```
 tcpdump -enX -r $(hostname -s)-direct-nonexistent.pcap
@@ -205,9 +205,46 @@ When there is a "default gateway" rule, we will never observe a "network is unre
 
 However, if we just remove the default gateway rule, we'll lose access to the remote host over SSH, since the SSH connection between your device and the remote host is routed using that default gateway rule. To make this exercise work without losing our SSH connection, we need to replace the default rule with one specific to the IP address we are using to connect. Then we'll be able to observe the "destination unreachable" message AND maintain our SSH connection.
 
+Check your routing table on romeo with
+
+```
+route -n
+```
+
+and make sure there is no default gateway rule (no rule with 0.0.0.0 as the destination). If your routing table looks good, you can continue!
+
+
 #### Scenario 4
 
-### Exercise - route via gateway
+On romeo, run
+
+```
+route -n
+```
+
+and save the output for your lab report. 
+
+Then, run
+
+```
+sudo tcpdump -i eth1 -w $(hostname -s)-no-route.pcap
+```
+
+In a second window on romeo, run
+
+```
+ping -c 1 10.10.10.200
+```
+
+Note that this destination address does not match any rule in the routing table.
+
+Wait for this to finish, then save the `ping` output for your lab report. Then, stop the `tcpdump` with Ctrl+C. Play it back with 
+
+```
+tcpdump -enX -r $(hostname -s)-no-route.pcap
+```
+
+### Exercise - send via gateway
 
 ![](arp-gateway.svg)
 
