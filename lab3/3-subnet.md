@@ -137,7 +137,9 @@ Once you have identified the subnet mask, network address, smallest usable addre
 
 Verify that your solutions are correct for *your* individual assignment before you continue to the next step.
 
+**Lab report**: In PrairieLearn, find the "Static routing lab prep" assignment in the "Worksheets" area. Open it to see your subnet design assignment, which is unique to you. When you have solved the subnet design problem, fill in the table in PrairieLearn; then scroll to the bottom and choose "Save and Grade". (You don't have to fill in the rest of the items in the configuration sections yet!)
 
+Scroll down to the "submitted answer" panel, and find the graded version of your submitted solution. It should look similar to [this](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/subnet-table-submitted.png), but with different values! Take a screenshot, and submit that screenshot.
 
 
 ### Configure network interfaces
@@ -270,6 +272,9 @@ on each of the hosts and the router. The directly connected route  should show t
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN C, from any of the three devices in LAN C. Try this now, and verify that you have Layer 3 connectivity within LAN C.
 
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the network interface configuration as follows. On each of the six hosts - romeo, juliet, hamlet, ophelia, othello, desdemona - show the output of `ifconfig eth1`. On each of the routers, show the output of `ifconfig ethX` where `ethX` is the interface of the router on the LAN that has hosts.
+
+
 
 ### Configure static routes
 
@@ -340,7 +345,10 @@ sudo ip route add 10.1.24.0/24 via 10.1.24.1
 
 At this point, every host in the network should be able to reach every other host (by IP address)! Use `ping` to verify this.
 
-On romeo, `ping` every other host by address - hamlet, ophelia, othello, and desdemona. Save the output for your lab report.
+On romeo, `ping` every other host by address - juliet, hamlet, ophelia, othello, and desdemona. Save the output for your lab report.
+
+
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the output of `ping` *from* "romeo" to *each* of the five other hosts - juliet, hamlet, ophelia, othello, and desdemona. (Five total `ping` commands with output.)
 
 #### Save the routing table on each host and router
 
@@ -357,4 +365,20 @@ route -n
 ```
 
 and save this final output for your lab report.
+
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the output of `route -n` on the "romeo" host. Annotate the output to indicate:
+
+1. which rule will apply to traffic from romeo to juliet
+2. which rule will apply to traffic from romeo to hamlet
+3. which rule will apply to traffic from romeo to ophelia
+4. which rule will apply to traffic from romeo to othello
+5. which rule will apply to traffic from romeo to desdemona
+
+If there are multiple matching rules, indicate the *one* that applies in each case according to the longest prefix matching rule.
+
+Also show the output of `route -n` on "router-a". Annotate the output to indicate:
+
+1. which rule will apply to traffic from hamlet to romeo
+2. which rule will apply to traffic from romeo to hamlet
+3. which rule will apply to traffic from romeo to othello
 
