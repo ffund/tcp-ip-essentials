@@ -306,7 +306,7 @@ Finally, we need to add a route to LAN C on two routers: router-a and router-b. 
 
 
 ```
-sudo ip route add 10.1.24.1/25 via 10.1.10.3
+sudo ip route add 10.1.24.0/25 via 10.1.10.3
 ```
 
 and I would run that on router-a and router-b.
@@ -339,6 +339,8 @@ sudo ip route add 10.1.24.0/24 via 10.1.24.1
 ```
 
 At this point, every host in the network should be able to reach every other host (by IP address)! Use `ping` to verify this.
+
+On romeo, `ping` every other host by address - hamlet, ophelia, othello, and desdemona. Save the output for your lab report.
 
 #### Save the routing table on each host and router
 
