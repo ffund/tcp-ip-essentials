@@ -10,9 +10,9 @@ graph TD
     B -->|"In ARP table"| F["Send IP packet to <br/>destination IP with<br/> destination host's<br/> MAC address"]
     B -->|"Not in table"| E["Try to resolve<br/> destination IP by<br/> sending ARP request(s)"]
     E -->|"ARP reply"|F
-    E -->|"ARP timeout"|I["Send ICMP to self:<br/>Destination Unreachable:<br/> Host Unreachable<br/> (destination IP)"]
+    E -->|"ARP timeout"|I["Send ICMP to self:<br/>Destination Unreachable:<br/> Host Unreachable"]
     C -->|"Not in table"| G["Try to resolve<br/> gateway IP by<br/> sending ARP request(s)"]
-    G -->|"ARP timeout"|J["Send ICMP to self: <br/>Destination Unreachable:<br/> Host Unreachable<br/> (gateway IP)"]
+    G -->|"ARP timeout"|I
     G -->|"ARP reply"|H["Send IP packet to <br/>destination IP<br/> with gateway's<br/> MAC address"]
     C -->|"In ARP table"| H
 ```
