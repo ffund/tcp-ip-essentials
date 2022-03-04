@@ -36,6 +36,9 @@ Your challenge is to design subnets for the three LANs, with the following desig
 
 Every student in the class will solve a slightly different version of this problem (different address space, and different number of hosts in each LAN). To get *your* specific instance of this problem, open the PrairieLearn site for your lab section and find the "Static routing lab prep" worksheet. *Your* design assignment is described at the top of the page.
 
+![](subnet-worksheet.png)
+
+
 In the rest of these instructions, I'll show how to solve *a* design assignment - but your assignment will be different! Once you understand how to solve this *type* of assignment (by following my example), you should be able to solve your own. 
 
 You can test your solution _before_ you run any commands on your GENI network by submitting your answers in the worksheet on PrairieLearn - it will tell you whether your work is correct. (You can submit partial answers to get partial feedback, too - you don't have to wait until you are finished with the entire worksheet to get feedback on your work in progress.)
