@@ -11,7 +11,7 @@ In this experiment, we'll practice setting up a complete IP network, including:
 
 For this experiment, you will reserve a topology on GENI that includes three routers (router-a, router-b, and router-c) and two hosts connected to each router. The routers will already be configured with IP addresses (in the 10.1.10.0/24 subnet) on the link that connects the routers to one another. However, it will be up to you to design subnets for the small LAN connected to each router.
 
-In the GENI Portal, create a new slice, then click "Add Resources". Scroll down to where it says "Choose RSpec" and select the "URL" option, the load the RSpec from the URL: [https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/3-subnet-design.xml](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/3-subnet-design.xml)
+In the GENI Portal, create a new slice, then click "Add Resources". Scroll down to where it says "Choose RSpec" and select the "URL" option, the load the RSpec from the URL: [https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/subnet-design.xml](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/subnet-design.xml)
 
 This will load the following topology onto your canvas:
 
