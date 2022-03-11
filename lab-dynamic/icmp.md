@@ -6,7 +6,7 @@ For this experiment, we will reuse the same network as in the previous experimen
 
 While the routers can learn new routes using RIP, the workstations will not. You will have to add a route on each workstation so that it can reach other workstations outside its own subnet, by going through a local router.
 
-On romeo, set up router 1 as the gateway for the entire 10.10.0.0/16 subnet:
+On romeo, set up router-1 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
 sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.61.1
@@ -58,7 +58,7 @@ sudo tcpdump -r romeo-traceroute.pcap -env
 
 ### Exercise - ICMP redirect
 
-With the configuration of our hosts, every host should be able to reach every other host. However, it will not necessarily use the shortest path. For example, the shortest path from romeo to petruchio would be romeo 🡒 router 4 🡒 petruchio. But, because romeo uses router 1 as its gateway to the other subnets, it will send traffic to petruchio using a longer path: romeo 🡒 router 1 🡒 router 4 🡒 petruchio.
+With the configuration of our hosts, every host should be able to reach every other host. However, it will not necessarily use the shortest path. For example, the shortest path from romeo to petruchio would be romeo 🡒 router-4 🡒 petruchio. But, because romeo uses router-1 as its gateway to the other subnets, it will send traffic to petruchio using a longer path: romeo 🡒 router-1 🡒 router-4 🡒 petruchio.
 
 In this section, we will see how routers can use an ICMP redirect message to inform hosts of a better route, in the scenario described above.
 
@@ -141,80 +141,19 @@ sudo tcpdump -r romeo-redirect-2.pcap -env icmp
 
 In a previous exercise, we observed what happens when a host tries to send a message to an address for which it has no relevant routing rule. Now, we'll see what happens when a host tries to send a message to an address for which *the router* has no relevant routing rule. Under those circumstances, the router may send an ICMP Destination Unreachable message to let the host know that it has no route for this destination.
 
-First, though, we need to make some changes to the router configuration. Open a new SSH session to router 1. Currently, there is a “default gateway” rule in the routing table that describes how to route *all* traffic whose destination address is not specifically given by any other rule. When there is a "default gateway" rule, we will never observe a Destination Unreachable message, since this route applies to every destination. To observe the Destination Unreachable message, we will need to remove the default gateway rule.
+First, though, we need to make some changes to the router configuration. Open a new SSH session to router-1. Currently, there is a “default gateway” rule in the routing table that describes how to route *all* traffic whose destination address is not specifically given by any other rule. When there is a "default gateway" rule, we will never observe a Destination Unreachable message, since this route applies to every destination. To observe the Destination Unreachable message, we will need to remove the default gateway rule.
 
 However, if we just remove the default gateway rule, we'll lose access to the remote host over SSH, since the SSH connection between you and the remote host is routed using that default gateway rule.
-To make this exercise work without losing our SSH connection, we need to replace the default rule with one specific to the IP address we are using to connect. Then we'll be able to observe the "destination unreachable" message AND maintain our SSH connection.
 
-**Note**: If you make a mistake in these setup steps, you may lose your connection to the remote host. Rebooting the host should restore connectivity, in case this happens. To reboot the hosts in your topology, visit the slice page in the GENI Portal, and click on the "Restart" button. Wait a few minutes for your hosts to come back up before you try to connect again.
- 
-I will show you how to do this with an example - to do it yourself, you'll have to substitute the relevant IP addresses and port numbers for _your_ connection in the commands below.
+To make this exercise work without losing our SSH connection, we need to replace the default rule with more specific rules that will allow us to maintain our SSH connection.
 
-First, use
+I have prepared a script to do this automatically - to download and run it, on router-1, use
 
 ```
-route -n
+wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash
 ```
 
-on the remote router to see the current routing table. For example, you might see the following rules for the control interface `eth0`:
-
-```
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-0.0.0.0         172.16.0.1      0.0.0.0         UG    0      0        0 eth0
-172.16.0.0      0.0.0.0         255.240.0.0     U     0      0        0 eth0
-```
-
-Make a note of the default gateway - here, 172.16.0.1.
-
-Next, find out what network you’re connecting from by running
-
-```
-netstat -n  | grep <PORT>
-```
-
-where in the command above, you substitute the port number that you use to SSH into this node (which you get from the GENI Portal). For example (with port 26203 as the SSH port), I might run
-
-
-```
-netstat -n  | grep 26203
-```
-
-and see the following output:
-
-```
-
-tcp        0     36 172.17.3.4:26203        216.165.95.188:34488    ESTABLISHED
-tcp        0      0 172.17.3.4:26203        216.165.95.188:34490    ESTABLISHED
-tcp        0      0 172.17.3.4:26203        216.165.95.188:34324    ESTABLISHED
-```
-
-From this output, you can find out your own public IP address (as observed by the remote host). (Here, my public IP address is 216.165.95.188.)
-
-Now, add a route to the routing table that is *specific* to the network that you connect from:
-
-```
-sudo route add -net <FIRST OCTET OF YOUR IP>.<SECOND OCTET OF YOUR IP>.0.0/16 gw <DEFAULT GW YOU OBSERVED BEFORE>
-```
-
-for example:
-
-```
-sudo route add -net 216.165.0.0/16 gw 172.16.0.1
-```
-
-Once you have done so, you can delete the default gateway route without losing your SSH connection:
-
-```
-sudo route del default gw <DEFAULT GW>
-```
-
-e.g.
-
-```
-sudo route del default gw 172.16.0.1
-```
-
-Check your routing table with
+Then, run
 
 ```
 route -n
@@ -223,17 +162,8 @@ route -n
 and make sure there is no default gateway rule (no rule with 0.0.0.0 as the destination). If your routing table looks good, you can continue!
 
 
-**NOTE**: As a result of the steps above, you may get the following error message whenever you use `sudo` for the remainder of this lab exercise:
 
-```
-sudo: unable to resolve host
-```
-
-This error is *not* a cause for concern, and you can safely ignore it.
-
----
-
-Once the default gateway rule has been removed on router 1, open two terminals on the romeo host.
+Once the default gateway rule has been removed on router-1, open two terminals on the romeo host.
 
 
 In one terminal on romeo, run
