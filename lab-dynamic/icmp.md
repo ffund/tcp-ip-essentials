@@ -12,19 +12,19 @@ On romeo, set up router-1 as the gateway for the entire 10.10.0.0/16 subnet:
 sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.61.1
 ```
 
-On hamlet, set up router 2 as the gateway for the entire 10.10.0.0/16 subnet:
+On hamlet, set up router-2 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
 sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.62.2
 ```
 
-On othello, set up router 3 as the gateway for the entire 10.10.0.0/16 subnet:
+On othello, set up router-3 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
 sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.63.3
 ```
 
-On petruchio, set up router 4 as the gateway for the entire 10.10.0.0/16 subnet:
+On petruchio, set up router-4 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
 sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.64.4
