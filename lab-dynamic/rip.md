@@ -107,11 +107,11 @@ After a few minutes, you can stop the `tcpdump` processes on the workstations wi
 sudo tcpdump -r $(hostname -s)-rip.pcap -env
 ```
 
-**Lab report**: Show the RIP messages received by router 4. Using these RIP messages, draw the distance table and the routing table at router 4, assuming that number of hops is used as the metric. Compare to the output of `show ip rip` and `show ip route` at router 4.
+**Lab report**: Show the RIP messages received by router-4. Using these RIP messages, draw the distance table and the routing table at router-4, assuming that number of hops is used as the metric. Compare to the output of `show ip rip` and `show ip route` at router-4.
 
 ### Exercise - RIP response to link failure
 
-In this exercise, we will examine how RIP reponds to link failures. We will bring down the interface on router 1 that connects to the LAN with router 2 and hamlet, and we will observe how the routing tables adapt to the change in the topology. Then, we will bring this interface back up, and observe the changes again.
+In this exercise, we will examine how RIP reponds to link failures. We will bring down the interface on router-1 that connects to the LAN with router-2 and hamlet, and we will observe how the routing tables adapt to the change in the topology. Then, we will bring this interface back up, and observe the changes again.
 
 First, on any router, run
 
@@ -138,7 +138,7 @@ show ip rip
 
 to see the current RIP database. Save the output.
 
-On router 1, idenfity the name of the interface that has the address 10.10.62.1 (e.g. `eth1` or `eth2`). (You can refer to your previous `ifconfig` output, or you can use the `show ip route` output in the `quagga` shell, and look for the name of the interface that is directly connected to the 10.10.62.0/24 subnet.) This is the interface that connects Router 1 to the network segment that Router 2 is on. You will use this interface name in the following commands. 
+On router-1, idenfity the name of the interface that has the address 10.10.62.1 (e.g. `eth1` or `eth2`). (You can refer to your previous `ifconfig` output, or you can use the `show ip route` output in the `quagga` shell, and look for the name of the interface that is directly connected to the 10.10.62.0/24 subnet.) This is the interface that connects Router 1 to the network segment that Router 2 is on. You will use this interface name in the following commands. 
 
 Then, on Router 1, use the `quagga` shell to bring down this interface. Run
 
