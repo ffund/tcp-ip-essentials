@@ -4,12 +4,12 @@ In this section, we will examine the operation of RIP.
 
 For this experiment, we will use a topology with four routers in a ring, and a host connected to each LAN.
 
-To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: https://raw.githubusercontent.com/ffund/tcp-ip-essentials/master/lab4/lab4-dynamic-routing.xml
+To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/dynamic-routing.xml
 
 The topology for this experiment, with the IP address of each interface, is illustrated in the following diagram:
 
 
-<img src="lab4-rip-topology.svg" width="500px">
+<img src="rip-topology.svg" width="500px">
 
 The topology has four LANs:
 
