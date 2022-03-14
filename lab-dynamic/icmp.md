@@ -60,7 +60,12 @@ sudo tcpdump -r romeo-traceroute.pcap -env
 
 With the configuration of our hosts, every host should be able to reach every other host. However, it will not necessarily use the shortest path. For example, the shortest path from romeo to petruchio would be romeo 🡒 router-4 🡒 petruchio. But, because romeo uses router-1 as its gateway to the other subnets, it will send traffic to petruchio using a longer path: romeo 🡒 router-1 🡒 router-4 🡒 petruchio.
 
-In this section, we will see how routers can use an ICMP redirect message to inform hosts of a better route, in the scenario described above.
+In this section, we will see how routers can use an ICMP redirect message to inform hosts of a better route, in the scenario described above. An ICMP redirect message may be sent by a router if it receives a packet:
+
+* from a host on a network it is directly connected to (not via another gateway),
+* and, it determines from its routing table that the gateway through which the packet should be forwarded (according to the destination address) is also on this directly connected network.
+
+The router will still forward the packet toward its destination, even when it also sends an ICMP redirect to the source.
 
 First, on romeo, run
 
@@ -71,7 +76,7 @@ ip route get 10.10.64.100
 and save the output.
 
 
-On each workstation (romeo, hamlet, othello, petruchio), run
+On romeo, run
 
 ```
 sudo tcpdump -i eth1 -w $(hostname -s)-redirect-1.pcap
@@ -99,7 +104,7 @@ By default, our workstations will not apply the routes suggested by the ICMP red
 sudo sysctl -w net.ipv4.conf.all.accept_redirects=1
 ```
 
-on "romeo". Restart the `tcpdump` processes on each segment, but write to a new file, with
+on "romeo". Restart the `tcpdump` process, but write to a new file, with
 
 ```
 sudo tcpdump -i eth1 -w $(hostname -s)-redirect-2.pcap
@@ -117,7 +122,7 @@ again on romeo until you see an ICMP redirect. Stop the ping and run
 traceroute -n 10.10.64.100
 ```
 
-and save the output. Then, stop the `tcpdump` processes.
+and save the output. Then, stop the `tcpdump`.
 
 Run 
 
@@ -127,14 +132,15 @@ ip route get 10.10.64.100
 
 again on romeo, and save the output.
 
-Stop the `tcpdump` processes, and play back the ICMP messages on romeo with
+Stop the `tcpdump`, and play back the ICMP messages on romeo with
 
 ```
 sudo tcpdump -r romeo-redirect-2.pcap -env icmp
 ```
 
 
-**Lab report**: Show the `traceroute` output and the output of `ip route get 10.10.64.100` before and after the ICMP redirect instruction was applied, and explain the change. Also show the ICMP redirect message. Who sent this message?
+**Lab report**: Show the `traceroute` output and the output of `ip route get 10.10.64.100` before and after the ICMP redirect instruction was applied, and explain the change. Also show the ICMP redirect message. Who sent this message? Under what conditions will this message be sent?
+
 
 
 ### Exercise - Destination unreachable, network unreachable
@@ -159,8 +165,7 @@ Then, run
 route -n
 ```
 
-and make sure there is no default gateway rule (no rule with 0.0.0.0 as the destination). If your routing table looks good, you can continue!
-
+and make sure there is no default gateway rule (no rule with 0.0.0.0 as the destination). If your routing table looks good, you can continue! Save this routing table for your lab report.
 
 
 Once the default gateway rule has been removed on router-1, open two terminals on the romeo host.
@@ -191,6 +196,8 @@ You can also transfer the file capture to your laptop with `scp`, so that you ca
 
 Note the contents of the ICMP destination unreachable message that you captured. Check the source IP address - who sent this message?
 
+
+**Lab report**: Show the ICMP destination unreachable, network unreachable message. Who sent this message? Under what conditions will this message be sent?
 
 ### Exercise - Destination unreachable, host unreachable
 
@@ -225,3 +232,5 @@ tcpdump -r $(hostname -s)-icmp-dest-host-unreachable.pcap -envx
 on each host. You can also transfer the file captures to your laptop with `scp`, so that you can open it in Wireshark.
 
 Note the contents of the ICMP destination unreachable message that you captured. Check the source IP address - who sent this message?
+
+**Lab report**: Show the ICMP destination unreachable, host unreachable message. Who sent this message? Under what conditions will this message be sent?
