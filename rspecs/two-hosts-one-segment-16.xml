@@ -9,6 +9,7 @@
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.100" type="ipv4" netmask="255.255.255.0"/>
 </interface>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
 </node>
 <node xmlns="http://www.geni.net/resources/rspec/3" client_id="juliet">
 <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
@@ -20,10 +21,12 @@
 <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0">
 <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.0.101" type="ipv4" netmask="255.255.255.0"/>
 </interface>
+<nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
 </node>
 <link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-0">
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-0"/>
 <interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-1"/>
 <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+<link_attribute xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1" key="nomac_learning" value="yep"/>
 </link>
 </rspec>
