@@ -4,3 +4,4 @@
 
 * [RIP](rip)
 * [Routing and ICMP](icmp)
+* [Routing across the Internet](https://witestlab.poly.edu/blog/a-peek-into-internet-routing/)
