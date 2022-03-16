@@ -7,7 +7,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -24,7 +24,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -41,7 +41,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -58,7 +58,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -76,7 +76,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -95,7 +95,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -114,7 +114,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>
@@ -133,7 +133,7 @@
 </sliver_type>
 <services xmlns="http://www.geni.net/resources/rspec/3">
 
-<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
 <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash" shell="/bin/sh"/>
 
 </services>

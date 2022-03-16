@@ -7,7 +7,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-14">
       <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.61.100" type="ipv4" netmask="255.255.255.0"/>
@@ -21,7 +21,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2">
       <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.62.100" type="ipv4" netmask="255.255.255.0"/>
@@ -35,7 +35,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4">
       <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.63.100" type="ipv4" netmask="255.255.255.0"/>
@@ -49,7 +49,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11">
       <ip xmlns="http://www.geni.net/resources/rspec/3" address="10.10.64.100" type="ipv4" netmask="255.255.255.0"/>
@@ -63,7 +63,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
       <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vFUCW | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-12">
@@ -81,7 +81,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
       <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vFUCW | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3">
@@ -99,7 +99,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
       <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vFUCW | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-18">
@@ -117,7 +117,7 @@
       <disk_image xmlns="http://www.geni.net/resources/rspec/3" name="urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"/>
     </sliver_type>
     <services xmlns="http://www.geni.net/resources/rspec/3">
-      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vSLc2 | bash" shell="/bin/sh"/>
+      <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/no-auto-routes.sh | bash" shell="/bin/sh"/>
       <execute xmlns="http://www.geni.net/resources/rspec/3" command="wget -O - https://git.io/vFUCW | bash" shell="/bin/sh"/>
     </services>
     <interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9">
