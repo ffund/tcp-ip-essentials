@@ -1,6 +1,6 @@
 ## Routing experiments with ICMP
 
-For this experiment, we will reuse the same network as in the previous experiment. 
+In this section, we will explore the various ways in which routers use ICMP.
 
 ### Prep - set up gateway on each host
 
