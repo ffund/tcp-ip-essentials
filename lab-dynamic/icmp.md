@@ -33,7 +33,7 @@ sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.64.4
 
 ### Exercise - traceroute
 
-On one terminal on romeo, run
+On one terminal on romeo and on othello, run
 
 ```
 sudo tcpdump -i eth1 -w $(hostname -s)-traceroute.pcap
