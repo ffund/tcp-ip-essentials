@@ -50,7 +50,7 @@ and save the output. Then, stop the `tcpdump` processes with Ctrl+C.
 Play back the messages you captured with
 
 ```
-sudo tcpdump -r romeo-traceroute.pcap -env
+sudo tcpdump -r $(hostname -s)-traceroute.pcap -env
 ```
 
 **Lab report**: From the tcpdump output, explain how the multi-hop route was found using `traceroute`. Explain the sequence of messages used. What header field does romeo set in order to trigger the desired response?
