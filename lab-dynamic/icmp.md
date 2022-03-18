@@ -88,7 +88,7 @@ Then, `ping` from "romeo" to "petruchio". On "romeo", run
 ping 10.10.64.100
 ```
 
-After capturing an ICMP redirect message, save the `ping` output and stop the ping.
+After capturing an ICMP redirect message, save the `ping` output and stop the ping. Then, stop the `tcpdump` process with Ctrl+C.
 
 On "romeo", run
 
@@ -96,7 +96,7 @@ On "romeo", run
 traceroute -n 10.10.64.100
 ```
 
-and save the output. Then, stop the `tcpdump` processes with Ctrl+C.
+and save the output. 
 
 By default, our workstations will not apply the routes suggested by the ICMP redirect message. To enable that feature, run
 
@@ -116,13 +116,15 @@ Then, run
 ping 10.10.64.100
 ```
 
-again on romeo until you see an ICMP redirect. Stop the ping and run
+again on romeo until you see an ICMP redirect. Stop the ping. Then, stop the `tcpdump` processes with Ctrl+C. 
+
+Run
 
 ```
 traceroute -n 10.10.64.100
 ```
 
-and save the output. Then, stop the `tcpdump`.
+and save the output.
 
 Run 
 
