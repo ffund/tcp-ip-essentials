@@ -191,7 +191,7 @@ Stop the `tcpdump` with Ctrl+C, and play back the captured packets with
 
 
 ```
-tcpdump -r $(hostname -s)-icmp-dest-net-unreachable.pcap -envx
+tcpdump -r $(hostname -s)-icmp-dest-net-unreachable.pcap -env
 ```
 
 You can also transfer the file capture to your laptop with `scp`, so that you can open it in Wireshark.
@@ -228,7 +228,7 @@ to send a message to a host that does not exist. Note the response.
 Stop the `tcpdump` with Ctrl+C, and play back the captured packets with
 
 ```
-tcpdump -r $(hostname -s)-icmp-dest-host-unreachable.pcap -envx
+tcpdump -r $(hostname -s)-icmp-dest-host-unreachable.pcap -env
 ```
 
 on each host. You can also transfer the file captures to your laptop with `scp`, so that you can open it in Wireshark.
