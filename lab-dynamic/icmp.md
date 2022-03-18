@@ -203,7 +203,7 @@ Note the contents of the ICMP destination unreachable message that you captured.
 
 ### Exercise - Destination unreachable, host unreachable
 
-In a previous exercise, we observed what happens when a host tries to send a message to a host that does not reply to ARP requests (for example, because there is no such host on the network). Now, we'll see what happens when a host tries to send a message to an address for which *the last router* does not receive an ARP reply for the destination address. Under those circumstances, the router may send an ICMP Destination Unreachable message to let the host know that the host is unreachable.
+In a previous exercise, we observed what happens when a host tries to send a message to a host that does not reply to ARP requests (for example, because there is no such host on the network). Now, we'll see what happens when a host tries to send a message to an address for which *the last router* does not receive an ARP reply for the destination address. Under those circumstances, the router may send an ICMP Destination Unreachable message to let the source host know that the destination host is unreachable.
 
 In one terminal on romeo, run
 
@@ -220,7 +220,7 @@ sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
 In the second terminal on romeo, run
 
 ```
-ping -c 3 10.10.63.120
+ping -c 3 10.10.62.120
 ```
 
 to send a message to a host that does not exist. Note the response. 
