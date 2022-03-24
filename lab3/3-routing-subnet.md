@@ -241,10 +241,10 @@ substituting appropriate values for `INTERFACE` name, `IP-ADDRESS`, and `NETMASK
 
 **Lab report**: Use bitwise analysis to answer the following questions. Show how the netmask was applied in each case.
 
-* What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "romeo"?
-* What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "juliet"?
-* What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "hamlet"?
-* What is the range of IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "ophelia"?
+* What is the range of usable IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "romeo"?
+* What is the range of usable IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "juliet"?
+* What is the range of usable IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "hamlet"?
+* What is the range of usable IP addresses (i.e. smallest IP address and largest IP address) that is in the same subnet as "ophelia"?
 
 **Lab report**: For each of the four parts of this experiment, show the `tcpdump` output for both endpoints - the host you ping *from* and the host you send the ping *to*. Then, explain why the other hosts cannot exchange ICMP echo messages with "ophelia", while they can with "romeo", which has the same subnet mask as "ophelia". Use your answer to the previous question to support this explanation.
 
