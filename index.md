@@ -52,6 +52,7 @@
 
 ### Lab 5: Dynamic routing
 
+* [Reserve resources](lab-dynamic/reserve)
 * [RIP](lab-dynamic/rip)
 * [Routing and ICMP](lab-dynamic/icmp)
 * [Routing across the Internet](https://witestlab.poly.edu/blog/a-peek-into-internet-routing/)
