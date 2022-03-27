@@ -173,13 +173,13 @@ Applications that "live" above the transport layer use the *socket* API to send 
 To ask the operating system to *send* data, an application should:
 
 1. Create a UDP socket
-2. (Optional) `bind` to the IP address and UDP port that the socket should use. (If you don't choose a port, the operating system will select a random large port number for you when you first try to send data.)
+2. (Optional) `bind` to the *local* IP address and UDP port that the socket should use. (If you don't choose a port, the operating system will select a random large port number for you when you first try to send data.)
 3. `send` data, by specifying the data to send and the destination IP address and port.
 
 To *receive* data, an application should:
 
 1. Create a UDP socket
-2. `bind` to the IP address and UDP port that the socket should use.
+2. `bind` to the *local* IP address and UDP port that the socket should use.
 4. `receive` data from the socket *buffer*, where the operating system will have put any data for this UDP port.
 
 In this exercise, we will execute each of these steps, and observe their effect on the operating system and on the network.
