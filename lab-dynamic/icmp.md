@@ -167,7 +167,7 @@ Then, run
 route -n
 ```
 
-and make sure there is no default gateway rule (no rule with 0.0.0.0 as the destination). If your routing table looks good, you can continue! Save this routing table for your lab report.
+and make sure there is no default gateway rule (no rule with 0.0.0.0 in the `Genmask` field). If your routing table looks good, you can continue! Save this routing table for your lab report.
 
 
 Once the default gateway rule has been removed on router-1, open two terminals on the romeo host.
