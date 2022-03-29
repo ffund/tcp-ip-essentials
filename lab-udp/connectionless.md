@@ -180,7 +180,7 @@ To *receive* data, an application should:
 
 1. Create a UDP socket
 2. `bind` to the *local* IP address and UDP port that the socket should use.
-4. `receive` data from the socket *buffer*, where the operating system will have put any data for this UDP port.
+3. `receive` data from the socket *buffer*, where the operating system will have put any data for this UDP port.
 
 In this exercise, we will execute each of these steps, and observe their effect on the operating system and on the network.
 
