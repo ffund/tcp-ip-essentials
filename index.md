@@ -66,11 +66,14 @@
 
 ### Lab 7: TCP state diagram
 
-* [TCP sockets and the TCP state diagram](lab6/el5373-lab6-6x)
+* [Reserve resources](lab-tcp/reserve)
+* [TCP sockets and the TCP state diagram](lab-tcp/sockets)
+* [TCP error control](lab-tcp/error)
 
 ### Lab 8: TCP bulk transfer and congestion control
 
-* [TCP bulk transfer](lab6/el5373-lab6-6y)
+* [Reserve resources](lab-tcp/reserve)
+* [TCP bulk transfer](lab-tcp/rwnd-cwnd)
 * [TCP congestion control](https://witestlab.poly.edu/blog/tcp-congestion-control-basics/)
 
 ### Lab 9: Multicast and realtime services
