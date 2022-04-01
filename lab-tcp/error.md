@@ -79,7 +79,7 @@ Then, on romeo, run
 python3 file-sender.py
 ```
 
-Once the file transfer is complete, on juliet, run
+Once the file transfer is complete, on juliet, use Ctrl+C to stop the receiver. Then run
 
 
 ```
@@ -105,7 +105,9 @@ Use Ctrl+C to stop the `tcpdump`, and then transfer the packet capture file to y
 
 ### Exercise: interrupted bulk file transfer
 
-When a connection is broken, with segments left "in flight" that are not acknowledged, TCP will try to retransmit those segments. We'll explore this further in this exercise.
+When a connection is broken, with segments left "in flight" that are not acknowledged, TCP will try to retransmit those segments, up to some max number of attempts. We'll explore this further in this exercise.
+
+For this experiment, you will need three terminal windows on romeo, one on juliet, and one on the router.
 
 On romeo, run
 
