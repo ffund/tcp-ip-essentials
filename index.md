@@ -1,4 +1,10 @@
-# TCP/IP Essentials
+# TCP/IP Essentials: A Lab Based Approach
+## A lab manual for computer networks that runs on open testbeds
+
+This lab manual is based on the textbook [TCP/IP Essentials: A Lab-Based Approach] by Shivendra Panwar et al, but updated with instructions to run on an open testbed (GENI) instead of an in-house computer lab. Many exercises have also been updated to take advantage of the expanded capabilities of the testbed vs. the computer lab.
+
+For corrections, questions, or more information, please contact:
+Frada Fund ffund@nyu.edu
 
 ## Table of contents
 
@@ -93,3 +99,8 @@
 * [Secure applications](lab9/el5373-lab9-910)
 * [Network layer security](lab9/el5373-lab9-91x)
 * [Firewalls](lab9/el5373-lab9-912)
+
+
+
+
+
