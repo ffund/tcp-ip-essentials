@@ -4,7 +4,7 @@
 This lab manual is based on the textbook [TCP/IP Essentials: A Lab-Based Approach] by Shivendra Panwar et al, but updated with instructions to run on an open testbed (GENI) instead of an in-house computer lab. Many exercises have also been updated to take advantage of the expanded capabilities of the testbed vs. the computer lab.
 
 For corrections, questions, or more information, please contact:
-Frada Fund ffund@nyu.edu
+Fraida Fund ffund@nyu.edu
 
 ## Table of contents
 
