@@ -10,7 +10,7 @@ For this experiment, we will use a topology with four hosts and one router, and 
 
 with netmask 255.255.255.0. 
 
-To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: [https://raw.githubusercontent.com/ffund/tcp-ip-essentials/master/lab7/el5373-lab7-multicast-simple-rspec.xml](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/master/lab7/el5373-lab7-multicast-simple-rspec.xml)
+To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: [https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/four-hosts-one-router.xml](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/four-hosts-one-router.xml)
 
 Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify an InstaGENI site that has many "free VMs" available. Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
 
@@ -107,7 +107,7 @@ ping -c 3 -I eth1 224.0.0.1
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
 
-On "romeo", ping the broadcast address for the 10.10.1.0/24 subnet, using
+On "romeo", ping the directed broadcast address for the 10.10.1.0/24 subnet, using
 
 ```
 ping -c 3 -b 10.10.1.255
@@ -149,7 +149,7 @@ On "juliet", run
 ping -I eth1 -c 3 -b 10.10.1.255
 ```
 
-to send a broadcast frame.
+to send a broadcast frame to the directed broadcast address.
 
 Also, run
 
@@ -157,7 +157,7 @@ Also, run
 ping -I eth1 -c 3 -b 255.255.255.255
 ```
 
-to send a broadcast frame (with a different broadcast address).
+to send a broadcast frame to the limited broadcast address.
 
 Then, also on "juliet", run
 
@@ -187,7 +187,7 @@ Use Ctrl+C to stop the `tcpdump`, and transfer the file to your laptop.
 
 **Lab report**: Use the frames with a multicast destination address to explain how a multicast group address is mapped to a multicast MAC address. For the two multicast frames captured, do they have the same destination MAC address? Why?
 
-### Exercise 5
+### Exercise - number of multicast frames
 
 On each of "juliet", "ophelia", "hamlet", and "romeo", execute 
 
