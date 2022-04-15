@@ -134,7 +134,11 @@ ping -I eth1 -c 3 10.10.1.101
 to send a unicast frame to juliet's address.
 
 
-Use Ctrl+C to stop the `tcpdump`, and transfer the file to your laptop.
+Use Ctrl+C to stop the `tcpdump`, and transfer the file to your laptop. Or, you can play it back with
+
+```
+tcpdump -env -r simple-multicast-mac-$(hostname -s).pcap
+```
 
 **Lab report**: Compare destination MAC addresses of the different types of ICMP echo request frames you captured. Explain how the destination MAC address field is used in each case.
 
