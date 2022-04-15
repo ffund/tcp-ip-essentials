@@ -152,7 +152,7 @@ In this exercise, we will try to understand in more detail:
 1. under what conditions multicast and broadcast packets are forwarded by routers, and
 2. under what conditions a host will respond to an ICMP echo request
 
-First, we will send an ICMP echo request to two broadcast addresses and observe the result.
+First, we will send an ICMP echo request to two multicast addresses and observe the result. Then, we will send to two broadcast addresses and observe the result.
 
 On juliet, temporarily change the netmask of the experiment interface from 255.255.255.0 to 255.255.0.0, with
 
