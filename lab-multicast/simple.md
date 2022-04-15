@@ -152,9 +152,9 @@ In this exercise, we will try to understand in more detail:
 1. under what conditions multicast and broadcast packets are forwarded by routers, and
 2. under what conditions a host will respond to an ICMP echo request
 
-First, we will send an ICMP echo request to two broadcast addresses. 
+First, we will send an ICMP echo request to two broadcast addresses and observe the result.
 
-On "juliet", temporarily change the netmask of the experiment interface from 255.255.255.0 to 255.255.0.0, with
+On juliet, temporarily change the netmask of the experiment interface from 255.255.255.0 to 255.255.0.0, with
 
 ```
 sudo ifconfig eth1 netmask 255.255.0.0
@@ -162,7 +162,7 @@ sudo ifconfig eth1 netmask 255.255.0.0
 
 Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 subnet. However, the directed broadcast address that juliet will respond to has changed. You can verify this by finding the `Bcast` value in the output of `ifconfig eth1`.
 
-On "juliet", "hamlet", and "ophelia", run
+On juliet, hamlet, and ophelia, run
 
 ```
 sudo tcpdump -i eth1 -n
@@ -170,7 +170,7 @@ sudo tcpdump -i eth1 -n
 
 and leave these running.
 
-Then, on "romeo", execute
+Then, on romeo, execute
 
 ```
 ping -c 3 -I eth1 224.0.0.1
@@ -178,7 +178,7 @@ ping -c 3 -I eth1 224.0.0.1
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
 
-On "romeo", ping the directed broadcast address for the 10.10.1.0/24 subnet, using
+On romeo, ping the directed broadcast address for the 10.10.1.0/24 subnet, using
 
 ```
 ping -c 3 -b 10.10.1.255
@@ -190,20 +190,6 @@ Use Ctrl+C to stop the `tcpdump`.
 
 **Lab report**: Which hosts replied when the multicast address was pinged? Which hosts replied when the broadcast address was pinged? Explain.
 
-
-### Exercise - Multicast, broadcast, unicast Ethernet addresses
-
-On "juliet", restore the original netmask with
-
-```
-sudo ifconfig eth1 netmask 255.255.255.0
-```
-
-Also on "juliet", set up the multicast route with
-
-```
-sudo route add -net 224.0.0.0 netmask 240.0.0.0 eth1
-```
 
 
 ### Exercise - number of multicast frames
