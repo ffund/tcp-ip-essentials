@@ -271,7 +271,7 @@ ping -c 3 230.11.111.10 -t 2
 
 and save the output.
 
-Next, leave the `iperf` servers running on "juliet" and "hamlet", but also run 
+Next, leave the `iperf` servers running on juliet and hamlet, but also run 
 
 ```
 iperf -s -B 230.11.111.10 -u
