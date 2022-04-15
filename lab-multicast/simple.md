@@ -196,6 +196,22 @@ Use Ctrl+C to stop the `tcpdump`.
 
 ### Exercise - Receiving traffic for a multicast group
 
+
+In this exercise, we will add multicast group memberships on some hosts, and see how this changes their response to ICMP echo requests for that multicast group.
+
+First, undo the configuration change on juliet:
+
+```
+sudo ifconfig eth1 netmask 255.255.255.0
+```
+
+and also on juliet, add back the multicast route:
+
+```
+sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev eth1
+```
+
+
 Open two SSH sessions on the router, and use them to capture traffic on *both* router interfaces. In one session, run
 
 ```
