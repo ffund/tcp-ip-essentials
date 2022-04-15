@@ -37,7 +37,7 @@ substituting the correct interface names - the name of the interface connected t
 
 This will add a multicast route so that traffic from "romeo" (10.10.1.100) to 230.11.111.10 will be forwarded to `IFACE2`. (Note that this simple routing daemon will forward _all_ multicast traffic matching this rule, even if no hosts in the 10.10.2.0/24 subnet are subscribed to the multicast group. A more sophisticated router using PIM and IGMP will be able to selectively forward traffic only when needed.)
 
-Recent Linux kernels are set up so that they will _not_ respond to ICMP messages addressed to a broadcast or multicast address. To change this setting, on each host and the router, run
+Recent Linux kernels are set up so that they will _not_ respond to ICMP messages addressed to a broadcast or multicast address. To change this setting, on each host *and* on the router, run
 
 ```
 sudo sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=0
@@ -48,13 +48,15 @@ Before you start, use `ifconfig -a` to capture the network interface configurati
 
 ### Exercise - Add a multicast route 
 
-On "romeo", execute 
+The process for configuring a static multicast route on an end host is very similar to configurating a static unicast route.
+
+On each of the four hosts - romeo, juliet, hamlet, and ophelia - execute 
 
 ```
 route -n
 ```
 
-to display the routing table. If there is no entry for the 224.0.0.0 subnet, provide a default route for multicast traffic, by:
+to display the routing table. If there is no entry for the 224.0.0.0/4 subnet, provide a default route for multicast traffic, by:
 
 ```
 sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev eth1
@@ -63,25 +65,90 @@ sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev eth1
 and save the new routing table.
 
 
-### Exercise - View multicast group membership
+### Exercise - Default multicast group membership
 
-Execute
-
-```
-netstat -g
-```
-
-to show the multicast group memberships for all the interfaces on your host. You can also try with the `-n` argument, as
+On each of the four hosts - romeo, juliet, hamlet, and ophelia - execute 
 
 ```
 netstat -g -n
 ```
 
-so as not to resolve hostnames.
+to show the multicast groups the host is a member of. 
 
 **Lab report**: How many IPv4 multicast groups did each experiment interface belong to on the experiment interface, `eth1`? Refer to the [list of multicast group IDs registered with IANA](https://www.iana.org/assignments/multicast-addresses/multicast-addresses.xhtml). Is the multicast group that these hosts belong to a special "well-known" group? What is it used for? Explain the purpose of this specific multicast group, *in your own words*.
 
+
+### Exercise - MAC addresses for multicast, broadcast, and unicast addresses
+
+In this exercise, we will see how MAC addresses are derived for different types of destination addresses - multicast, broadcast, and unicast.
+
+(Note: in this exercise, we are not at all concerned with which hosts *reply* to the ICMP echo messages. The purpose of this exercise is to look at the destination MAC addresses in the ICMP echo *request* headers.)
+
+Run
+
+```
+sudo tcpdump -i eth1 -w simple-multicast-mac-$(hostname -s).pcap
+```
+
+on romeo to capture all packets. Then, we will generate a few multicast, broadcast, and unicast frames. 
+
+In a second terminal on romeo, run
+
+```
+ping -I eth1 -c 3 230.11.111.10
+```
+
+to generate a multicast frame. Notice that this address gets mapped to the multicast route we added on romeo earlier, but no host is a member of this multicast group. Therefore, you will not get any echo replies, but you can still see the echo requests in your `tcpdump` output. 
+
+Next, run
+
+```
+ping -I eth1 -c 3 232.139.111.10
+```
+
+to generate a multicast frame with a different group address.
+
+
+Now, we will repeat with broadcast addresses. Run
+
+```
+ping -I eth1 -c 3 -b 10.10.1.255
+```
+
+to send a broadcast frame to the directed broadcast address.
+
+and then, run
+
+```
+ping -I eth1 -c 3 -b 255.255.255.255
+```
+
+to send a broadcast frame to the limited broadcast address.
+
+Finally, run
+
+```
+ping -I eth1 -c 3 10.10.1.101
+```
+
+to send a unicast frame to juliet's address.
+
+
+Use Ctrl+C to stop the `tcpdump`, and transfer the file to your laptop.
+
+**Lab report**: Compare destination MAC addresses of the different types of ICMP echo request frames you captured. Explain how the destination MAC address field is used in each case.
+
+**Lab report**: Use the frames with a multicast destination address to explain how a multicast group address is mapped to a multicast MAC address. For the two multicast frames captured, do they have the same destination MAC address? Why?
+
+
 ### Exercise - Multicast and broadcast ping
+
+In this exercise, we will try to understand in more detail:
+
+1. under what conditions multicast and broadcast packets are forwarded by routers, and
+2. under what conditions a host will respond to an ICMP echo request
+
+First, we will send an ICMP echo request to two broadcast addresses. 
 
 On "juliet", temporarily change the netmask of the experiment interface from 255.255.255.0 to 255.255.0.0, with
 
@@ -89,7 +156,7 @@ On "juliet", temporarily change the netmask of the experiment interface from 255
 sudo ifconfig eth1 netmask 255.255.0.0
 ```
 
-Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 subnet. However, the broadcast address that juliet will respond to has changed. You can verify this by finding the `Bcast` value in the output of `ifconfig eth1`.
+Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 subnet. However, the directed broadcast address that juliet will respond to has changed. You can verify this by finding the `Bcast` value in the output of `ifconfig eth1`.
 
 On "juliet", "hamlet", and "ophelia", run
 
@@ -134,58 +201,6 @@ Also on "juliet", set up the multicast route with
 sudo route add -net 224.0.0.0 netmask 240.0.0.0 eth1
 ```
 
-
-Execute
-
-```
-sudo tcpdump -i eth1 -w simple-multicast-4-$(hostname -s).pcap
-```
-
-on "romeo" to capture all packets. Then, we will generate a few unicast, multicast, and broadcast frames.
-
-On "juliet", run
-
-```
-ping -I eth1 -c 3 -b 10.10.1.255
-```
-
-to send a broadcast frame to the directed broadcast address.
-
-Also, run
-
-```
-ping -I eth1 -c 3 -b 255.255.255.255
-```
-
-to send a broadcast frame to the limited broadcast address.
-
-Then, also on "juliet", run
-
-```
-ping -I eth1 -c 3 10.10.1.100
-```
-
-Next, still on "juliet", run
-
-```
-ping -I eth1 -c 3 230.11.111.10
-```
-
-to generate a multicast frame. Notice that this address gets mapped to the routing entry of Exercise 1, but no host is a member of this multicast group. Therefore, you will not get any echo replies, but you can still see the echo requests in your `tcpdump` output. 
-
-Finally, on "juliet", run
-
-```
-ping -I eth1 -c 3 232.139.111.10
-```
-
-to generate a multicast frame with a different group address.
-
-Use Ctrl+C to stop the `tcpdump`, and transfer the file to your laptop.
-
-**Lab report**: Compare destination MAC addresses of the different types of ICMP echo request frames you captured. Explain how the destination MAC address field is used in each case.
-
-**Lab report**: Use the frames with a multicast destination address to explain how a multicast group address is mapped to a multicast MAC address. For the two multicast frames captured, do they have the same destination MAC address? Why?
 
 ### Exercise - number of multicast frames
 
