@@ -152,7 +152,7 @@ In this exercise, we will try to understand in more detail:
 1. under what conditions multicast and broadcast packets are forwarded by routers, and
 2. under what conditions a host will respond to an ICMP echo request
 
-First, we will send an ICMP echo request to two multicast addresses and observe the result. Then, we will send to two broadcast addresses and observe the result.
+First, we will send an ICMP echo request to a multicast address and observe the result. Then, we will send to a broadcast address and observe the result.
 
 On juliet, temporarily change the netmask of the experiment interface from 255.255.255.0 to 255.255.0.0, with
 
@@ -178,16 +178,8 @@ ping -c 3 -I eth1 224.0.0.1
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
 
-On romeo, ping a different multicast address, with
 
-```
-ping -c 3 -I eth1 230.11.111.10
-```
-
-Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
-
-
-On romeo, ping the directed broadcast address for the 10.10.1.0/24 subnet, using
+Then, on romeo, ping the directed broadcast address for the 10.10.1.0/24 subnet, using
 
 ```
 ping -c 3 -b 10.10.1.255
@@ -195,19 +187,9 @@ ping -c 3 -b 10.10.1.255
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
 
-
-On romeo, ping the limited broadcast address, using
-
-```
-ping -c 3 -b 255.255.255.255
-```
-
-Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
-
 Use Ctrl+C to stop the `tcpdump`.
 
 **Lab report**: Which hosts replied when the multicast address was pinged in each case, and why? Which hosts replied when the broadcast address was pinged in each case, and why? Explain.
-
 
 
 ### Exercise - number of multicast frames
