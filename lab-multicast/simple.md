@@ -192,51 +192,6 @@ Use Ctrl+C to stop the `tcpdump`.
 **Lab report**: Which hosts replied when the multicast address was pinged in each case, and why? Which hosts replied when the broadcast address was pinged in each case, and why? Explain.
 
 
-### Exercise - number of multicast frames
-
-On each of "juliet", "ophelia", "hamlet", and "romeo", execute 
-
-```
-route -n
-```
-
-to display the routing table. If there is no entry for the multicast address range, provide a default route for multicast traffic, by:
-
-```
-sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev eth1
-```
-
-Then, start `iperf` listening on a multicast address on "juliet", "ophelia", and "hamlet":
-
-```
-iperf -s -B 230.11.111.10 -u -i 1
-```
-
-Open two SSH sessions on the router, and use them to capture traffic on *both* router interfaces. In one session, run
-
-```
-sudo tcpdump -i eth1 -w simple-multicast-eth1-5-$(hostname -s).pcap
-```
-
-and in the other, run
-
-```
-sudo tcpdump -i eth2 -w simple-multicast-eth2-5-$(hostname -s).pcap
-```
-
-
-Then, on "romeo", run
-
-```
-iperf -c 230.11.111.10 -u -l 500 -n 5000 -T 2
-```
-
-to send 10 datagrams to the multicast address 230.11.111.10, with TTL of 2 (so that packets may traverse the router).
-
-Use Ctrl+C to stop the `tcpdump`, and transfer the packet captures to your laptop.
-
-**Lab report**: On the 10.10.1.0/24 LAN, how many hosts received the datagrams sent by `iperf`? On the 10.10.2.0/24 LAN, how many hosts received the datagrams sent by `iperf`? Did the sending host send a *copy* of each datagram for each host that received the datagrams, or did it send a single instance of each datagram?
-
 
 
 ### Exercise - Receiving traffic for a multicast group
@@ -244,13 +199,13 @@ Use Ctrl+C to stop the `tcpdump`, and transfer the packet captures to your lapto
 Open two SSH sessions on the router, and use them to capture traffic on *both* router interfaces. In one session, run
 
 ```
-sudo tcpdump -i eth1 -w simple-multicast-eth1-6-$(hostname -s).pcap
+sudo tcpdump -i eth1 -w simple-multicast-eth1-group-$(hostname -s).pcap
 ```
 
 and in the other, run
 
 ```
-sudo tcpdump -i eth2 -w simple-multicast-eth2-6-$(hostname -s).pcap
+sudo tcpdump -i eth2 -w simple-multicast-eth2-group-$(hostname -s).pcap
 ```
 
 On each of the four hosts, run
@@ -267,10 +222,10 @@ Then, run
 iperf -s -B 230.11.111.10 -u
 ```
 
-on "juliet" _only_, and **stop** any running `iperf` instances on other hosts. 
+on juliet _only_, and **stop** any running `iperf` instances on other hosts. 
 
 
-Open a second SSH session on "juliet" and run
+Open a second SSH session on juliet and run
 
 ```
 netstat -g -n 
@@ -278,7 +233,7 @@ netstat -g -n
 
 Save the output.
 
-Now, on "romeo", run
+Now, on romeo, run
 
 ```
 ping -I eth1 -c 3 230.11.111.10 -t 2
@@ -286,13 +241,13 @@ ping -I eth1 -c 3 230.11.111.10 -t 2
 
 and save the output.
 
-Leave the `iperf` server running on "juliet", but also run 
+Leave the `iperf` server running on juliet, but also run 
 
 ```
 iperf -s -B 230.11.111.10 -u
 ```
 
-on "hamlet".  On "romeo", run
+on hamlet.  On romeo, run
 
 ```
 ping -c 3 230.11.111.10 -t 2
@@ -306,7 +261,7 @@ Next, leave the `iperf` servers running on "juliet" and "hamlet", but also run
 iperf -s -B 230.11.111.10 -u
 ```
 
-on "ophelia".  On "romeo", run
+on ophelia.  On romeo, run
 
 ```
 ping -c 3 230.11.111.10 -t 2
@@ -314,7 +269,7 @@ ping -c 3 230.11.111.10 -t 2
 
 and save the output.
 
-Then terminate all `iperf` servers with Ctrl+C, and on "romeo", run 
+Then terminate all `iperf` servers with Ctrl+C, and on romeo, run 
 
 ```
 ping -c 3 230.11.111.10 -t 2
