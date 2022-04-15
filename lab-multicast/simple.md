@@ -160,12 +160,12 @@ On juliet, temporarily change the netmask of the experiment interface from 255.2
 sudo ifconfig eth1 netmask 255.255.0.0
 ```
 
-Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 subnet. However, the directed broadcast address that juliet will respond to has changed. You can verify this by finding the `Bcast` value in the output of `ifconfig eth1`.
+Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 subnet. However, the directed broadcast address that juliet will respond to has changed. You can verify this by finding the `broadcast` value in the output of `ifconfig eth1`.
 
 On juliet, hamlet, and ophelia, run
 
 ```
-sudo tcpdump -i eth1 -n
+sudo tcpdump -i eth1 -nv
 ```
 
 and leave these running.
@@ -178,6 +178,15 @@ ping -c 3 -I eth1 224.0.0.1
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
 
+On romeo, ping a different multicast address, with
+
+```
+ping -c 3 -I eth1 230.11.111.10
+```
+
+Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
+
+
 On romeo, ping the directed broadcast address for the 10.10.1.0/24 subnet, using
 
 ```
@@ -186,9 +195,18 @@ ping -c 3 -b 10.10.1.255
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
 
+
+On romeo, ping the limited broadcast address, using
+
+```
+ping -c 3 -b 255.255.255.255
+```
+
+Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
+
 Use Ctrl+C to stop the `tcpdump`.
 
-**Lab report**: Which hosts replied when the multicast address was pinged? Which hosts replied when the broadcast address was pinged? Explain.
+**Lab report**: Which hosts replied when the multicast address was pinged in each case, and why? Which hosts replied when the broadcast address was pinged in each case, and why? Explain.
 
 
 
