@@ -21,7 +21,7 @@ You will run all of the commands in this exercise in your SSH session (on either
 When you run commands in a terminal environment, you are actually *programming* 
 the computer. Each command is a line of code, that is then executed by an *interpreter*.
 
-(You may be familiar with the idea of an interpreter if you have ever used Pythnon - 
+(You may be familiar with the idea of an interpreter if you have ever used Python - 
 in interpreted programming languages, code is not translated into machine code by a compiler in advance of execution. Instead, the code is translated into machine code, one line at a time, by an interpreter *as the program runs*.)
 
 The most common shell, or command language interpreter, you'll encounter on Linux systems, and the one we'll use in this course, is called Bash. In this lab exercise, you will learn some basic commands you can use to "program" in the Bash shell environment.
