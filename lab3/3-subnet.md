@@ -300,7 +300,7 @@ We will need to add a route to LAN A on two routers: router-b and router-c. The 
 sudo ip route add 10.1.24.144/28 via 10.1.10.1
 ```
 
-and I would run that on router-a and router-c.
+and I would run that on router-b and router-c.
 
 Similarly, we need to add a route to LAN B on two routers: router-a and router-c. In my example, the command would be
 
@@ -308,7 +308,7 @@ Similarly, we need to add a route to LAN B on two routers: router-a and router-c
 sudo ip route add 10.1.24.128/28 via 10.1.10.2
 ```
 
-and I would run that on router-b and router-c.
+and I would run that on router-a and router-c.
 
 Finally, we need to add a route to LAN C on two routers: router-a and router-b. In my example, the command would be
 
