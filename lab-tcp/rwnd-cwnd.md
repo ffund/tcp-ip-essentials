@@ -189,7 +189,7 @@ Use Ctrl+C to stop the `tcpdump`, and then transfer the packet capture file to y
 
 **Lab report**: On the `tcptrace` plot (from Wireshark) for this bulk data transfer, zoom in on a 5-second interval in the middle of the file transfer. Explain how this image shows that the connection is RWND-limited.
 
-**Lab report**: how a screenshot of the queue status on both hosts in middle of the bulk file transfer. Annotate the screenshot; circle the socket send buffer on the TCP sender and the receive queue on the TCP receiver. How can you tell that the connection is *not* application-limited? How can you tell that the connection is probably RWND-limited, not CWND-limited?
+**Lab report**: Show a screenshot of the queue status on both hosts in middle of the bulk file transfer. Annotate the screenshot; circle the socket send buffer on the TCP sender and the receive queue on the TCP receiver. How can you tell that the connection is *not* application-limited? How can you tell that the connection is probably RWND-limited, not CWND-limited?
 
 **Lab report**: When a connection is RWND-limited, the receiver may sometimes send an ACK indicating that the receive buffer has no space available (i.e. Zero Window). Find one of these in your packet capture. You are also likely to see some ACKs in your packet capture that are TCP Window Update ACKs. Find one of these in your packet capture, and also find the ACK that is sent by the receiver just *before* the TCP Window Update. Compare the ACK number and the advertised window size in these two ACKs - the TCP Window Update and the ACK immediately preceding it. What is the purpose of the TCP Window Update? Does it acknowledge previously unacknowledged segments?
 
