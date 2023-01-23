@@ -62,7 +62,7 @@ You are not allowed to ask for help on Chegg, CourseHero, private messages or gr
 
 You can work on the lab assignment at the same time as another student, and discuss your results *verbally* as you work. But,
 
-* You must set up your own resources on GENI and run the lab exercise yourself - you are not allowed to use another student's account or resources in another student's GENI "slice". Also, you aren't allowed to type commands into another student's terminal. 
+* You must set up your own resources on the testbed and run the lab exercise yourself - you are not allowed to use another student's account or resources in another student's testbed "slice". Also, you aren't allowed to type commands into another student's terminal. 
 * You must submit data and screenshots from your own execution of the lab - you are not allowed to submit another student's data. Also, you must annotate screenshots etc. yourself - you are not allowed to ask another student to do it for you. You are not allowed to send your data or screenshots to another student.
 * You must answer the questions in Gradescope yourself. You are not allowed to share the answers with another student.
 
