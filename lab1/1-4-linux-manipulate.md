@@ -113,13 +113,13 @@ utilities by using the _pipe_ operator, `|`. This operator takes the output of t
 We can use this feature to filter the output of any command with `grep` (although that's not the only usage!). For example, suppose we want to see the MAC address of every network interface card on the host.  We can "pipe" the output of the `ifconfig` command to `grep`:
 
 ```
-ifconfig -a | grep "HWaddr"
+ifconfig -a | grep "ether"
 ```
 
-We can even use the pipe operator to connect more than two commands. For example, let's try using the `awk` utility to print only the first and fifth "columns" of output from the previous command:
+We can even use the pipe operator to connect more than two commands. For example, let's try using the `awk` utility to print only the second "column" of output from the previous command:
 
 ```
-ifconfig -a | grep "HWaddr" | awk '{print $1,$5}'
+ifconfig -a | grep "ether" | awk '{print $2}'
 ```
 
 If you see a piped command sequence and you're unsure what each part does, a good way to find out is to gradually build up the sequence from left to right. For example, for the command sequence above, if you want to find out what it does you might first run:
@@ -133,13 +133,13 @@ Then add
 
 
 ```
-ifconfig -a | grep "HWaddr" 
+ifconfig -a | grep "ether" 
 ```
 
 to see how the output of `ifconfig` is modified by the `grep` command. Finally, run
 
 ```
-ifconfig -a | grep "HWaddr" | awk '{print $1,$5}'
+ifconfig -a | grep "ether" | awk '{print $2}'
 ```
 
 and compare to the previous output, to see what the `awk` command does. 
