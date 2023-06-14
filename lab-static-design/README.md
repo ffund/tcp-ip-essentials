@@ -2,4 +2,4 @@
 
 ### Static routing
 
-* [Designing subnets](https://witestlab.poly.edu/blog/designing-subnets/)
+* [Designing subnets](designing-subnets.md)
