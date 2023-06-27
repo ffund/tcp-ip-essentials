@@ -17,50 +17,29 @@ To download a file from the Jupyter environment, use the file browser on the lef
 import os
 romeo_exec = slice.get_node("romeo")
 romeo_name = romeo_exec.execute("hostname", quiet=True)[0].strip()
+juliet_exec = slice.get_node("juliet")
+juliet_name = juliet_exec.execute("hostname", quiet=True)[0].strip()
 ```
 :::
 
 
 ::: {.cell .markdown}
-#### Packet Captures for Exercise - ARP
+#### Packet Captures for Exercise - a simple bridge experiment
 
 :::
 
 
 ::: {.cell .code}
 ```python
-romeo_arp_pcap = "/home/ubuntu/%s-arp.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-arp.pcap', romeo_arp_pcap)
+romeo_pcap = "/home/ubuntu/%s-bridge.pcap" %  romeo_name
+romeo_exec.download_file(os.path.abspath('romeo-bridge.pcap', romeo_pcap)
 ```
 :::
 
 
 ::: {.cell .code}
 ```python
-romeo_no_arp_pcap = "/home/ubuntu/%s-no-arp.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-no-arp.pcap', romeo_no_arp_pcap)
+juliet_pcap = "/home/ubuntu/%s-bridge.pcap" %  romeo_name
+juliet_exec.download_file(os.path.abspath('juliet-bridge.pcap', juliet_pcap)
 ```
 :::
-
-
-::: {.cell .markdown}
-#### Packet Captures for Exercise - ARP for a non-existent host
-
-:::
-
-::: {.cell .code}
-```python
-romeo_eth_pcap = "/home/ubuntu/%s-eth-nonexistent.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-eth-nonexistent.pcap', romeo_eth_pcap)
-```
-:::
-
-::: {.cell .code}
-```python
-romeo_lo_pcap = "/home/ubuntu/%s-lo-nonexistent.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-lo-nonexistent.pcap', romeo_lo_pcap)
-```
-:::
-
-
-
