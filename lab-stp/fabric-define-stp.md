@@ -4,7 +4,7 @@
 
 ::: {.cell .code}
 ```python
-slice_name="l2-stp-" + fablib.get_bastion_username()
+slice_name="stp-" + fablib.get_bastion_username()
 
 node_conf = [
  {'name': "romeo",   'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []}, 
