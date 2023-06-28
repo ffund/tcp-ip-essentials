@@ -65,7 +65,7 @@ var_list = [
     ("router-1", router1_exec, router1_name),
     ("router-2", router2_exec, router2_name)
 ]
-for node_name, host_exec, host_name:
+for node_name, host_exec, host_name in var_list:
     host_1_header_pcap = "/home/ubuntu/%s-1-static-headers.pcap" % host_name
     host_exec.download_file(os.path.abspath('%s-1-static-headers.pcap' % node_name), host_1_header_pcap)
     host_2_header_pcap = "/home/ubuntu/%s-2-static-headers.pcap" % host_name
