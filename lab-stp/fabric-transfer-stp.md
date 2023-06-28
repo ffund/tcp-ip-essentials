@@ -25,10 +25,10 @@ petruchio_exec = slice.get_node("petruchio")
 petruchio_name = petruchio_exec.execute("hostname", quiet=True)[0].strip()
 
 host_vars = [
-    (romeo_exec, romeo_name),
-    (hamlet_exec, hamlet_name),
-    (othello_exec, othello_name),
-    (petruchio_exec, petruchio_name)
+    ("romeo", romeo_exec, romeo_name),
+    ("juliet", hamlet_exec, hamlet_name),
+    ("othello", othello_exec, othello_name),
+    ("petruchio", petruchio_exec, petruchio_name)
 ]
 ```
 :::
@@ -41,9 +41,9 @@ host_vars = [
 
 ::: {.cell .code}
 ```python
-for host_exec, host_name in host_vars:
+for node_name, host_exec, host_name in host_vars:
     host_1_pcap = "/home/ubuntu/stp-%s-1.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-1.pcap' % host_name), host_1_pcap)
+    host_exec.download_file(os.path.abspath('stp-%s-1.pcap' % node_name), host_1_pcap)
 ```
 :::
 
@@ -54,9 +54,9 @@ for host_exec, host_name in host_vars:
 
 ::: {.cell .code}
 ```python
-for host_exec, host_name in host_vars:
+for node_name, host_exec, host_name in host_vars:
     host_2_pcap = "/home/ubuntu/stp-%s-2.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-2.pcap' % host_name), host_2_pcap)
+    host_exec.download_file(os.path.abspath('stp-%s-2.pcap' % node_name), host_2_pcap)
 ```
 :::
 
@@ -67,9 +67,9 @@ for host_exec, host_name in host_vars:
 
 ::: {.cell .code}
 ```python
-for host_exec, host_name in host_vars:
+for node_name, host_exec, host_name in host_vars:
     host_3_pcap = "/home/ubuntu/stp-%s-3.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-3.pcap' % host_name), host_3_pcap)
+    host_exec.download_file(os.path.abspath('stp-%s-3.pcap' % node_name), host_3_pcap)
 ```
 :::
 
@@ -80,9 +80,9 @@ for host_exec, host_name in host_vars:
 
 ::: {.cell .code}
 ```python
-for host_exec, host_name in host_vars:
+for node_name, host_exec, host_name in host_vars:
     host_4_pcap = "/home/ubuntu/stp-%s-4.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-4.pcap' % host_name), host_4_pcap)
+    host_exec.download_file(os.path.abspath('stp-%s-4.pcap' % node_name), host_4_pcap)
 ```
 :::
 
@@ -93,9 +93,9 @@ for host_exec, host_name in host_vars:
 
 ::: {.cell .code}
 ```python
-for host_exec, host_name in host_vars:
+for node_name, host_exec, host_name in host_vars:
     host_change_pcap = "/home/ubuntu/stp-change-%s.pcap" %  host_name
-    host_exec.download_file(os.path.abspath('stp-change-%s.pcap' % host_name), host_change_pcap)
+    host_exec.download_file(os.path.abspath('stp-change-%s.pcap' % node_name), host_change_pcap)
 ```
 :::
 
