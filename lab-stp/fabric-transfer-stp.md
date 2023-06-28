@@ -43,7 +43,7 @@ host_vars = [
 ```python
 for host_exec, host_name in host_vars:
     host_1_pcap = "/home/ubuntu/stp-%s-1.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-1.pcap' % host_name, host_1_pcap))
+    host_exec.download_file(os.path.abspath('stp-%s-1.pcap' % host_name), host_1_pcap)
 ```
 :::
 
@@ -56,7 +56,7 @@ for host_exec, host_name in host_vars:
 ```python
 for host_exec, host_name in host_vars:
     host_2_pcap = "/home/ubuntu/stp-%s-2.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-2.pcap' % host_name, host_2_pcap))
+    host_exec.download_file(os.path.abspath('stp-%s-2.pcap' % host_name), host_2_pcap)
 ```
 :::
 
@@ -69,7 +69,7 @@ for host_exec, host_name in host_vars:
 ```python
 for host_exec, host_name in host_vars:
     host_3_pcap = "/home/ubuntu/stp-%s-3.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-3.pcap' % host_name, host_3_pcap))
+    host_exec.download_file(os.path.abspath('stp-%s-3.pcap' % host_name), host_3_pcap)
 ```
 :::
 
@@ -82,7 +82,7 @@ for host_exec, host_name in host_vars:
 ```python
 for host_exec, host_name in host_vars:
     host_4_pcap = "/home/ubuntu/stp-%s-4.pcap" % host_name
-    host_exec.download_file(os.path.abspath('stp-%s-4.pcap' % host_name, host_4_pcap))
+    host_exec.download_file(os.path.abspath('stp-%s-4.pcap' % host_name), host_4_pcap)
 ```
 :::
 
@@ -95,7 +95,7 @@ for host_exec, host_name in host_vars:
 ```python
 for host_exec, host_name in host_vars:
     host_change_pcap = "/home/ubuntu/stp-change-%s.pcap" %  host_name
-    host_exec.download_file(os.path.abspath('stp-change-%s.pcap' % host_name, host_change_pcap))
+    host_exec.download_file(os.path.abspath('stp-change-%s.pcap' % host_name), host_change_pcap)
 ```
 :::
 

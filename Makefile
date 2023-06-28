@@ -2,11 +2,13 @@ SOURCES := $(wildcard fabric-snippets/*.md)
 
 
 all: lab-l2-arp/setup.ipynb \
-	lab-l2-bridge/setup.ipynb
+	lab-l2-bridge/setup.ipynb \
+    lab-stp/setup.ipynb
 
 clean:
 	rm lab-l2-arp/setup.ipynb \
-	rm lab-l2-bridge/setup.ipynb
+	rm lab-l2-bridge/setup.ipynb \
+    rm lab-stp/setup.ipynb
 
 L2_ARP_SOURCES := $(wildcard lab-l2-arp/fabric-*.md)
 lab-l2-arp/setup.ipynb: $(SOURCES) $(L2_ARP_SOURCES)

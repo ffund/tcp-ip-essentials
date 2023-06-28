@@ -30,7 +30,7 @@ romeo_name = romeo_exec.execute("hostname", quiet=True)[0].strip()
 ::: {.cell .code}
 ```python
 romeo_arp_pcap = "/home/ubuntu/%s-arp.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-arp.pcap', romeo_arp_pcap)
+romeo_exec.download_file(os.path.abspath('romeo-arp.pcap'), romeo_arp_pcap)
 ```
 :::
 
@@ -38,7 +38,7 @@ romeo_exec.download_file(os.path.abspath('romeo-arp.pcap', romeo_arp_pcap)
 ::: {.cell .code}
 ```python
 romeo_no_arp_pcap = "/home/ubuntu/%s-no-arp.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-no-arp.pcap', romeo_no_arp_pcap)
+romeo_exec.download_file(os.path.abspath('romeo-no-arp.pcap'), romeo_no_arp_pcap)
 ```
 :::
 
@@ -51,14 +51,14 @@ romeo_exec.download_file(os.path.abspath('romeo-no-arp.pcap', romeo_no_arp_pcap)
 ::: {.cell .code}
 ```python
 romeo_eth_pcap = "/home/ubuntu/%s-eth-nonexistent.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-eth-nonexistent.pcap', romeo_eth_pcap)
+romeo_exec.download_file(os.path.abspath('romeo-eth-nonexistent.pcap'), romeo_eth_pcap)
 ```
 :::
 
 ::: {.cell .code}
 ```python
 romeo_lo_pcap = "/home/ubuntu/%s-lo-nonexistent.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-lo-nonexistent.pcap', romeo_lo_pcap)
+romeo_exec.download_file(os.path.abspath('romeo-lo-nonexistent.pcap'), romeo_lo_pcap)
 ```
 :::
 

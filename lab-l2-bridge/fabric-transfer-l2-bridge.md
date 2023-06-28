@@ -32,7 +32,7 @@ juliet_name = juliet_exec.execute("hostname", quiet=True)[0].strip()
 ::: {.cell .code}
 ```python
 romeo_pcap = "/home/ubuntu/%s-bridge.pcap" %  romeo_name
-romeo_exec.download_file(os.path.abspath('romeo-bridge.pcap', romeo_pcap)
+romeo_exec.download_file(os.path.abspath('romeo-bridge.pcap'), romeo_pcap)
 ```
 :::
 
@@ -40,6 +40,6 @@ romeo_exec.download_file(os.path.abspath('romeo-bridge.pcap', romeo_pcap)
 ::: {.cell .code}
 ```python
 juliet_pcap = "/home/ubuntu/%s-bridge.pcap" %  romeo_name
-juliet_exec.download_file(os.path.abspath('juliet-bridge.pcap', juliet_pcap)
+juliet_exec.download_file(os.path.abspath('juliet-bridge.pcap'), juliet_pcap)
 ```
 :::
