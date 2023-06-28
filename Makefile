@@ -29,3 +29,14 @@ lab-l2-bridge/setup.ipynb: $(SOURCES) $(L2_BRIDGE_SOURCES)
 				lab-l2-bridge/fabric-transfer-l2-bridge.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-l2-bridge/setup.ipynb
+
+STP_SOURCES := $(wildcard lab-stp/fabric-*.md)
+lab-stp/setup.ipynb: $(SOURCES) $(STP_SOURCES)
+	pandoc --wrap=none \
+                -i lab-stp/fabric-intro-stp.md fabric-snippets/fab-config.md \
+                lab-stp/fabric-define-stp.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-stp/fabric-transfer-stp.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-stp/setup.ipynb
