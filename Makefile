@@ -6,7 +6,8 @@ all: lab-l2-arp/setup.ipynb \
     lab-stp/setup.ipynb \
 	lab-static-basic/setup.ipynb \
 	lab-static-design/setup.ipynb \
-	lab-dynamic-basic/setup.ipynb
+	lab-dynamic-basic/setup.ipynb \
+	lab-multicast-basic/setup.ipynb
 
 clean:
 	rm lab-l2-arp/setup.ipynb \
@@ -14,7 +15,8 @@ clean:
     rm lab-stp/setup.ipynb \
 	rm lab-static-basic/setup.ipynb \
 	rm lab-static-design/setup.ipynb \
-	rm lab-dynamic-basic/setup.ipynb
+	rm lab-dynamic-basic/setup.ipynb \
+	rm lab-multicast-basic/setup.ipynb
 
 L2_ARP_SOURCES := $(wildcard lab-l2-arp/fabric-*.md)
 lab-l2-arp/setup.ipynb: $(SOURCES) $(L2_ARP_SOURCES)
@@ -80,3 +82,14 @@ lab-dynamic-basic/setup.ipynb: $(SOURCES) $(DYNAMIC_BASIC_SOURCES)
 				lab-dynamic-basic/fabric-transfer-dynamic-basic.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-dynamic-basic/setup.ipynb
+
+MULTICAST_BASIC_SOURCES := $(wildcard lab-multicast-basic/fabric-*.md)
+lab-multicast-basic/setup.ipynb: $(SOURCES) $(MULTICAST_BASIC_SOURCES)
+	pandoc --wrap=none \
+                -i lab-multicast-basic/fabric-intro-multicast-basic.md fabric-snippets/fab-config.md \
+                lab-multicast-basic/fabric-define-multicast-basic.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-multicast-basic/fabric-transfer-multicast-basic.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-multicast-basic/setup.ipynb
