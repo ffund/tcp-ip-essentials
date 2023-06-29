@@ -5,14 +5,16 @@ all: lab-l2-arp/setup.ipynb \
 	lab-l2-bridge/setup.ipynb \
     lab-stp/setup.ipynb \
 	lab-static-basic/setup.ipynb \
-	lab-static-design/setup.ipynb
+	lab-static-design/setup.ipynb \
+	lab-dynamic-basic/setup.ipynb
 
 clean:
 	rm lab-l2-arp/setup.ipynb \
 	rm lab-l2-bridge/setup.ipynb \
     rm lab-stp/setup.ipynb \
 	rm lab-static-basic/setup.ipynb \
-	rm lab-static-design/setup.ipynb
+	rm lab-static-design/setup.ipynb \
+	rm lab-dynamic-basic/setup.ipynb
 
 L2_ARP_SOURCES := $(wildcard lab-l2-arp/fabric-*.md)
 lab-l2-arp/setup.ipynb: $(SOURCES) $(L2_ARP_SOURCES)
@@ -67,3 +69,14 @@ lab-static-design/setup.ipynb: $(SOURCES) $(STATIC_DESIGN_SOURCES)
 				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-static-design/setup.ipynb
+
+DYNAMIC_BASIC_SOURCES := $(wildcard lab-dynamic-basic/fabric-*.md)
+lab-dynamic-basic/setup.ipynb: $(SOURCES) $(DYNAMIC_BASIC_SOURCES)
+	pandoc --wrap=none \
+                -i lab-dynamic-basic/fabric-intro-dynamic-basic.md fabric-snippets/fab-config.md \
+                lab-dynamic-basic/fabric-define-dynamic-basic.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-dynamic-basic/fabric-transfer-dynamic-basic.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-dynamic-basic/setup.ipynb
