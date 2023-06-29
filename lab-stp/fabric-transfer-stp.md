@@ -26,7 +26,7 @@ petruchio_name = petruchio_exec.execute("hostname", quiet=True)[0].strip()
 
 host_vars = [
     ("romeo", romeo_exec, romeo_name),
-    ("juliet", hamlet_exec, hamlet_name),
+    ("hamlet", hamlet_exec, hamlet_name),
     ("othello", othello_exec, othello_name),
     ("petruchio", petruchio_exec, petruchio_name)
 ]
