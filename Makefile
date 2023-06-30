@@ -8,7 +8,8 @@ all: lab-l2-arp/setup.ipynb \
 	lab-static-design/setup.ipynb \
 	lab-dynamic-basic/setup.ipynb \
 	lab-multicast-basic/setup.ipynb \
-	lab-multicast-pim/setup.ipynb
+	lab-multicast-pim/setup.ipynb \
+	lab-snmp-security/setup.ipynb
 
 clean:
 	rm lab-l2-arp/setup.ipynb \
@@ -18,7 +19,8 @@ clean:
 	rm lab-static-design/setup.ipynb \
 	rm lab-dynamic-basic/setup.ipynb \
 	rm lab-multicast-basic/setup.ipynb \
-	rm lab-multicast-pim/setup.ipynb
+	rm lab-multicast-pim/setup.ipynb \
+	rm lab-snmp-security/setup.ipynb
 
 L2_ARP_SOURCES := $(wildcard lab-l2-arp/fabric-*.md)
 lab-l2-arp/setup.ipynb: $(SOURCES) $(L2_ARP_SOURCES)
@@ -105,3 +107,14 @@ lab-multicast-pim/setup.ipynb: $(SOURCES) $(MULTICAST_PIM_SOURCES)
 				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-multicast-pim/setup.ipynb
+
+SNMP_SECURITY_SOURCES := $(wildcard lab-snmp-security/fabric-*.md)
+lab-snmp-security/setup.ipynb: $(SOURCES) $(SNMP_SECURITY_SOURCES)
+	pandoc --wrap=none \
+                -i lab-snmp-security/fabric-intro-snmp-security.md fabric-snippets/fab-config.md \
+                lab-snmp-security/fabric-define-snmp-security.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-snmp-security/fabric-transfer-snmp-security.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-snmp-security/setup.ipynb
