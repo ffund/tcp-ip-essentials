@@ -9,6 +9,7 @@ all: lab-l2-arp/setup.ipynb \
 	lab-dynamic-basic/setup.ipynb \
 	lab-line-router/setup-udp.ipynb \
 	lab-line-direct/setup-udp.ipynb \
+	lab-line-router/setup-tcp-1.ipynb \
 	lab-multicast-basic/setup.ipynb \
 	lab-multicast-pim/setup.ipynb \
 	lab-snmp-security/setup.ipynb
@@ -22,6 +23,7 @@ clean:
 	rm lab-dynamic-basic/setup.ipynb \
 	rm lab-line-router/setup-udp.ipynb \
 	rm lab-line-direct/setup-udp.ipynb \
+	rm lab-line-router/setup-tcp-1.ipynb \
 	rm lab-multicast-basic/setup.ipynb \
 	rm lab-multicast-pim/setup.ipynb \
 	rm lab-snmp-security/setup.ipynb
@@ -112,6 +114,17 @@ lab-line-direct/setup-udp.ipynb: $(SOURCES) $(LINE_DIRECT_UDP_SOURCES)
 				lab-line-direct/fabric-transfer-udp.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-line-direct/setup-udp.ipynb
+
+LINE_ROUTER_TCP_1_SOURCES := lab-line-router/fabric-define-line-router.md $(wildcard lab-line-router/fabric-*-tcp-1.md)
+lab-line-router/setup-tcp-1.ipynb: $(SOURCES) $(LINE_ROUTER_TCP_1_SOURCES)
+	pandoc --wrap=none \
+                -i lab-line-router/fabric-intro-tcp-1.md fabric-snippets/fab-config.md \
+                lab-line-router/fabric-define-line-router.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-line-router/fabric-transfer-tcp-1.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-line-router/setup-tcp-1.ipynb
 
 MULTICAST_BASIC_SOURCES := $(wildcard lab-multicast-basic/fabric-*.md)
 lab-multicast-basic/setup.ipynb: $(SOURCES) $(MULTICAST_BASIC_SOURCES)
