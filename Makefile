@@ -13,6 +13,7 @@ all: lab-l2-arp/setup.ipynb \
 	lab-line-router/setup-tcp-2.ipynb \
 	lab-multicast-basic/setup.ipynb \
 	lab-multicast-pim/setup.ipynb \
+	lab-line-direct/setup-ntp.ipynb \
 	lab-snmp-security/setup.ipynb
 
 clean:
@@ -28,6 +29,7 @@ clean:
 	rm lab-line-router/setup-tcp-2.ipynb \
 	rm lab-multicast-basic/setup.ipynb \
 	rm lab-multicast-pim/setup.ipynb \
+	rm lab-line-direct/setup-ntp.ipynb \
 	rm lab-snmp-security/setup.ipynb
 
 L2_ARP_SOURCES := $(wildcard lab-l2-arp/fabric-*.md)
@@ -159,6 +161,17 @@ lab-multicast-pim/setup.ipynb: $(SOURCES) $(MULTICAST_PIM_SOURCES)
 				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-multicast-pim/setup.ipynb
+
+LINE_DIRECT_NTP_SOURCES := lab-line-direct/fabric-define-line-direct.md $(wildcard lab-line-direct/fabric-*-ntp.md)
+lab-line-direct/setup-ntp.ipynb: $(SOURCES) $(LINE_DIRECT_NTP_SOURCES)
+	pandoc --wrap=none \
+                -i lab-line-direct/fabric-intro-ntp.md fabric-snippets/fab-config.md \
+                lab-line-direct/fabric-define-line-direct.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-line-direct/fabric-transfer-ntp.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-line-direct/setup-ntp.ipynb
 
 SNMP_SECURITY_SOURCES := $(wildcard lab-snmp-security/fabric-*.md)
 lab-snmp-security/setup.ipynb: $(SOURCES) $(SNMP_SECURITY_SOURCES)
