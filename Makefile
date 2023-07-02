@@ -1,7 +1,8 @@
 SOURCES := $(wildcard fabric-snippets/*.md)
 
 
-all: lab-l2-arp/setup.ipynb \
+all: lab-line-direct/setup-linux.ipynb \
+	lab-l2-arp/setup.ipynb \
 	lab-l2-bridge/setup.ipynb \
     lab-stp/setup.ipynb \
 	lab-static-basic/setup.ipynb \
@@ -17,6 +18,7 @@ all: lab-l2-arp/setup.ipynb \
 	lab-snmp-security/setup.ipynb
 
 clean:
+	rm lab-line-direct/setup-linux.ipynb \
 	rm lab-l2-arp/setup.ipynb \
 	rm lab-l2-bridge/setup.ipynb \
     rm lab-stp/setup.ipynb \
@@ -31,6 +33,17 @@ clean:
 	rm lab-multicast-pim/setup.ipynb \
 	rm lab-line-direct/setup-ntp.ipynb \
 	rm lab-snmp-security/setup.ipynb
+
+LINE_DIRECT_LINUX_SOURCES := lab-line-direct/fabric-define-line-direct.md $(wildcard lab-line-direct/fabric-*-linux.md)
+lab-line-direct/setup-linux.ipynb: $(SOURCES) $(LINE_DIRECT_LINUX_SOURCES)
+	pandoc --wrap=none \
+                -i lab-line-direct/fabric-intro-linux.md fabric-snippets/fab-config.md \
+                lab-line-direct/fabric-define-line-direct.md \
+                fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-line-direct/fabric-transfer-linux.md \
+				fabric-snippets/delete-slice.md \
+                -o lab-line-direct/setup-linux.ipynb
 
 L2_ARP_SOURCES := $(wildcard lab-l2-arp/fabric-*.md)
 lab-l2-arp/setup.ipynb: $(SOURCES) $(L2_ARP_SOURCES)
