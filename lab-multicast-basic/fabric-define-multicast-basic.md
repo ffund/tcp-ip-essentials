@@ -17,7 +17,10 @@ net_conf = [
  {"name": "net0", "subnet": "10.10.1.0/24", "nodes": [{"name": "romeo", "addr": "10.10.1.100"}, {"name": "juliet", "addr": "10.10.1.101"}, {"name": "hamlet", "addr": "10.10.1.102"}, {"name": "router", "addr": "10.10.1.1"}]},
  {"name": "net1", "subnet": "10.10.2.0/24", "nodes": [{"name": "ophelia", "addr": "10.10.2.103"}, {"name": "router", "addr": "10.10.2.1"}]}
 ]
-route_conf = []
+route_conf = [
+ {"addr": "10.10.2.0/24", "gw": "10.10.1.1", "nodes": ["romeo", "juliet", "hamlet"]},
+ {"addr": "10.10.1.0/24", "gw": "10.10.2.1", "nodes": ["ophelia"]}
+]
 exp_conf = {'cores': sum([ n['cores'] for n in node_conf]), 'nic': sum([len(n['nodes']) for n in net_conf]) }
 ```
 :::
