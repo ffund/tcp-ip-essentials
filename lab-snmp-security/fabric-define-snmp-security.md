@@ -4,7 +4,7 @@
 
 ::: {.cell .code}
 ```python
-slice_name="multicast-basic-" + fablib.get_bastion_username()
+slice_name="snmp-security-" + fablib.get_bastion_username()
 
 node_conf = [
  {'name': "romeo",   'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []}, 
