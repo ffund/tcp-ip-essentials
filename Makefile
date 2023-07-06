@@ -105,6 +105,7 @@ lab-dynamic-basic/setup.ipynb: $(SOURCES) $(DYNAMIC_BASIC_SOURCES)
                 -i lab-dynamic-basic/fabric-intro-dynamic-basic.md fabric-snippets/fab-config.md \
                 lab-dynamic-basic/fabric-define-dynamic-basic.md \
                 fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				lab-dynamic-basic/fabric-extra-config-dynamic-basic.md \
 				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
 				lab-dynamic-basic/fabric-transfer-dynamic-basic.md \
 				fabric-snippets/delete-slice.md \
