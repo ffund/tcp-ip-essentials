@@ -6,8 +6,8 @@ for i in range(4):
     router_node.execute("curl -s https://deb.frrouting.org/frr/keys.asc | sudo apt-key add -")
     router_node.execute("echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) frr-stable | sudo tee -a /etc/apt/sources.list.d/frr.list")
     router_node.execute("sudo apt update; sudo apt -y install frr frr-pythontools nload")
-    router_node.execute("sudo sed -i 's/pimd=no/pimd=yes/g' /etc/frr/daemons")
-    router_node.execute("sudo sed -i 's/ospfd=no/ospfd=yes/g' /etc/frr/daemons")
+    router_node.execute("sudo sed -i 's/zebrad=no/zebrad=yes/g' /etc/frr/daemons")
+    router_node.execute("sudo sed -i 's/ripd=no/ripd=yes/g' /etc/frr/daemons")
     router_node.execute("sudo systemctl restart frr.service")
 ```
 :::
