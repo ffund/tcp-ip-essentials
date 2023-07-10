@@ -114,7 +114,7 @@ romeo_exec.download_file(os.path.abspath('romeo-redirect-2.pcap'), romeo_redirec
 ::: {.cell .code}
 ```python
 romeo_net_unreachable_pcap = "/home/ubuntu/%s-icmp-dest-net-unreachable.pcap" % romeo_name
-romeo_exec.download_file(os.path.abspath('%s-icmp-dest-net-unreachable.pcap'), romeo_net_unreachable_pcap)
+romeo_exec.download_file(os.path.abspath('romeo-icmp-dest-net-unreachable.pcap'), romeo_net_unreachable_pcap)
 ```
 :::
 
