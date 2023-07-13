@@ -45,9 +45,9 @@ romeo_exec.download_file(os.path.abspath('simple-multicast-mac-romeo.pcap'), rom
 
 ::: {.cell .code}
 ```python
-router_eth1_pcap = "/home/ubuntu/simple-multicast-eth1-group-%s.pcap" %  router_name
-router_exec.download_file(os.path.abspath('simple-multicast-eth1-group-router.pcap'), router_eth1_pcap)
-router_eth2_pcap = "/home/ubuntu/simple-multicast-eth2-group-%s.pcap" %  router_name
-router_exec.download_file(os.path.abspath('simple-multicast-eth2-group-router.pcap'), router_eth2_pcap)
+router_net1_pcap = "/home/ubuntu/simple-multicast-net1-group-%s.pcap" %  router_name
+router_exec.download_file(os.path.abspath('simple-multicast-net1-group-router.pcap'), router_net1_pcap)
+router_net2_pcap = "/home/ubuntu/simple-multicast-net2-group-%s.pcap" %  router_name
+router_exec.download_file(os.path.abspath('simple-multicast-net2-group-router.pcap'), router_net2_pcap)
 ```
 :::
