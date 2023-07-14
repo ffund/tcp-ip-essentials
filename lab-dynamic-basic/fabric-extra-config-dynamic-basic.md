@@ -12,6 +12,6 @@ for i in range(4):
 # Add hosts to the multicast group RIPv2 uses
 for i, node_name in enumerate(["romeo", "hamlet", "othello", "petruchio"]):
     host_node = slice.get_node(node_name)
-    host_node.execute("sudo ip maddr add 01:00:5e:00:00:09 dev $(ip route get 10.10.6%i.0 | grep -oP "(?<=dev )[^ ]+")" % i)
+    host_node.execute("sudo ip maddr add 01:00:5e:00:00:09 dev $(ip route get 10.10.6%i.0 | grep -oP \"(?<=dev )[^ ]+\")" % (i + 1))
 ```
 :::
