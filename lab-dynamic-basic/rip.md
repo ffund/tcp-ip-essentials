@@ -46,25 +46,25 @@ network 10.10.0.0/16
 
 so that all addresses from 10.10.0.0-10.10.255.255 will be enabled for RIP. (Note: this syntax is slightly different in FRR then in Cisco IOS.) Then run `exit` twice, until you are back in the regular FRR shell (not in config mode).
 
-RIPv2 multicasts its routing table every 30 seconds to the multicast IP address 224.0.0.9. Use `tcpdump` to capture these messages on each network segment for about a minute or two. On router-1, run
+RIPv2 multicasts its routing table every 30 seconds to the multicast IP address 224.0.0.9. Use `tcpdump` to capture these messages on each network segment for about a minute or two. On romeo, run
 
 ```
 sudo tcpdump -en -i $(ip route get 10.10.61.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net61-rip.pcap
 ```
 
-On router-2, run
+On hamlet, run
 
 ```
 sudo tcpdump -en -i $(ip route get 10.10.62.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net62-rip.pcap
 ```
 
-On router-3, run
+On othello, run
 
 ```
 sudo tcpdump -en -i $(ip route get 10.10.63.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net63-rip.pcap
 ```
 
-On router-4, run
+On petruchio, run
 
 ```
 sudo tcpdump -en -i $(ip route get 10.10.64.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net64-rip.pcap
@@ -109,25 +109,25 @@ show ip rip status
 
 in the FRR shell, and save the output. Make a note of two important timer values: how often each router sends updates, and after how long without an update a route is removed from the routing table (the *timeout* value).
 
-Start `tcpdump` on each of the four routers. On router-1, run
+Start `tcpdump` on each of the four workstations. On romeo, run
 
 ```
 sudo tcpdump -i $(ip route get 10.10.61.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net61-rip-failure.pcap
 ```
 
-On router-2, run
+On hamlet, run
 
 ```
 sudo tcpdump -i $(ip route get 10.10.62.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net62-rip-failure.pcap
 ```
 
-On router-3, run
+On othello, run
 
 ```
 sudo tcpdump -i $(ip route get 10.10.63.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net63-rip-failure.pcap
 ```
 
-On router-4, run
+On petruchio, run
 
 ```
 sudo tcpdump -i $(ip route get 10.10.64.0 | grep -oP "(?<=dev )[^ ]+") -w $(hostname -s)-net64-rip-failure.pcap

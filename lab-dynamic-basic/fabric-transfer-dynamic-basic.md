@@ -15,29 +15,20 @@ To download a file from the Jupyter environment, use the file browser on the lef
 ::: {.cell .code}
 ```python
 import os
-router1_exec = slice.get_node("router-1")
-router1_name = router1_exec.execute("hostname", quiet=True)[0].strip()
-router2_exec = slice.get_node("router-2")
-router2_name = router2_exec.execute("hostname", quiet=True)[0].strip()
-router3_exec = slice.get_node("router-3")
-router3_name = router3_exec.execute("hostname", quiet=True)[0].strip()
-router4_exec = slice.get_node("router-4")
-router4_name = router4_exec.execute("hostname", quiet=True)[0].strip()
 romeo_exec = slice.get_node("romeo")
 romeo_name = romeo_exec.execute("hostname", quiet=True)[0].strip()
 hamlet_exec = slice.get_node("hamlet")
 hamlet_name = hamlet_exec.execute("hostname", quiet=True)[0].strip()
 othello_exec = slice.get_node("othello")
 othello_name = othello_exec.execute("hostname", quiet=True)[0].strip()
+petruchio_exec = slice.get_node("petruchio")
+petruchio_name = petruchio_exec.execute("hostname", quiet=True)[0].strip()
 
 host_vars = {
-    "router-1": [router1_exec, router1_name],
-    "router-2": [router2_exec, router2_name],
-    "router-3": [router3_exec, router3_name],
-    "router-4": [router4_exec, router4_name],
     "romeo": [romeo_exec, romeo_name],
     "hamlet": [hamlet_exec, hamlet_name],
-    "othello": [othello_exec, othello_name]
+    "othello": [othello_exec, othello_name],
+    "petruchio": [petruchio_exec, petruchio_name]
 }
 ```
 :::
@@ -50,9 +41,8 @@ host_vars = {
 
 ::: {.cell .code}
 ```python
-for i in range(4):
-    node_name = "router-%i" % (i + 1)
-    host_exec, host_name = host_vars[node_name]
+for i, (node_name, var_list) in enumerate(host_vars.items()):
+    host_exec, host_name = var_list
     host_rip_pcap = "/home/ubuntu/%s-net6%i-rip.pcap" % (host_name, i + 1)
     host_exec.download_file(os.path.abspath('%s-net6%i-rip.pcap' % (node_name, i + 1)), host_rip_pcap)
 ```
@@ -65,11 +55,10 @@ for i in range(4):
 
 ::: {.cell .code}
 ```python
-for i in range(4):
-    node_name = "router-%i" % (i + 1)
-    host_exec, host_name = host_vars[node_name]
-    host_rip_pcap = "/home/ubuntu/%s-net6%i-rip-failure.pcap" % (host_name, i + 1)
-    host_exec.download_file(os.path.abspath('%s-net6%i-rip-failure.pcap' % (node_name, i + 1)), host_rip_pcap)
+for i, (node_name, var_list) in enumerate(host_vars.items()):
+    host_exec, host_name = var_list
+    host_rip_failure_pcap = "/home/ubuntu/%s-net6%i-rip-failure.pcap" % (host_name, i + 1)
+    host_exec.download_file(os.path.abspath('%s-net6%i-rip-failure.pcap' % (node_name, i + 1)), host_rip_failure_pcap)
 ```
 :::
 
