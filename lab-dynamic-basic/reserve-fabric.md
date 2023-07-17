@@ -1,4 +1,4 @@
-## FABRIC-specific instructions: Reserve resources for RIP experiment
+## FABRIC-specific instructions: Reserve resources
 
 For this experiment, we will use a topology with four routers in a ring, and a host connected to each LAN.
 
@@ -18,9 +18,9 @@ For convenience, the last octet of each IP address is the router index (for rout
 To run this experiment on FABRIC, open the JupyterHub environment on FABRIC, open a shell, and run
 
 ```
-git clone https://github.com/teaching-on-testbeds/fabric-education tcp_cc
-cd tcp_cc
-git checkout tcp_congestion_control
+git clone https://github.com/ffund/tcp-ip-essentials.git
+git checkout wip
+cd tcp-ip-essentials/lab-dynamic-basic
 ```
 
 Then open the notebook titled "setup.ipynb".
