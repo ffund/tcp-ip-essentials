@@ -2,5 +2,6 @@
 
 ### Bridges and LANs, ARP
 
-* [Operation of a basic Ethernet switch or bridge](https://witestlab.poly.edu/blog/basic-ethernet-switch-operation)
+* Reserve resources: [on CloudLab](reserve-cloudlab.md), [on FABRIC](reserve-fabric.md)
+* [Operation of a basic Ethernet switch or bridge](learning-switch.md)
 * [A simple bridge experiment](simple-bridge.md)
