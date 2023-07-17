@@ -3,10 +3,11 @@
 First, we will set up the resources. We want to make sure that packets destined to the multicast address will be accepted by the NIC of the router. On the router, run:
 
 ```
-sudo ip maddr add 01:00:5e:0b:6f:0a dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
+sudo ip maddr add 01:00:5e:0b:6f:0a dev EXPIFACE1
+sudo ip maddr add 01:00:5e:0b:6f:0a dev EXPIFACE2
 ```
 
-Note that the MAC multicast address 01:00:5e:0b:6f:0a in the command is mapped from the IP multicast address 230.11.111.10, which we will use in this experiment.
+Note that the MAC multicast address 01:00:5e:0b:6f:0a in the commands is mapped from the IP multicast address 230.11.111.10, which we will use in this experiment.
 
 Also, on the router, we will install a simple multicast router that accepts static routes. Run:
 
@@ -47,7 +48,7 @@ ip route
 to display the routing table. If there is no entry for the 224.0.0.0/4 subnet, provide a default route for multicast traffic, by:
 
 ```
-sudo ip route add 224.0.0.0/4 dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
+sudo ip route add 224.0.0.0/4 dev EXPIFACE1
 ```
 
 and save the new routing table.
@@ -63,7 +64,7 @@ ip maddr
 
 to show the multicast groups the host is a member of. 
 
-**Lab report**: How many IPv4 multicast groups did each experiment interface belong to on the experiment interface (e.g., `eth1` or `ens7`)? Refer to the [list of multicast group IDs registered with IANA](https://www.iana.org/assignments/multicast-addresses/multicast-addresses.xhtml). Is the multicast group that these hosts belong to a special "well-known" group? What is it used for? Explain the purpose of this specific multicast group, *in your own words*.
+**Lab report**: How many IPv4 multicast groups did each experiment interface belong to on the experiment interface, `EXPIFACE1`? Refer to the [list of multicast group IDs registered with IANA](https://www.iana.org/assignments/multicast-addresses/multicast-addresses.xhtml). Is the multicast group that these hosts belong to a special "well-known" group? What is it used for? Explain the purpose of this specific multicast group, *in your own words*.
 
 
 ### Exercise - MAC addresses for multicast, broadcast, and unicast addresses
@@ -75,7 +76,7 @@ In this exercise, we will see how MAC addresses are derived for different types 
 Run
 
 ```
-sudo tcpdump -i $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -w simple-multicast-mac-$(hostname -s).pcap
+sudo tcpdump -i EXPIFACE1 -w simple-multicast-mac-$(hostname -s).pcap
 ```
 
 on romeo to capture all packets. Then, we will generate a few multicast, broadcast, and unicast frames. 
@@ -83,7 +84,7 @@ on romeo to capture all packets. Then, we will generate a few multicast, broadca
 In a second terminal on romeo, run
 
 ```
-ping -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -c 3 230.11.111.10
+ping -I EXPIFACE1 -c 3 230.11.111.10
 ```
 
 to generate a multicast frame. Notice that this address gets mapped to the multicast route we added on romeo earlier, but no host is a member of this multicast group. Therefore, you will not get any echo replies, but you can still see the echo requests in your `tcpdump` output. 
@@ -91,7 +92,7 @@ to generate a multicast frame. Notice that this address gets mapped to the multi
 Next, run
 
 ```
-ping -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -c 3 232.139.111.10
+ping -I EXPIFACE1 -c 3 232.139.111.10
 ```
 
 to generate a multicast frame with a different group address.
@@ -100,7 +101,7 @@ to generate a multicast frame with a different group address.
 Now, we will repeat with broadcast addresses. Run
 
 ```
-ping -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -c 3 -b 10.10.1.255
+ping -I EXPIFACE1 -c 3 -b 10.10.1.255
 ```
 
 to send a broadcast frame to the directed broadcast address.
@@ -108,7 +109,7 @@ to send a broadcast frame to the directed broadcast address.
 and then, run
 
 ```
-ping -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -c 3 -b 255.255.255.255
+ping -I EXPIFACE1 -c 3 -b 255.255.255.255
 ```
 
 to send a broadcast frame to the limited broadcast address.
@@ -116,7 +117,7 @@ to send a broadcast frame to the limited broadcast address.
 Finally, run
 
 ```
-ping -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -c 3 10.10.1.101
+ping -I EXPIFACE1 -c 3 10.10.1.101
 ```
 
 to send a unicast frame to juliet's address.
@@ -145,8 +146,8 @@ First, we will send an ICMP echo request to a multicast address and observe the 
 On juliet, temporarily change the netmask of the experiment interface from 255.255.255.0 to 255.255.0.0, with
 
 ```
-sudo ip addr add 10.10.1.101/16 dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
-sudo ip addr del 10.10.1.101/24 dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
+sudo ip addr add 10.10.1.101/16 dev EXPIFACE1
+sudo ip addr del 10.10.1.101/24 dev EXPIFACE1
 ```
 
 Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 subnet. However, the directed broadcast address that juliet will respond to has changed.
@@ -154,7 +155,7 @@ Note that with this change, juliet can still reach hosts on the 10.10.1.0/24 sub
 On juliet, hamlet, and ophelia, run
 
 ```
-sudo tcpdump -i $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -nv
+sudo tcpdump -i EXPIFACE1 -nv
 ```
 
 and leave these running.
@@ -162,7 +163,7 @@ and leave these running.
 Then, on romeo, execute
 
 ```
-ping -c 3 -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") 224.0.0.1
+ping -c 3 -I EXPIFACE1 224.0.0.1
 ```
 
 Examine the output to see which hosts reply. Save this output for your lab report. Also save the output in the `tcpdump` sessions.
@@ -191,27 +192,27 @@ In this exercise, we will add multicast group memberships on some hosts, and see
 First, undo the configuration change on juliet:
 
 ```
-sudo ip addr add 10.10.1.101/24 dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
-sudo ip addr del 10.10.1.101/16 dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
+sudo ip addr add 10.10.1.101/24 dev EXPIFACE1
+sudo ip addr del 10.10.1.101/16 dev EXPIFACE1
 ```
 
 and also on juliet, add back the multicast route:
 
 ```
-sudo ip route add 224.0.0.0/4 dev $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+")
+sudo ip route add 224.0.0.0/4 dev EXPIFACE1
 ```
 
 
 Open two SSH sessions on the router, and use them to capture traffic on *both* router interfaces. In one session, run
 
 ```
-sudo tcpdump -i $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -w simple-multicast-net1-group-$(hostname -s).pcap
+sudo tcpdump -i EXPIFACE1 -w simple-multicast-EXPIFACE1-group-$(hostname -s).pcap
 ```
 
 and in the other, run
 
 ```
-sudo tcpdump -i $(ip route get 10.10.2.0 | grep -oP "(?<=dev )[^ ]+") -w simple-multicast-net2-group-$(hostname -s).pcap
+sudo tcpdump -i EXPIFACE2 -w simple-multicast-EXPIFACE2-group-$(hostname -s).pcap
 ```
 
 On each of the four hosts, run
@@ -242,7 +243,7 @@ Save the output.
 Now, on romeo, run
 
 ```
-ping -I $(ip route get 10.10.1.0 | grep -oP "(?<=dev )[^ ]+") -c 3 230.11.111.10 -t 2
+ping -I EXPIFACE1 -c 3 230.11.111.10 -t 2
 ```
 
 and save the output.
