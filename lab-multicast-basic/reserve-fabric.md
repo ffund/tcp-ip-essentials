@@ -20,4 +20,4 @@ cd tcp-ip-essentials/lab-l2-arp
 
 Then open the notebook titled "setup.ipynb".
 
-Follow along inside the notebook to reserve resources and get the login details for each host in the experiment.
+Follow along inside the notebook to reserve resources and get the login details for each node in the experiment.
