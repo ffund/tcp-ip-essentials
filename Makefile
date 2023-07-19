@@ -73,6 +73,7 @@ lab-stp/setup.ipynb: $(SOURCES) $(STP_SOURCES)
                 -i lab-stp/fabric-intro-stp.md fabric-snippets/fab-config.md \
                 lab-stp/fabric-define-stp.md \
                 fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
+				lab-stp/fabric-extra-config-stp.md \
 				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
 				lab-stp/fabric-transfer-stp.md \
 				fabric-snippets/delete-slice.md \
