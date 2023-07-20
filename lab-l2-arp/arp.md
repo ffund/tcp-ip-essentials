@@ -5,39 +5,25 @@ In these exercises, we will consider communication between hosts in the same net
 
 ### Exercise - ARP
 
-First, on each host, run
+On each host, run
 
 ```
-ip addr
+ip neigh show dev EXPIFACE1
 ```
 
-to get the name of the experiment interface that is connected to the network segment. In this lab, this interface should be called `eth1` or `ens4` (depending on which testbed you are using, CloudLab or FABRIC). Once you get the interface name, you can run
-
-```
-echo "export exp_iface=IFACE" >> ~/.bashrc
-source ~/.bashrc
-```
-where you should replace `IFACE` with the interface name, to store it in a variable so that you can access it easily and correctly next time.
-
-Then, run
-
-```
-ip neigh show dev $exp_iface
-```
-
-to see the entire ARP table for this interface (if there are any entries).  If there are no ARP entries, there will be no output, which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
+to see the entire ARP table for the `EXPIFACE1` interface (if there are any entries).  If there are no ARP entries, there will be no output, which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
 
 *If* the "juliet" host (10.10.0.101) is already listed in an ARP table, then delete it with
 
 ```
-sudo ip neigh del 10.10.0.101 dev $exp_iface
+sudo ip neigh del 10.10.0.101 dev EXPIFACE1
 ```
 
 Then, run 
 
 
 ```
-ip neigh show dev $exp_iface
+ip neigh show dev EXPIFACE1
 ```
 
 again, and save the ARP tables from each host for your lab report.
@@ -46,7 +32,7 @@ again, and save the ARP tables from each host for your lab report.
 On "romeo", run
 
 ```
-sudo tcpdump -i $exp_iface -w $(hostname -s)-arp.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-arp.pcap
 ```
 
 Leave this running. Then, open a second SSH session to "romeo", and in that session, run
@@ -62,7 +48,7 @@ Terminate `tcpdump` with Ctrl+C.
 Run 
 
 ```
-ip neigh show dev $exp_iface
+ip neigh show dev EXPIFACE1
 ```
 
 each host, again. Save the new ARP tables for your lab report.
@@ -81,7 +67,7 @@ tcpdump -enX -r $(hostname -s)-arp.pcap
 Next, run
 
 ```
-sudo tcpdump -i $exp_iface -w $(hostname -s)-no-arp.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-no-arp.pcap
 ```
 
 on "romeo", and in a second terminal on "romeo", run
@@ -122,7 +108,7 @@ For this experiment, you will need *three* terminal windows on the "romeo" host.
 On the "romeo" host, run
 
 ```
-sudo tcpdump -i $exp_iface -w $(hostname -s)-$exp_iface-nonexistent.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-EXPIFACE1-nonexistent.pcap
 ```
 
 In a second terminal window on "romeo", run
@@ -158,7 +144,7 @@ Observe this message in the loopback interface capture.
 Also, "play back" a summary of the Ethernet capture file in the terminal using
 
 ```
-tcpdump -enX -r $(hostname -s)-$exp_iface-nonexistent.pcap
+tcpdump -enX -r $(hostname -s)-EXPIFACE1-nonexistent.pcap
 ```
 
 You can also use `scp` to transfer the packet captures to your laptop, and open them in Wireshark to see these packets in more detail.

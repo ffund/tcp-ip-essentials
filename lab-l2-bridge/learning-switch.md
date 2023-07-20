@@ -1,3 +1,5 @@
+# Operation of a basic Ethernet switch or bridge
+
 In this experimental demonstration of the basic operation of a layer 2 switch/bridge, we will see:
 
 * how to set up a layer 2 bridge on Linux,
@@ -5,27 +7,6 @@ In this experimental demonstration of the basic operation of a layer 2 switch/br
 * how a bridge or switch reduces collisions by separating each port into a separate collision domain.
 
 It should take about 60-120 minutes to run this experiment.
-
-
-
-You can run this experiment on GENI or on CloudLab. Refer to the testbed-specific prerequisites listed below.
-
-
-<div style="border-color:#FB8C00; border-style:solid; padding: 15px;">
-<h4 style="color:#FB8C00;"> GENI-specific instructions: Prerequisites</h4>
-
-To reproduce this experiment on GENI, you will need an account on the <a href="http://groups.geni.net/geni/wiki/SignMeUp">GENI Portal</a>, and you will need to have <a href="http://groups.geni.net/geni/wiki/JoinAProject">joined a project</a>. You should have already <a href="http://groups.geni.net/geni/wiki/HowTo/LoginToNodes">uploaded your SSH keys to the portal and know how to log in to a node with those keys</a>.
-
-</div>
-<br>
-
-<div style="border-color:#5e8a90; border-style:solid; padding: 15px;">
-<h4 style="color:#5e8a90;"> Cloudlab-specific instructions: Prerequisites</h4>
-
-To reproduce this experiment on Cloudlab, you will need an account on <a href="https://cloudlab.us/">Cloudlab</a>, you will need to have <a href="https://docs.cloudlab.us/users.html#%28part._join-project%29">joined a project</a>, and you will need to have <a href="https://docs.cloudlab.us/users.html#%28part._ssh-access%29">set up SSH access</a>.
-
-</div>
-<br>
 
 * Skip to [Results](#results)
 * Skip to [Run my experiment](#runmyexperiment)
@@ -64,6 +45,7 @@ We also see how a learning switch or bridge reduces the number of hosts in each 
 
 ## Run my experiment
 
+**TODO**
 First, you will reserve a topology that includes a bridge with four ports, and one host connected to each port.
 
 Follow the instructions for the testbed you are using (GENI or Cloudlab) to reserve the resources and log in to each of the hosts in this experiment. 
@@ -119,14 +101,14 @@ sudo apt-get update
 sudo apt-get -y install bridge-utils
 ```
 
-Since a bridge operates at Layer 2, bridge interfaces should not have an IP address. On the bridge, flush the IP address from each of the four experiment interfaces (but be careful not to bring down the control interface):
+<!-- Since a bridge operates at Layer 2, bridge interfaces should not have an IP address. On the bridge, flush the IP address from each of the four experiment interfaces (but be careful not to bring down the control interface):
 
 ```
 sudo ip addr flush dev eth1
 sudo ip addr flush dev eth2
 sudo ip addr flush dev eth3
 sudo ip addr flush dev eth4
-```
+``` -->
 
 Then, create a new bridge interface named `br0` with the command
 
@@ -134,23 +116,23 @@ Then, create a new bridge interface named `br0` with the command
 sudo brctl addbr br0
 ```
 
-And add the four interfaces to the bridge:
+And add the four experiment interfaces to the bridge:
 
 ```
-sudo brctl addif br0 eth1
-sudo brctl addif br0 eth2
-sudo brctl addif br0 eth3
-sudo brctl addif br0 eth4
+sudo brctl addif br0 EXPIFACE1
+sudo brctl addif br0 EXPIFAEC2
+sudo brctl addif br0 EXPIFACE3
+sudo brctl addif br0 EXPIFACE4
 ```
 
 Finally, we will bring "up" all of the interfaces:
 
 ```
-sudo ifconfig eth1 up
-sudo ifconfig eth2 up
-sudo ifconfig eth3 up
-sudo ifconfig eth4 up
-sudo ifconfig br0 up
+sudo ip link set EXPIFACE1 up
+sudo ip link set EXPIFACE2 up
+sudo ip link set EXPIFACE3 up
+sudo ip link set EXPIFACE4 up
+sudo ip link set br0 up
 ```
 
 At this point, you should be able to list the bridge ports with
@@ -163,10 +145,10 @@ The output should look something like this:
 
 ```
 bridge name     bridge id               STP enabled     interfaces
-br0             8000.021e6b573974       no              eth1
-                                                        eth2
-                                                        eth3
-                                                        eth4
+br0             8000.021e6b573974       no              EXPIFACE1
+                                                        EXPIFACE2
+                                                        EXPIFACE3
+                                                        EXPIFACE4
 ```
 
 You can also see the MAC addresses that the bridge is aware of, with 
@@ -185,11 +167,11 @@ port no	mac addr		is local?	ageing timer
   3	02:cb:96:8d:5b:1f	yes		   0.00
 ```
 
-but it won't know about any other nodes' addresses. (At this point, you can use `ifconfig` to find the MAC address of each interface, then match with the output of the command above to determine the "port number" (1, 2, 3, 4) associated with each interface.)
+but it won't know about any other nodes' addresses. (At this point, you can use `ip addr` to find the MAC address of each interface, then match with the output of the command above to determine the "port number" (1, 2, 3, 4) associated with each interface.)
 
 > **Note**: On some versions of the Ubuntu operating system, you'll see each MAC address appear twice in the `brctl showmacs br0` output! This is OK.
 
-Verify that all of the end hosts in the topology can reach one another through the bridge. On each of node-1, node-2, node-3, and node-4, run
+Verify that all of the end hosts in the topology can reach one another through the bridge. On each of romeo, juliet, hamlet, and ophelia, run
 
 ```
 ping -c 1 10.0.0.1
@@ -218,7 +200,7 @@ port no	mac addr		is local?	ageing timer
   4	02:da:4f:51:ac:c9	no		   1.86
 ```
 
-Now, you can use `ifconfig` on each of the nodes to find out its MAC address and determine which bridge port (1,2,3,4) each one is connected to.
+Now, you can use `ip addr` on each of the hosts to find out its MAC address and determine which bridge port (1,2,3,4) each one is connected to.
 
 As time passes without further traffic passing through the bridge, the values in the "ageing timer" column will increase. Once an entry ages past 300 seconds, it will be removed from the forwarding table. So, after 5 minutes with no traffic, the output of
 
@@ -245,15 +227,15 @@ bridge monitor fdb
 
 on the bridge. This will show us new entries live, as they are added to or removed from the forwarding table.
 
-On node-1, node-2, node-3, and node-4, we will use `tcpdump` to watch traffic on the interface connected to the bridge. Run
+On romeo, juliet, hamlet, and ophelia, we will use `tcpdump` to watch traffic on the interface connected to the bridge. Run
 
 ```
-sudo tcpdump -n -e -i eth1
+sudo tcpdump -n -e -i EXPIFACE1
 ```
 
-This will run `tcpdump` on the "eth1" interface (`-i eth1`), with the Ethernet headers showing (`-e`) and with IP addresses showing as numeric values, rather than hostnames (`-n`).
+This will run `tcpdump` on the "EXPIFACE1" interface (`-i EXPIFACE1`), with the Ethernet headers showing (`-e`) and with IP addresses showing as numeric values, rather than hostnames (`-n`).
 
-Then, in a second terminal on node-1, we will send some traffic to node-2:
+Then, in a second terminal on romeo, we will send some traffic to juliet:
 
 ```
 ping -c 5 10.0.0.2
@@ -266,31 +248,31 @@ The results of this experiment are shown in the following video:
 
 In the output, we can see:
 
-* As a frame from node-1 arrives at the switch, an entry for that host is added to the forwarding table on the bridge, indicated which switch port that MAC address is connected to:
+* As a frame from node-1 (romeo) arrives at the switch, an entry for that host is added to the forwarding table on the bridge, indicated which switch port that MAC address is connected to:
 
 ```
 02:cd:b5:11:64:e2 dev eth3 vlan 0  
 ```
 
-* The first frame from node-1 is sent out of _all_ of the other bridge ports, because it is not yet known which bridge port the destination address (02:a0:6e:e0:58:93) is connected to. In the `tcpdump` output, we see an entry similar to the following on all three nodes:
+* The first frame from node-1 (romeo) is sent out of _all_ of the other bridge ports, because it is not yet known which bridge port the destination address (02:a0:6e:e0:58:93) is connected to. In the `tcpdump` output, we see an entry similar to the following on all three nodes:
 
 ```
 17:02:37.531348 02:cd:b5:11:64:e2 > 02:a0:6e:e0:58:93, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.2: ICMP echo request, id 2736, seq 1, length 64
 ```
 
-* node-2 sends a reply to the ping request. When this reply reaches the bridge, an entry is added to the forwarding table for node-2, indicated which switch port that MAC address is connected to:
+* node-2 (juliet) sends a reply to the ping request. When this reply reaches the bridge, an entry is added to the forwarding table for node-2 (juliet), indicated which switch port that MAC address is connected to:
 
 ```
 02:a0:6e:e0:58:93 dev eth2 vlan 0 
 ```
 
-* Since the location of node-1 is already known, the reply from node-2 (shown below) is only sent out the bridge port where node-1 is located. Therefore, the reply does _not_ appear in the `tcpdump` output on node-3 or node-4. We do see it in the `tcpdump` output on node-2, and if we were running `tcpdump` on node-1 we would see it there, too:
+* Since the location of node-1 (romeo) is already known, the reply from node-2 (juliet) (shown below) is only sent out the bridge port where node-1 (romeo) is located. Therefore, the reply does _not_ appear in the `tcpdump` output on node-3 (hamlet) or node-4 (ophelia). We do see it in the `tcpdump` output on node-2 (juliet), and if we were running `tcpdump` on node-1 (romeo) we would see it there, too:
 
 ```
 17:02:37.636918 02:a0:6e:e0:58:93 > 02:cd:b5:11:64:e2, ethertype IPv4 (0x0800), length 98: 10.0.0.2 > 10.0.0.1: ICMP echo reply, id 2736, seq 1, length 64
 ```
 
-* Since the location of node-2 is known, further ping requests (shown below) are only sent out the bridge port where node-2 is located. They therefore appear in the `tcpdump` output on node-2, but not on the other nodes:
+* Since the location of node-2 (juliet) is known, further ping requests (shown below) are only sent out the bridge port where node-2 (juliet) is located. They therefore appear in the `tcpdump` output on node-2 (juliet), but not on the other nodes:
 
 ```
 17:02:38.638746 02:cd:b5:11:64:e2 > 02:a0:6e:e0:58:93, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.2: ICMP echo request, id 2736, seq 2, length 64
@@ -310,14 +292,14 @@ Finally, we will observe how a switch or a bridge improves network performance b
 
 To measure this effect, we will use `iperf`, a tool that estimates network capacity by trying to send data as quickly as possible over a link, and measuring the total data rate.
 
-To install `iperf`, on each of node-1, node-2, node-3, and node-4, run
+To install `iperf`, on each of romeo, juliet, hamlet, and ophelia, run
 
 ```
 sudo apt-get update
 sudo apt-get -y install iperf
 ```
 
-Then, run the `iperf` receiver application on node-3 and node-4:
+Then, run the `iperf` receiver application on hamlet and ophelia:
 
 ```
 iperf -s
@@ -325,13 +307,13 @@ iperf -s
 
 Finally, we will run the `iperf` transmitter to send traffic to each of those. Try to start the two transmitters quickly, one after the other.
 
-On node-1, run
+On romeo, run
 
 ```
 iperf -c 10.0.0.3 -t 90
 ```
 
-and on node-2, quickly run
+and on juliet, quickly run
 
 ```
 iperf -c 10.0.0.4 -t 90
@@ -359,13 +341,13 @@ sudo brctl setageing br0 0
 
 Without MAC address learning, all frames will be flooded on all ports, and all nodes will be in a single collision domain. The 1000 Kbps capacity will be shared between them.
 
-The `iperf` receivers should still be running on node-3 and node-4. We will start the transmitters again, one after the other. On node-1, run
+The `iperf` receivers should still be running on hamlet and ophelia. We will start the transmitters again, one after the other. On romeo, run
 
 ```
 iperf -c 10.0.0.3 -t 90
 ```
 
-and on node-2, quickly run
+and on juliet, quickly run
 
 ```
 iperf -c 10.0.0.4 -t 90
@@ -394,6 +376,7 @@ This experiment is shown in the following video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Rjjnij3kunI" frameborder="0" allowfullscreen></iframe>
 
+**TODO**
 ### Release your resources
 
 When you finish this experiment, please delete your resources in the GENI Portal, to free them for other experimenters.
@@ -402,14 +385,15 @@ When you finish this experiment, please delete your resources in the GENI Portal
 
 ### Exercise
 
-* As you complete the [Set up the bridge](#setupthebridge) section of the experiment, save the output of `ifconfig` on each host and on the bridge, and also save the output of the `brctl showmacs br0` command when the bridge has seen the MAC addresses of all four hosts. 
+**TODO**
+* As you complete the [Set up the bridge](#setupthebridge) section of the experiment, save the output of `ip addr` on each host and on the bridge, and also save the output of the `brctl showmacs br0` command when the bridge has seen the MAC addresses of all four hosts. 
 
-  Annotate these to draw a box or a circle around the MAC addresses on the experiment interfaces in the `ifconfig` output, and to write the name of the host (or bridge) that the MAC address belongs to next to each line of the `brctl` output.
+  Annotate these to draw a box or a circle around the MAC addresses on the experiment interfaces in the `ip addr` output, and to write the name of the host (or bridge) that the MAC address belongs to next to each line of the `brctl` output.
 
     Then, use this information to fill in a table showing the bridge configuration. For each bridge port (1, 2, 3, 4), indicate:
 
-    * which interface on the bridge - `eth1`, `eth2`, `eth3`, `eth4` - is on that port, and the MAC address of that interface.
-   * which host (node-1, node-2, node-3, or node-4) is on that port, and its MAC address
+    * which interface on the bridge - `EXPIFACE1`, `EXPIFACE2`, `EXPIFACE3`, `EXPIFACE4` - is on that port, and the MAC address of that interface.
+   * which host (romeo, juliet, hamlet, or ophelia) is on that port, and its MAC address
 <table id="table-1" class="table table-striped table-bordered col-2" data-columns="2"><thead>
 <thead>
 <tr>
@@ -445,12 +429,12 @@ When you finish this experiment, please delete your resources in the GENI Portal
 * As you run the [Learning MAC addresses](#learningmacaddresses) section of the experiment, make an ordered list of the following six events:
 
 
-  * the bridge learns the MAC address of node-1,
-  * the bridge learns the MAC address of node-2,
-  * node-1 sends the first ping request (with seq 1) to node-2, 
-  * node-2 sends the first ping reply (with seq 1) to node-1,
-  * node-2 receives the first ping request (with seq 1) from node-1,
-  * node-1 receives the first ping reply (with seq 1) from node-2.
+  * the bridge learns the MAC address of romeo,
+  * the bridge learns the MAC address of juliet,
+  * romeo sends the first ping request (with seq 1) to juliet, 
+  * juliet sends the first ping reply (with seq 1) to romeo,
+  * juliet receives the first ping request (with seq 1) from romeo,
+  * romeo receives the first ping reply (with seq 1) from juliet.
 
   (By "make an ordered list", I mean: note which event happened first, which happened second, etc.)
 
@@ -465,7 +449,7 @@ When you finish this experiment, please delete your resources in the GENI Portal
 
 * Finally, run the [Effect of a smaller collision domain](#effectofasmallercollisiondomain) section of the experiment. Show the `iperf` receiver output both with and without MAC learning.
 
-  Then, run the following variation: With MAC learning turned ON, run an iperf receiver on node-4 (`iperf -s`). On node-1, node-2, and node-3, simultaneously run iperf transmitters to send traffic to node-4 (`iperf -c 10.0.0.4 -t 90`).
+  Then, run the following variation: With MAC learning turned ON, run an iperf receiver on ophelia (`iperf -s`). On romeo, juliet, and hamlet, simultaneously run iperf transmitters to send traffic to ophelia (`iperf -c 10.0.0.4 -t 90`).
 
   What network capacity is "seen" by each of the three transmitters? Show the relevant output on the iperf receiver, and explain. Explain how and why this is different from the experiment shown in the first 75 seconds of [this video](https://www.youtube.com/watch?v=Rjjnij3kunI), where MAC learning is also turned on.
 
@@ -484,13 +468,13 @@ Verify that the bridge only knows local MAC addresses, and wait for non-local ad
 bridge monitor fdb
 ```
 
-on node-2, node-3, and node-4, run
+on juliet, hamlet, and ophelia, run
 
 ```
-sudo tcpdump -n -e -i eth1
+sudo tcpdump -n -e -i EXPIFACE1
 ```
 
-and on node-1, run
+and on romeo, run
 
 ```
 ping -c 5 10.0.0.5
@@ -500,7 +484,7 @@ The result is shown in the following video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FMYmWIcRUV4" frameborder="0" allowfullscreen></iframe>
 
-Because node-1 does not know the MAC address associated with the IP address 10.0.0.5, it sends ARP requests to the broadcast MAC address, ff:ff:ff:ff:ff:ff, asking for the owner of the IP address 10.0.0.5 to reply with its MAC address. These frames with the _broadcast_ MAC address in the destination field are flooded out of all ports, as seen in the `tcpdump` output:
+Because romeo does not know the MAC address associated with the IP address 10.0.0.5, it sends ARP requests to the broadcast MAC address, ff:ff:ff:ff:ff:ff, asking for the owner of the IP address 10.0.0.5 to reply with its MAC address. These frames with the _broadcast_ MAC address in the destination field are flooded out of all ports, as seen in the `tcpdump` output:
 
 ```
 18:22:49.844039 02:cd:b5:11:64:e2 > ff:ff:ff:ff:ff:ff, ethertype ARP (0x0806), length 42: Request who-has 10.0.0.5 tell 10.0.0.1, length 28
@@ -511,7 +495,7 @@ Because node-1 does not know the MAC address associated with the IP address 10.0
 18:22:54.861167 02:cd:b5:11:64:e2 > ff:ff:ff:ff:ff:ff, ethertype ARP (0x0806), length 42: Request who-has 10.0.0.5 tell 10.0.0.1, length 28
 ```
 
-We will also observe what would happen to frames with a destination MAC address that is not connected to any switch port, but that is also not a broadcast MAC address. For example, what would happen if node-2 was disconnected from the switch?
+We will also observe what would happen to frames with a destination MAC address that is not connected to any switch port, but that is also not a broadcast MAC address. For example, what would happen if juliet was disconnected from the switch?
 
 Verify that the bridge only knows local MAC addresses, and wait for non-local addresses (if there are any) to expire. Then, on the bridge, run 
 
@@ -519,19 +503,19 @@ Verify that the bridge only knows local MAC addresses, and wait for non-local ad
 bridge monitor fdb
 ```
 
-on node-3 and node-4, run
+on hamlet and ophelia, run
 
 ```
-sudo tcpdump -n -e -i eth1
+sudo tcpdump -n -e -i EXPIFACE1
 ```
 
-and on node-2, run
+and on juliet, run
 
 ```
-sudo ifconfig eth1 down
+sudo ip link set EXPIFACE1 down
 ```
 
-to bring down the interface on node-2 that is connected to the bridge. Finally, on node-1, run
+to bring down the interface on juliet that is connected to the bridge. Finally, on romeo, run
 
 ```
 ping -c 5 10.0.0.2
@@ -541,7 +525,7 @@ The results are shown in the following video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EPpUnVKxc7E" frameborder="0" allowfullscreen></iframe>
 
-We can see that all five ping requests, which have as their destination the MAC address of node-2 (02:a0:6e:e0:58:93), were flooded out of the ports that node-3 and node-4 are connected to:
+We can see that all five ping requests, which have as their destination the MAC address of juliet (02:a0:6e:e0:58:93), were flooded out of the ports that hamlet and ophelia are connected to:
 
 ```
 18:31:50.359797 02:cd:b5:11:64:e2 > 02:a0:6e:e0:58:93, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.2: ICMP echo request, id 3612, seq 1, length 64
@@ -551,10 +535,10 @@ We can see that all five ping requests, which have as their destination the MAC 
 18:31:54.391493 02:cd:b5:11:64:e2 > 02:a0:6e:e0:58:93, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.2: ICMP echo request, id 3612, seq 5, length 64
 ```
 
-Bring the interface on node-2 up again by running the following on node-2:
+Bring the interface on juliet up again by running the following on juliet:
 
 ```
-sudo ifconfig eth1 up
+sudo ip link set EXPIFACE1 up
 ```
 
 

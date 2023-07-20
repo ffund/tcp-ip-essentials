@@ -2,4 +2,4 @@
 
 ### Bridges and LANs, ARP
 
-* [ARP exercises](arp.md)
+* ARP exercises: [on CloudLab](arp-cloudlab.md), [on FABRIC](arp-fabric.md)
