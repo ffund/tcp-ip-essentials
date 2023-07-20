@@ -7,7 +7,7 @@ In this experiment, we'll practice setting up a complete IP network, including:
 * setting up static routing rules so that hosts can reach one another across different LANs
 
 
-### Reserve resources
+<!-- ### Reserve resources
 
 For this experiment, you will reserve a topology on GENI that includes three routers (router-a, router-b, and router-c) and two hosts connected to each router. The routers will already be configured with IP addresses (in the 10.1.10.0/24 subnet) on the link that connects the routers to one another. However, it will be up to you to design subnets for the small LAN connected to each router.
 
@@ -24,7 +24,7 @@ Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to
 
 Use `ifconfig -a` to view the network interface configuration on each host, and save the output for your own reference. 
 
-In particular, make sure to note **the name of the interface on each router that is on the 10.1.10.0/24 subnet** (Routing LAN), and the name of the interface that has no assigned address yet (LAN).
+In particular, make sure to note **the name of the interface on each router that is on the 10.1.10.0/24 subnet** (Routing LAN), and the name of the interface that has no assigned address yet (LAN). -->
 
 
 ### Find your design assignment in PrairieLearn
@@ -41,7 +41,7 @@ Every student in the class will solve a slightly different version of this probl
 
 In the rest of these instructions, I'll show how to solve *a* design assignment - but your assignment will be different! Once you understand how to solve this *type* of assignment (by following my example), you should be able to solve your own. 
 
-You can test your solution _before_ you run any commands on your GENI network by submitting your answers in the worksheet on PrairieLearn - it will tell you whether your work is correct. (You can submit partial answers to get partial feedback, too - you don't have to wait until you are finished with the entire worksheet to get feedback on your work in progress.)
+You can test your solution _before_ you run any commands on your network by submitting your answers in the worksheet on PrairieLearn - it will tell you whether your work is correct. (You can submit partial answers to get partial feedback, too - you don't have to wait until you are finished with the entire worksheet to get feedback on your work in progress.)
 
 
 ### Allocate addresses to specific LANs
@@ -159,123 +159,123 @@ where:
 * one host will get the highest IP address in the subnet
 * the second host can get any unused IP address that is within the address range for this subnet
 
-We will use `ifconfig` to assign an IP address and subnet mask to each interface.
+We will use `ip addr` to assign an IP address and subnet mask to each interface.
 
 Let's go back to my example, and follow along as we configure each network interface. Of course, the specific addresses and subnet masks in _your_ network will be different from mine! 
 
 #### LAN A
 
-First, we will identify the LAN-facing interface of router-a from the output of `ifconfig`. The LAN-facing interface is the one that does *not* have any address assigned. 
+First, we will identify the LAN-facing interface of router-a from the output of `ip addr`. The LAN-facing interface is the one that does *not* have any address assigned. 
 
 In LAN A, the subnet mask was 255.255.255.240 and the smallest usable address was 10.1.24.145. So on router-a, I will run
 
 
 ```
-sudo ifconfig ethX 10.1.24.145 netmask 255.255.255.240
+sudo ip addr add 10.1.24.145/28 dev EXPIFACEX
 ```
 
-where `ethX` is the name of the LAN-facing interface on router-a.
+where `EXPIFACEX` is the name of the LAN-facing interface on router-a.
 
 On one host - say, romeo - we'll assign the highest usable address, which was 10.1.24.158:
 
 ```
-sudo ifconfig eth1 10.1.24.158 netmask 255.255.255.240
+sudo ip addr add 10.1.24.158/28 dev EXPIFACE1
 ```
 
 On another host - juliet - we'll assign any other unused address in this subnet. For example:
 
 ```
-sudo ifconfig eth1 10.1.24.150 netmask 255.255.255.240
+sudo ip addr add 10.1.24.150/28 dev EXPIFACE1
 ```
 
 When we configure a network interface, a routing table rule is automatically added for the directly connected subnet. We can see this by running
 
 
 ```
-route -n
+ip route
 ```
 
-on each of the hosts and the router. The directly connected route  should show the *network address* for LAN A in the Destination column, the *subnet mask* for LAN A in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).
+on each of the hosts and the router. <!--The directly connected route  should show the *network address* for LAN A in the Destination column, the *subnet mask* for LAN A in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).--> The directly connected route should show the *network address* for LAN A at the front, the *subnet mask* for LAN A as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN A, from any of the three devices in LAN A. Try this now, and verify that you have Layer 3 connectivity within LAN A.
 
 #### LAN B
 
 
-Next, we'll go to LAN B. Identify the LAN-facing interface of router-b from the output of `ifconfig`. The LAN-facing interface is the one that does *not* have any address assigned. 
+Next, we'll go to LAN B. Identify the LAN-facing interface of router-b from the output of `ip addr`. The LAN-facing interface is the one that does *not* have any address assigned. 
 
 
 In LAN B, the subnet mask was 255.255.255.240 and the smallest usable address was 10.1.24.129. So on router-b, I will run
 
 
 ```
-sudo ifconfig ethX 10.1.24.129 netmask 255.255.255.240
+sudo ip addr add 10.1.24.129/28 dev EXPIFACEX
 ```
 
-where `ethX` is the name of the LAN-facing interface on router-b.
+where `EXPIFACEX` is the name of the LAN-facing interface on router-b.
 
 On one host - say, hamlet - we'll assign the highest usable address, which was 10.1.24.142:
 
 ```
-sudo ifconfig eth1 10.1.24.142 netmask 255.255.255.240
+sudo ip addr add 10.1.24.142/28 dev EXPIFACE1
 ```
 
 On another host - ophelia - we'll assign any other unused address in this subnet. For example:
 
 ```
-sudo ifconfig eth1 10.1.24.135 netmask 255.255.255.240
+sudo ip addr add 10.1.24.135/28 dev EXPIFACE1
 ```
 
 When we configure a network interface, a routing table rule is automatically added for the directly connected subnet. We can see this by running
 
 
 ```
-route -n
+ip route
 ```
 
-on each of the hosts and the router. The directly connected route  should show the *network address* for LAN B in the Destination column, the *subnet mask* for LAN B in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).
+on each of the hosts and the router. <!--The directly connected route  should show the *network address* for LAN B in the Destination column, the *subnet mask* for LAN B in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).--> The directly connected route should show the *network address* for LAN B at the front, the *subnet mask* for LAN B as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN B, from any of the three devices in LAN B. Try this now, and verify that you have Layer 3 connectivity within LAN B.
 
 
 #### LAN C
 
-Finally, we'll go to LAN C. Identify the LAN-facing interface of router-c from the output of `ifconfig`. The LAN-facing interface is the one that does *not* have any address assigned. 
+Finally, we'll go to LAN C. Identify the LAN-facing interface of router-c from the output of `ip addr`. The LAN-facing interface is the one that does *not* have any address assigned. 
 
 In LAN C, the subnet mask was 255.255.255.128 and the smallest usable address was 10.1.24.1. So on router-c, I will run
 
 
 ```
-sudo ifconfig ethX 10.1.24.1 netmask 255.255.255.128
+sudo ip addr add 10.1.24.1/25 dev EXPIFACEX
 ```
 
-where `ethX` is the name of the LAN-facing interface on router-c.
+where `EXPIFACEX` is the name of the LAN-facing interface on router-c.
 
 
 On one host - say, othello - we'll assign the highest usable address, which was 10.1.24.126:
 
 ```
-sudo ifconfig eth1 10.1.24.126 netmask 255.255.255.128
+sudo ip addr add 10.1.24.126/25 dev EXPIFACE1
 ```
 
 On another host - desdemona - we'll assign any other unused address in this subnet. For example:
 
 ```
-sudo ifconfig eth1 10.1.24.70 netmask 255.255.255.128
+sudo ip addr add 10.1.24.70/25 dev EXPIFACE1
 ```
 
 When we configure a network interface, a routing table rule is automatically added for the directly connected subnet. We can see this by running
 
 
 ```
-route -n
+ip route
 ```
 
-on each of the hosts and the router. The directly connected route  should show the *network address* for LAN C in the Destination column, the *subnet mask* for LAN C in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).
+on each of the hosts and the router. <!--The directly connected route  should show the *network address* for LAN C in the Destination column, the *subnet mask* for LAN C in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).--> The directly connected route should show the *network address* for LAN C at the front, the *subnet mask* for LAN C as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN C, from any of the three devices in LAN C. Try this now, and verify that you have Layer 3 connectivity within LAN C.
 
-**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the network interface configuration as follows. On each of the six hosts - romeo, juliet, hamlet, ophelia, othello, desdemona - show the output of `ifconfig eth1`. On each of the routers, show the output of `ifconfig ethX` where `ethX` is the interface of the router on the LAN that has hosts.
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the network interface configuration as follows. On each of the six hosts - romeo, juliet, hamlet, ophelia, othello, desdemona - show the output of `ip addr show dev EXPIFACE1`. On each of the routers, show the output of `ip addr show dev EXPIFACEX` where `EXPIFACEX` is the interface of the router on the LAN that has hosts.
 
 
 
@@ -358,18 +358,18 @@ On romeo, `ping` every other host by address - juliet, hamlet, ophelia, othello,
 On each host and router, run
 
 ```
-ifconfig -n
+ip addr
 ```
 
 and 
 
 ```
-route -n
+ip route
 ```
 
 and save this final output for your lab report.
 
-**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the output of `route -n` on the "romeo" host. Annotate the output to indicate:
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the output of `ip route` on the "romeo" host. Annotate the output to indicate:
 
 1. which rule will apply to traffic from romeo to juliet
 2. which rule will apply to traffic from romeo to hamlet
@@ -379,7 +379,7 @@ and save this final output for your lab report.
 
 If there are multiple matching rules, indicate the *one* that applies in each case according to the longest prefix matching rule.
 
-Also show the output of `route -n` on "router-a". Annotate the output to indicate:
+Also show the output of `ip route` on "router-a". Annotate the output to indicate:
 
 1. which rule will apply to traffic from hamlet to romeo
 2. which rule will apply to traffic from romeo to hamlet
