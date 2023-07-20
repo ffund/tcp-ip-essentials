@@ -20,8 +20,9 @@ To run this experiment on FABRIC, open the JupyterHub environment on FABRIC, ope
 ```
 git clone https://github.com/ffund/tcp-ip-essentials.git
 git checkout wip
-cd tcp-ip-essentials/lab-dynamic-basic
 ```
+
+In the File Browser on the left, first go to the directory "tcp-ip-essentials", and then go to the directory "lab-dynamic-basic".
 
 Then open the notebook titled "setup.ipynb".
 
