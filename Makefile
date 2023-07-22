@@ -152,6 +152,7 @@ lab-line-router/setup-tcp-2.ipynb: $(SOURCES) $(LINE_ROUTER_TCP_2_SOURCES)
                 lab-line-router/fabric-define-line-router.md \
                 fabric-snippets/reserve-resources.md fabric-snippets/configure-resources.md fabric-snippets/offload-off.md \
 				fabric-snippets/draw-topo-detailed-labels.md fabric-snippets/log-in.md \
+				lab-line-router/fabric-analysis-tcp-2.md \
 				lab-line-router/fabric-transfer-tcp-2.md \
 				fabric-snippets/delete-slice.md \
                 -o lab-line-router/setup-tcp-2.ipynb
