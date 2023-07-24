@@ -120,7 +120,7 @@ And add the four experiment interfaces to the bridge:
 
 ```
 sudo brctl addif br0 EXPIFACE1
-sudo brctl addif br0 EXPIFAEC2
+sudo brctl addif br0 EXPIFACE2
 sudo brctl addif br0 EXPIFACE3
 sudo brctl addif br0 EXPIFACE4
 ```
