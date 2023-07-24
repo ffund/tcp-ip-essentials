@@ -89,7 +89,7 @@ Use `scp` to transfer both packet capture files to your laptop. Then, you can op
 
 
 
-**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why? Show evidence from the output of the `arp` commands to support your answer.
+**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why? Show evidence from the output of the `ip neigh` commands to support your answer.
 
 **Lab report**: From the first saved `tcpdump` output, answer the following questions:
 
@@ -108,7 +108,7 @@ For this experiment, you will need *three* terminal windows on the "romeo" host.
 On the "romeo" host, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-EXPIFACE1-nonexistent.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-eth-nonexistent.pcap
 ```
 
 In a second terminal window on "romeo", run
@@ -144,7 +144,7 @@ Observe this message in the loopback interface capture.
 Also, "play back" a summary of the Ethernet capture file in the terminal using
 
 ```
-tcpdump -enX -r $(hostname -s)-EXPIFACE1-nonexistent.pcap
+tcpdump -enX -r $(hostname -s)-eth-nonexistent.pcap
 ```
 
 You can also use `scp` to transfer the packet captures to your laptop, and open them in Wireshark to see these packets in more detail.
