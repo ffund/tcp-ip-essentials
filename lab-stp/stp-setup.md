@@ -14,7 +14,7 @@ sudo ip addr flush dev eth2
 ``` -->
 
 
-Next, run
+Run
 
 ```
 sudo apt-get update
