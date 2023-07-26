@@ -39,7 +39,7 @@ First, we will see what happens when we try to reach a host at an address for wh
 On "romeo", run
 
 ```
-ip neigh dev EXPIFACE1
+ip neigh show dev EXPIFACE1
 ```
 
 and 

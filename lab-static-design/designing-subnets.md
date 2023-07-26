@@ -7,26 +7,6 @@ In this experiment, we'll practice setting up a complete IP network, including:
 * setting up static routing rules so that hosts can reach one another across different LANs
 
 
-<!-- ### Reserve resources
-
-For this experiment, you will reserve a topology on GENI that includes three routers (router-a, router-b, and router-c) and two hosts connected to each router. The routers will already be configured with IP addresses (in the 10.1.10.0/24 subnet) on the link that connects the routers to one another. However, it will be up to you to design subnets for the small LAN connected to each router.
-
-In the GENI Portal, create a new slice, then click "Add Resources". Scroll down to where it says "Choose RSpec" and select the "URL" option, the load the RSpec from the URL: [https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/subnet-design.xml](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/subnet-design.xml)
-
-This will load the following topology onto your canvas:
-
-![](subnet-design-topology.png)
-
-Your topology may have some red warning indicators on the LANs. This is not a problem - it's just a warning that some IP addresses are duplicated in the topology. In this case, that's intentional (these interfaces are assigned an address of "0.0.0.0", which results in them having no IPv4 address.)
-
-
-Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify an InstaGENI site that has many "free VMs" available. Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
-
-Use `ifconfig -a` to view the network interface configuration on each host, and save the output for your own reference. 
-
-In particular, make sure to note **the name of the interface on each router that is on the 10.1.10.0/24 subnet** (Routing LAN), and the name of the interface that has no assigned address yet (LAN). -->
-
-
 ### Find your design assignment in PrairieLearn
 
 Your challenge is to design subnets for the three LANs, with the following design constraints:
@@ -195,7 +175,7 @@ When we configure a network interface, a routing table rule is automatically add
 ip route
 ```
 
-on each of the hosts and the router. <!--The directly connected route  should show the *network address* for LAN A in the Destination column, the *subnet mask* for LAN A in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).--> The directly connected route should show the *network address* for LAN A at the front, the *subnet mask* for LAN A as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
+on each of the hosts and the router. The directly connected route should show the *network address* for LAN A at the front, the *subnet mask* for LAN A as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN A, from any of the three devices in LAN A. Try this now, and verify that you have Layer 3 connectivity within LAN A.
 
@@ -233,7 +213,7 @@ When we configure a network interface, a routing table rule is automatically add
 ip route
 ```
 
-on each of the hosts and the router. <!--The directly connected route  should show the *network address* for LAN B in the Destination column, the *subnet mask* for LAN B in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).--> The directly connected route should show the *network address* for LAN B at the front, the *subnet mask* for LAN B as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
+on each of the hosts and the router. The directly connected route should show the *network address* for LAN B at the front, the *subnet mask* for LAN B as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN B, from any of the three devices in LAN B. Try this now, and verify that you have Layer 3 connectivity within LAN B.
 
@@ -271,7 +251,7 @@ When we configure a network interface, a routing table rule is automatically add
 ip route
 ```
 
-on each of the hosts and the router. <!--The directly connected route  should show the *network address* for LAN C in the Destination column, the *subnet mask* for LAN C in the Genmask column, and `0.0.0.0` in the Gateway column to indicate that this is a direct route with no gateway (also, the only Flag that is set is the `U` flag, indicating that this route is Up).--> The directly connected route should show the *network address* for LAN C at the front, the *subnet mask* for LAN C as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
+on each of the hosts and the router. The directly connected route should show the *network address* for LAN C at the front, the *subnet mask* for LAN C as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN C, from any of the three devices in LAN C. Try this now, and verify that you have Layer 3 connectivity within LAN C.
 

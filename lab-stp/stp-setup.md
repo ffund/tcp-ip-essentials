@@ -6,15 +6,15 @@ Follow the setup procedure in this section on _each_ bridge node (but not on the
 
 (It may be quickest to bring up four terminals, each logged in to another bridge node, then copy each command and paste it into all four terminals at once. That way, you will set up all the bridge nodes together.)
 
-<!-- Flush the IP address on each experiment interface - since a bridge operates at Layer 2, bridge interfaces do not need an IP address:
+Flush the IP address on each experiment interface - since a bridge operates at Layer 2, bridge interfaces do not need an IP address:
 
 ```
-sudo ip addr flush dev eth1  
-sudo ip addr flush dev eth2  
-``` -->
+sudo ip addr flush dev EXPIFACE1  
+sudo ip addr flush dev EXPIFACE2  
+```
 
 
-Run
+Next, run
 
 ```
 sudo apt-get update
