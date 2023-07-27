@@ -98,7 +98,7 @@ Last, we will allocate addresses for LAN A. We've used up the lower part of our 
 
 
 ```
-00001010.00000001.00011000.10001000  
+00001010.00000001.00011000.10010000  
 ```
 
 We've already determined that the subnet mask for LAN A should be 255.255.255.240. Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
