@@ -53,7 +53,7 @@ sudo tc qdisc add dev EXPIFACE2 parent 1:3 handle 3: bfifo limit 0.1MB
 Don't worry if you see a message in the output that says
 
 ```
-RTNETLINK answers : No such file or directory  
+Error: Cannot delete qdisc with handle of zero.
 ```
 
 This is normal, and not a problem!
