@@ -63,6 +63,6 @@ fig.legend(loc='upper right', ncol=2);
 
 ::: {.cell .markdown}
 
-You can return to this exercise and execute the above steps to visuaize results of TCP Cubic, TCP Vegas and TCP BBR.
+You can return to this exercise and execute the above steps to visuaize results of TCP Cubic and TCP BBR.
 
 :::
