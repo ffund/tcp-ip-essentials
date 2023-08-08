@@ -7,12 +7,12 @@
 slice_name="snmp-security-" + fablib.get_bastion_username()
 
 node_conf = [
- {'name': "romeo",   'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []}, 
+ {'name': "romeo",   'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': ['lynx']}, 
  {'name': "router-int",  'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []}, 
  {'name': "server", 'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []},
- {'name': "vpn",  'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []},
+ {'name': "vpn",  'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': ['openvpn']},
  {'name': "router-ext",  'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []}, 
- {'name': "juliet",  'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': []}
+ {'name': "juliet",  'cores': 2, 'ram': 4, 'disk': 10, 'image': 'default_ubuntu_22', 'packages': ['openvpn']}
 ]
 net_conf = [
  {"name": "net0", "subnet": "10.10.1.0/24", "nodes": [{"name": "romeo", "addr": "10.10.1.100"}, {"name": "router-int", "addr": "10.10.1.1"}]},
