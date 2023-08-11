@@ -58,6 +58,7 @@ for i in range(len(senders)):
 
 plt.tight_layout();
 fig.legend(loc='upper right', ncol=2);
+plt.savefig("sender-ss.png")
 ```
 :::
 
