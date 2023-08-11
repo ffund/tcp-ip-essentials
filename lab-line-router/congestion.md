@@ -309,13 +309,22 @@ fig.legend(loc='upper right', ncol=2);
 plt.savefig("sender-ss.png")
 ```
 
-If you are not familiar with any interative environment of Python that can display plots directly, you can open the Python terminal on "romeo" by running:
+If you are not familiar with any interative environment of Python that can display plots directly, you can use the Python terminal.
+
+On "romeo", install necessary packages by running:
+
+```
+sudo apt -y install python3-pip
+pip3 install pandas matplotlib
+```
+
+Next, open the Python terminal on "romeo" by running:
 
 ```
 python3
 ```
 
-Then, copy the script above into this terminal and hit Enter to make sure it runs. Type `exit()` and hit Enter to exit the Python terminal.
+Then, copy the script above into this terminal and hit Enter to make sure it runs completely. Type `exit()` and hit Enter to exit the Python terminal.
 
 Run 
 
