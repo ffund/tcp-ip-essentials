@@ -14,7 +14,7 @@ Within the module for each lab, you will find:
 * A lab manual, with step-by-step instructions for completing the lab assignment
 * A video playlist that you can watch to see the instructor doing each step of the lab assignment
 * A link to a survey that you can fill out to give us feedback about the lab assignment. Please fill this out, it's really helpful to us!
-* For some lab assignments (starting with Lab 2), you'll also get a problem set for practicing the lab concepts and skills
+* For some lab assignments (starting with Lab 2), you'll also get a problem set for practicing the lab concepts and skills. (This problem set is not graded, and doesn't count towards your lab grade.)
 
 ## Lab sessions
 
@@ -41,7 +41,7 @@ In the online lab, you'll run exactly the same experiments that students used to
 
 * the average student should probably expect to spend 3-4 hours each week working on the lab experiment.
 * if you have previous experience with network protocols and the Linux networking utilities, you will probably not need the full 3-4 hours each week. 
-* if you are not as comfortable with network protocols and the Linux networking utilities, you may need more than the 3-4 hours usually allotted to complete the experiment.
+* if you are not as comfortable with network protocols and the Linux networking utilities, or if you attempt the lab before you have fully internalized the relevant lecture content, you may need more than the 3-4 hours usually allotted to complete the experiment.
 
 Also note that this does not necessarily include time to prepare for the lab (by reviewing the instructions and the relevant book chapter in advance) and the time to analyze results and answer the questions in Gradescope.
 
@@ -57,6 +57,8 @@ You can ask for help on our course Q&A site or during Zoom office hours. When yo
 It's OK for your questions to include screenshots or data from your own lab experiment, even though it will be visible to other students - you don't have to worry about "giving away an answer" to other students by including it in your question. (You are not allowed to send screenshots or data from the lab directly to another student, or share it on another forum - but you *are* allowed to include it in a question on the Q&A site.)
 
 You are not allowed to ask for help on Chegg, CourseHero, private messages or group messages with other students, or in other online forums. 
+
+Your answers to the lab report questions on Gradescope should be in your own words. You are *not* allowed to use ChatGPT, other AI tools, or human assistance to help you write answers. You *are* allowed to use Google Translate or other machine translation tools to write your answers in another language and then translate them to English.
 
 #### Can I work on the lab assignment together with another student?
 
@@ -77,6 +79,7 @@ It may be helpful to use reference materials, such as the textbook, lab manual, 
 * If you write the answer in your own words, but used the reference material to help you arrive at the answer, you should cite the reference material (e.g. give the URL, of the name and page of the textbook).
 * If you use the exact words of the reference material, you should put the words in quotes (to show that you are using the exact words) and also cite the reference material (e.g. give the URL, of the name and page of the textbook).
 * If you use an outside reference to answer a question, make sure you answer the specific question that is asked, and only that! Students often earn a poor grade when quoting an outside reference (even with citation!) because they copied a lot of material that doesn't directly answer the question. This demonstrates a lack of understanding of the question and its answer. Make sure you write a clear and concise answer that directly answers the question.
+* AI assistants such as ChatGPT are *not* considered reference materials. You should not use text or information from these tools, even if you attribute the source, since they are not credible sources.
 
 You may have seen lab reports from previous semesters (either from friends, or online). You are not permitted to use these. We make updates and corrections to the lab procedure and questions every semester, so you shouldn't use previous lab reports even just to see what the answers should look like (for example - to see what parts of a screenshot to annotate), since these details often change from one semester to the next.
 
@@ -168,7 +171,9 @@ To accommodate exceptional and unanticipated circumstances that prevent you from
 
 then there is no penalty, because the "Total Lateness" across all assignments is only 47 hours, and hasn't exceeded the "free" amount (48 hours). (You don't have to ask permission, and you don't have to let me know why your submission was late.)
 
-There is a penalty off your overall lab grade of 0.5 point/hour after 48 hours. For example, if you earn a perfect score on every lab assignment but had 73 hours of "Total Lateness" across the entire semester, your lab score will be 100-(1/2)25 = 87.5.
+There is a penalty off your overall lab grade of 0.5 point/hour after 48 hours. For example, if you earn a perfect score on every lab assignment but each assignment was submitted 10 hours late, you would have 77 hours of "Total Lateness" across the entire semester, and your lab score will be 100-(1/2)62 = 69.
+
+(In case of excessive lateness, a lab assignment score computed as described above could become negative. For example: if you would have earned 5/10 points on an assignment but it assignment was submitted 20 hours late and you have already used all of your "free" late hours. If an assignment score becomes negative due to lateness, it will be set to zero instead.)
 
 #### Do you have any tips for avoiding late submissions?
 
