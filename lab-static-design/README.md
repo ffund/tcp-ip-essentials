@@ -2,4 +2,5 @@
 
 ### Static routing
 
-* [Designing subnets](designing-subnets.md)
+* Reserve resources: [on CloudLab](reserve-cloudlab.md), [on FABRIC](reserve-fabric.md)
+* Designing subnets: [on CloudLab](designing-subnets-cloudlab.md), [on FABRIC](designing-subnets-fabric.md)

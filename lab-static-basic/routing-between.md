@@ -20,22 +20,22 @@ Reserve four terminal windows - one on each host - for running interactive comma
 5. the interface of router-2 that is on the green network
 6. the interface of othello that is on the green network
 
-(Use the `ifconfig` output to identify which interface is on which network, for hosts and routers that have more than one interface.)
+(Use the `ip addr` output to identify which interface is on which network, for hosts and routers that have more than one interface.)
 
 Use the `-n` argument to `tcpdump` so that addresses will be shown in dotted decimal notation and not resolved to hostnames, and use `icmp` to filter the traffic so you only capture ICMP traffic. For example:
 
 ```
-sudo tcpdump -n -i eth1 icmp
+sudo tcpdump -n -i EXPIFACE1 icmp
 ```
 
-(if you are capturing on `eth1`).
+(if you are capturing on `EXPIFACE1`).
 
 #### Part 1: No added rules
 
 First, get all the routing table rules. On romeo, othello, router-1 and router-2, run
 
 ```
-route -n
+ip route
 ```
 
 Save these outputs for your lab report.
@@ -104,7 +104,7 @@ Then, get all the routing table rules. On romeo, othello, router-1 and router-2,
 
 
 ```
-route -n
+ip route
 ```
 
 (you should see the new rule you added on romeo!) Save these outputs for your lab report.
@@ -130,7 +130,7 @@ Use method A, B, *or* C to add a route on **router-1** that will forward traffic
 Then, get all the routing table rules. On romeo, othello, router-1 and router-2, run
 
 ```
-route -n
+ip route
 ```
 
 (you should see the new rule you added on router-1!) Save these outputs for your lab report.
@@ -159,7 +159,7 @@ Then, get all the routing table rules. On romeo, othello, router-1 and router-2,
 
 
 ```
-route -n
+ip route
 ```
 
 and note the two new rules you added. Save these outputs for your lab report.
@@ -189,7 +189,7 @@ Stop the `tcpdump` processes and save the output for your lab report.
 On romeo, othello, router-1, and router-2, run
 
 ```
-ifconfig
+ip addr
 ```
 
 and save the output for your lab report.
@@ -198,19 +198,19 @@ and save the output for your lab report.
 Start a `tcpdump` on romeo with
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-static-headers.pcap icmp
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-static-headers.pcap icmp
 ```
 
 and on othello, router-1, and router-2, with
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-1-static-headers.pcap icmp
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-1-static-headers.pcap icmp
 ```
 
 in one terminal window and
 
 ```
-sudo tcpdump -i eth2 -w $(hostname -s)-2-static-headers.pcap icmp
+sudo tcpdump -i EXPIFACE2 -w $(hostname -s)-2-static-headers.pcap icmp
 ```
 
 in a second terminal window.
@@ -240,7 +240,7 @@ tcpdump -r $(hostname -s)-2-static-headers.pcap -nev
 ```
 
 
-**Lab report**: When a packet is forwarded by a router, explain how the source and destination Ethernet addresses were changed. Use evidence from your packet captures and from the `ifconfig` output on each host to support your answers.
+**Lab report**: When a packet is forwarded by a router, explain how the source and destination Ethernet addresses were changed. Use evidence from your packet captures and from the `ip addr` output on each host to support your answers.
 
 * What are the source and destination addresses in the IP and Ethernet headers of an ICMP echo request packet that went from the "romeo" machine to router-1? Which network interface on which host/router do these addresses belong to?
 * What are the source and destination addresses in the IP and Ethernet headers of an ICMP echo request packet that went from router-1 to router-2? Which network interface on which host/router do these addresses belong to?
@@ -262,7 +262,7 @@ Now, we will add more routes so that multiple rules in router-1's routing table 
 First, let's make sure that router-3 can also forward packets to the destination address 10.10.1.104. Add a rule on router-3 that uses othello's interface on the **purple network** as the next hop toward the green network:
 
 ```
-sudo route add -net 10.10.1.0/24 gw 10.10.2.104
+sudo ip route add 10.10.1.0/24 via 10.10.2.104
 ```
 
 #### Part 1: 10.10.0.0/16
@@ -270,7 +270,7 @@ sudo route add -net 10.10.1.0/24 gw 10.10.2.104
 Add the following rule on router-1:
 
 ```
-sudo route add -net 10.10.0.0/16 gw 10.10.100.3
+sudo ip route add 10.10.0.0/16 via 10.10.100.3
 ```
 
 This rule says that for all destination addresses matching 10.10.0.0/16, use router-3 as the next hop. Note that this rule matches othello's address, 10.10.1.104!
@@ -278,7 +278,7 @@ This rule says that for all destination addresses matching 10.10.0.0/16, use rou
 On router-1, run
 
 ```
-route -n
+ip route
 ```
 
 and save the output. Note that there are now *two* rules that match othello's address, 10.10.1.104. One rule says to use router-2 as the next hop and one rule says to use router-3 as the next hop.
@@ -286,13 +286,13 @@ and save the output. Note that there are now *two* rules that match othello's ad
 Start a `tcpdump` on both interfaces of router-2 and on both interfaces of router-3:
 
 ```
-sudo tcpdump -env -i eth1 icmp
+sudo tcpdump -env -i EXPIFACE1 icmp
 ```
 
 and
 
 ```
-sudo tcpdump -env -i eth2 icmp
+sudo tcpdump -env -i EXPIFACE2 icmp
 ```
 
 Make sure you know which `tcpdump` shows the interface on the **blue network** and which shows the interface on the **green network** or the **purple network**.
@@ -311,7 +311,7 @@ Stop the `tcpdump` processes and save the output for your lab report.
 Add the following rule on router-1:
 
 ```
-sudo route add -net 10.10.1.96/28 gw 10.10.100.3
+sudo ip route add 10.10.1.96/28 via 10.10.100.3
 ```
 
 This rule says that for all destination addresses matching 10.10.1.96/28, use router-3 as the next hop. Note that this rule also matches othello's address, 10.10.1.104!
@@ -319,7 +319,7 @@ This rule says that for all destination addresses matching 10.10.1.96/28, use ro
 On router-1, run
 
 ```
-route -n
+ip route
 ```
 
 and save the output. Note that there are now *three* rules that match othello's address, 10.10.1.104. 
@@ -327,13 +327,13 @@ and save the output. Note that there are now *three* rules that match othello's 
 Start a `tcpdump` on both interfaces of router-2 and on both interfaces of router-3:
 
 ```
-sudo tcpdump -env -i eth1 icmp
+sudo tcpdump -env -i EXPIFACE1 icmp
 ```
 
 and
 
 ```
-sudo tcpdump -env -i eth2 icmp
+sudo tcpdump -env -i EXPIFACE2 icmp
 ```
 
 Make sure you know which `tcpdump` shows the interface on the **blue network** and which shows the interface on the **green network** or the **purple network**.

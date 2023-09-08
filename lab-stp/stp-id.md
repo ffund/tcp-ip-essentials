@@ -13,7 +13,7 @@ Before we bring the bridges up _with_ the spanning tree protocol enabled, we'll 
 On each _bridge_ node, bring down the bridge interface:
 
 ```
-sudo ifconfig br0 down
+sudo ip link set br0 down
 ```
 
 and then run

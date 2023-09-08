@@ -18,13 +18,13 @@ to send ICMP echo requests to "hamlet". A new ICMP echo request (with increasing
 On all four hosts, run
 
 ```
-sudo tcpdump -i eth1 -w stp-change-$(hostname -s).pcap
+sudo tcpdump -i EXPIFACE1 -w stp-change-$(hostname -s).pcap
 ```
 
 Then, on "bridge-2" -  the _root_ bridge in the spanning tree - bring the bridge interface down with
 
 ```
-sudo ifconfig br0 down
+sudo ip link set br0 down
 ```
 
 On the other bridges, run

@@ -17,7 +17,7 @@ sudo apt-get -y install nload
 to install the `nload` utility for monitoring load on the network. Then, run
 
 ```
-nload eth1
+nload EXPIFACE1
 ```
 
 to monitor the load on the network segment. This command will show you a real-time visualization of network load, right in the terminal. Leave this running throughout this section.
@@ -25,7 +25,7 @@ to monitor the load on the network segment. This command will show you a real-ti
 On "bridge-4", run
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 ```
 
 to bring up the bridge interface. At this point, you should be able to list the bridge ports with
@@ -38,8 +38,8 @@ The output should look something like this:
 
 ```
 bridge name bridge id       STP enabled interfaces
-br0     8000.0245b6768fdd   no      eth1
-                            eth2
+br0     8000.0245b6768fdd   no      EXPIFACE1
+                            EXPIFACE2
 ```
 
 
@@ -68,7 +68,7 @@ You should see one instance of this frame in the `tcpdump` on "bridge-4", but th
 On "bridge-3" **and** on "bridge-2", run
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 ```
 
 to bring up the bridge interface. Then, run
@@ -96,7 +96,7 @@ Finally, we'll bring up "bridge-1". This creates a loop in the network, so as so
 On "bridge-1", run
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 sudo tcpdump -env -i br0
 ```
 
@@ -114,7 +114,7 @@ Observe the `tcpdump` output on each bridge node, and the `nload` output on "rom
 After you have observed the broadcast storm, stop the `tcpdump` sessions and then stop the broadcast storm by running 
 
 ```
-sudo ifconfig br0 down
+sudo ip link set br0 down
 ```
 
 on "bridge-1", to break the loop. You can also stop the `nload` session on "romeo".
