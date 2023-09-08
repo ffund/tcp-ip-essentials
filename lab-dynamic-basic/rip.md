@@ -4,7 +4,7 @@ In this section, we will examine the operation of RIP.
 
 ### Exercise - Set up RIP
 
-The virtual routers in our experiment are running `quagga`, a software router that includes a shell interface similar to the Cisco IOS interface. Open the shell interface on each router with:
+The virtual routers in our experiment are running FRR, a software router that includes a shell interface similar to the Cisco IOS interface. Open the shell interface on each router with:
 
 ```
 export VTYSH_PAGER=more
@@ -13,7 +13,7 @@ sudo vtysh
 
 (If you get an error message `sudo: vtysh: command not found` or `Exiting: failed to connect to any daemons` at this point, the configuration script hasn't finished running! Wait a few minutes for it to finish.)
 
-In the `quagga` shell, run
+In the FRR shell, run
 
 ```
 show ip route
@@ -44,15 +44,31 @@ to enable RIP. Finally, you need to associate one or more networks to the RIP ro
 network 10.10.0.0/16
 ```
 
-so that all addresses from 10.10.0.0-10.10.255.255 will be enabled for RIP. (Note: this syntax is slightly different in `quagga` then in Cisco IOS.) Then run `exit` twice, until you are back in the regular `quagga` shell (not in config mode).
+so that all addresses from 10.10.0.0-10.10.255.255 will be enabled for RIP. (Note: this syntax is slightly different in FRR then in Cisco IOS.) Then run `exit` twice, until you are back in the regular FRR shell (not in config mode).
 
-RIPv2 multicasts its routing table every 30 seconds to the multicast IP address 224.0.0.9. On the workstations in each network segment (romeo, hamlet, othello, petruchio), run
+RIPv2 multicasts its routing table every 30 seconds to the multicast IP address 224.0.0.9. Use `tcpdump` to capture these messages on each network segment for about a minute or two. On romeo, run
 
 ```
-sudo tcpdump -en -i eth1 -w $(hostname -s)-rip.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net61-rip.pcap
 ```
 
-for about a minute or two, to capture these messages.
+On hamlet, run
+
+```
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net62-rip.pcap
+```
+
+On othello, run
+
+```
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net63-rip.pcap
+```
+
+On petruchio, run
+
+```
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net64-rip.pcap
+```
 
 Then, run
 
@@ -60,10 +76,10 @@ Then, run
 show ip route
 ```
 
-in the `quagga` shell on each router, to see the new routes, and save the output. 
+in the FRR shell on each router, to see the new routes, and save the output. 
 
 
-Also see RIP-specific information in the `quagga` shell on each router with 
+Also see RIP-specific information in the FRR shell on each router with 
 
 ```
 show ip rip
@@ -74,7 +90,7 @@ Note that the "Metric" column here shows the hop count to each destination netwo
 After a few minutes, you can stop the `tcpdump` processes on the workstations with Ctrl+C. Transfer these to your laptop with `scp`, or play them back with `tcpdump` using:
 
 ```
-sudo tcpdump -r $(hostname -s)-rip.pcap -env
+tcpdump -r $(hostname -s)-*-rip.pcap -env
 ```
 
 **Lab report**: Show the RIP messages received by router-4. Using these RIP messages, draw the distance table and the routing table at router-4, assuming that number of hops is used as the metric. Compare to the output of `show ip rip` and `show ip route` at router-4.
@@ -89,18 +105,36 @@ First, on any router, run
 show ip rip status
 ```
 
-in the `quagga` shell, and save the output. Make a note of two important timer values: how often each router sends updates, and after how long without an update a route is removed from the routing table (the *timeout* value).
+in the FRR shell, and save the output. Make a note of two important timer values: how often each router sends updates, and after how long without an update a route is removed from the routing table (the *timeout* value).
 
-Start `tcpdump` on each of the four workstations (romeo, hamlet, othello, petruchio) with
+Start `tcpdump` on each of the four workstations. On romeo, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-rip-failure.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net61-rip-failure.pcap
+```
+
+On hamlet, run
+
+```
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net62-rip-failure.pcap
+```
+
+On othello, run
+
+```
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net63-rip-failure.pcap
+```
+
+On petruchio, run
+
+```
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net64-rip-failure.pcap
 ```
 
 Let these run during this exercise.
 
 
-On each of the routers, in the `quagga` shell, run
+On each of the routers, in the FRR shell, run
 
 ```
 show ip rip
@@ -108,17 +142,17 @@ show ip rip
 
 to see the current RIP database. Save the output.
 
-On router-1, idenfity the name of the interface that has the address 10.10.62.1 (e.g. `eth1` or `eth2`). (You can refer to your previous `ifconfig` output, or you can use the `show ip route` output in the `quagga` shell, and look for the name of the interface that is directly connected to the 10.10.62.0/24 subnet.) This is the interface that connects Router 1 to the network segment that Router 2 is on. You will use this interface name in the following commands. 
+On router-1, idenfity the name of the interface that has the address 10.10.62.1 (e.g. `EXPIFACE1` or `EXPIFACE2`). (You can refer to your previous `ip addr` output, or you can use the `show ip route` output in the FRR shell, and look for the name of the interface that is directly connected to the 10.10.62.0/24 subnet.) This is the interface that connects Router 1 to the network segment that Router 2 is on. You will use this interface name in the following commands. 
 
-Then, on Router 1, use the `quagga` shell to bring down this interface. Run
+Then, on Router 1, use the FRR shell to bring down this interface. Run
 
 ```
 configure terminal
-interface eth1
+interface EXPIFACE1
 shutdown
 ```
 
-(or substitute `eth2` if that is the name of the interface with address 10.10.62.1). Then, run `exit` twice to return to the regular `quagga` shell.
+(or substitute `EXPIFACE2` if that is the name of the interface with address 10.10.62.1). Then, run `exit` twice to return to the regular FRR shell.
 
 Run
 
@@ -126,7 +160,7 @@ Run
 show ip rip
 ```
 
-again in the `quagga` shell on each router. You may see some transient routing rules with a metric of 16; in RIPv2, the maximum hop count is 15, and 16 is considered an "infinite" hop count, i.e. an unreachable network.
+again in the FRR shell on each router. You may see some transient routing rules with a metric of 16; in RIPv2, the maximum hop count is 15, and 16 is considered an "infinite" hop count, i.e. an unreachable network.
 
 
 Keep running
@@ -144,15 +178,15 @@ Once there are no more routes via 10.10.62.1 on any of the routers, get the fina
 show ip rip
 ```
 
-and save the output. Then, in the `quagga` shell on Router 1, run
+and save the output. Then, in the FRR shell on Router 1, run
 
 ```
 configure terminal
-interface eth1
+interface EXPIFACE1
 no shutdown
 ```
 
-(or substitute `eth2` if that is the name of the interface with address 10.10.62.1) to bring back up the disabled interface. Also, run `exit` twice until you return to the regular `quagga` shell.
+(or substitute `EXPIFACE2` if that is the name of the interface with address 10.10.62.1) to bring back up the disabled interface. Also, run `exit` twice until you return to the regular FRR shell.
 
 Again, run
 
@@ -174,9 +208,8 @@ Wait at least one more minute. Then, use Ctrl+C to stop the `tcpdump` processes,
 
 
 ```
-tcpdump -r $(hostname -s)-rip-failure.pcap -env
+tcpdump -r $(hostname -s)-*-rip-failure.pcap -env
 ```
-
 
 
 **Lab report**: From the output of `show ip rip status`, how often do the routers send updates? After how long without updates will a route be removed from the routing table (the timeout value)? 

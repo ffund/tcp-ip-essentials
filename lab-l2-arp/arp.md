@@ -8,28 +8,22 @@ In these exercises, we will consider communication between hosts in the same net
 On each host, run
 
 ```
-arp -i eth1 -n
+ip neigh show dev EXPIFACE1
 ```
 
-to see the entire ARP table for the `eth1` interface (if there are any entries).  If there are no ARP entries, the output will say
-
-```
-arp: in X entries no match found.
-```
-
-which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
+to see the entire ARP table for the `EXPIFACE1` interface (if there are any entries).  If there are no ARP entries, there will be no output, which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
 
 *If* the "juliet" host (10.10.0.101) is already listed in an ARP table, then delete it with
 
 ```
-sudo arp -d 10.10.0.101
+sudo ip neigh del 10.10.0.101 dev EXPIFACE1
 ```
 
 Then, run 
 
 
 ```
-arp -i eth1 -n
+ip neigh show dev EXPIFACE1
 ```
 
 again, and save the ARP tables from each host for your lab report.
@@ -38,7 +32,7 @@ again, and save the ARP tables from each host for your lab report.
 On "romeo", run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-arp.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-arp.pcap
 ```
 
 Leave this running. Then, open a second SSH session to "romeo", and in that session, run
@@ -54,7 +48,7 @@ Terminate `tcpdump` with Ctrl+C.
 Run 
 
 ```
-arp -i eth1 -n
+ip neigh show dev EXPIFACE1
 ```
 
 each host, again. Save the new ARP tables for your lab report.
@@ -73,7 +67,7 @@ tcpdump -enX -r $(hostname -s)-arp.pcap
 Next, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-no-arp.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-no-arp.pcap
 ```
 
 on "romeo", and in a second terminal on "romeo", run
@@ -95,7 +89,7 @@ Use `scp` to transfer both packet capture files to your laptop. Then, you can op
 
 
 
-**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why? Show evidence from the output of the `arp` commands to support your answer.
+**Lab report**: Show the summary `tcpdump` output for both packet captures. In the first case, an ARP request was sent and a reply was received before the ICMP echo request was sent. In the second case, no ARP request was sent before the ICMP echo request. Why? Show evidence from the output of the `ip neigh` commands to support your answer.
 
 **Lab report**: From the first saved `tcpdump` output, answer the following questions:
 
@@ -114,7 +108,7 @@ For this experiment, you will need *three* terminal windows on the "romeo" host.
 On the "romeo" host, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-eth1-nonexistent.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-eth-nonexistent.pcap
 ```
 
 In a second terminal window on "romeo", run
@@ -150,7 +144,7 @@ Observe this message in the loopback interface capture.
 Also, "play back" a summary of the Ethernet capture file in the terminal using
 
 ```
-tcpdump -enX -r $(hostname -s)-eth1-nonexistent.pcap
+tcpdump -enX -r $(hostname -s)-eth-nonexistent.pcap
 ```
 
 You can also use `scp` to transfer the packet captures to your laptop, and open them in Wireshark to see these packets in more detail.

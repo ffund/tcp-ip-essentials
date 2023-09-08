@@ -24,7 +24,7 @@ In this step, we'll see what happens when a bridge is brought up, before it has 
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-1.pcap
+sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-1.pcap
 ```
 
 and leave these running.
@@ -35,7 +35,7 @@ On "bridge-3", run
 
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 ```
 
 
@@ -69,7 +69,7 @@ Next, we'll bring up a second bridge: **bridge-2** (which has the _smallest_ bri
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-2.pcap
+sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-2.pcap
 ```
 
 and leave these running.
@@ -77,7 +77,7 @@ and leave these running.
 Then, on "bridge-2", run
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 ```
 
 Wait until the output of
@@ -123,7 +123,7 @@ In this section, we'll bring up a third bridge, and we'll use this as an opportu
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-3.pcap
+sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-3.pcap
 ```
 
 and leave these running.
@@ -131,7 +131,7 @@ and leave these running.
 Then, on "bridge-1", run
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 ```
 
 Wait until the output of
@@ -162,7 +162,7 @@ Finally, we'll bring up the fourth bridge. In this section, we'll see an example
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-4.pcap
+sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-4.pcap
 ```
 
 and leave these running.
@@ -170,7 +170,7 @@ and leave these running.
 Then, on "bridge-4", run
 
 ```
-sudo ifconfig br0 up
+sudo ip link set br0 up
 ```
 
 Wait until the output of

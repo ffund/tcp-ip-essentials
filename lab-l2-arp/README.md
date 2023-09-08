@@ -2,4 +2,5 @@
 
 ### Bridges and LANs, ARP
 
-* [ARP exercises](arp.md)
+* Reserve resources: [on CloudLab](reserve-cloudlab.md), [on FABRIC](reserve-fabric.md)
+* ARP exercises: [on CloudLab](arp-cloudlab.md), [on FABRIC](arp-fabric.md)

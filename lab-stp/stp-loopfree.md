@@ -7,7 +7,7 @@ For this section, you will need one SSH session on each bridge, and _two_ SSH se
 On "romeo", run
 
 ```
-nload eth1
+nload EXPIFACE1
 ```
 
 to monitor the load on the network segment. 

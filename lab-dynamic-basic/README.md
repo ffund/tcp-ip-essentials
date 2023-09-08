@@ -2,6 +2,6 @@
 
 ### Dynamic routing
 
-* [Reserve resources]
-* [RIP](rip.md)
-* [Routing and ICMP](icmp.md)
+* Reserve resources: [on CloudLab](reserve-cloudlab.md), [on FABRIC](reserve-fabric.md)
+* RIP: [on CloudLab](rip-cloudlab.md), [on FABRIC](rip-fabric.md)
+* Routing and ICMP: [on CloudLab](icmp-cloudlab.md), [on FABRIC](icmp-fabric.md)

@@ -9,25 +9,25 @@ While the routers can learn new routes using RIP, the workstations will not. You
 On romeo, set up router-1 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.61.1
+sudo ip route add 10.10.0.0/16 via 10.10.61.1 dev EXPIFACE1
 ```
 
 On hamlet, set up router-2 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.62.2
+sudo ip route add 10.10.0.0/16 via 10.10.62.2 dev EXPIFACE1
 ```
 
 On othello, set up router-3 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.63.3
+sudo ip route add 10.10.0.0/16 via 10.10.63.3 dev EXPIFACE1
 ```
 
 On petruchio, set up router-4 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.64.4
+sudo ip route add 10.10.0.0/16 via 10.10.64.4 dev EXPIFACE1
 ```
 
 
@@ -36,7 +36,7 @@ sudo route add -net 10.10.0.0 netmask 255.255.0.0 gw 10.10.64.4
 On one terminal on romeo and on othello, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-traceroute.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-traceroute.pcap
 ```
 
 Then, in a second terminal on romeo, run
@@ -50,7 +50,7 @@ and save the output. Then, stop the `tcpdump` processes with Ctrl+C.
 Play back the messages you captured with
 
 ```
-sudo tcpdump -r $(hostname -s)-traceroute.pcap -env
+tcpdump -r $(hostname -s)-traceroute.pcap -env
 ```
 
 **Lab report**: From the tcpdump output, explain how the multi-hop route was found using `traceroute`. Explain the sequence of messages used. What header field does romeo set in order to trigger the desired response?
@@ -79,7 +79,7 @@ and save the output.
 On romeo, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-redirect-1.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-redirect-1.pcap
 ```
 
 Then, `ping` from "romeo" to "petruchio". On "romeo", run
@@ -107,7 +107,7 @@ sudo sysctl -w net.ipv4.conf.all.accept_redirects=1
 on "romeo". Restart the `tcpdump` process, but write to a new file, with
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-redirect-2.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-redirect-2.pcap
 ```
 
 Then, run 
@@ -137,7 +137,7 @@ again on romeo, and save the output.
 Stop the `tcpdump`, and play back the ICMP messages on romeo with
 
 ```
-sudo tcpdump -r romeo-redirect-2.pcap -env icmp
+tcpdump -r romeo-redirect-2.pcap -env icmp
 ```
 
 
@@ -161,13 +161,15 @@ I have prepared a script to do this automatically - to download and run it, on r
 wget -O - https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/scripts/delete-default-route.sh | bash
 ```
 
+(If the script does not run successfully, you can move forward to the next step to check if the default gateway rule exists.)
+
 Then, run
 
 ```
-route -n
+ip route
 ```
 
-and make sure there is no default gateway rule (no rule with 0.0.0.0 in the `Genmask` field). If your routing table looks good, you can continue! Save this routing table for your lab report.
+and make sure there is no default gateway rule (no rule that starts with `default`). If your routing table looks good, you can continue! Save this routing table for your lab report.
 
 
 Once the default gateway rule has been removed on router-1, open two terminals on the romeo host.
@@ -176,7 +178,7 @@ Once the default gateway rule has been removed on router-1, open two terminals o
 In one terminal on romeo, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-net-unreachable.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-icmp-dest-net-unreachable.pcap
 ```
 
 In the second terminal on romeo, run
@@ -208,13 +210,13 @@ In a previous exercise, we observed what happens when a host tries to send a mes
 In one terminal on romeo, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
 ```
 
 Also, on hamlet, run
 
 ```
-sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
+sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
 ```
 
 In the second terminal on romeo, run
