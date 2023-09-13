@@ -8,22 +8,22 @@ In these exercises, we will consider communication between hosts in the same net
 On each host, run
 
 ```
-ip neigh show dev EXPIFACE1
+ip neigh show dev eth1
 ```
 
-to see the entire ARP table for the `EXPIFACE1` interface (if there are any entries).  If there are no ARP entries, there will be no output, which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
+to see the entire ARP table for the `eth1` interface (if there are any entries).  If there are no ARP entries, there will be no output, which is OK! Observe that if there *are* any ARP entries, all the IP addresses displayed are on the same network segment. 
 
 *If* the "juliet" host (10.10.0.101) is already listed in an ARP table, then delete it with
 
 ```
-sudo ip neigh del 10.10.0.101 dev EXPIFACE1
+sudo ip neigh del 10.10.0.101 dev eth1
 ```
 
 Then, run 
 
 
 ```
-ip neigh show dev EXPIFACE1
+ip neigh show dev eth1
 ```
 
 again, and save the ARP tables from each host for your lab report.
@@ -32,7 +32,7 @@ again, and save the ARP tables from each host for your lab report.
 On "romeo", run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-arp.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-arp.pcap
 ```
 
 Leave this running. Then, open a second SSH session to "romeo", and in that session, run
@@ -48,7 +48,7 @@ Terminate `tcpdump` with Ctrl+C.
 Run 
 
 ```
-ip neigh show dev EXPIFACE1
+ip neigh show dev eth1
 ```
 
 each host, again. Save the new ARP tables for your lab report.
@@ -67,7 +67,7 @@ tcpdump -enX -r $(hostname -s)-arp.pcap
 Next, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-no-arp.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-no-arp.pcap
 ```
 
 on "romeo", and in a second terminal on "romeo", run
@@ -108,7 +108,7 @@ For this experiment, you will need *three* terminal windows on the "romeo" host.
 On the "romeo" host, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-eth-nonexistent.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-eth-nonexistent.pcap
 ```
 
 In a second terminal window on "romeo", run
