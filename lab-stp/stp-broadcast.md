@@ -39,7 +39,7 @@ sudo tcpdump -env -i br0
 on "bridge-4" to monitor traffic. (Leave this running for the rest of this section.)
 
 
-In the second terminal on "romeo", run
+In the terminal on "romeo", run
 
 ```
 sudo ping -b 10.10.0.255 -c 1
