@@ -107,6 +107,3 @@ on "bridge-1", to break the loop.
 
 
 **Lab report**: Show several packets from each of the `tcpdump` processes running on the four bridge nodes, during the broadcast storm. Can you see the many copies of the same ICMP packet? Look at the ID and sequence fields in the ICMP header, which are used to help match ICMP requests and responses - each ICMP "session" gets a unique ID, and the sequence number is incremented on each subsequent ICMP request in the same session. Are the packets you see in your `tcpdump` output different ICMP requests, or are they all copies of the same request? How can you tell?
-
-
-**Lab report**: Why does a broadcast storm occur specifically when there is a loop in the network? Even though a small number of broadcast packets are sent, we see many frames circulating in the network - why?
