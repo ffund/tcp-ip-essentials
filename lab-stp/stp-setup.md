@@ -29,7 +29,8 @@ sudo ip link set eth2 master br0
 In the next part of this experiment, we will deliberately trigger a broadcast storm by sending a broadcast frame through this network of bridges. However, there is some background network protocol traffic in the network that may trigger a broadcast storm automatically, even before we send our own broadcast frame! To make it less likely that a broadcast storm will be triggered by automatic network protocol traffic, we will turn off multicast frame flooding on our bridges.
 
 ```
-sudo bridge link set dev br0 mcast_flood off
+sudo bridge link set dev eth1 mcast_flood off
+sudo bridge link set dev eth2 mcast_flood off
 ```
 
 At this point, the bridges are configured but they are not yet "up" - we'll do that in the next section!
