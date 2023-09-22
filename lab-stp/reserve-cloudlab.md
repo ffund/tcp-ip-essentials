@@ -6,7 +6,7 @@ First, you will reserve a topology that includes four bridges connected in a loo
 
 To reserve resources on Cloudlab, open this profile page:
 
-https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/spanning_tree_protocol_22
+[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/spanning_tree_protocol_22](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/spanning_tree_protocol_22)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (This experiment is compatible with any of the Cloudlab clusters.) Then click "next", and "finish".
 
