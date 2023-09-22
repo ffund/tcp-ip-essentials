@@ -4,23 +4,7 @@ The spanning tree protocol creates a loop-free forwarding topology, so as to avo
 
 We will bring up one bridge at a time, with "bridge-1" last so that there is no loop in the network until the end.
 
-For this section, you will need one SSH session on each bridge, and _two_ SSH sessions on the "romeo" host. 
-
-In one session the "romeo" host, run
-
-
-```
-sudo apt-get update
-sudo apt-get -y install nload
-```
-
-to install the `nload` utility for monitoring load on the network. Then, run
-
-```
-nload EXPIFACE1
-```
-
-to monitor the load on the network segment. This command will show you a real-time visualization of network load, right in the terminal. Leave this running throughout this section.
+For this section, you will need one SSH session on each bridge, and one SSH session on the "romeo" host. 
 
 On "bridge-4", run
 
@@ -38,8 +22,8 @@ The output should look something like this:
 
 ```
 bridge name bridge id       STP enabled interfaces
-br0     8000.0245b6768fdd   no      EXPIFACE1
-                            EXPIFACE2
+br0     8000.0245b6768fdd   no      eth1
+                            eth2
 ```
 
 
@@ -63,7 +47,7 @@ sudo ping -b 10.10.0.255 -c 1
 
 to generate a broadcast frame. Note that this frame will have the broadcast address `ff:ff:ff:ff:ff:ff` as the destination MAC address.
 
-You should see one instance of this frame in the `tcpdump` on "bridge-4", but there is no loop in the network yet, so it won't trigger any broadcast storm. You'll see minimal network load in the `nload` output.
+You should see one instance of this frame in the `tcpdump` on "bridge-4", but there is no loop in the network yet, so it won't trigger any broadcast storm. 
 
 On "bridge-3" **and** on "bridge-2", run
 
@@ -109,7 +93,9 @@ sudo ping -b 10.10.0.255 -c 1
 again, to generate another broadcast frame. 
 
 
-Observe the `tcpdump` output on each bridge node, and the `nload` output on "romeo". Take screenshots for your lab report.
+Observe the `tcpdump` output on each bridge node. Take screenshots for your lab report.
+
+> **Note**: On CloudLab, the underlying network infrastructure has some protection against broadcast storms, so you may observe that that broadcast storm stops after a few hundred or thousand instances of the frame circulating in the network, even before you bring down one bridge in the loop.
 
 After you have observed the broadcast storm, stop the `tcpdump` sessions and then stop the broadcast storm by running 
 
@@ -117,12 +103,10 @@ After you have observed the broadcast storm, stop the `tcpdump` sessions and the
 sudo ip link set br0 down
 ```
 
-on "bridge-1", to break the loop. You can also stop the `nload` session on "romeo".
+on "bridge-1", to break the loop. 
 
 
 **Lab report**: Show several packets from each of the `tcpdump` processes running on the four bridge nodes, during the broadcast storm. Can you see the many copies of the same ICMP packet? Look at the ID and sequence fields in the ICMP header, which are used to help match ICMP requests and responses - each ICMP "session" gets a unique ID, and the sequence number is incremented on each subsequent ICMP request in the same session. Are the packets you see in your `tcpdump` output different ICMP requests, or are they all copies of the same request? How can you tell?
 
-**Lab report**: Show a screenshot of the `nload` output on "romeo" during the broadcast storm. Is the network load much more than you would expect from sending a single packet?
 
-
-**Lab report**: Why does a broadcast storm occur specifically when there is a loop in the network? Even though a small number of broadcast packets are sent, the load in the network is high - why?
+**Lab report**: Why does a broadcast storm occur specifically when there is a loop in the network? Even though a small number of broadcast packets are sent, we see many frames circulating in the network - why?
