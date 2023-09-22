@@ -31,6 +31,7 @@ In the next part of this experiment, we will deliberately trigger a broadcast st
 ```
 sudo bridge link set dev eth1 mcast_flood off
 sudo bridge link set dev eth2 mcast_flood off
+echo '0' | sudo tee -a /sys/class/net/br0/bridge/multicast_snooping
 ```
 
 At this point, the bridges are configured but they are not yet "up" - we'll do that in the next section!
