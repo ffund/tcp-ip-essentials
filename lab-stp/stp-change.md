@@ -1,6 +1,5 @@
 ## Adapt to changes in the topology
 
-
 Finally, we will observe how the spanning tree protocol adapts to changes in the topology. After bringing down the root bridge, we will see a temporary loss in connectivity between two end hosts, then a change in bridge port state on some bridges and re-establishment of a link (following a different Layer 2 path).
 
 
@@ -18,7 +17,7 @@ to send ICMP echo requests to "hamlet". A new ICMP echo request (with increasing
 On all four hosts, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w stp-change-$(hostname -s).pcap
+sudo tcpdump -i eth1 -w stp-change-$(hostname -s).pcap
 ```
 
 Then, on "bridge-2" -  the _root_ bridge in the spanning tree - bring the bridge interface down with

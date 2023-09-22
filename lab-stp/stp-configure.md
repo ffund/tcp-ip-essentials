@@ -24,7 +24,7 @@ In this step, we'll see what happens when a bridge is brought up, before it has 
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-1.pcap
+sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-1.pcap
 ```
 
 and leave these running.
@@ -33,11 +33,9 @@ We will start with a bridge that is *not* the final root bridge. First, we will 
 
 On "bridge-3", run
 
-
 ```
 sudo ip link set br0 up
 ```
-
 
 Then, run
 
@@ -69,7 +67,7 @@ Next, we'll bring up a second bridge: **bridge-2** (which has the _smallest_ bri
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-2.pcap
+sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-2.pcap
 ```
 
 and leave these running.
@@ -123,7 +121,7 @@ In this section, we'll bring up a third bridge, and we'll use this as an opportu
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-3.pcap
+sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-3.pcap
 ```
 
 and leave these running.
@@ -162,7 +160,7 @@ Finally, we'll bring up the fourth bridge. In this section, we'll see an example
 On the four hosts, start a `tcpdump` to capture STP traffic on each network segment. Run
 
 ```
-sudo tcpdump -i EXPIFACE1 stp -w stp-$(hostname -s)-4.pcap
+sudo tcpdump -i eth1 stp -w stp-$(hostname -s)-4.pcap
 ```
 
 and leave these running.
