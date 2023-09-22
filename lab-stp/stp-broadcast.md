@@ -22,8 +22,8 @@ The output should look something like this:
 
 ```
 bridge name bridge id       STP enabled interfaces
-br0     8000.0245b6768fdd   no      eth1
-                            	    eth2
+br0     8000.0245b6768fdd   no      	eth1
+                            	    	eth2
 ```
 
 
