@@ -2,7 +2,7 @@
 
 Let us verify that with the spanning tree algorithm in place to ensure a loop-free topology, a broadcast storm cannot occur. We should see that with the spanning tree protocol creating a logical loop-free topology, we can send a broadcast packet without creating a broadcast storm.
 
-For this section, you will need one SSH session on each bridge, and one SSH sessions on the "romeo" host. 
+For this section, you will need one SSH session on each bridge, and one SSH session on the "romeo" host. 
 
 
 On each of the four bridges, run
