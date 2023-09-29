@@ -8,7 +8,7 @@ each with a netmask of 255.255.255.0.
 
 To reserve resources on Cloudlab, open this profile page:
 
-https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/static_routing
+[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/static_routing](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/static_routing)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (**For this experiment, avoid the Cloudlab Utah cluster.**) Then click "next", and "finish".
 
