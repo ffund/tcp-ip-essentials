@@ -39,23 +39,27 @@ First, we will see what happens when we try to reach a host at an address for wh
 On "romeo", run
 
 ```
-ip neigh show dev EXPIFACE1
+ip neigh show dev eth1
 ```
 
 and 
 
 
 ```
-ip route
+ip route show dev eth1
 ```
 
-to see the current ARP table and routing table. Save these for your lab report. Are there any entries in either table that apply to the address 10.10.10.100?
+to see the current ARP table and route table for the experiment interface. 
+
+Note that in the route table entry, the first column shows the destination address and prefix length for which the route applies. In case a route is for a single host, instead of for a network address, then no prefix length is specified.
+
+Save these for your lab report. Are there any entries in either table that apply to the address 10.10.10.100?
 
 Then, run
 
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net-unreachable.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net-unreachable.pcap
 ```
 
 on "romeo". While `tcpdump` is running, open a second terminal to "romeo" and in that terminal, use `ping` to send an ICMP echo request to IP address 10.10.10.100:
@@ -77,15 +81,15 @@ to play back the summary in the terminal.
 Next, add a rule to the routing table on "romeo" that applies to 10.10.10.100:
 
 ```
-sudo ip route add 10.10.10.100 dev EXPIFACE1
+sudo ip route add 10.10.10.100 dev eth1
 ```
 
-This rule says: "Send traffic for the host address 10.10.10.100 directly from the `EXPIFACE1` interface". ("Directly" means that the packet will not be forwarded by a router. Since we did not specify the address of a "gateway" router, this route is a "direct" route.)
+This rule says: "Send traffic for the host address 10.10.10.100 directly from the `eth1` interface". ("Directly" means that the packet will not be forwarded by a router. Since we did not specify the address of a "gateway" router, this route is a "direct" route.)
 
 Then use 
 
 ```
-ip route
+ip route show dev eth1
 ```
 
 to see the new routing table. Save this for your lab report. 
@@ -94,7 +98,7 @@ Now, run
 
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-host-unreachable.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-host-unreachable.pcap
 ```
 
 on "romeo". While `tcpdump` is running, open a second terminal to "romeo" and in that terminal, use `ping` to send an ICMP echo request to IP address 10.10.10.100:
@@ -117,7 +121,7 @@ Use `scp` to transfer both packet captures to your laptop for further analysis u
 Also delete the routing table rule you added earlier, with
 
 ```
-sudo ip route del 10.10.10.100 dev EXPIFACE1
+sudo ip route del 10.10.10.100 dev eth1
 ```
 
 **Lab report**: Can you see any ICMP echo request sent on the network? Why? Explain what happened using the `ip route` output, the `ping` output, and the `tcpdump` output in each case.
@@ -140,19 +144,25 @@ Configure the (experiment) interface on each host, according to the following ta
 
 
 
-| Host          | IP address    | Subnet mask     |
-| ------------- | ------------- |-----------------|
-| romeo         | 10.10.0.100   | 255.255.255.240 |
-| juliet        | 10.10.0.101   | 255.255.255.0   |
-| hamlet        | 10.10.0.102   | 255.255.255.0   |
-| ophelia       | 10.10.0.120   | 255.255.255.240 |
+| Host          | IP address    | Subnet mask     | Prefix length |
+| ------------- | ------------- |-----------------|---------------|
+| romeo         | 10.10.0.100   | 255.255.255.240 | 28            |
+| juliet        | 10.10.0.101   | 255.255.255.0   | 24            |
+| hamlet        | 10.10.0.102   | 255.255.255.0   | 24            |
+| ophelia       | 10.10.0.120   | 255.255.255.240 | 28            |
 
 
-To change the IP address and/or netmask of a given interface on our hosts, use the syntax
+To change the IP address and/or netmask of an experiment interface on our hosts, use 
 
 ```
-sudo ip addr add NEW-IP-ADDRESS/NEW-PREFIX dev INTERFACE
-sudo ip addr del OLD-IP-ADDRESS/OLD-PREFIX dev INTERFACE
+ip addr show dev eth1
+```
+
+to check the current IPv4 address and prefix length on the interface. Then use the syntax
+
+```
+sudo ip addr add NEW-IP-ADDRESS/NEW-PREFIX dev eth1
+sudo ip addr del OLD-IP-ADDRESS/OLD-PREFIX dev eth1
 ```
 
 substituting appropriate values for `NEW-IP-ADDRESS`, `NEW-PREFIX`, `OLD-IP-ADDRESS`, `OLD-PREFIX`, and `INTERFACE` name.
@@ -162,7 +172,7 @@ Run
 
 
 ```
-ip route
+ip route show dev eth1
 ```
 
 on each host, and save the routing tables. 
@@ -176,7 +186,7 @@ We will run this exercise in four parts:
 On each host, run
 
 ```
-sudo tcpdump -en -i EXPIFACE1
+sudo tcpdump -en -i eth1
 ```
 
 From "romeo", ping "hamlet" (10.10.0.102) or "juliet" (10.10.0.101):
@@ -189,7 +199,7 @@ Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all
 On each host, run
 
 ```
-sudo tcpdump -en -i EXPIFACE1
+sudo tcpdump -en -i eth1
 ```
 
 From "ophelia", ping "hamlet" (10.10.0.102) or "juliet" (10.10.0.101). Note the output in the `ping` window.
@@ -201,7 +211,7 @@ Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all
 On each host, run
 
 ```
-sudo tcpdump -en -i EXPIFACE1
+sudo tcpdump -en -i eth1
 ```
 
 From "hamlet" or "juliet", ping "romeo" (10.10.0.100)
@@ -213,7 +223,7 @@ Observe what happens. Stop your `tcpdump`, and save the `tcpdump` output for all
 On each host, run
 
 ```
-sudo tcpdump -en -i EXPIFACE1
+sudo tcpdump -en -i eth1
 ```
 
 From "hamlet" or "juliet", ping "ophelia" (10.10.0.120).
