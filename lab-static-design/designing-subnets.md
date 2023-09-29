@@ -159,23 +159,30 @@ where `EXPIFACEX` is the name of the LAN-facing interface on router-a.
 On one host - say, romeo - we'll assign the highest usable address, which was 10.1.24.158:
 
 ```
-sudo ip addr add 10.1.24.158/28 dev EXPIFACE1
+sudo ip addr add 10.1.24.158/28 dev eth1
 ```
 
 On another host - juliet - we'll assign any other unused address in this subnet. For example:
 
 ```
-sudo ip addr add 10.1.24.150/28 dev EXPIFACE1
+sudo ip addr add 10.1.24.150/28 dev eth1
 ```
 
 When we configure a network interface, a routing table rule is automatically added for the directly connected subnet. We can see this by running
 
 
 ```
-ip route
+ip route show dev eth1
 ```
 
-on each of the hosts and the router. The directly connected route should show the *network address* for LAN A at the front, the *subnet mask* for LAN A as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
+on each of the hosts, and 
+
+```
+ip route show dev eth1
+ip route show dev eth2
+```
+
+on the router. The directly connected route should show the *network address* for LAN A at the front, the *prefix length* for LAN A as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN A, from any of the three devices in LAN A. Try this now, and verify that you have Layer 3 connectivity within LAN A.
 
@@ -197,23 +204,30 @@ where `EXPIFACEX` is the name of the LAN-facing interface on router-b.
 On one host - say, hamlet - we'll assign the highest usable address, which was 10.1.24.142:
 
 ```
-sudo ip addr add 10.1.24.142/28 dev EXPIFACE1
+sudo ip addr add 10.1.24.142/28 dev eth1
 ```
 
 On another host - ophelia - we'll assign any other unused address in this subnet. For example:
 
 ```
-sudo ip addr add 10.1.24.135/28 dev EXPIFACE1
+sudo ip addr add 10.1.24.135/28 dev eth1
 ```
 
 When we configure a network interface, a routing table rule is automatically added for the directly connected subnet. We can see this by running
 
 
 ```
-ip route
+ip route show dev eth1
 ```
 
-on each of the hosts and the router. The directly connected route should show the *network address* for LAN B at the front, the *subnet mask* for LAN B as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
+on each of the hosts, and 
+
+```
+ip route show dev eth1
+ip route show dev eth2
+```
+
+on the router. The directly connected route should show the *network address* for LAN B at the front, the *prefix length* for LAN B as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN B, from any of the three devices in LAN B. Try this now, and verify that you have Layer 3 connectivity within LAN B.
 
@@ -235,27 +249,34 @@ where `EXPIFACEX` is the name of the LAN-facing interface on router-c.
 On one host - say, othello - we'll assign the highest usable address, which was 10.1.24.126:
 
 ```
-sudo ip addr add 10.1.24.126/25 dev EXPIFACE1
+sudo ip addr add 10.1.24.126/25 dev eth1
 ```
 
 On another host - desdemona - we'll assign any other unused address in this subnet. For example:
 
 ```
-sudo ip addr add 10.1.24.70/25 dev EXPIFACE1
+sudo ip addr add 10.1.24.70/25 dev eth1
 ```
 
 When we configure a network interface, a routing table rule is automatically added for the directly connected subnet. We can see this by running
 
 
 ```
-ip route
+ip route show dev eth1
 ```
 
-on each of the hosts and the router. The directly connected route should show the *network address* for LAN C at the front, the *subnet mask* for LAN C as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
+on each of the hosts, and 
+
+```
+ip route show dev eth1
+ip route show dev eth2
+```
+
+on the router. The directly connected route should show the *network address* for LAN C at the front, the *prefix length* for LAN C as the prefix length after the network address, and `scope link` to indicate that this is a direct route with no gateway.
 
 Since each interface in this subnet has an address and a route for the directly connected subnet, you should be able to `ping` any of the addresses assigned in LAN C, from any of the three devices in LAN C. Try this now, and verify that you have Layer 3 connectivity within LAN C.
 
-**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the network interface configuration as follows. On each of the six hosts - romeo, juliet, hamlet, ophelia, othello, desdemona - show the output of `ip addr show dev EXPIFACE1`. On each of the routers, show the output of `ip addr show dev EXPIFACEX` where `EXPIFACEX` is the interface of the router on the LAN that has hosts.
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the network interface configuration as follows. On each of the six hosts - romeo, juliet, hamlet, ophelia, othello, desdemona - show the output of `ip addr show dev eth1`. On each of the routers, show the output of `ip addr show dev EXPIFACEX` where `EXPIFACEX` is the interface of the router on the LAN that has hosts.
 
 
 
@@ -335,7 +356,7 @@ On romeo, `ping` every other host by address - juliet, hamlet, ophelia, othello,
 
 #### Save the routing table on each host and router
 
-On each host and router, run
+On each host, run
 
 ```
 ip addr
@@ -344,12 +365,25 @@ ip addr
 and 
 
 ```
-ip route
+ip route show dev eth1
+```
+
+and on each router, run
+
+```
+ip addr
+```
+
+and 
+
+```
+ip route show dev eth1
+ip route show dev eth2
 ```
 
 and save this final output for your lab report.
 
-**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the output of `ip route` on the "romeo" host. Annotate the output to indicate:
+**Lab report**: After you have configured the network interfaces and routes according to your subnet design, show the output of `ip route show dev eth1` on the "romeo" host. Annotate the output to indicate:
 
 1. which rule will apply to traffic from romeo to juliet
 2. which rule will apply to traffic from romeo to hamlet
@@ -359,7 +393,7 @@ and save this final output for your lab report.
 
 If there are multiple matching rules, indicate the *one* that applies in each case according to the longest prefix matching rule.
 
-Also show the output of `ip route` on "router-a". Annotate the output to indicate:
+Also show the output of `ip route show dev eth1` and `ip route show dev eth2` on "router-a". Annotate the output to indicate:
 
 1. which rule will apply to traffic from hamlet to romeo
 2. which rule will apply to traffic from romeo to hamlet
