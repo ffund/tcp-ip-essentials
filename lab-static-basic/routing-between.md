@@ -231,7 +231,7 @@ Stop the `tcpdump` processes and save the output for your lab report.
 
 ### Exercise - packet headers
 
-On romeo, run, othello, router-1, and router-2, run
+On romeo, othello, router-1, and router-2, run
 
 ```
 ip addr
