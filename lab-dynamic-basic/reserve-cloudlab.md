@@ -17,7 +17,7 @@ For convenience, the last octet of each IP address is the router index (for rout
 
 To reserve these resources on Cloudlab, open this profile page:
 
-https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/dynamic_basic_22
+[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/dynamic_basic_22](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/dynamic_basic_22)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (This experiment is compatible with any of the Cloudlab clusters.) Then click "next", and "finish".
 
