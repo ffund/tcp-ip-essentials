@@ -9,25 +9,25 @@ While the routers can learn new routes using RIP, the workstations will not. You
 On romeo, set up router-1 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo ip route add 10.10.0.0/16 via 10.10.61.1 dev EXPIFACE1
+sudo ip route add 10.10.0.0/16 via 10.10.61.1 dev eth1
 ```
 
 On hamlet, set up router-2 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo ip route add 10.10.0.0/16 via 10.10.62.2 dev EXPIFACE1
+sudo ip route add 10.10.0.0/16 via 10.10.62.2 dev eth1
 ```
 
 On othello, set up router-3 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo ip route add 10.10.0.0/16 via 10.10.63.3 dev EXPIFACE1
+sudo ip route add 10.10.0.0/16 via 10.10.63.3 dev eth1
 ```
 
 On petruchio, set up router-4 as the gateway for the entire 10.10.0.0/16 subnet:
 
 ```
-sudo ip route add 10.10.0.0/16 via 10.10.64.4 dev EXPIFACE1
+sudo ip route add 10.10.0.0/16 via 10.10.64.4 dev eth1
 ```
 
 
@@ -36,7 +36,7 @@ sudo ip route add 10.10.0.0/16 via 10.10.64.4 dev EXPIFACE1
 On one terminal on romeo and on othello, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-traceroute.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-traceroute.pcap
 ```
 
 Then, in a second terminal on romeo, run
@@ -79,7 +79,7 @@ and save the output.
 On romeo, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-redirect-1.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-redirect-1.pcap
 ```
 
 Then, `ping` from "romeo" to "petruchio". On "romeo", run
@@ -107,7 +107,7 @@ sudo sysctl -w net.ipv4.conf.all.accept_redirects=1
 on "romeo". Restart the `tcpdump` process, but write to a new file, with
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-redirect-2.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-redirect-2.pcap
 ```
 
 Then, run 
@@ -178,7 +178,7 @@ Once the default gateway rule has been removed on router-1, open two terminals o
 In one terminal on romeo, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-icmp-dest-net-unreachable.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-net-unreachable.pcap
 ```
 
 In the second terminal on romeo, run
@@ -210,13 +210,13 @@ In a previous exercise, we observed what happens when a host tries to send a mes
 In one terminal on romeo, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
 ```
 
 Also, on hamlet, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-icmp-dest-host-unreachable.pcap
 ```
 
 In the second terminal on romeo, run
