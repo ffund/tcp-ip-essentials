@@ -49,25 +49,25 @@ so that all addresses from 10.10.0.0-10.10.255.255 will be enabled for RIP. (Not
 RIPv2 multicasts its routing table every 30 seconds to the multicast IP address 224.0.0.9. Use `tcpdump` to capture these messages on each network segment for about a minute or two. On romeo, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net61-rip.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net61-rip.pcap
 ```
 
 On hamlet, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net62-rip.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net62-rip.pcap
 ```
 
 On othello, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net63-rip.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net63-rip.pcap
 ```
 
 On petruchio, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net64-rip.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net64-rip.pcap
 ```
 
 Then, run
@@ -110,25 +110,25 @@ in the FRR shell, and save the output. Make a note of two important timer values
 Start `tcpdump` on each of the four workstations. On romeo, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net61-rip-failure.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net61-rip-failure.pcap
 ```
 
 On hamlet, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net62-rip-failure.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net62-rip-failure.pcap
 ```
 
 On othello, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net63-rip-failure.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net63-rip-failure.pcap
 ```
 
 On petruchio, run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w $(hostname -s)-net64-rip-failure.pcap
+sudo tcpdump -i eth1 -w $(hostname -s)-net64-rip-failure.pcap
 ```
 
 Let these run during this exercise.
@@ -142,17 +142,17 @@ show ip rip
 
 to see the current RIP database. Save the output.
 
-On router-1, idenfity the name of the interface that has the address 10.10.62.1 (e.g. `EXPIFACE1` or `EXPIFACE2`). (You can refer to your previous `ip addr` output, or you can use the `show ip route` output in the FRR shell, and look for the name of the interface that is directly connected to the 10.10.62.0/24 subnet.) This is the interface that connects Router 1 to the network segment that Router 2 is on. You will use this interface name in the following commands. 
+On router-1, idenfity the name of the interface that has the address 10.10.62.1 (e.g. `eth1` or `eth2`). (You can refer to your previous `ip addr` output, or you can use the `show ip route` output in the FRR shell, and look for the name of the interface that is directly connected to the 10.10.62.0/24 subnet.) This is the interface that connects Router 1 to the network segment that Router 2 is on. You will use this interface name in the following commands. 
 
 Then, on Router 1, use the FRR shell to bring down this interface. Run
 
 ```
 configure terminal
-interface EXPIFACE1
+interface eth1
 shutdown
 ```
 
-(or substitute `EXPIFACE2` if that is the name of the interface with address 10.10.62.1). Then, run `exit` twice to return to the regular FRR shell.
+(or substitute `eth2` if that is the name of the interface with address 10.10.62.1). Then, run `exit` twice to return to the regular FRR shell.
 
 Run
 
@@ -182,11 +182,11 @@ and save the output. Then, in the FRR shell on Router 1, run
 
 ```
 configure terminal
-interface EXPIFACE1
+interface eth1
 no shutdown
 ```
 
-(or substitute `EXPIFACE2` if that is the name of the interface with address 10.10.62.1) to bring back up the disabled interface. Also, run `exit` twice until you return to the regular FRR shell.
+(or substitute `eth2` if that is the name of the interface with address 10.10.62.1) to bring back up the disabled interface. Also, run `exit` twice until you return to the regular FRR shell.
 
 Again, run
 
