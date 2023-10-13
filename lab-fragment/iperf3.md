@@ -24,7 +24,7 @@ iperf3 -s
 Once this is running, the client can initiate a TCP or UDP flow to the server. On "juliet", run
 
 ```
-iperf3 -c 10.10.0.100
+iperf3 -c 10.0.0.100
 ```
 
 to start the `iperf3` application in client mode, and specify the server's IP address.
@@ -75,13 +75,13 @@ Next, let's see what happens on the client side when we try to send `iperf3` tra
 On "juliet", try running
 
 ```
-iperf3 -c 10.10.0.102
+iperf3 -c 10.0.0.102
 ```
 
 and note the message that you observe. Also try running 
 
 ```
-iperf3 -c 10.10.0.100 -p 6000
+iperf3 -c 10.0.0.100 -p 6000
 ```
 
 and note the message. 
@@ -95,7 +95,7 @@ sudo killall iperf3
 to kill any that might be running in the background. On "juliet", run
 
 ```
-iperf3 -c 10.10.0.100
+iperf3 -c 10.0.0.100
 ```
 
 and note the error message that you observe.
