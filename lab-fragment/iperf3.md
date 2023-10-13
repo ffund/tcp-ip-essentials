@@ -4,11 +4,9 @@
 On each host (romeo and juliet), install the `iperf3` package, which we'll use in this lab:
 
 ```
-sudo apt-get update
-sudo apt-get -y install iperf3
+sudo apt update
+sudo apt -y install iperf3
 ```
-
-Before you start, use `ip addr` to capture the network interface configuration of each host in this topology. Identify the IP address and MAC address of each interface.
 
 ### Exercise - using iperf3 
 
