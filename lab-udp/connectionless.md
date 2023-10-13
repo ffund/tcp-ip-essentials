@@ -1,38 +1,10 @@
 ## UDP as a connectionless transport protocol
 
-For this experiment, we will use a topology with two workstations (named "romeo" and "juliet"), and a router in between them, with IP addresses configured as follows:
-
-* romeo: 10.10.1.100
-* router, interface connected to romeo: 10.10.1.1
-* router, interface connected to juliet: 10.10.2.1
-* juliet: 10.10.2.100
-
-each with a netmask of 255.255.255.0. 
-
-To set up this topology in the GENI Portal, create a slice, click on "Add Resources", and load the RSpec from the following URL: https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/rspecs/line-no-route.xml
-
-Refer to the [monitor website](https://fedmon.fed4fire.eu/overview/instageni) to identify an InstaGENI site that has many "free VMs" available. Then bind to an InstaGENI site and reserve your resources. Wait for them to become available for login ("turn green" on your canvas) and then SSH into each, using the details given in the GENI Portal.
-
 
 ### Setup
 
 
-On both workstations, set up a route to reach the other workstation. 
-
-On romeo, run
-
-```
-sudo route add -net 10.10.2.0/24 gw 10.10.1.1
-```
-
-and on juliet, run
-
-
-```
-sudo route add -net 10.10.1.0/24 gw 10.10.2.1
-```
-
-Next, we'll install and configure the `echo` service, which we'll use for this lab. On both workstations, run
+We'll install and configure the `echo` service, which we'll use for this lab. On both workstations (romeo and juliet), run
 
 ```
 sudo apt update
@@ -235,7 +207,7 @@ in a *Linux* terminal (not the Python terminal). You should see output indicatin
 Also run
 
 ```
-netstat -lnu
+ss -lnu
 ```
 
 in a Linux terminal on juliet, and find the line that indicates there is a UDP service listening on 10.10.2.100:4000. Save this output for your lab report.
@@ -339,7 +311,7 @@ Now, we will observe a third type of ICMP Destination Unreachable message: **Por
 On juliet, run
 
 ```
-netstat -lnu
+ss -lnu
 ```
 
 in a Linux terminal, and verify that there is *not* a UDP service listening on port **4005**. Save this output for your lab report.
