@@ -8,7 +8,7 @@ We'll install and configure the `echo` service, which we'll use for this lab. On
 
 ```
 sudo apt update
-sudo apt -y install echoping xinetd
+sudo apt -y install xinetd echoping
 ```
 
 We will also need to edit the configuration file for the `echo` service, to enable it. Run
@@ -40,7 +40,7 @@ Run
 sudo cat /etc/xinetd.d/echo
 ```
 
-to make sure the file contents are correct. It should look like [this](https://github.com/ffund/tcp-ip-essentials/blob/master/lab5/echo).
+to make sure the file contents are correct. 
 
 Then, run
 
@@ -62,7 +62,7 @@ sudo tc qdisc add dev eth2 root netem delay 10ms
 Test this by running
 
 ```
-ping -c 10 10.10.2.100
+ping -c 10 10.0.2.100
 ```
 
 on romeo, to ping juliet. You should see a round trip time of a little over 20 ms.
@@ -90,7 +90,7 @@ to capture packets.
 On a second terminal on romeo, run
 
 ```
-echoping -f x -u 10.10.2.100
+echoping -f x -u 10.0.2.100
 ```
 
 This will send a *UDP* message (filled with the letter 'x') to the `echo` service on juliet, which will immediately send back a response. The elapsed time (from when romeo starts the `echo`, until the response was received from juliet) will be printed in the terminal output. Save this output. 
@@ -99,7 +99,7 @@ This will send a *UDP* message (filled with the letter 'x') to the `echo` servic
 Next, on romeo, run
 
 ```
-echoping -f x 10.10.2.100
+echoping -f x 10.0.2.100
 ```
 
 This will send a *TCP* message (filled with the letter 'x') to the `echo` service on juliet, which will immediately send back a response. The elapsed time (from when romeo sent the TCP message, until the response was received from juliet) will be printed in the terminal output. Save this output. 
@@ -188,7 +188,7 @@ We will make juliet the receiver. On juliet, run
 
 
 ```
-sock.bind(('10.10.2.100', 4000))
+sock.bind(('10.0.2.100', 4000))
 ```
 
 in the Python terminal, to `bind` this socket to an IP address and port. Check the output in the `tcpdump` windows - is anything sent on the network when the socket binds to an IP address and port?  Save the output for your lab report.
@@ -202,7 +202,7 @@ On both romeo and juliet, run
 lsof -n -i udp
 ```
 
-in a *Linux* terminal (not the Python terminal). You should see output indicating that the `python` process is using a UDP socket bound to 10.10.2.100:4000 on juliet. Save this output for your lab report.
+in a *Linux* terminal (not the Python terminal). You should see output indicating that the `python` process is using a UDP socket bound to 10.0.2.100:4000 on juliet. Save this output for your lab report.
 
 Also run
 
@@ -210,7 +210,7 @@ Also run
 ss -lnu
 ```
 
-in a Linux terminal on juliet, and find the line that indicates there is a UDP service listening on 10.10.2.100:4000. Save this output for your lab report.
+in a Linux terminal on juliet, and find the line that indicates there is a UDP service listening on 10.0.2.100:4000. Save this output for your lab report.
 
 
 Next, we'll see what happens when romeo sends some messages to a service that is *not* "receiving" yet.
@@ -218,7 +218,7 @@ Next, we'll see what happens when romeo sends some messages to a service that is
 On romeo, run
 
 ```
-sent = sock.sendto(b'Hello', ('10.10.2.100', 4000))
+sent = sock.sendto(b'Hello', ('10.0.2.100', 4000))
 print(sent)
 ```
 
@@ -260,7 +260,7 @@ data, addr = sock.recvfrom(1024)
 again. When the receive buffer is empty, there is nothing to receive, so this command won't return. Send another message from romeo by running
 
 ```
-sent = sock.sendto(b'Hello', ('10.10.2.100', 4000))
+sent = sock.sendto(b'Hello', ('10.0.2.100', 4000))
 print(sent)
 ```
 
@@ -279,7 +279,7 @@ new_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 in the Python terminal. Then, try to bind to the same IP address and port as the first socket:
 
 ```
-new_sock.bind(('10.10.2.100', 4000))
+new_sock.bind(('10.0.2.100', 4000))
 ```
 
 Save the Python terminal history, including all commands and output, on each workstation. 
@@ -337,7 +337,7 @@ on romeo to open an interactive Python terminal. Then, in that Python terminal, 
 import socket
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
-sent = sock.sendto(b'Hello', ('10.10.2.100', 4005))
+sent = sock.sendto(b'Hello', ('10.0.2.100', 4005))
 ```
 
 Stop the `tcpdump` and examine the ICMP message you observed.
