@@ -267,7 +267,7 @@ print(sent)
 in the Python terminal, and note that the `recv` command will now return the newly received data.
 
 
-Once a socket binds to an IP address and transport layer port, no other socket can use that IP address and transport layer port - otherwise, the network stack would not know which 
+Once a socket binds to an IP address and transport layer port, no other socket can use that IP address and transport layer port - otherwise, the network stack would not know which socket receive buffer to demultiplex received data to. 
 
 On juliet, create another socket by running
 
