@@ -149,7 +149,7 @@ Re-run the `iperf3` client command, but modify the `-l` argument to increase the
 
 Another potential limit on datagram sizes is at the application layer: the application may impose a limit on the size of the data payload it is willing to send. For example, `iperf3` works by sending the entire contents of a buffer in a single datagram, and the maximum buffer size that `iperf3` is willing to allocate is 1MB. 
 
-For this experiment, you'll need two terminal windows open on "romeo" and one open on "juliet".
+For this experiment, you'll need one terminal window open on "romeo" and one open on "juliet".
 
 In a terminal window on "romeo", start an `iperf3` server with
 
