@@ -5,9 +5,9 @@ In this experiment, we will explore the limits on UDP datagram sizes. When you u
 
 For this experiment, we will reuse the same network as in the previous section. 
 
-### Exercise - IP layer limit and fragmentation
+### Exercise - IPv4 layer limit and fragmentation
 
-In this exercise, we will observe IP fragmentation - when the network layer breaks a large transport-layer PDU into smaller pieces that are less than the maximum transmission unit (MTU) of the link.
+In this exercise, we will observe IPv4 fragmentation - when the network layer breaks a large transport-layer PDU into smaller pieces that are less than the maximum transmission unit (MTU) of the link.
 
 First, run 
 
@@ -47,17 +47,17 @@ While that is running, on "juliet" run
 iperf3 -c romeo -u -k 1 -l 512 --file tesla.txt
 ```
 
-to send a UDP datagram with a 512B payload, using part of the `tesla.txt` file for the payload. (Note that an Ethernet, IP, and UDP header will be added to the payload.) Observe the result in the `tcpdump` window, where the UDP payload length, IP packet length, and the total size of the Ethernet frame is shown. 
+to send a UDP datagram with a 512B payload, using part of the `tesla.txt` file for the payload. (Note that an Ethernet, IPv4, and UDP header will be added to the payload.) Observe the result in the `tcpdump` window, where the UDP payload length, IPv4 packet length, and the total size of the Ethernet frame is shown. 
 
 (At the beginning of each `iperf3` transaction, you may observe two very small packets which establish that the server is listening on the specified port - you should ignore these packets.)
 
-Now we will repeat the `iperf3` client command, but increase the length of the payload by modifying the `-l` argument, until IP fragmentation occurs. Since the MTU is 1500 B, you might try that next:
+Now we will repeat the `iperf3` client command, but increase the length of the payload by modifying the `-l` argument, until IPv4 fragmentation occurs. Since the MTU is 1500 B, you might try that next:
 
 ```
 iperf3 -c romeo -u -k 1 -l 1500  --file tesla.txt
 ```
 
-In this case, the datagram *will* be fragmented, because the MTU refers to the maximum size of the IP-layer packet, including IP and UDP headers which are added to the payload size that we specified. Gradually reduce the payload size until you find the *maximum* payload size at which fragmentation does *not* occur.
+In this case, the datagram *will* be fragmented, because the MTU refers to the maximum size of the IP-layer packet, including IPv4 and UDP headers which are added to the payload size that we specified. Gradually reduce the payload size until you find the *maximum* payload size at which fragmentation does *not* occur.
 
 
 Stop the `tcpdump` with Ctrl+C. Then, start a new `tcpdump` on "romeo" with the capture saved to a file:
@@ -66,7 +66,7 @@ Stop the `tcpdump` with Ctrl+C. Then, start a new `tcpdump` on "romeo" with the 
 sudo tcpdump -i eth1 -w $(hostname -s)-no-ip-fragment.pcap "not tcp"
 ```
 
-Make sure the `iperf3` server is running on "romeo". Then, on "juliet", repeat the `iperf3` command to send a UDP datagram with the maximum payload length at which IP fragmentation does _not_ occur.
+Make sure the `iperf3` server is running on "romeo". Then, on "juliet", repeat the `iperf3` command to send a UDP datagram with the maximum payload length at which IPv4 fragmentation does _not_ occur.
 
 Stop `tcpdump` with Ctrl+C. Then, start a new `tcpdump` with
 
@@ -85,9 +85,9 @@ Stop `tcpdump` and the `iperf3` server with Ctrl+C.
 
 Transfer the packet captures to your laptop with `scp`.
 
-The Wireshark display for fragmented packets can be confusing, so take special care to interpret it correctly. Use Wireshark to open the packet capture for the case with IP fragmentation. Ignore the two very small packets at the beginning, which are sent by `iperf3` to establish that the server is listening on the specified port. After those, you should see several packets that, together, are reassembled by the receiver into a UDP datagram with a 4321 B payload. Please note that:
+The Wireshark display for fragmented packets can be confusing, so take special care to interpret it correctly. Use Wireshark to open the packet capture for the case with IPv4 fragmentation. Ignore the two very small packets at the beginning, which are sent by `iperf3` to establish that the server is listening on the specified port. After those, you should see several packets that, together, are reassembled by the receiver into a UDP datagram with a 4321 B payload. Please note that:
 
-* In Wireshark, the *last* of the fragments will have two tabs in the Packet Bytes pane: one tab, labeled "Frame", will show only the last frame, and the other tab, named "Reassembled IPv4", will show the result after the IP layer reassembles all of the fragments. 
+* In Wireshark, the *last* of the fragments will have two tabs in the Packet Bytes pane: one tab, labeled "Frame", will show only the last frame, and the other tab, named "Reassembled IPv4", will show the result after the IPv4 layer reassembles all of the fragments. 
 * In the Packet Detail pane, which shows the various header fields, *only* the reassembled packet is shown. This can be confusing - for example, it may appear as though the UDP header is in the last fragment, since the last fragment shows the reassembled frame including UDP header, while the first fragment (which actually includes the UDP header) is not recognized as a UDP packet.
 * You can change this behavior as follows: Edit > Preferences > Protocols > IPv4, and un-check "Reassemble fragmented IPv4 datagrams". Then, the UDP header will appear in the first fragment (where it actually is), and there will be no "Reassembled IPv4" tab in the Packet Bytes pane.
 
@@ -103,19 +103,19 @@ and
 tcpdump -envX -r romeo-ip-fragment.pcap
 ```
 
-**Lab report**: What is the maximum `iperf3` payload size (e.g. largest `-l` argument) that can be sent without IP fragmentation?
+**Lab report**: What is the maximum `iperf3` payload size (e.g. largest `-l` argument) that can be sent without IPv4 fragmentation?
 
-**Lab report**: Explain the maximum `iperf3` payload size in terms of MTU and header lengths. What headers are appended to the `iperf3` payload, and what size is each header?  Describe the total size (including payload + headers) at each layer: application layer, UDP, IP, and Ethernet.
+**Lab report**: Explain the maximum `iperf3` payload size in terms of MTU and header lengths. What headers are appended to the `iperf3` payload, and what size is each header?  Describe the total size (including payload + headers) at each layer: application layer, UDP, IPv4, and Ethernet.
 
-**Lab report**: What condition is necessary and sufficient to avoid IP fragmentation?
+**Lab report**: What condition is necessary and sufficient to avoid IPv4 fragmentation?
 
-**Lab report**: Explain the `tcpdump` output for the `iperf3` flow with `-l 4321` in terms of the IP header fields (i.e., id, offset, flags, length) that are used in fragmentation.
+**Lab report**: Explain the `tcpdump` output for the `iperf3` flow with `-l 4321` in terms of the IPv4 header fields (i.e., id, offset, flags, length) that are used in fragmentation.
 
-### Exercise - IP+UDP protocol limit
+### Exercise - IPv4+UDP protocol limit
 
-In this exercise, we'll observe the maximum payload size that can be sent in a UDP datagram. This is a limit imposed by the design of the IP and UDP header, and it applies even when IP fragmentation is allowed.
+In this exercise, we'll observe the maximum payload size that can be sent in a UDP datagram. This is a limit imposed by the design of the IPv4 and UDP header, and it applies even when IPv4 fragmentation is allowed.
 
-You'll need on terminal window open on "romeo" and _two_ open on "juliet".
+You'll need one terminal window open on "romeo" and _two_ open on "juliet".
 
 First, run 
 
@@ -142,7 +142,7 @@ iperf3 -c romeo -u -k 1 -l 10000
 Re-run the `iperf3` client command, but modify the `-l` argument to increase the length of the payload by 10000 (e.g. to 20000). Repeat until the system refuses to send anything. (It will take fewer than 10 tries, increasing by 10000 each time.)
 
 
-**Lab report**: What is the maximum size of the `iperf3` UDP payload that the system can send, even when fragmentation is allowed? Explain this value in terms of the header sizes and the "length" header field. (Hint: imagine an interface with a very large MTU, so that there is no IP fragmentation, and the entire payload is sent in a single UDP datagram. How many bits are allocated for the "length" field in the IP header? What is the maximum value that this field can hold? What limitation does this impose on underlying protocol layers?)
+**Lab report**: What is the maximum size of the `iperf3` UDP payload that the system can send, even when fragmentation is allowed? Explain this value in terms of the header sizes and the "length" header field. (Hint: imagine an interface with a very large MTU, so that there is no IPv4 fragmentation, and the entire payload is sent in a single UDP datagram. How many bits are allocated for the "length" field in the IPv4 header? What is the maximum value that this field can hold? What limitation does this impose on underlying protocol layers?)
 
 
 ### Exercise - Application layer limit
