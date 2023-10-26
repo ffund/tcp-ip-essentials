@@ -43,7 +43,7 @@ man iperf3
 
 to learn more about the other options available with `iperf3`.
 
-Next, you will observe some common errors that people make with `iperf3`. Once you learn the error messages that are associated with common mistakes, you will be able to diagnose and fix problems you may encounter when using `iperf`.
+Next, you will observe some common errors that people make with `iperf3`. Once you learn the error messages that are associated with common mistakes, you will be able to diagnose and fix problems you may encounter when using `iperf3`.
 
 Make sure the `iperf3` server is running on "romeo". Open a second terminal window on "romeo", and run
 
