@@ -111,14 +111,19 @@ For example, the following annotated image shows a short interval in one TCP flo
 On the end hosts ("romeo" and "juliet"), install the `iperf` network testing tool, with the command 
 
 ```
-sudo apt-get update
-sudo apt-get -y install iperf3
+sudo apt update
+sudo apt -y install iperf3
 ```
 
 On romeo, we'll also install the `moreutils` utility, which will help us with data collection, and some other tools for data visualization:
 
 ```
-sudo apt-get -y install moreutils python3-pip
+sudo apt -y install moreutils python3-pip
+```
+
+and
+
+```
 sudo python3 -m pip install pandas matplotlib
 ```
 
@@ -132,17 +137,15 @@ sudo sysctl -w net.ipv4.tcp_no_metrics_save=1
 Now, we will configure the "router" node. Run the following commands in an SSH session on the "router" to configure it as a 1 Mbps bottleneck, with a buffer size of 0.1 MB, in both directions:
 
 ```
-iface_0=$(ip route get 10.10.1.100 | grep -oP "(?<=dev )[^ ]+")
-sudo tc qdisc del dev $iface_0 root
-sudo tc qdisc add dev $iface_0 root handle 1: htb default 3
-sudo tc class add dev $iface_0 parent 1: classid 1:3 htb rate 1Mbit
-sudo tc qdisc add dev $iface_0 parent 1:3 handle 3: bfifo limit 0.1MB
+sudo tc qdisc del dev eth1 root
+sudo tc qdisc add dev eth1 root handle 1: htb default 3
+sudo tc class add dev eth1 parent 1: classid 1:3 htb rate 1Mbit
+sudo tc qdisc add dev eth1 parent 1:3 handle 3: bfifo limit 0.1MB
 
-iface_1=$(ip route get 10.10.2.100 | grep -oP "(?<=dev )[^ ]+")
-sudo tc qdisc del dev $iface_1 root
-sudo tc qdisc add dev $iface_1 root handle 1: htb default 3
-sudo tc class add dev $iface_1 parent 1: classid 1:3 htb rate 1Mbit
-sudo tc qdisc add dev $iface_1 parent 1:3 handle 3: bfifo limit 0.1MB
+sudo tc qdisc del dev eth2 root
+sudo tc qdisc add dev eth2 root handle 1: htb default 3
+sudo tc class add dev eth2 parent 1: classid 1:3 htb rate 1Mbit
+sudo tc qdisc add dev eth2 parent 1:3 handle 3: bfifo limit 0.1MB
 ```
 
 
