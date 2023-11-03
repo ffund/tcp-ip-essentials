@@ -118,7 +118,8 @@ sudo apt-get -y install iperf3
 On romeo, we'll also install the `moreutils` utility, which will help us with data collection, and some other tools for data visualization:
 
 ```
-sudo apt-get -y install moreutils r-base-core r-cran-ggplot2 r-cran-littler
+sudo apt-get -y install moreutils python3-pip
+sudo python3 -m pip install pandas matplotlib
 ```
 
 
@@ -266,11 +267,13 @@ You can transfer both of these files and the packet capture to your laptop with 
 
 ### Visualization
 
-You can use your preferred data visualization tool or programming language to analyze the results of your experiment. (Make sure to exclude the control flow from your analysis!) For convenience, I share a Python script here.
+You can use your preferred data visualization tool or programming language to analyze the results of your experiment. (Make sure to exclude the control flow from your analysis!) 
 
-You can retrieve the `sender-ss.csv` file and plot it using the Python script in an interactive environment, like Jupyter Notebook. Here's the Python script:
+For convenience, I share a Python script here, but you are not required to use this - you can use any tool you like to plot this data.
 
-```
+This script assumes that you have retreived the `sender-ss.csv` data file to the same directory that you run this script from. Then, it will save an image as `sender-ss.png`.
+
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -305,16 +308,7 @@ fig.legend(loc='upper right', ncol=2);
 plt.savefig("sender-ss.png")
 ```
 
-If you are not familiar with any interative environment of Python that can display plots directly, you can use the Python terminal.
-
-On "romeo", install necessary packages by running:
-
-```
-sudo apt -y install python3-pip
-pip3 install pandas matplotlib
-```
-
-Next, open the Python terminal on "romeo" by running:
+If you prefer, you can generate this plot directly on the "romeo" host and then download it with `scp`. Open the Python terminal on "romeo" by running:
 
 ```
 python3
