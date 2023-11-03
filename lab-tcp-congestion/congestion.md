@@ -86,22 +86,23 @@ When the sender becomes aware of the dropped packet (because no ACK is received 
 
 ### Results
 
-In this experiment, we will send three TCP flows through a bottleneck link, and see the classic "sawtooth" pattern of the TCP congestion window, shown as the solid line in the plot below. The slow start threshold is shown as a dashed line, and instances of packet retransmission (due to lost packets) are shown as vertical bands:
+In this experiment, we will send three TCP flows through a bottleneck link, and see the classic "sawtooth" pattern of the TCP congestion window (blue line) and slow start threshold (orange line)
 
-![](/blog/content/images/2020/10/sender-ss-1.svg)
-<small><i>Figure 1: Congestion window size (solid line) and slow start threshold (dotted line) of three TCP flows sharing the same bottleneck.</i></small>
+![](sender-ss.png)
 
+<small><i>Figure 1: Congestion window size (blue line) and slow start threshold (orange line) of three TCP flows sharing the same bottleneck.</i></small>
 
-We can also identify
+We may also identify (if they occur in our experiment):
 
 * "Slow start" periods, where the congestion window increases rapidly.
 * "Congestion avoidance" periods (when the congestion window increases linearly from than the slow start threshold)
-* Instances where duplicate ACKs were received, if any. We are using [TCP Reno](http://intronetworks.cs.luc.edu/current/html/reno.html), which will enter "fast recovery" if it detects congestion by duplicate ACKs. The slow start threshold is set to half of the CWND at the time of the loss event, the new CWND is set to the slow start threshold, and the flow enters "congestion avoidance" mode.
-* Instances of ACK timeout, if any. This will cause the congestion window to go back to 1 MSS, and the flow enters "slow start" mode.
+* Instances where duplicate ACKs were received, if any. We are using TCP Reno, which will enter "fast recovery" if it detects congestion by duplicate ACKs. The slow start threshold is set to half of the CWND at the time of the loss event, the new CWND is set to the slow start threshold, and the flow enters "congestion avoidance" mode.
+* Instances of ACK timeout, if any. This will cause the congestion window to go back to a minimum value, and the flow enters "slow start" mode.
 
 For example, the following annotated image shows a short interval in one TCP flow:
 
-![](/blog/content/images/2017/04/tcp-one.svg)
+![](https://witestlab.poly.edu/blog/content/images/2017/04/tcp-one.svg)
+
 <small><i>Figure 2: Events in a TCP flow. Slow-start periods are marked in yellow; congestion avoidance periods are in purple. We can also see when indicators of congestion occur: instances of timeout (red), and instances where duplicate ACKs are received (blue) triggering fast recovery (green).</i></small>
 
 
@@ -285,11 +286,12 @@ df = pd.read_csv("sender-ss.csv", names=['time', 'sender', 'retx_unacked', 'retx
 # exclude the "control" flow
 s = df.groupby('sender').size()
 df_filtered = df[df.groupby("sender")['sender'].transform('size') > 100]
+start_time = 5
+cwnd_max = 1.1*df_filtered[df_filtered.time - time_min >=start_time].cwnd.max()
 
 senders = df_filtered.sender.unique()
 
 time_min = df_filtered.time.min()
-cwnd_max = 1.1*df_filtered[df_filtered.time - time_min >=2].cwnd.max()
 dfs = [df_filtered[df_filtered.sender==senders[i]] for i in range(3)]
 
 fig, axs = plt.subplots(len(senders), sharex=True, figsize=(12,8))
@@ -298,12 +300,14 @@ for i in range(len(senders)):
     if i==len(senders)-1:
         axs[i].plot(dfs[i]['time']-time_min, dfs[i]['cwnd'], label="cwnd")
         axs[i].plot(dfs[i]['time']-time_min, dfs[i]['ssthresh'], label="ssthresh")
-        axs[i].set_ylim([0,cwnd_max])
         axs[i].set_xlabel("Time (s)");
     else:
         axs[i].plot(dfs[i]['time']-time_min, dfs[i]['cwnd'])
         axs[i].plot(dfs[i]['time']-time_min, dfs[i]['ssthresh'])
-        axs[i].set_ylim([0,cwnd_max])
+    axs[i].title.set_text(senders[i])
+    axs[i].set_ylim([0,cwnd_max])
+    axs[i].set_ylabel("CWND (MSS)");
+    axs[i].set_xlim([start_time,60])
 
 
 plt.tight_layout();
@@ -330,7 +334,8 @@ and you should see that it generated an image file named `sender-ss.png`. Transf
 The results will look something like this:
 
 
-![](/blog/content/images/2020/10/sender-ss-2.svg)
+![](sender-ss.png)
+
 <small><i>Figure 1 (same as Figure 1 in Results section): Congestion window size (solid line) and slow start threshold (dotted line) of three TCP flows sharing the same bottleneck.</i></small>
 
 At the beginning of each flow, it operates in slow start mode, where the congestion window increases exponentially. When a congestion event occurs, as indicated by the receipt of multiple duplicate ACKs, the slow start threshold is set to half of the current CWND, and then the CWND is reduces to the slow start threshold.
