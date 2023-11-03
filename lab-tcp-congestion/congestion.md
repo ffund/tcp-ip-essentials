@@ -336,17 +336,57 @@ The results will look something like this:
 
 ![](sender-ss.png)
 
-<small><i>Figure 1 (same as Figure 1 in Results section): Congestion window size (solid line) and slow start threshold (dotted line) of three TCP flows sharing the same bottleneck.</i></small>
+<small><i>Figure 1 (same as Figure 1 in Results section): Congestion window size (blue line) and slow start threshold (orange line) of three TCP flows sharing the same bottleneck.</i></small>
 
-At the beginning of each flow, it operates in slow start mode, where the congestion window increases exponentially. When a congestion event occurs, as indicated by the receipt of multiple duplicate ACKs, the slow start threshold is set to half of the current CWND, and then the CWND is reduces to the slow start threshold.
+Note that this visualization omits the first few second of each flow. Because the scale of the CWND in the initial slow start phase can grow so much bigger than the CWND during the congestion avoidance phase, it's not very practical to visualize them both on the same plot. We'll look at the initial slow start phase separately. 
+
+Here's a Python script to visualize the first few second of the experiment - it will create a file `sender-ss-start.png`:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("sender-ss.csv", names=['time', 'sender', 'retx_unacked', 'retx_cum', 'cwnd', 'ssthresh'])
+
+# exclude the "control" flow
+s = df.groupby('sender').size()
+df_filtered = df[df.groupby("sender")['sender'].transform('size') > 100]
+
+senders = df_filtered.sender.unique()
+
+time_min = df_filtered.time.min()
+dfs = [df_filtered[df_filtered.sender==senders[i]] for i in range(3)]
+
+fig, axs = plt.subplots(len(senders), sharex=True, figsize=(12,8))
+fig.suptitle('CWND over time')
+for i in range(len(senders)):
+    if i==len(senders)-1:
+        axs[i].plot(dfs[i]['time']-time_min, dfs[i]['cwnd'], label="cwnd")
+        axs[i].plot(dfs[i]['time']-time_min, dfs[i]['ssthresh'], label="ssthresh")
+        axs[i].set_xlabel("Time (s)");
+    else:
+        axs[i].plot(dfs[i]['time']-time_min, dfs[i]['cwnd'])
+        axs[i].plot(dfs[i]['time']-time_min, dfs[i]['ssthresh'])
+    axs[i].title.set_text(senders[i])
+    axs[i].set_ylabel("CWND (MSS)");
+    axs[i].set_xlim([0, 5])
+
+
+plt.tight_layout();
+fig.legend(loc='upper right', ncol=2);
+plt.savefig("sender-ss-start.png")
+```
+
+Note the *very* large range of the vertical axis in this plot!
+
+Considering both plots, we can now begin to understand the CWND behavior of the TCP flow. At the beginning of each flow, it operates in slow start mode, where the congestion window increases exponentially. When a congestion event occurs, as indicated by the receipt of multiple duplicate ACKs, the slow start threshold is set to half of the current CWND, and then the CWND is reduces to the slow start threshold.
 
 We'll often see packet losses occur at the same time in multiple flows sharing a bottleneck (as in the figure above), because when the buffer is full, new packets arriving from all flows are dropped.
 
-Note that sometimes the CWND grows very large in slow start, so the plot will be truncated for readability. But you can still see the CWND's exponential growth within a relatively short period of slow start.
 
-**Lab report**: Create a plot of the congestion window size and slow start threshold for each TCP flow over the duration of the experiment, similar to Figure 1 in the [Results](#results) section.
+**Lab report**: Create a plot of the congestion window size and slow start threshold for each TCP flow over the duration of the experiment, similar to Figure 1 in the [Results](#results) section. Also create a similar plot of the first few seconds of the experiment.
 
-Annotate your plot, similar to Figure 2 in the [Results](#results) section, to show:
+For *one* flow, annotate both plots, similar to Figure 2 in the [Results](#results) section, to show:
 
 * Periods of "Slow Start" 
 * Periods of "Congestion Avoidance"
@@ -354,7 +394,6 @@ Annotate your plot, similar to Figure 2 in the [Results](#results) section, to s
 * Instances of timeout (if any)
 
 Using your plot and/or experiment data, explain how the behavior of TCP is different in the "Slow Start" and "Congestion Avoidance" phases. Also, using your plot, explain what happens to both the congestion window and the slow start threshold when multiple duplicate ACKs are received.
-
 
 
 ### Additional exercises: other congestion control algorithms
@@ -483,17 +522,15 @@ ECN involves both layer 2 and layer 3, and it requires support from both transpo
 We will use ECN together with active queue management, which monitors the queuing delay. At the router, configure a queue in both directions that will mark packets when the queuing delay exceeds 10ms:
 
 ```
-iface_0=$(ip route get 10.10.1.100 | grep -oP "(?<=dev )[^ ]+")
-sudo tc qdisc del dev $iface_0 root  
-sudo tc qdisc add dev $iface_0 root handle 1: htb default 3  
-sudo tc class add dev $iface_0 parent 1: classid 1:3 htb rate 1Mbit  
-sudo tc qdisc add dev $iface_0 parent 1:3 handle 3:  codel limit 100 target 10ms ecn
+sudo tc qdisc del dev eth1 root  
+sudo tc qdisc add dev eth1 root handle 1: htb default 3  
+sudo tc class add dev eth1 parent 1: classid 1:3 htb rate 1Mbit  
+sudo tc qdisc add dev eth1 parent 1:3 handle 3:  codel limit 100 target 10ms ecn
 
-iface_1=$(ip route get 10.10.2.100 | grep -oP "(?<=dev )[^ ]+")
-sudo tc qdisc del dev $iface_1 root  
-sudo tc qdisc add dev $iface_1 root handle 1: htb default 3  
-sudo tc class add dev $iface_1 parent 1: classid 1:3 htb rate 1Mbit  
-sudo tc qdisc add dev $iface_1 parent 1:3 handle 3:  codel limit 100 target 10ms ecn
+sudo tc qdisc del dev eth2 root  
+sudo tc qdisc add dev eth2 root handle 1: htb default 3  
+sudo tc class add dev eth2 parent 1: classid 1:3 htb rate 1Mbit  
+sudo tc qdisc add dev eth2 parent 1:3 handle 3:  codel limit 100 target 10ms ecn
 ```
 
 
