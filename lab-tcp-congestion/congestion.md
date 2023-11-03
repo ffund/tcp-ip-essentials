@@ -544,7 +544,7 @@ sudo sysctl -w net.ipv4.tcp_ecn=1
 Next, we'll prepare to capture the TCP flow. On both end hosts, romeo *and* juliet, run:
 
 ```
-sudo tcpdump -s 80 -i $(ip route get 10.10.1.1 | grep -oP "(?<=dev )[^ ]+") 'tcp' -w $(hostname -s)-tcp-ecn.pcap
+sudo tcpdump -s 80 -i eth1 'tcp' -w $(hostname -s)-tcp-ecn.pcap
 ```
 
 ECN uses two flags in the TCP header: the ECN Echo (ECE) flag, and the Congestion Window Reduced (CWR) flag. It also uses two ECN bits in the DiffServ field of the IP header. Here is how these header fields are used:
