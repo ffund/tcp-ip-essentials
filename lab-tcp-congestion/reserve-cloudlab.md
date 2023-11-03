@@ -11,7 +11,7 @@ each with a netmask of 255.255.255.0.
 
 To reserve these resources on Cloudlab, open this profile page:
 
-https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/line_tso_off
+[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/line_tso_off](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/line_tso_off)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (This experiment is compatible with any of the Cloudlab clusters.) Then click "next", and "finish".
 
