@@ -287,11 +287,11 @@ df = pd.read_csv("sender-ss.csv", names=['time', 'sender', 'retx_unacked', 'retx
 s = df.groupby('sender').size()
 df_filtered = df[df.groupby("sender")['sender'].transform('size') > 100]
 start_time = 5
+time_min = df_filtered.time.min()
 cwnd_max = 1.1*df_filtered[df_filtered.time - time_min >=start_time].cwnd.max()
 
 senders = df_filtered.sender.unique()
 
-time_min = df_filtered.time.min()
 dfs = [df_filtered[df_filtered.sender==senders[i]] for i in range(3)]
 
 fig, axs = plt.subplots(len(senders), sharex=True, figsize=(12,8))
