@@ -4,7 +4,8 @@ First, you will reserve a topology that includes a bridge with four ports, and o
 
 To reserve resources on Cloudlab, open this profile page:
 
-https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/learning_switch_22
+[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/multicast_pim_20](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/multicast_pim_20
+)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (This experiment is compatible with any of the Cloudlab clusters.) Then click "next", and "finish".
 
