@@ -12,7 +12,7 @@ with netmask 255.255.255.0.
 
 To reserve resources on Cloudlab, open this profile page:
 
-[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/multicast_basic_22](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/multicast_basic_22)
+[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/multicast_basic_20](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/multicast_basic_20)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (This experiment is compatible with any of the Cloudlab clusters.) Then click "next", and "finish".
 
