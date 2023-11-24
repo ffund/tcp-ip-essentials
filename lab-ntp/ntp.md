@@ -59,7 +59,9 @@ man ntpdate
 
 to see the manual page for this utility, and study its options and usages.
 
-You are going to use `ntpdate` on one of your clients to query a pool of NTP servers on the Internet. The following `tcpdump` command uses command substitution to fill in the name of the network interface that is used to reach the Internet, and then use `tcpdump` to capture NTP traffic on that interface - 
+You are going to use `ntpdate` on one of your clients to query a pool of NTP servers on the Internet. First, use the `date` command to create an offset of a few seconds on the client. 
+
+Then, start a `tcpdump`. The following `tcpdump` command uses command substitution to fill in the name of the network interface that is used to reach the Internet, and then use `tcpdump` to capture NTP traffic on that interface - 
 
 ```
 sudo tcpdump -i $(ip route get 8.8.8.8 | grep -oP "(?<=dev )[^ ]+") 'udp port 123' -w ntp-$(hostname -s).pcap
