@@ -59,20 +59,13 @@ man ntpdate
 
 to see the manual page for this utility, and study its options and usages.
 
-You are going to use `ntpdate` on one of your clients to query a pool of NTP servers on the Internet. Identify the name of the network interface that is used to reach the Internet, and use `tcpdump` to capture NTP traffic on that interface - 
-
-If you are still using the resources from the "Basic home gateway services: DHCP, DNS, NAT", the client nodes are configured to reach the Internet via the gateway using `eth1`, so run:
+You are going to use `ntpdate` on one of your clients to query a pool of NTP servers on the Internet. The following `tcpdump` command uses command substitution to fill in the name of the network interface that is used to reach the Internet, and then use `tcpdump` to capture NTP traffic on that interface - 
 
 ```
-sudo tcpdump -i eth1 'udp port 123' -w ntp-$(hostname -s).pcap
-```
-If you are using a "new" resource that connects to the Internet via `eth0`, run:
-
-```
-sudo tcpdump -i eth0 'udp port 123' -w ntp-$(hostname -s).pcap
+sudo tcpdump -i $(ip route get 8.8.8.8 | grep -oP "(?<=dev )[^ ]+") 'udp port 123' -w ntp-$(hostname -s).pcap
 ```
 
-to capture NTP traffic from the experiment network.
+to capture NTP traffic.
 
 Then, while `tcpdump` is running, open another SSH session to the same client node, and run
 
