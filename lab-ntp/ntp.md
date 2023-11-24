@@ -120,7 +120,7 @@ sudo service ntp stop
 
 to stop the `ntp` service, if it is running.
 
-Find the time offset between the two hosts (from the output of the `timedatectl` command). If there is no time offset, use the `date` command (as in Exercise 6) to adjust the system time of one of the hosts by a few seconds, so that there is a small offset. For example, you can shift the clock on one client with:
+Find the time offset between the two hosts (from the output of the `timedatectl` command). If there is no time offset, use the `date` command (as in a previous exercise) to adjust the system time of one of the hosts by a few seconds, so that there is a small offset. For example, you can shift the clock on one client with:
 
 ```
 sudo date --set='+3 seconds'
