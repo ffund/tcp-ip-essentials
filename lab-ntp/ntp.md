@@ -2,7 +2,7 @@
 
 For this experiment, you will need two hosts on a LAN.
 
-* If you still have access to resources from the "Basic home gateway services: DHCP, DNS, NAT" experiment, AND they are still configured as decribed there (including NAT), you can use the two client nodes from that topology.
+* If you still have access to resources from the "Basic home gateway services: DHCP, DNS, NAT" experiment, AND they are still configured as described there (including NAT), you can use the two client nodes from that topology.
 * Alternatively, if you have lost access to those resources, reserve two nodes for this experiment using the following profile: [https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/one_seg_two_hosts](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/one_seg_two_hosts)
 
 
