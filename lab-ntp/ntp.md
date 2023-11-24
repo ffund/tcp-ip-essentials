@@ -23,7 +23,6 @@ date
 date --date='2 days ago'
 date --date='3 months 2 days' 
 sudo date --set='+1 seconds'
-date -r /tmp/date.txt
 ```
 
 ### Exercise: using NTP to find time offset
