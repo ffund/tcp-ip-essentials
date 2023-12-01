@@ -30,7 +30,7 @@ again to display the filter table. Save the output.
 On "romeo", run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w iptables-drop-$(hostname -s).pcap
+sudo tcpdump -i eth1 -w iptables-drop-$(hostname -s).pcap
 ```
 
 to capture traffic between "romeo" and "server". While this is running, initiate a `telnet` connection from "romeo" to "server" - on "romeo", run
@@ -71,7 +71,7 @@ to display the filter table. Save the output.
 On "romeo", run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w iptables-reset-$(hostname -s).pcap
+sudo tcpdump -i eth1 -w iptables-reset-$(hostname -s).pcap
 ```
 
 to capture traffic between "server" and "romeo". While this is running, initiate a `telnet` connection from "romeo" to "server" - on "romeo", run
