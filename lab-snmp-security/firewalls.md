@@ -30,7 +30,7 @@ again to display the filter table. Save the output.
 On "romeo", run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w iptables-drop-$(hostname -s).pcap
+sudo tcpdump -i eth1 -w iptables-drop-$(hostname -s).pcap
 ```
 
 to capture traffic between "romeo" and "server". While this is running, initiate a `telnet` connection from "romeo" to "server" - on "romeo", run
@@ -41,6 +41,11 @@ telnet server
 
 Wait until your `telnet` process terminates (this may take some time), then stop the `tcpdump` and transfer the packet capture to your laptop with `scp`.
 
+You can also "play back" the packet capture with
+
+```
+tcpdump -nv -r iptables-drop-$(hostname -s).pcap
+```
 
 **Lab report**: Can you `telnet` to the host from the remote machine? Explain.
 
@@ -71,7 +76,7 @@ to display the filter table. Save the output.
 On "romeo", run
 
 ```
-sudo tcpdump -i EXPIFACE1 -w iptables-reset-$(hostname -s).pcap
+sudo tcpdump -i eth1 -w iptables-reset-$(hostname -s).pcap
 ```
 
 to capture traffic between "server" and "romeo". While this is running, initiate a `telnet` connection from "romeo" to "server" - on "romeo", run
@@ -82,5 +87,10 @@ telnet server
 
 Wait until your `telnet` process terminates, then stop the `tcpdump` and transfer the packet capture to your laptop with `scp`.
 
+You can also "play back" the packet capture with 
+
+```
+tcpdump -nv -r iptables-reset-$(hostname -s).pcap
+```
 
 **Lab report**: Explain the different between the `tcpdump` output in this exercise and the previous exercise.
