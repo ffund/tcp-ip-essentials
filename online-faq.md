@@ -230,10 +230,11 @@ A regrade request should be submitted within **3 days** of the grade release.
 
 ### How is the overall lab grade computed? Are any lab grades dropped?
 
-There are a total of 11 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
+**Section O**:  There are a total of 11 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
 
 Sum of 9 highest lab grades + (1/2) 2nd-lowest lab grade + (1/2) lowest lab grade - (1/2) excess lateness hours (beyond 48 "free" hours)
 
+**Section A**: There are a total of 9 lab assignments, each worth 10 points. Your overall lab grade will be computed as: 10 x Average lab score - (1/2) excess lateness hours (beyond 48 "free" hours)
 
 
 ## Other important policies
