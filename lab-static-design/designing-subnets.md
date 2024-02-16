@@ -60,11 +60,11 @@ Now we are ready to begin allocating addresses to subnets. First, we'll convert 
 ```
 
 It's usually easier to begin by allocating the largest subnet first, so we will start with LAN C.
-We've already determined the subnet mask (255.255.255.128) for LAN C. Now, we check if the network address for the beginning of the range (10.1.24.0) is a valid address for this subject: compute the network address AND the subnet mask, and make sure we get the network address as the result. 
+We've already determined the subnet mask (255.255.255.128) for LAN C. Now, we check if the network address for the beginning of the range (10.1.24.0) is a valid address for this subnet: compute the network address AND the subnet mask, and make sure we get the network address as the result. 
 
 ```
 00001010.00000001.00011000.00000000  
-11111111.11111111.11111111.11110000  
+11111111.11111111.11111111.10000000  
 -----------------------------------
 00001010.00000001.00011000.00000000  
 ```
@@ -87,13 +87,24 @@ The highest IP address that can be assigned to a host in the network is 10.1.24.
 
 Next, we'll turn our attention to the second-largest LAN. In this case, LAN A and LAN B are the same size (both use the same subnet mask, 255.255.255.240), so we can assign either one next. I'll go with LAN B next. 
 
-We've already used up some of our IP address space on LAN C: 10.1.24.0-10.1.24.127 is going to be reserved for LAN C. So we are now left with the range 10.1.24.128-10.1.24.255 to work with. The address at the lower end of this range, 10.1.24.128, will be the network address for the next subnet, LAN B. In binary, this is:
+We've already determined that the subnet mask for LAN B should be 255.255.255.240.
+
+We've already used up some of our IP address space on LAN C: 10.1.24.0-10.1.24.127 is going to be reserved for LAN C. So we are now left with the range 10.1.24.128-10.1.24.255 to work with. The address at the lower end of this range, 10.1.24.128, could be the network address for the next subnet, LAN B. In binary, this is:
 
 ```
 00001010.00000001.00011000.10000000  
 ```
 
-We've already determined that the subnet mask for LAN B should be 255.255.255.240. Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
+As before, we will compute the network address AND the broadcast mask, and make sure we get the network address as a result - if we do, then it is a valid network address for this subnet mask.
+
+```
+00001010.00000001.00011000.10000000  
+11111111.11111111.11111111.11110000
+-----------------------------------
+00001010.00000001.00011000.10000000  
+```
+
+Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
 
 ```
 00001010.00000001.00011000.10000000  
@@ -104,14 +115,23 @@ We've already determined that the subnet mask for LAN B should be 255.255.255.24
 
 or 10.1.24.143 in dotted decimal notation. The highest IP address that can be assigned to a host in the network is 10.1.24.142 (1 less than the broadcast address). The smallest IP address that can be assigned to a host in the network is 10.1.24.129 (1 more than the network address). The range of usable addresses in this subnet is therefore 10.1.24.129-10.1.24.142.
 
-Last, we will allocate addresses for LAN A. We've used up the lower part of our allocated address space, through 10.1.24.143, on LAN C and LAN B. so we are now left with the range 10.1.24.144-10.1.24.255 to work with. The address at the lower end of this range 10.1.24.144, will be the network address for the next subnet, LAN A. In binary, this is:
+Last, we will allocate addresses for LAN A. We've used up the lower part of our allocated address space, through 10.1.24.143, on LAN C and LAN B. so we are now left with the range 10.1.24.144-10.1.24.255 to work with. The address at the lower end of this range 10.1.24.144, could be the network address for the next subnet, LAN A. In binary, this is:
 
 
 ```
 00001010.00000001.00011000.10010000  
 ```
 
-We've already determined that the subnet mask for LAN A should be 255.255.255.240. Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
+We've already determined that the subnet mask for LAN A should be 255.255.255.240. We compute the network address AND the broadcast mask, and make sure we get the network address as a result - if we do, then it is a valid network address for this subnet mask.
+
+```
+00001010.00000001.00011000.10010000  
+11111111.11111111.11111111.11110000
+-----------------------------------
+00001010.00000001.00011000.10010000  
+```
+
+Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
 
 
 ```
