@@ -59,9 +59,19 @@ Now we are ready to begin allocating addresses to subnets. First, we'll convert 
 00001010.00000001.00011000.00000000  
 ```
 
-This will be the network address for the first subnet we allocate. It's usually easier to begin by allocating the largest subnet first, so we will start with LAN C.
+It's usually easier to begin by allocating the largest subnet first, so we will start with LAN C.
+We've already determined the subnet mask (255.255.255.128) for LAN C. Now, we check if the network address for the beginning of the range (10.1.24.0) is a valid address for this subject: compute the network address AND the subnet mask, and make sure we get the network address as the result. 
 
-We've already determined the network address (10.1.24.0) and the subnet mask (255.255.255.128) for LAN C. Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
+```
+00001010.00000001.00011000.00000000  
+11111111.11111111.11111111.11110000  
+-----------------------------------
+00001010.00000001.00011000.00000000  
+```
+
+Since it is a valid network address for the subnet, we can assign 10.1.24.0 as the network address for LAN C. 
+
+Next, we'll compute the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask:
 
 ```
 00001010.00000001.00011000.00000000  
