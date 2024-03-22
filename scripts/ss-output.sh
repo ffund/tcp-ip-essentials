@@ -22,8 +22,12 @@ cleanup ()
 	# get cwnd, ssthresh
 	cwn=$(cat sender-ss.txt |   sed -e ':a; /<->$/ { N; s/<->\n//; ba; }' | grep "ESTAB"    |  grep "unacked" | grep -oP '\bcwnd:.*(\s|$)\bbytes_acked' | awk -F '[: ]' '{print $2","$4}')
 
+	# get smoothed RTT (in ms)
+	srtt=$(cat sender-ss.txt |   sed -e ':a; /<->$/ { N; s/<->\n//; ba; }' | grep "ESTAB"  |  grep "unacked" | grep -oP '\brtt:[0-9]+\.[0-9]+'  | awk -F '[: ]' '{print $2}')
+
 	# concatenate into one CSV
-	paste -d ',' <(printf %s "$ts") <(printf %s "$sender") <(printf %s "$retr") <(printf %s "$cwn") > sender-ss.csv
+	paste -d ',' <(printf %s "$ts") <(printf %s "$sender") <(printf %s "$retr") <(printf %s "$cwn") <(printf %s "$srtt") > sender-ss.csv
+
 
 	exit 0
 }
