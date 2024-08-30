@@ -79,15 +79,26 @@ It may be helpful to use reference materials, such as the textbook, lab manual, 
 * If you write the answer in your own words, but used the reference material to help you arrive at the answer, you should cite the reference material (e.g. give the URL, of the name and page of the textbook).
 * If you use the exact words of the reference material, you should put the words in quotes (to show that you are using the exact words) and also cite the reference material (e.g. give the URL, of the name and page of the textbook).
 * If you use an outside reference to answer a question, make sure you answer the specific question that is asked, and only that! Students often earn a poor grade when quoting an outside reference (even with citation!) because they copied a lot of material that doesn't directly answer the question. This demonstrates a lack of understanding of the question and its answer. Make sure you write a clear and concise answer that directly answers the question.
-* AI assistants such as ChatGPT are *not* considered reference materials. You should not use text or information from these tools, even if you attribute the source, since they are not credible sources.
+* AI assistants such as ChatGPT are *not* considered reference materials. You should not use these tools, even if you attribute the source.
 
 You may have seen lab reports from previous semesters (either from friends, or online). You are not permitted to use these. We make updates and corrections to the lab procedure and questions every semester, so you shouldn't use previous lab reports even just to see what the answers should look like (for example - to see what parts of a screenshot to annotate), since these details often change from one semester to the next.
 
+#### Can I use AI assistance, like ChatGPT or similar tools, to help answer lab questions?
+
+Except for computer translation from English to another language (which is allowed), AI assistance is not permitted in this course. The sequence of assignments in this course is calibrated for human learners, to gradually learn the content by progressively building on what they have already mastered. If you use AI on unproctored assessments, like lab assignments, you will likely find yourself unprepared for the proctored exams where you are not allowed to use AI. 
+
+Instead of using an AI "tutor" (which often makes subtle mistakes, and won't emphasize the things that your instructor wants you to pay attention to), please use the human assistance that is provided for you in this course:
+
+* When you answer a question on PrairieLearn, scroll down to the "Correct Answer" panel and carefully read the explanation that is written by your instructor.
+* If you don't understand something in the lecture, lab, or homework, post a question on Ed to get an explanation from your instructor or a course assistant.
+* Or, visit an office hour on Zoom for a "live" Q&A with humans.
+
+
 #### If I violate the collaboration or academic integrity policies, what will happen?
 
-The specific penalty depends on the type of violation and whether or not it is the first violation. Please refer to Section D **Sanctions Available in Academic Misconduct Matters** in the [Student Code of Conduct](https://engineering.nyu.edu/student-life/student-activities/office-student-affairs/policies/code-conduct) for examples of potential penalties.
+The specific penalty depends on the type of violation and whether or not it is the first violation. For a first instance of an academic integrity policy, the consequence is a zero grade on the assignment. Please refer to the [Student Code of Conduct](https://engineering.nyu.edu/student-life/student-activities/office-student-affairs/policies/code-conduct) for more information.
 
-Note that in order to deter violations, the consequence for submitting work that is in violation of these policies is designed to be much *worse* than submitting nothing! For example: a student who submits a friend's screenshot for one question on a lab assignment will get a zero grade for the entire assignment, not only for that question. (The friend who shared the screenshot will also get a zero grade, since sharing screenshots or data is a violation of the collaboration policy.)
+Note that in order to deter violations, the consequence for submitting work that is in violation of these policies is designed to be much *worse* than submitting nothing! For example: a student who submits a friend's screenshot for one question on a lab assignment will get a zero grade for the **entire** assignment, not only for that question. (The friend who shared the screenshot will also get a zero grade, since sharing screenshots or data is a violation of the collaboration policy.)
 
 ## Submitting lab work
 
@@ -230,11 +241,9 @@ A regrade request should be submitted within **3 days** of the grade release.
 
 ### How is the overall lab grade computed? Are any lab grades dropped?
 
-**Section O**:  There are a total of 11 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
+There are a total of 11 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
 
 Sum of 9 highest lab grades + (1/2) 2nd-lowest lab grade + (1/2) lowest lab grade - (1/2) excess lateness hours (beyond 48 "free" hours)
-
-**Section A**: There are a total of 9 lab assignments, each worth 10 points. Your overall lab grade will be computed as: 10 x Average lab score - (1/2) excess lateness hours (beyond 48 "free" hours)
 
 
 ## Other important policies
@@ -249,5 +258,4 @@ If you are student with a disability who is requesting accommodations, please co
 
 #### Illness or other exceptional situation
 
-If you are experiencing an illness or any other situation that might affect your academic performance in a class, please email the student advocate: eng.studentadvocate@nyu.edu . The student advocate can reach out to your instructors on your behalf when warranted.
-
+If you are experiencing an illness or any other situation that might affect your academic performance in a class, please contact the student advocate, who can reach out to your instructors on your behalf when warranted. For an excused absence (including extended deadlines on an assignment during your absence), please complete the [form on the student advocate's website](https://engineering.nyu.edu/life-tandon/student-life/student-advocacy#chapter-id-30199).
