@@ -85,11 +85,13 @@ It may be helpful to use reference materials, such as the textbook, lab manual, 
 
 You may have seen lab reports from previous semesters (either from friends, or online). You are not permitted to use these. We make updates and corrections to the lab procedure and questions every semester, so you shouldn't use previous lab reports even just to see what the answers should look like (for example - to see what parts of a screenshot to annotate), since these details often change from one semester to the next.
 
-#### Can I use AI assistance, like ChatGPT or similar tools, to help answer lab questions?
+#### Can I use AI assistance, like ChatGPT or similar tools, to help answer lab questions or to study the lab materials?
 
-Except for computer translation from English to another language (which is allowed), AI assistance is not permitted in this course. The sequence of assignments in this course is calibrated for human learners, to gradually learn the content by progressively building on what they have already mastered. If you use AI on unproctored assessments, like lab assignments, you will likely find yourself unprepared for the proctored exams where you are not allowed to use AI. 
+Except for computer translation from English to another language (which is allowed), AI assistance is not permitted in this course. The sequence of assignments in this course is calibrated for human learners, to gradually learn the content by progressively building on what they have already mastered. If you use AI on unproctored assessments, like lab assignments, you will likely find yourself unprepared for the proctored exams where you are not allowed to use AI. More importantly, relying on AI prevents you from developing the fluency in these concepts that will help you in your future careers.
 
-Instead of using an AI "tutor" (which often makes subtle mistakes, and won't emphasize the things that your instructor wants you to pay attention to), please use the human assistance that is provided for you in this course:
+What about using an AI assistant just to study? We don’t recommend it. Large language models often produce answers that sound convincing but are imprecise or subtly incorrect. They also lack the context of the course, so they may emphasize points differently than your instructor intends. This can create a false sense of mastery while leaving gaps in your understanding — gaps that show up later in exams or when you need to apply the material.
+
+Instead of turning to AI, make the most of the human-centered support built into this course:
 
 * When you answer a question on PrairieLearn, scroll down to the "Correct Answer" panel and carefully read the explanation that is written by your instructor.
 * If you don't understand something in the lecture, lab, or homework, post a question on Ed to get an explanation from your instructor or a course assistant.
