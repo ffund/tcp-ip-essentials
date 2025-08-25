@@ -50,7 +50,7 @@ If you find that you are spending much more than 3-4 hours per week on the lab, 
 
 ## Collaboration/academic integrity
 
-#### Can I ask for help with the lab assignment or with the answers to the lab report questions on Gradescope?
+#### Can I get help with the lab assignment or with the answers to the lab report questions on Gradescope?
 
 You can ask for help on our course Q&A site or during Zoom office hours. When you ask questions on the Q&A site, other students who have a similar problem will also benefit from the answer!
 
@@ -59,6 +59,8 @@ It's OK for your questions to include screenshots or data from your own lab expe
 You are not allowed to ask for help on Chegg, CourseHero, private messages or group messages with other students, or in other online forums. 
 
 Your answers to the lab report questions on Gradescope should be in your own words. You are *not* allowed to use ChatGPT, other AI tools, or human assistance to help you write answers. You *are* allowed to use Google Translate or other machine translation tools to write your answers in another language and then translate them to English.
+
+The lab report is intended to capture your personal reflections and understanding based on your own observations during the hands-on lab assignments. Asking ChatGPT or similar tools to produce responses for you defeats the purpose of the exercise and will not help you develop the skills these assignments are designed to build.
 
 #### Can I work on the lab assignment together with another student?
 
