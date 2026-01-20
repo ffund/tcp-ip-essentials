@@ -196,7 +196,7 @@ If you need extra time on an assignment (beyond the "48 free late hours") becaus
 
 The student advocate will reach out to your professors directly to recommend excused absences or extended deadlines, so you do not need to share any details of your personal circumstance with me.
 
-## Grading
+## Grading and regrading
 
 ### How are the lab assignments scored? 
 
@@ -210,6 +210,13 @@ After the grades are released, you'll be able to see exactly which rubric items 
 #### How will I review my work, once it is graded?
 
 After the grader is finished with a lab assignment, it will be re-opened for review. You will see a Feedback panel in each question with a list of rubric items that were applied to your submission, and you can get more information about each rubric item.
+
+#### What should I do if I think my work was graded incorrectly?
+
+Once the assignment is graded, you should carefully review it. If you spot a grading error, please make a private post on Ed explaning the issue, and the course staff will review it.
+
+Regrade requests are only accepted **up to 3 days** after an assignment is graded and re-opened for review.
+
 
 ### How is the overall lab grade computed? Are any lab grades dropped?
 
