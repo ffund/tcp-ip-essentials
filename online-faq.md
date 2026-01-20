@@ -43,22 +43,22 @@ In the online lab, you'll run exactly the same experiments that students used to
 * if you have previous experience with network protocols and the Linux networking utilities, you will probably not need the full 3-4 hours each week. 
 * if you are not as comfortable with network protocols and the Linux networking utilities, or if you attempt the lab before you have fully internalized the relevant lecture content, you may need more than the 3-4 hours usually allotted to complete the experiment.
 
-Also note that this does not necessarily include time to prepare for the lab (by reviewing the instructions and the relevant book chapter in advance) and the time to analyze results and answer the questions in Gradescope.
+Also note that this does not necessarily include time to prepare for the lab (by reviewing the instructions and the relevant book chapter in advance) and the time to analyze results and answer the questions for the lab submission.
 
 If you find that you are spending much more than 3-4 hours per week on the lab, please reach out to the lab instructor to ask for help (via Zoom office hours or the Q&A site)! We can discuss the situation to find out what is taking so long, and help you make any necessary adjustments. (Don't wait until the end of the semester - ask for help as soon as you notice the problem, so we can help you as quickly as possible.)
 
 
 ## Collaboration/academic integrity
 
-#### Can I get help with the lab assignment or with the answers to the lab report questions on Gradescope?
+#### Can I get help with the lab assignment or with the answers to the lab report questions?
 
 You can ask for help on our course Q&A site or during Zoom office hours. When you ask questions on the Q&A site, other students who have a similar problem will also benefit from the answer!
 
 It's OK for your questions to include screenshots or data from your own lab experiment, even though it will be visible to other students - you don't have to worry about "giving away an answer" to other students by including it in your question. (You are not allowed to send screenshots or data from the lab directly to another student, or share it on another forum - but you *are* allowed to include it in a question on the Q&A site.)
 
-You are not allowed to ask for help on Chegg, CourseHero, private messages or group messages with other students, or in other online forums. 
+Except for posting questions on Ed, you are not allowed to send or show your work from the lab to anyone else - not to ask questions, not to compare answers, not "for reference", not to help understand what the results should look like, not for any reason. If another student submits *your* work, both you and that other student will get a zero on the entire assignment.
 
-Your answers to the lab report questions on Gradescope should be in your own words. You are *not* allowed to use ChatGPT, other AI tools, or human assistance to help you write answers. You *are* allowed to use Google Translate or other machine translation tools to write your answers in another language and then translate them to English.
+Your answers to the lab report questions should be in your own words. You are *not* allowed to use ChatGPT, other AI tools, or human assistance to help you write answers. You *are* allowed to use Google Translate or other machine translation tools to write your answers in another language and then translate them to English.
 
 The lab report is intended to capture your personal reflections and understanding based on your own observations during the hands-on lab assignments. Asking ChatGPT or similar tools to produce responses for you defeats the purpose of the exercise and will not help you develop the skills these assignments are designed to build.
 
@@ -68,11 +68,11 @@ You can work on the lab assignment at the same time as another student, and disc
 
 * You must set up your own resources on the testbed and run the lab exercise yourself - you are not allowed to use another student's account or resources in another student's testbed "slice". Also, you aren't allowed to type commands into another student's terminal. 
 * You must submit data and screenshots from your own execution of the lab - you are not allowed to submit another student's data. Also, you must annotate screenshots etc. yourself - you are not allowed to ask another student to do it for you. You are not allowed to send your data or screenshots to another student.
-* You must answer the questions in Gradescope yourself. You are not allowed to share the answers with another student.
+* You must answer the questions in the lab report yourself. You are not allowed to share the answers with another student.
 
 #### Can I share screenshots, data, or answers with another student, but just for comparison or to improve our understanding?
 
-Only *after* the "late due date" for the assignment! Before the late due date, you can discuss your work and your results verbally, but you are not allowed to share your screenshots, data, or answers. 
+Not until *after* the "late due date" for the assignment (i.e., after more than 24 hours have passed since the assignment due date)! Before then, you can discuss your work and your results verbally, but you are not allowed to share your screenshots, data, or answers. 
 
 #### Can I use outside resources, such as reference materials or lab reports from previous semesters?
 
@@ -88,8 +88,6 @@ You may have seen lab reports from previous semesters (either from friends, or o
 #### Can I use AI assistance, like ChatGPT or similar tools, to help answer lab questions or to study the lab materials?
 
 Except for computer translation from English to another language (which is allowed), AI assistance is not permitted in this course. The sequence of assignments in this course is calibrated for human learners, to gradually learn the content by progressively building on what they have already mastered. If you use AI on unproctored assessments, like lab assignments, you will likely find yourself unprepared for the proctored exams where you are not allowed to use AI. More importantly, relying on AI prevents you from developing the fluency in these concepts that will help you in your future careers.
-
-What about using an AI assistant just to study? We don’t recommend it. Large language models often produce answers that sound convincing but are imprecise or subtly incorrect. They also lack the context of the course, so they may emphasize points differently than your instructor intends. This can create a false sense of mastery while leaving gaps in your understanding — gaps that show up later in exams or when you need to apply the material.
 
 Instead of turning to AI, make the most of the human-centered support built into this course:
 
@@ -108,46 +106,39 @@ Note that in order to deter violations, the consequence for submitting work that
 
 #### What do I need to submit after each lab exercise? Do I need to write a report?
 
-As your work on each lab exercise, you'll answer some short questions by filling in your answers in an online form in Gradescope. 
+As your work on each lab exercise, you'll answer some short questions by filling in your answers in an online form in PrairieLearn. 
 
-Some of the questions will ask you to upload a screenshot of parts of the lab exercise. Many questions will ask you to annotate your screenshots to indicate certain relevant parts, to show that you understand how to use and interpret the data you collect in the lab. Other questions will ask you to explain or comment on your screenshots or data.
+Some of the questions will ask you to copy/paste some terminal output, or to upload a screenshot from Wireshark. Many questions will ask you to annotate parts of your copy/pasted output (e.g. by making specific values bold) or your screenshots (e.g. by drawing a box around some parts) to show that you understand how to use and interpret the data you collect in the lab. Other questions will ask you to explain or comment on your screenshots or data.
 
-You will not have to write a traditional "lab report" explaining lab procedure etc. You *only* have to answer the specific questions that are asked in Gradescope.
+You will not have to write a traditional "lab report" explaining lab procedure etc. You *only* have to answer the specific questions that are asked in PrairieLearn.
 
 
 #### Where will I submit my lab work?
 
-You will submit all your work on Gradescope. To open Gradescope from Brightspace, click on Content, then Course Tools, then Gradescope.
+You will submit all your work on PrairieLearn. To open PrairieLearn from Brightspace, click on Content, then Course Tools, then PrairieLearn.
 
-#### How do I join this course on Gradescope?
+#### How do I join this course on PrairieLearn?
 
-In Brightspace, click on Content, then Course Tools, then Gradescope setup instructions. Follow the instructions there to join the course on Gradescope.
+In Brightspace, click on Content, then Course Tools, then PrairieLearn setup instructions. Follow the instructions there to join the course on PrairieLearn.
 
-#### How do I write answers in Gradescope?
-
-Here's a brief tutorial to show you how Gradescope works:
-
-<iframe width="480" height="270" src="https://www.youtube.com/embed/j_kha2UkeMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-#### What kind of questions will I have to answer in Gradescope?
+#### What kind of questions will I have to answer in PrairieLearn?
 
 The types of questions include:
 
+* Copy/paste part of your terminal output, and make specific values bold, underlined, or highlighted
 * Multiple choice and multiple select options
-* Short answer (e.g. a word or phrase, or a number). These are graded automatically, so if the instructions specify what type of answer you should give (e.g. number of seconds as an integer value), please follow those instructions carefully and don't add any extra text!
+* Short answer (e.g. a word or phrase, or a number)
 * Written explanation. Make sure to answer the *specific question* that is asked. Often, the prompt will include multiple specific questions and you should make sure to address each of them in your answer for full credit. Also, do not include information that is *not* directly relevant to answering the question.
-* File upload or annotated file upload. You will often have to submit a screenshot showing part of your lab configuration, or the output of a command, for example. As you work on the lab, review the questions in Gradescope and make sure you capture everything that you'll need to submit. It's also important that if your screenshot shows an entire window with a lot of content on it, you should crop your screenshot to only show the part(s) that answer the question before you submit it.
+* File upload or annotated file upload. 
+
+As you work on the lab, follow along with the questions in PrairieLearn and make sure you capture everything that you'll need to submit.
 
 #### What types of files should I upload for file upload questions?
 
-Although Gradescope will allow you to upload many different types of files, the grader may not be able to read some of them. For file upload questions, please use one of the following formats *only*:
+For image upload questions, you will have to upload a PNG image.
 
-* PNG image (preferred)
-* JPG image
-* PDF
 
-After uploading a file and saving your submission in Gradescope, make sure it is visible and that any text or annotations in the image are readable within Gradescope.
+After uploading a file and saving your submission in PrairieLearn, make sure it is visible and that any text or annotations in the image are readable within PrairieLearn.
 
 Do *not* upload:
 
@@ -155,40 +146,30 @@ Do *not* upload:
 * DOC or DOCX files
 * Other image formats
 
-
 ## Submission deadlines
 
 
-#### Why are there two due dates for each assignment in Gradescope?
+#### Can I make corrections or re-save my work after I submit an answer to a lab report question in PrairieLearn?
 
+Yes, you can make corrections and save them as many times as you want until the due date. 
 
-Each assignment has two due dates in Gradescope - a regular due date and a "late" due date.
+#### What if I am not able to submit an assignment before the deadline?
 
-* Your work is due by the regular due date.
-* If you submit work or update your submission between the regular due date and the late due date, it counts as "LATE". Please refer to the next question for more information on "LATE" penalties.
-* Once the late due date passes, Gradescope will close submissions and you will not be able to submit your work for that assignment. No new submissions or changes are accepted after the "late" due date.
+Under "Course Tools", there is a link to a "Late Pass Request Form". You can use this form to request a 24-hour extension *once* during the semester.
 
-#### Can I make corrections or resubmit my work after I submit a lab report in Gradescope?
+Once I receive the form submission, I will (within a reasonable time interval, during business hours) update the settings in PrairieLearn so that you will be able to update your submission up to 24 hours after the due date. 
 
-Yes, you can make corrections and resubmit as many times as you want until the *regular* due date. 
+This is meant to accommodate exceptional and unanticipated circumstances that prevent you from submitting your work before the regular due date.
 
-If you make changes after the regular due date (but before the *late* due date) then the submission will be considered "late". (See "What are the penalties for late submission?")
+If you need another late submission:
 
-#### What are the penalties for late submission?
+* The second time you submit the form, a 10% penalty will be applied to the grade for that lab assignment.
+* The third time, it comes with a 20% penalty.
+* The fourth time, it comes with a 30% penalty. 
 
-At the end of the semester, I will download your "Total Lateness" from Gradescope - this is the sum of all "late" time used across all lab assignments. 
+and after that, no further late submissions will be allowed.
 
-To accommodate exceptional and unanticipated circumstances that prevent you from submitting your work before the regular due date - for example, if you are sick - you have up to 48 *total* hours of "free" lateness. For example, if:
-
-* your Lab 3 submission is 12 hours late, because your home Internet access broke just before the deadline, and you had to submit your work the next morning, on campus,
-* your Lab 8 submission is 35 hours late, because you finished most of the assignment early, but then had a migraine headache before you could finish the rest,
-* and the rest of your work is submitted on time,
-
-then there is no penalty, because the "Total Lateness" across all assignments is only 47 hours, and hasn't exceeded the "free" amount (48 hours). (You don't have to ask permission, and you don't have to let me know why your submission was late.)
-
-There is a penalty off your overall lab grade of 0.5 point/hour after 48 hours. For example, if you earn a perfect score on every lab assignment but each assignment was submitted 10 hours late, you would have 77 hours of "Total Lateness" across the entire semester, and your lab score will be 100-(1/2)62 = 69.
-
-(In case of excessive lateness, a lab assignment score computed as described above could become negative. For example: if you would have earned 5/10 points on an assignment but it assignment was submitted 20 hours late and you have already used all of your "free" late hours. If an assignment score becomes negative due to lateness, it will be set to zero instead.)
+(If you have a long-term illness or other condition due to which you frequently need deadline extensions, you should contact the Moses Center about disability accommodations.)
 
 #### Do you have any tips for avoiding late submissions?
 
@@ -215,8 +196,7 @@ If you need extra time on an assignment (beyond the "48 free late hours") becaus
 
 The student advocate will reach out to your professors directly to recommend excused absences or extended deadlines, so you do not need to share any details of your personal circumstance with me.
 
-
-## Grading and regrading
+## Grading
 
 ### How are the lab assignments scored? 
 
@@ -229,25 +209,13 @@ After the grades are released, you'll be able to see exactly which rubric items 
 
 #### How will I review my work, once it is graded?
 
-You can review your graded work in Gradescope and see exactly why you lost points. Here's a video that shows how it works:
-
-<iframe width="480" height="270" src="https://www.youtube.com/embed/TOHCkI12mh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-#### What should I do if I think that my work was not graded correctly?
-
-Use the Regrade Request feature in Gradescope, which will automatically send a message to the TA or instructor that graded that specific question. Here's a video that shows how it works:
-
-<iframe width="480" height="270" src="https://www.youtube.com/embed/TOHCkI12mh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-A regrade request should be submitted within **3 days** of the grade release.
-
+After the grader is finished with a lab assignment, it will be re-opened for review. You will see a Feedback panel in each question with a list of rubric items that were applied to your submission, and you can get more information about each rubric item.
 
 ### How is the overall lab grade computed? Are any lab grades dropped?
 
 There are a total of 11 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
 
-Sum of 9 highest lab grades + (1/2) 2nd-lowest lab grade + (1/2) lowest lab grade - (1/2) excess lateness hours (beyond 48 "free" hours)
+Sum of 9 highest lab grades + (1/2) 2nd-lowest lab grade + (1/2) lowest lab grade
 
 
 ## Other important policies
