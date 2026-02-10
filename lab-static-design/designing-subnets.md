@@ -14,15 +14,9 @@ Your challenge is to design subnets for the three LANs, with the following desig
 * You may only use IP addresses in the available address space.
 * You must assign a large enough space to each LAN to support the expected number of hosts.
 
-Every student in the class will solve a slightly different version of this problem (different address space, and different number of hosts in each LAN). To get *your* specific instance of this problem, open the PrairieLearn site for your lab section and find the "Static routing lab prep" worksheet. *Your* design assignment is described at the top of the page.
-
-![](subnet-worksheet.png)
-
+Every student in the class will solve a slightly different version of this problem (different address space, and different number of hosts in each LAN). To get *your* specific instance of this problem, open the PrairieLearn site for your lab section and find the "Static routing" CloudLab assignment, and the "Subnet design" question in it. *Your* design assignment is described there.
 
 In the rest of these instructions, I'll show how to solve *a* design assignment - but your assignment will be different! Once you understand how to solve this *type* of assignment (by following my example), you should be able to solve your own. 
-
-You can test your solution _before_ you run any commands on your network by submitting your answers in the worksheet on PrairieLearn - it will tell you whether your work is correct. (You can submit partial answers to get partial feedback, too - you don't have to wait until you are finished with the entire worksheet to get feedback on your work in progress.)
-
 
 ### Allocate addresses to specific LANs
 
@@ -143,16 +137,16 @@ Next, we'll compute the broadcast address for the subnet. This is the bitwise OR
 
 or 10.1.24.159 in dotted decimal notation. The highest IP address that can be assigned to a host in the network is 10.1.24.158 (1 less than the broadcast address). The smallest IP address that can be assigned to a host in the network is 10.1.24.145 (1 more than the network address). The range of usable addresses in this subnet is therefore 10.1.24.145-10.1.24.158.
 
-Once you have identified the subnet mask, network address, smallest usable address, highest usable address, and broadcast address for all three subnets, fill in the table in the PrairieLearn worksheet:
+Once you have identified the subnet mask, network address, smallest usable address, highest usable address, and broadcast address for all three subnets, fill in the table in the PrairieLearn question:
 
 ![](subnet-design-table-empty.png)
 
 
 Verify that your solutions are correct for *your* individual assignment before you continue to the next step.
 
-**Lab report**: In PrairieLearn, find the "Static routing lab prep" assignment in the "Worksheets" area. Open it to see your subnet design assignment, which is unique to you. When you have solved the subnet design problem, fill in the table in PrairieLearn; then scroll to the bottom and choose "Save and Grade". (You don't have to fill in the rest of the items in the configuration sections yet!)
+**Lab report**: In PrairieLearn, find the "Static routing" CloudLab assignment, and the "Subnet design" question in it. Open it to see your subnet design assignment, which is unique to you. When you have solved the subnet design problem, fill in the table in PrairieLearn; then scroll to the bottom and choose "Save and Grade". (You don't have to fill in the rest of the items in the configuration sections yet!)
 
-Scroll down to the "submitted answer" panel, and find the graded version of your submitted solution. It should look similar to [this](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/subnet-table-submitted.png), but with different values! Take a screenshot, and submit that screenshot.
+Scroll down to the "submitted answer" panel, and find the graded version of your submitted solution. It should look similar to [this](https://raw.githubusercontent.com/ffund/tcp-ip-essentials/gh-pages/lab3/subnet-table-submitted.png), but with different values! 
 
 
 ### Configure network interfaces
