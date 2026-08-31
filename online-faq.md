@@ -85,11 +85,11 @@ It may be helpful to use reference materials, such as the textbook, lab manual, 
 
 You may have seen lab reports from previous semesters (either from friends, or online). You are not permitted to use these. We make updates and corrections to the lab procedure and questions every semester, so you shouldn't use previous lab reports even just to see what the answers should look like (for example - to see what parts of a screenshot to annotate), since these details often change from one semester to the next.
 
-#### Can I use AI assistance, like ChatGPT or similar tools, to help answer lab questions or to study the lab materials?
+#### Can I use AI assistance, like ChatGPT or similar tools, to help answer lab questions?
 
 Except for computer translation from English to another language (which is allowed), AI assistance is not permitted in this course. The sequence of assignments in this course is calibrated for human learners, to gradually learn the content by progressively building on what they have already mastered. If you use AI on unproctored assessments, like lab assignments, you will likely find yourself unprepared for the proctored exams where you are not allowed to use AI. More importantly, relying on AI prevents you from developing the fluency in these concepts that will help you in your future careers.
 
-Instead of turning to AI, make the most of the human-centered support built into this course:
+You are encouraged to instead make the most of the human-centered support built into this course:
 
 * When you answer a question on PrairieLearn, scroll down to the "Correct Answer" panel and carefully read the explanation that is written by your instructor.
 * If you don't understand something in the lecture, lab, or homework, post a question on Ed to get an explanation from your instructor or a course assistant.
@@ -106,9 +106,9 @@ Note that in order to deter violations, the consequence for submitting work that
 
 #### What do I need to submit after each lab exercise? Do I need to write a report?
 
-As your work on each lab exercise, you'll answer some short questions by filling in your answers in an online form in PrairieLearn. 
+As you work on each lab exercise, you'll answer some short questions by filling in your answers in an online form in PrairieLearn. 
 
-Some of the questions will ask you to copy/paste some terminal output, or to upload a screenshot from Wireshark. Many questions will ask you to annotate parts of your copy/pasted output (e.g. by making specific values bold) or your screenshots (e.g. by drawing a box around some parts) to show that you understand how to use and interpret the data you collect in the lab. Other questions will ask you to explain or comment on your screenshots or data.
+Some of the questions will ask you to copy/paste some terminal output, or to upload a screenshot from Wireshark. Many questions will ask you to annotate parts of your copy/pasted output (e.g. by making specific values bold or highlighted a particular color) or your screenshots (e.g. by drawing a box around some parts) to show that you understand how to use and interpret the data you collect in the lab. Other questions will ask you to explain or comment on your screenshots or data.
 
 You will not have to write a traditional "lab report" explaining lab procedure etc. You *only* have to answer the specific questions that are asked in PrairieLearn.
 
@@ -184,7 +184,7 @@ If you experience technical problems while working on a lab, make sure to ask fo
 
 ### What should I do if I need extra time on a lab assignment because of a disability?
 
-If you need extra time on an assignment because of a disability (for example: you need to take frequent breaks from a computer screen because of a vision problem, or you have an executive function disorder), you will need to work with the Moses Center to request accommodations beyond the "48 free late hours". Please refer to the "Moses Center Statement of Disability" section. 
+If you need extra time on an assignment because of a disability (for example: you need to take frequent breaks from a computer screen because of a vision problem, or you have an executive function disorder), you will need to work with the Moses Center to request accommodations. Please refer to the "Moses Center Statement of Disability" section. 
 
 (Note that disability accommodations are not retroactive, so you should begin this process at the beginning of the semester if you think you may need it, rather than waiting until you are already struggling.)
 
@@ -192,7 +192,7 @@ The Moses Center will reach out to your professors directly if your accommodatio
 
 ### What should I do if I need extra time on a lab assignments because of illness, religious practice, or a death in the immediate family?
 
-If you need extra time on an assignment (beyond the "48 free late hours") because of illness (including COVID-19), religious practice, or a death in the immediate family, please contact the student advocate. Refer to the "Illness or other exceptional situation" section for details.
+If you need extra time on an assignment because of illness, religious practice, or a death in the immediate family, please contact the student advocate. Refer to the "Illness or other exceptional situation" section for details.
 
 The student advocate will reach out to your professors directly to recommend excused absences or extended deadlines, so you do not need to share any details of your personal circumstance with me.
 
@@ -220,9 +220,9 @@ Regrade requests are only accepted **up to 3 days** after an assignment is grade
 
 ### How is the overall lab grade computed? Are any lab grades dropped?
 
-There are a total of 11 lab assignments, each worth 10 points. Your overall lab grade will be computed out of 100 points as follows:
+There are a total of 9 graded lab assignments, each worth 10 points. Your overall lab grade will be computed out of 80 points as follows:
 
-Sum of 9 highest lab grades + (1/2) 2nd-lowest lab grade + (1/2) lowest lab grade
+Sum of 7 highest lab grades + (1/2) 2nd-lowest lab grade + (1/2) lowest lab grade
 
 
 ## Other important policies
