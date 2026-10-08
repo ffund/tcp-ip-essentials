@@ -8,7 +8,7 @@ The topology will look like the following:
 
 To reserve resources on Cloudlab, open this profile page:
 
-[https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/design_subnets_22](https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/design_subnets_22)
+[https://www.cloudlab.us/p/nyunetworks/design_subnets_22](https://www.cloudlab.us/p/nyunetworks/design_subnets_22)
 
 Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. Then click "next", and "finish".
 
