@@ -171,7 +171,7 @@ Follow the instructions for the testbed you are using (GENI or Cloudlab,) to res
 
 <p>To reserve these resources on Cloudlab, open this profile page: </p>
 
-<p>https://www.cloudlab.us/p/nyunetworks/education?refspec=refs/heads/tcp_congestion_control</p>
+<p><a href="https://www.cloudlab.us/p/nyunetworks/tcp_congestion_control">https://www.cloudlab.us/p/nyunetworks/tcp_congestion_control</a></p>
 
 
 <p>Click "next", then select the Cloudlab project that you are part of and a Cloudlab cluster with available resources. (This experiment is compatible with any of the Cloudlab clusters.) Then click "next", and "finish".</p>
